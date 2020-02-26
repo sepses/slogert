@@ -1,0 +1,30 @@
+EventId,EventTemplate,Occurrences
+54ff4343,pam_unix(sshd:auth): authentication failure; logname= uid=<*> euid=<*> tty=ssh ruser= rhost=<*> <*>,2992
+ada372e1,Failed password for <*> from <*> port <*> ssh<*>,2999
+d156dcec,Received disconnect from <*> port <*>:<*>: Bye Bye [preauth],4885
+2552eb03,Disconnected from <*> user <*> <*> port <*> [preauth],4972
+38dda80a,Invalid user <*> from <*> port <*>,3818
+0849a7d0,pam_unix(sshd:auth): check pass; user unknown,3829
+e0a8b45a,pam_unix(sshd:auth): authentication failure; logname= uid=<*> euid=<*> tty=ssh ruser= rhost=<*>,3820
+f0ba90fe,Failed password for invalid user <*> from <*> port <*> ssh<*>,3826
+c257f384,pam_unix(cron:session): session opened for user root by (uid=<*>),801
+6e704123,pam_unix(cron:session): session closed for user root,801
+7aad7007,"Received disconnect from <*> port <*>:<*>: Normal Shutdown, Thank you for playing [preauth]",109
+0a7846c3,Connection <*> by <*> port <*> [preauth],107
+f000e4fa,Connection closed by <*> user <*> <*> port <*> [preauth],21
+ce4ff18e,"Unable to negotiate with <*> port <*>: no matching cipher found. Their offer: aes256-cbc,rijndael-cbc@lysator.liu.se,aes192-cbc,aes128-cbc,arcfour128,arcfour,3des-cbc,none [preauth]",15
+cf94a865,Did not receive identification string from <*> port <*>,17
+0054e5e2,Disconnected from <*> port <*> [preauth],20
+fd03fc20,Invalid user from <*> port <*>,5
+9e3c1e7d,Failed <*> for invalid user from <*> port <*> ssh<*>,5
+e0308f39,Disconnected from invalid user <*> port <*> [preauth],4
+099f1a11,Unable to negotiate with <*> port <*>: no matching host key type found. Their offer: ssh-dss [preauth],1
+9a814be5,Bad protocol version identification '\<*>' from <*> port <*>,1
+51e68d3a,Connection closed by invalid user <*> port <*> [preauth],1
+9ea6c59a,error: Received disconnect from <*> port <*>:<*>: com.jcraft.jsch.JSchException: Auth fail [preauth],2
+b542638e,message repeated <*> times: [ Failed password for root from <*> port <*> ssh2],1
+cc5fc443,error: maximum authentication attempts exceeded for root from <*> port <*> ssh2 [preauth],1
+d6afbad1,Disconnecting authenticating user root <*> port <*>: Too many authentication failures [preauth],1
+cbf938f4,PAM <*> more authentication failures; logname= uid=<*> euid=<*> tty=ssh ruser= rhost=<*> user=root,1
+2f2318e5,PAM service(sshd) ignoring max retries; <*> > <*>,1
+5e7d2077,pam_unix(sshd:auth): bad username [+],1
