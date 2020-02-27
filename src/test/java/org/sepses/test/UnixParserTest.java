@@ -3,68 +3,64 @@ package org.sepses.test;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.sepses.helper.Utility;
 import org.sepses.processor.Parser;
 import org.sepses.processor.UnixParser;
+import org.sepses.yaml.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static org.sepses.helper.Utility.writeToFile;
 
 public class UnixParserTest {
 
     private static final Logger log = LoggerFactory.getLogger(UnixParserTest.class);
 
-    //    static String dataFileString = "authlog_structured.csv";
-    //    static String templateFileString = "authlog_templates.csv";
-    //    static String outputMapping = "output-mapping.ottr";
-    //    static String outputData = "output-data.ottr";
     static File templateFile;
     static File dataFile;
     static Parser parser;
+    static Config config;
 
     @BeforeClass public static void setup() throws IOException {
-        //        templateFile = new File(UnixParserTest.class.getClassLoader().getResource(templateFileString).getFile());
-        //        dataFile = new File(UnixParserTest.class.getClassLoader().getResource(dataFileString).getFile());
-        //        parser = new UnixParser(templateFile.getAbsolutePath(), dataFile.getAbsolutePath(), true);
+        InputStream is = YamlParserTest.class.getClassLoader().getResourceAsStream("config.yaml");
+        Yaml yaml = new Yaml(new Constructor(Config.class));
+        config = yaml.load(is);
     }
 
     @Test public void testAuthParser() throws IOException {
         templateFile = new File(UnixParserTest.class.getClassLoader().getResource("authlog_templates.csv").getFile());
         dataFile = new File(UnixParserTest.class.getClassLoader().getResource("authlog_structured.csv").getFile());
-        parser = new UnixParser(templateFile.getAbsolutePath(), dataFile.getAbsolutePath(), true);
+        config.logData = dataFile.getAbsolutePath();
+        config.logTemplate = templateFile.getAbsolutePath();
 
-        String authMapping = Utility.generateOttrMap(parser.getHashTemplates(), "UnixOttr.stottr");
-        String authData = parser.parseLogpaiData(dataFile.getAbsolutePath());
-        writeToFile(authMapping, "auth-mapping.ottr");
-        writeToFile(authData, "auth-data.ottr");
+        parser = new UnixParser(config);
+        parser.generateOttrMap();
+        parser.parseLogpaiData();
     }
 
     @Ignore @Test public void testSyslogParser() throws IOException {
         templateFile = new File(UnixParserTest.class.getClassLoader().getResource("syslog_templates.csv").getFile());
         dataFile = new File(UnixParserTest.class.getClassLoader().getResource("syslog_structured.csv").getFile());
-        parser = new UnixParser(templateFile.getAbsolutePath(), dataFile.getAbsolutePath(), true);
+        config.logData = dataFile.getAbsolutePath();
+        config.logTemplate = templateFile.getAbsolutePath();
 
-        String authMapping = Utility.generateOttrMap(parser.getHashTemplates(), "UnixOttr.stottr");
-        String authData = parser.parseLogpaiData(dataFile.getAbsolutePath());
-        writeToFile(authMapping, "syslog-mapping.ottr");
-        writeToFile(authData, "syslog-data.ottr");
+        parser = new UnixParser(config);
+        parser.generateOttrMap();
+        parser.parseLogpaiData();
     }
 
     @Ignore @Test public void testKernParser() throws IOException {
         templateFile = new File(UnixParserTest.class.getClassLoader().getResource("kern_templates.csv").getFile());
         dataFile = new File(UnixParserTest.class.getClassLoader().getResource("kern_structured.csv").getFile());
-        parser = new UnixParser(templateFile.getAbsolutePath(), dataFile.getAbsolutePath(), true);
+        config.logData = dataFile.getAbsolutePath();
+        config.logTemplate = templateFile.getAbsolutePath();
 
-        String authMapping = Utility.generateOttrMap(parser.getHashTemplates(), "UnixOttr.stottr");
-        String authData = parser.parseLogpaiData(dataFile.getAbsolutePath());
-        writeToFile(authMapping, "kern-mapping.ottr");
-        writeToFile(authData, "kern-data.ottr");
+        parser = new UnixParser(config);
+        parser.generateOttrMap();
+        parser.parseLogpaiData();
     }
 
     @Ignore @Test public void testLutra() throws IOException, InterruptedException {
