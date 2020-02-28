@@ -17,13 +17,16 @@ import java.util.regex.Pattern;
 public class EntityRecognition {
 
     // *** rules for text extraction
-    private final static String RULE_FILE = "src/main/resources/ner.rules";
+    // careful... probably not the best idea to do it like this... @FJE
+    // @TODO: think about solution for this singleton problem!!!
+    //    private static String RULE_FILE;
 
     private static EntityRecognition singleton = null;
     private StanfordCoreNLP pipeline = null;
     private CoreMapExpressionExtractor extractor = null;
 
-    private EntityRecognition() {
+    private EntityRecognition(String ruleFile) {
+
         Properties pipelineProps = new Properties();
 
         pipelineProps.setProperty("annotators", "tokenize,ssplit,pos,lemma");
@@ -35,7 +38,7 @@ public class EntityRecognition {
 
         // get the rules files
         String[] rulesFiles = new String[1];
-        rulesFiles[0] = RULE_FILE;
+        rulesFiles[0] = ruleFile;
 
         // set up an environment with reasonable defaults
         Env env = TokenSequencePattern.getNewEnv();
@@ -48,9 +51,9 @@ public class EntityRecognition {
         extractor = CoreMapExpressionExtractor.createExtractorFromFiles(env, rulesFiles);
     }
 
-    public static EntityRecognition getInstance() {
+    public static EntityRecognition getInstance(String ruleFile) {
         if (singleton == null) {
-            singleton = new EntityRecognition();
+            singleton = new EntityRecognition(ruleFile);
         }
 
         return singleton;

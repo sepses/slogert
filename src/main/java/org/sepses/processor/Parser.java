@@ -7,9 +7,11 @@ import java.util.Map;
 
 public interface Parser {
 
-    void createOrUpdateTemplate(String logpaiStructure, String logpaiData, Boolean isOverride) throws IOException;
+    void createOrUpdateTemplate() throws IOException;
 
-    String parseLogpaiData(String logpaiData) throws IOException;
+    void generateOttrMap() throws IOException;
+
+    void parseLogpaiData() throws IOException;
 
     Map<String, Template> getHashTemplates();
 }

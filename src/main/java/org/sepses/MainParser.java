@@ -1,50 +1,62 @@
 package org.sepses;
 
 import org.apache.commons.cli.*;
-import org.sepses.helper.Utility;
 import org.sepses.processor.Parser;
 import org.sepses.processor.UnixParser;
+import org.sepses.yaml.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.Constructor;
 
+import java.io.FileInputStream;
 import java.io.IOException;
-
-import static org.sepses.helper.Utility.writeToFile;
-import static org.sepses.processor.UnixParser.BASE_OTTR_RULE;
+import java.io.InputStream;
 
 public class MainParser {
 
     private static final Logger log = LoggerFactory.getLogger(MainParser.class);
 
+    private static Config config;
+
     public static void main(String[] args) throws ParseException, IOException {
 
         Options options = new Options();
-        options.addRequiredOption("t", "template-file", true, "Logpai log template file location");
-        options.addRequiredOption("l", "log-data", true, "Logpai structured log file location");
-        options.addRequiredOption("o", "log-type", true, "Type of log (e.g., unix, apache)");
+        options.addRequiredOption("c", "config.yaml", true, "SLOGERT Configuration");
 
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd = parser.parse(options, args);
-        String template = cmd.getOptionValue("t");
-        String logFile = cmd.getOptionValue("l");
-        String logType = cmd.getOptionValue("o");
+        String configFile = cmd.getOptionValue("c");
+
+        Yaml yaml = new Yaml(new Constructor(Config.class));
+        InputStream is = new FileInputStream(configFile);
+        config = yaml.load(is);
+
+        /***** WAS HERE! *****/
 
         long start = System.currentTimeMillis();
         long end;
-        if (logType.equals("unix")) {
+        if (config.logType.equals("unix")) {
             log.info("start unix log parser");
-            Parser unixParser = new UnixParser(template, logFile, true);
-            String authMapping = Utility.generateOttrMap(unixParser.getHashTemplates(), BASE_OTTR_RULE);
-            String authData = unixParser.parseLogpaiData(logFile);
-            writeToFile(authMapping, template + ".ottr");
-            writeToFile(authData, logFile + ".ottr");
+
+            Parser unixParser = new UnixParser(config);
+            unixParser.generateOttrMap();
+            unixParser.parseLogpaiData();
+
             log.info("*** unix log processing finished ***");
         } else {
             log.error("*** Unsupported log type ***");
         }
 
+        StringBuilder sb = new StringBuilder();
+        sb.append("java -jar exe/lutra.jar --library ").append(config.targetTemplate)
+                .append(" --libraryFormat stottr --inputFormat stottr ").append(config.targetData)
+                .append(" --mode expand --fetchMissing > ").append(config.targetTurtle);
+
         end = System.currentTimeMillis();
         log.info("Transformation process finished in " + (end - start) + " milliseconds");
+        log.info("Execute Lutra with the following commands: " + sb.toString());
+
         System.gc();
 
     }

@@ -2,37 +2,46 @@ package org.sepses.processor;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
-import org.sepses.helper.*;
+import org.apache.commons.io.IOUtils;
+import org.sepses.helper.LogLine;
+import org.sepses.helper.Template;
+import org.sepses.helper.UnixLogLine;
+import org.sepses.helper.Utility;
+import org.sepses.yaml.Config;
+import org.sepses.yaml.NameSpace;
+import org.sepses.yaml.Parameter;
+import org.sepses.yaml.YamlFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
-import static org.sepses.helper.Template.loadTemplates;
-
 public class UnixParser implements Parser {
 
-    public static final String BASE_OTTR_RULE = "UnixOttr.stottr";
     private static final Logger log = LoggerFactory.getLogger(UnixParser.class);
-    private static String[] TEMPLATE_LOGPAI = { "EventId", "EventTemplate", "Occurrences" };
+
+    private static final String[] TEMPLATE_LOGPAI = { "EventId", "EventTemplate", "Occurrences" };
+
     private final Map<String, Template> hashTemplates;
-    private final String BASE_CSV_TEMPLATE = "UnixLogpai.csv";
-    private final String BASE_OTTR_ID = "sepses:LogLine_";
-    private final String NS_OBJECT = "http://w3id.org/sepses/slogert/";
+    private final Config config;
+    private final HashMap<String, Parameter> parameterMap = new HashMap<>();
 
-    public UnixParser() {
-        hashTemplates = new HashMap<>();
-    }
+    public UnixParser(Config config) throws IOException {
+        // init regexNER & OTTR template
+        YamlFunction.constructRegexNer(config);
+        YamlFunction.constructOttrTemplate(config);
 
-    public UnixParser(String logpaiStructure, String logpaiData, Boolean isOverride) throws IOException {
+        // initialization
         hashTemplates = new HashMap<>();
-        createOrUpdateTemplate(logpaiStructure, logpaiData, isOverride);
+        this.config = config;
+        config.parameters.forEach(parameter -> {
+            parameterMap.put(parameter.label, parameter);
+        });
+        createOrUpdateTemplate();
     }
 
     /**
@@ -40,7 +49,7 @@ public class UnixParser implements Parser {
      */
     public void extractTemplate(Iterable<CSVRecord> logpaiStructure, List<LogLine> inputData) {
 
-        // Annotate template parameters
+        // *** Annotate template parameters
         for (CSVRecord templateCandidate : logpaiStructure) {
             try {
                 String logpaiEventId = templateCandidate.get(TEMPLATE_LOGPAI[0]);
@@ -52,7 +61,7 @@ public class UnixParser implements Parser {
                     for (LogLine logLine : inputData) {
                         // ** Find logLine with the corresponding template
                         if (logpaiEventId.equals(logLine.getLogpaiEventId())) {
-                            Template template = new Template(logpaiTemplate, hashCandidate, logLine);
+                            Template template = new Template(logpaiTemplate, hashCandidate, logLine, config);
                             hashTemplates.put(hashCandidate, template);
                             break;
                         }
@@ -64,23 +73,22 @@ public class UnixParser implements Parser {
         }
     }
 
-    @Override public void createOrUpdateTemplate(String logpaiStructure, String logpaiData, Boolean isOverride)
-            throws IOException {
+    @Override public void createOrUpdateTemplate() throws IOException {
 
         // *** load existing hashTemplates
-        if (!isOverride) {
-            File logpaiTemplate = new File(getClass().getClassLoader().getResource(BASE_CSV_TEMPLATE).getFile());
+        if (!config.isOverride) {
+            File logpaiTemplate = new File(getClass().getClassLoader().getResource(config.baseTemplate).getFile());
             Reader reader = new FileReader(logpaiTemplate);
             Iterable<CSVRecord> readerIterator = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader);
-            hashTemplates.putAll(loadTemplates(readerIterator));
+            hashTemplates.putAll(Utility.loadTemplates(readerIterator, config));
             reader.close();
         }
 
         // *** read and collect input logpai structure
-        Reader templateReader = new FileReader(Paths.get(logpaiStructure).toFile());
+        Reader templateReader = new FileReader(Paths.get(config.logTemplate).toFile());
         Iterable<CSVRecord> inputTemplates = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(templateReader);
         // *** read and collect input logpai data
-        Reader dataReader = new FileReader(Paths.get(logpaiData).toFile());
+        Reader dataReader = new FileReader(Paths.get(config.logData).toFile());
         Iterable<CSVRecord> inputData = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
         List<LogLine> logLines = new ArrayList<>();
         inputData.forEach(inputRow -> logLines.add(UnixLogLine.getInstance(inputRow)));
@@ -91,38 +99,66 @@ public class UnixParser implements Parser {
         dataReader.close();
     }
 
-    @Override public String parseLogpaiData(String logpaiData) throws IOException {
+    @Override public void generateOttrMap() throws IOException {
+        StringBuilder sb = new StringBuilder();
+
+        // *** load template
+        InputStream is = new FileInputStream(config.targetOttr);
+        try {
+            String baseTemplate = IOUtils.toString(is, Charset.defaultCharset());
+            sb.append(baseTemplate);
+            sb.append(System.lineSeparator()).append(System.lineSeparator());
+
+            hashTemplates.values().stream().forEach(template -> {
+                sb.append(template.ottrTemplate);
+                sb.append(System.lineSeparator());
+            });
+        } catch (IOException e) {
+            log.error(e.getMessage());
+        }
+
+        Utility.writeToFile(sb.toString(), config.targetTemplate);
+    }
+
+    @Override public void parseLogpaiData() throws IOException {
 
         // *** read and collect input logpai data
-        Reader dataReader = new FileReader(Paths.get(logpaiData).toFile());
+        Reader dataReader = new FileReader(Paths.get(config.logData).toFile());
         Iterable<CSVRecord> inputData = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
         List<LogLine> logLines = new ArrayList<>();
         inputData.forEach(inputRow -> logLines.add(UnixLogLine.getInstance(inputRow)));
         dataReader.close();
 
         StringBuilder sb = new StringBuilder();
-        sb.append("@prefix instance: <http://w3id.org/sepses/id/> .").append(System.lineSeparator());
-        sb.append("@prefix sepses: <http://sepses.com/ns#> .").append(System.lineSeparator());
-        sb.append("@prefix slog: <http://w3id.org/sepses/slogert/> .").append(System.lineSeparator());
+        config.ottrNS.forEach(ns -> {
+            sb.append("@prefix " + ns.prefix + ": <" + ns.uri + "> .").append(System.lineSeparator());
+        });
+        parameterMap.values().forEach(parameter -> {
+            NameSpace nameSpace = parameter.ottr.namespace;
+            sb.append("@prefix " + nameSpace.prefix + ": <" + nameSpace.uri + "> .").append(System.lineSeparator());
+        });
         sb.append(System.lineSeparator());
 
         logLines.forEach(logLine -> {
             Template template = hashTemplates.get(logLine.getTemplateHash());
 
             sb.append(template.ottrId);
-            sb.append("(instance:Logline_").append(UUID.randomUUID()).append(",\"");
+            sb.append("(").append(Template.BASE_OTTR_ID).append(UUID.randomUUID()).append(",\"");
             sb.append(logLine.getDateTime()).append("\",\"");
             sb.append(Utility.cleanContent(logLine.getContent())).append("\",\"");
             sb.append(logLine.getTemplateHash()).append("\",\"");
 
             for (int i = 0; i < template.parameters.size(); i++) {
                 String paramString = logLine.getParameters().get(i);
-                ParameterType paramType = template.parameters.get(i);
-                if (paramType.equals(ParameterType.Unknown)) {
+                String paramType = template.parameters.get(i);
+                Parameter parameter = parameterMap.get(paramType);
+
+                if (paramType.equals(Template.UNKNOWN_PARAMETER) || !parameter.ottr.ottrType
+                        .equals(Utility.OTTR_IRI)) {
                     sb.append(Utility.cleanContent(paramString)).append("\",\"");
                 } else {
                     sb.delete(sb.length() - 1, sb.length());
-                    paramString = "slog:" + Utility.cleanUriContent(paramString);
+                    paramString = parameter.ottr.namespace.prefix + ":" + Utility.cleanUriContent(paramString);
                     sb.append(paramString).append(",\"");
                 }
             }
@@ -131,7 +167,7 @@ public class UnixParser implements Parser {
             sb.append(") .").append(System.lineSeparator());
         });
 
-        return sb.toString();
+        Utility.writeToFile(sb.toString(), config.targetData);
     }
 
     @Override public Map<String, Template> getHashTemplates() {
