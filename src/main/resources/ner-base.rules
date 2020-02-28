@@ -1,0 +1,8 @@
+# make all patterns case-sensitive
+ENV.defaultStringMatchFlags = 0
+ENV.defaultStringPatternFlags = 0
+
+# these Java classes will be used by the rules
+ner = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$NamedEntityTagAnnotation" }
+tokens = { type: "CLASS", value: "edu.stanford.nlp.ling.CoreAnnotations$TokensAnnotation" }
+

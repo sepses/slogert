@@ -1,0 +1,19 @@
+# Default logline
+id:LogLine[ottr:IRI ?id, xsd:dateTime ?timeStamp, xsd:string ?message, xsd:string ?templateHash] :: {
+    id:BasicLog(?id, ?timeStamp, ?message, ?templateHash)
+} .
+
+# Basic templates
+id:BasicLog[ottr:IRI ?id, xsd:dateTime ?timeStamp, xsd:string ?message, xsd:string ?templateHash] :: {
+    ottr:Triple(?id, core:timestamp, ?timeStamp),
+    ottr:Triple(?id, core:logMessage, ?message),
+    ottr:Triple(?id, slog:templateId, ?templateHash),
+    ottr:Triple(?id, rdf:type, core:Log)
+} .
+
+id:UnknownConnection[ottr:IRI ?id, xsd:string ?value] :: {
+    ottr:Triple(?id, slog:connected, ?value)
+} .
+
+# *** YAML Generated Templates ***
+

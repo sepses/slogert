@@ -1,0 +1,58 @@
+####
+# list of known parameters
+####
+
+creator: Fajar J. Ekaputra
+lastUpdated: 2020-02-27T18:00:00
+baseTemplate: src/test/resources/authlog_base.csv
+logTemplate: src/test/resources/authlog_templates.csv
+logData: src/test/resources/authlog_structured.csv
+logType: unix
+targetTemplate: authlog_templates.ottr
+targetData: authlog_structured.ottr
+targetNer: contructed-ner.rules
+targetOttr: constructed-unix.stottr
+targetTurtle: final-output.ttl
+isOverride: true
+parameters:
+  - label: Ip
+    comment: An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication
+    example: 192.168.0.1
+    ottr:
+      namespace:
+        prefix: sid
+        uri: http://w3id.org/sepses/slogert/
+      ottrType: ottr:IRI
+      ottrProperty: core:connectedIp
+    regexNer:
+      pattern: ([{word:/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/}])
+      action: Annotate($0, ner, "Ip")
+  - label: Port
+    comment: In computer networking, a port is a communication endpoint. Ports are identified for each protocol and address combination by 16-bit unsigned numbers, commonly known as the port number.
+    example: 8080
+    ottr:
+      namespace:
+        prefix: sid
+        uri: http://w3id.org/sepses/slogert/
+      ottrType: ottr:IRI
+      ottrProperty: core:connectedPort
+    regexNer:
+      pattern: ([{word:/port/}] + ([{word:/(\d+)/}]))
+      action: Annotate($1, ner, "Port")
+ottrNS:
+  - prefix: rdf
+    uri: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  - prefix: rdfs
+    uri: http://www.w3.org/2000/01/rdf-schema#
+  - prefix: owl
+    uri: http://www.w3.org/2002/07/owl#
+  - prefix: xsd
+    uri: http://www.w3.org/2001/XMLSchema#
+  - prefix: ottr
+    uri: http://ns.ottr.xyz/0.4/
+  - prefix: core
+    uri: http://w3id.org/sepses/vocab/log/core#
+  - prefix: slog
+    uri: http://w3id.org/sepses/vocab/log/slogert#
+  - prefix: id
+    uri: http://w3id.org/sepses/id/
