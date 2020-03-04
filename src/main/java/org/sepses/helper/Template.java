@@ -1,10 +1,9 @@
 package org.sepses.helper;
 
 import org.apache.commons.csv.CSVRecord;
-import org.apache.commons.lang3.StringUtils;
 import org.sepses.nlp.EntityRecognition;
 import org.sepses.yaml.Config;
-import org.sepses.yaml.Parameter;
+import org.sepses.yaml.ConfigParameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +22,7 @@ public class Template {
             "[ottr:IRI ?id, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash";
     private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?timeStamp, ?message, ?templateHash)";
     private final Config config;
-    private final HashMap<String, Parameter> parameterMap = new HashMap<>();
+    private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
 
     // private final String[] TEMPLATE_HEADERS = { "logpai_id", "hash", "content", "template", "keywords" };
 
@@ -63,8 +62,7 @@ public class Template {
 
         // *** set keyword
         EntityRecognition er = EntityRecognition.getInstance(config.targetNer);
-        String[] keywords = er.extractKeywords(templateText);
-        setKeywords(StringUtils.join(keywords, '|'));
+        keywords = er.extractKeywords(templateText);
 
         // *** set & process parameters
         HashMap<String, String> matchedExpressions = er.annotateSentence(logLine.getContent());
@@ -118,7 +116,7 @@ public class Template {
             ottrContent.append(","); // add comma for ottr template
             for (int counter = 0; counter < parameterCount; counter++) {
                 String paramValue = parameters.get(counter);
-                Parameter parameter = parameterMap.get(paramValue);
+                ConfigParameter parameter = parameterMap.get(paramValue);
                 if (paramValue.equals(UNKNOWN_PARAMETER)) {
                     ottrContent.append("\n\t id:UnknownConnection" + "(?id, ?param" + counter + "),");
                     ottrHeader.append(", xsd:string ?param" + counter);

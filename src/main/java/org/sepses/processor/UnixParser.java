@@ -8,8 +8,7 @@ import org.sepses.helper.Template;
 import org.sepses.helper.UnixLogLine;
 import org.sepses.helper.Utility;
 import org.sepses.yaml.Config;
-import org.sepses.yaml.NameSpace;
-import org.sepses.yaml.Parameter;
+import org.sepses.yaml.ConfigParameter;
 import org.sepses.yaml.YamlFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,10 +24,11 @@ public class UnixParser implements Parser {
     private static final Logger log = LoggerFactory.getLogger(UnixParser.class);
 
     private static final String[] TEMPLATE_LOGPAI = { "EventId", "EventTemplate", "Occurrences" };
+    private static final String[] TEMPLATE_SLOGERT = { "Hash", "EventTemplate", "OttrID", "Parameters", "Keywords" };
 
     private final Map<String, Template> hashTemplates;
     private final Config config;
-    private final HashMap<String, Parameter> parameterMap = new HashMap<>();
+    private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
 
     public UnixParser(Config config) throws IOException {
         // init regexNER & OTTR template
@@ -46,8 +46,11 @@ public class UnixParser implements Parser {
 
     /**
      * *** extract additional hashTemplates from input log (data+hashTemplates) if possible
+     *
+     * @param logpaiStructure
+     * @param inputData
      */
-    public void extractTemplate(Iterable<CSVRecord> logpaiStructure, List<LogLine> inputData) {
+    private void extractTemplate(Iterable<CSVRecord> logpaiStructure, List<LogLine> inputData) {
 
         // *** Annotate template parameters
         for (CSVRecord templateCandidate : logpaiStructure) {
@@ -61,6 +64,10 @@ public class UnixParser implements Parser {
                     for (LogLine logLine : inputData) {
                         // ** Find logLine with the corresponding template
                         if (logpaiEventId.equals(logLine.getLogpaiEventId())) {
+                            if (!hashCandidate.equals(logLine.getTemplateHash())) {
+                                log.warn("logpai-id: " + logpaiEventId + " template is not consistent!");
+                                hashCandidate = logLine.getTemplateHash();
+                            }
                             Template template = new Template(logpaiTemplate, hashCandidate, logLine, config);
                             hashTemplates.put(hashCandidate, template);
                             break;
@@ -73,15 +80,37 @@ public class UnixParser implements Parser {
         }
     }
 
+    /**
+     * TODO: check this! something is wrong.
+     *
+     * @throws IOException
+     */
+    private void writeTemplate() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.join(",", TEMPLATE_SLOGERT)).append(System.lineSeparator());
+        hashTemplates.entrySet().forEach(pair -> {
+            // String hash, String templateText, String ottrId, String parameters, String keywords
+            Template template = pair.getValue();
+            sb.append(pair.getKey()).append(",");
+            sb.append(template.templateText).append(",");
+            sb.append(String.join("|", template.parameters)).append(",");
+            sb.append(String.join("|", template.keywords)).append(System.lineSeparator());
+        });
+        Utility.writeToFile(sb.toString(), config.logBaseTemplate);
+    }
+
     @Override public void createOrUpdateTemplate() throws IOException {
 
         // *** load existing hashTemplates
         if (!config.isOverride) {
-            File logpaiTemplate = new File(getClass().getClassLoader().getResource(config.baseTemplate).getFile());
-            Reader reader = new FileReader(logpaiTemplate);
-            Iterable<CSVRecord> readerIterator = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader);
-            hashTemplates.putAll(Utility.loadTemplates(readerIterator, config));
-            reader.close();
+            String logpaiTemplateString = getClass().getClassLoader().getResource(config.logBaseTemplate).getFile();
+            if (!logpaiTemplateString.isEmpty()) {
+                File logpaiTemplate = new File(logpaiTemplateString);
+                Reader reader = new FileReader(logpaiTemplate);
+                Iterable<CSVRecord> readerIterator = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader);
+                hashTemplates.putAll(Utility.loadTemplates(readerIterator, config));
+                reader.close();
+            }
         }
 
         // *** read and collect input logpai structure
@@ -95,6 +124,11 @@ public class UnixParser implements Parser {
 
         // *** derive hashTemplates
         extractTemplate(inputTemplates, logLines);
+
+        // *** write templates
+        writeTemplate();
+
+        // *** close readers
         templateReader.close();
         dataReader.close();
     }
@@ -133,10 +167,6 @@ public class UnixParser implements Parser {
         config.ottrNS.forEach(ns -> {
             sb.append("@prefix " + ns.prefix + ": <" + ns.uri + "> .").append(System.lineSeparator());
         });
-        parameterMap.values().forEach(parameter -> {
-            NameSpace nameSpace = parameter.ottr.namespace;
-            sb.append("@prefix " + nameSpace.prefix + ": <" + nameSpace.uri + "> .").append(System.lineSeparator());
-        });
         sb.append(System.lineSeparator());
 
         logLines.forEach(logLine -> {
@@ -151,14 +181,14 @@ public class UnixParser implements Parser {
             for (int i = 0; i < template.parameters.size(); i++) {
                 String paramString = logLine.getParameters().get(i);
                 String paramType = template.parameters.get(i);
-                Parameter parameter = parameterMap.get(paramType);
+                ConfigParameter parameter = parameterMap.get(paramType);
 
                 if (paramType.equals(Template.UNKNOWN_PARAMETER) || !parameter.ottr.ottrType
                         .equals(Utility.OTTR_IRI)) {
                     sb.append(Utility.cleanContent(paramString)).append("\",\"");
                 } else {
                     sb.delete(sb.length() - 1, sb.length());
-                    paramString = parameter.ottr.namespace.prefix + ":" + Utility.cleanUriContent(paramString);
+                    paramString = parameter.ottr.ottrPrefix + ":" + Utility.cleanUriContent(paramString);
                     sb.append(paramString).append(",\"");
                 }
             }
@@ -168,9 +198,5 @@ public class UnixParser implements Parser {
         });
 
         Utility.writeToFile(sb.toString(), config.targetData);
-    }
-
-    @Override public Map<String, Template> getHashTemplates() {
-        return hashTemplates;
     }
 }

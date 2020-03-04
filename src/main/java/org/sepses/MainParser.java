@@ -32,8 +32,6 @@ public class MainParser {
         InputStream is = new FileInputStream(configFile);
         config = yaml.load(is);
 
-        /***** WAS HERE! *****/
-
         long start = System.currentTimeMillis();
         long end;
         if (config.logType.equals("unix")) {

@@ -16,16 +16,13 @@ import java.util.regex.Pattern;
 
 public class EntityRecognition {
 
-    // *** rules for text extraction
-    // careful... probably not the best idea to do it like this... @FJE
-    // @TODO: think about solution for this singleton problem!!!
-    //    private static String RULE_FILE;
+    private static String RULE_FILE;
 
     private static EntityRecognition singleton = null;
     private StanfordCoreNLP pipeline = null;
     private CoreMapExpressionExtractor extractor = null;
 
-    private EntityRecognition(String ruleFile) {
+    private EntityRecognition() {
 
         Properties pipelineProps = new Properties();
 
@@ -38,7 +35,7 @@ public class EntityRecognition {
 
         // get the rules files
         String[] rulesFiles = new String[1];
-        rulesFiles[0] = ruleFile;
+        rulesFiles[0] = RULE_FILE;
 
         // set up an environment with reasonable defaults
         Env env = TokenSequencePattern.getNewEnv();
@@ -51,9 +48,16 @@ public class EntityRecognition {
         extractor = CoreMapExpressionExtractor.createExtractorFromFiles(env, rulesFiles);
     }
 
+    /**
+     * Only create a new instance if the rule file changes.
+     *
+     * @param ruleFile
+     * @return
+     */
     public static EntityRecognition getInstance(String ruleFile) {
-        if (singleton == null) {
-            singleton = new EntityRecognition(ruleFile);
+        if (singleton == null || !RULE_FILE.equals(ruleFile)) {
+            RULE_FILE = ruleFile;
+            singleton = new EntityRecognition();
         }
 
         return singleton;
@@ -92,7 +96,7 @@ public class EntityRecognition {
      * @param templateText
      * @return
      */
-    public String[] extractKeywords(String templateText) {
+    public List<String> extractKeywords(String templateText) {
         ArrayList<String> termList = new ArrayList<>();
         String[] parts = templateText.split(" ");
         for (int i = 0; i < parts.length; i++) {
@@ -147,6 +151,6 @@ public class EntityRecognition {
                 keywords.add(word);
         }
 
-        return keywords.toArray(new String[0]);
+        return keywords;
     }
 }

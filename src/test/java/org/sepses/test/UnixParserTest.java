@@ -41,7 +41,7 @@ public class UnixParserTest {
         parser.parseLogpaiData();
     }
 
-    @Ignore @Test public void testSyslogParser() throws IOException {
+    @Test public void testSyslogParser() throws IOException {
         templateFile = new File(UnixParserTest.class.getClassLoader().getResource("syslog_templates.csv").getFile());
         dataFile = new File(UnixParserTest.class.getClassLoader().getResource("syslog_structured.csv").getFile());
         config.logData = dataFile.getAbsolutePath();

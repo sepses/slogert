@@ -24,6 +24,12 @@ public class YamlFunction {
         constructOttrTemplate(config);
     }
 
+    /**
+     * Constructing a Stanford RegexNER from the configuration file.
+     *
+     * @param config
+     * @throws IOException
+     */
     public static void constructRegexNer(Config config) throws IOException {
 
         StringBuilder sb = new StringBuilder();
@@ -42,6 +48,12 @@ public class YamlFunction {
         Utility.writeToFile(sb.toString(), config.targetNer);
     }
 
+    /**
+     * Constructing an OTTR template from the configuration file.
+     *
+     * @param config
+     * @throws IOException
+     */
     public static void constructOttrTemplate(Config config) throws IOException {
 
         StringBuilder sb = new StringBuilder();
