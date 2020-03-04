@@ -20,6 +20,6 @@ and therefore you still need to do it in several steps as follows.
 4) After the transformation finished, it will provide you with the command to execute lutra, such as the following: (```
     java -jar exe/lutra.jar --library authlog_templates.ottr --libraryFormat stottr 
     --inputFormat stottr authlog_structured.ottr --mode expand --fetchMissing > final-output.ttl```) 
-5) Execute the transform the OTTR files into RDF graph using the command above from command line.  
+5) Execute the transformation of the OTTR files into RDF graph using the command above from command line.  
         
            
