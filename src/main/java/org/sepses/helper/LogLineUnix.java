@@ -14,14 +14,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class UnixLogLine extends LogLine {
+public class LogLineUnix extends LogLine {
 
-    private static final Logger log = LoggerFactory.getLogger(UnixLogLine.class);
+    private static final Logger log = LoggerFactory.getLogger(LogLineUnix.class);
     private static final String[] TEMPLATE_UNIX_LOG =
             { "LineId", "Month", "Date", "Time", "Type", "Component", "Content", "EventId", "EventTemplate",
                     "ParameterList" };
 
-    private UnixLogLine(CSVRecord record) throws NoSuchAlgorithmException {
+    private LogLineUnix(CSVRecord record) throws NoSuchAlgorithmException {
         super();
 
         counter = Integer.parseInt(record.get(TEMPLATE_UNIX_LOG[0]));
@@ -38,7 +38,7 @@ public class UnixLogLine extends LogLine {
     public static LogLine getInstance(CSVRecord record) {
         LogLine logLine;
         try {
-            logLine = new UnixLogLine(record);
+            logLine = new LogLineUnix(record);
         } catch (NoSuchAlgorithmException e) {
             log.error(e.getMessage());
             logLine = null;

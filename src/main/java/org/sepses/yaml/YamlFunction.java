@@ -65,8 +65,8 @@ public class YamlFunction {
         sb.append(System.lineSeparator());
         sb.append(IOUtils.toString(nerIS, Charset.defaultCharset()));
         config.parameters.forEach(parameter -> {
-            sb.append("# OTTR parameter: ").append(parameter.label).append(System.lineSeparator());
-            sb.append("id:").append(parameter.label).append("[ottr:IRI ?id, ").append(parameter.ottr.ottrType)
+            sb.append("# OTTR parameter: ").append(parameter.id).append(System.lineSeparator());
+            sb.append("id:").append(parameter.id).append("[ottr:IRI ?id, ").append(parameter.ottr.ottrType)
                     .append(" ?value] :: {").append(System.lineSeparator());
             sb.append("\t ottr:Triple(?id, ").append(parameter.ottr.ottrProperty).append(", ?value)")
                     .append(System.lineSeparator());

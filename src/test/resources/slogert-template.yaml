@@ -1,22 +1,7 @@
 ##
-# -- SLOGERT Configuration File --
-##
-
-logType: unix
-logData: src/test/resources/authlog_structured.csv
-logTemplate: src/test/resources/authlog_templates.csv
-logBaseTemplate: src/test/resources/base_templates.csv
-isOverride: true
-
-targetTemplate: authlog_templates.ottr
-targetData: authlog_structured.ottr
-targetNer: constructed-ner.rules
-targetOttr: constructed-unix.stottr
-targetTurtle: final-output.ttl
-
-##
 # - these parameters will be used to generate both OTTR template and Stanford RegexNER rules.
 ##
+
 parameters:
   - id: ip
     label: Ip
@@ -28,7 +13,7 @@ parameters:
       ottrProperty: core:connectedIp
     regexNer:
       pattern: ([{word:/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/}])
-      action: Annotate($0, ner, "Ip")
+      action: Annotate($0, ner, "ip")
   - id: port
     label: Port
     comment: In computer networking, a port is a communication endpoint. Ports are identified for each protocol and address combination by 16-bit unsigned numbers, commonly known as the port number.
@@ -38,8 +23,30 @@ parameters:
       ottrType: ottr:IRI
       ottrProperty: core:connectedPort
     regexNer:
-      pattern: ([{word:/port/}] + ([{word:/(\d+)/}]))
-      action: Annotate($1, ner, "Port")
+      pattern: ([{word:/port/}] + ([{word:/(\d{1,5})/}]))
+      action: Annotate($1, ner, "port")
+  - id: portWithColon
+    label: Port
+    comment: In computer networking, a port is a communication endpoint. Ports are identified for each protocol and address combination by 16-bit unsigned numbers, commonly known as the port number.
+    example: 8080
+    ottr:
+      ottrPrefix: sid
+      ottrType: ottr:IRI
+      ottrProperty: core:connectedPortWithColon
+    regexNer:
+      pattern: ([{word:/(\d{1,5}):(\d{1,5})/}])
+      action: Annotate($0, ner, "port2")
+  - id: mac
+    label: MacAddress
+    comment: empty.
+    example: 3D:F2:C9:A6:B3:4F
+    ottr:
+      ottrPrefix: sid
+      ottrType: ottr:IRI
+      ottrProperty: core:connectedMacAddress
+    regexNer:
+      pattern: ([{word:/([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})/}])
+      action: Annotate($0, ner, "mac")
   - id: url
     label: Url
     comment: A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
@@ -50,7 +57,7 @@ parameters:
       ottrProperty: core:connectedURL
     regexNer:
       pattern: ([{word:/(https?|ftp|file):\/\/[-a-zA-Z0-9+&@#\/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#\/%=~_|]/}])
-      action: Annotate($0, ner, "Url")
+      action: Annotate($0, ner, "url")
   - id: domain
     label: Domain
     comment: A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet.
@@ -61,7 +68,7 @@ parameters:
       ottrProperty: core:connectedDomain
     regexNer:
       pattern: ([{word:/((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}/}])
-      action: Annotate($0, ner, "Domain")
+      action: Annotate($0, ner, "domain")
   - id: user
     label: User
     comment: A user is a person who utilizes a computer or network service.
@@ -72,12 +79,13 @@ parameters:
       ottrProperty: core:connectedUser
     regexNer:
       pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
-      action: Annotate($1, ner, "User")
+      action: Annotate($1, ner, "user")
 
 ##
 # - these namespaces will be written in both ottr templates and instances
 # - you should put in all prefixes that you use in parameters above
 ##
+
 ottrNS:
   - prefix: rdf
     uri: http://www.w3.org/1999/02/22-rdf-syntax-ns#

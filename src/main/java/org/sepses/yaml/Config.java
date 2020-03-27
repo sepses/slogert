@@ -9,12 +9,11 @@ public class Config {
     public String logBaseTemplate;
     public Boolean isOverride;
 
-    public String targetTemplate;
     public String targetData;
-    public String targetNer;
     public String targetOttr;
     public String targetTurtle;
-
+    public String targetNer;
+    public String targetTemplate;
 
     public List<ConfigNS> ottrNS;
     public List<ConfigParameter> parameters;

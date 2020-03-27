@@ -5,7 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.IOUtils;
 import org.sepses.helper.LogLine;
 import org.sepses.helper.Template;
-import org.sepses.helper.UnixLogLine;
+import org.sepses.helper.LogLineUnix;
 import org.sepses.helper.Utility;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.ConfigParameter;
@@ -31,6 +31,7 @@ public class UnixParser implements Parser {
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
 
     public UnixParser(Config config) throws IOException {
+
         // init regexNER & OTTR template
         YamlFunction.constructRegexNer(config);
         YamlFunction.constructOttrTemplate(config);
@@ -39,7 +40,7 @@ public class UnixParser implements Parser {
         hashTemplates = new HashMap<>();
         this.config = config;
         config.parameters.forEach(parameter -> {
-            parameterMap.put(parameter.label, parameter);
+            parameterMap.put(parameter.id, parameter);
         });
         createOrUpdateTemplate();
     }
@@ -81,8 +82,6 @@ public class UnixParser implements Parser {
     }
 
     /**
-     * TODO: check this! something is wrong.
-     *
      * @throws IOException
      */
     private void writeTemplate() throws IOException {
@@ -91,8 +90,9 @@ public class UnixParser implements Parser {
         hashTemplates.entrySet().forEach(pair -> {
             // String hash, String templateText, String ottrId, String parameters, String keywords
             Template template = pair.getValue();
-            sb.append(pair.getKey()).append(",");
-            sb.append(template.templateText).append(",");
+            sb.append(pair.getKey()).append(",\"");
+            sb.append(template.templateText).append("\",");
+            sb.append(template.ottrId).append(",");
             sb.append(String.join("|", template.parameters)).append(",");
             sb.append(String.join("|", template.keywords)).append(System.lineSeparator());
         });
@@ -120,7 +120,7 @@ public class UnixParser implements Parser {
         Reader dataReader = new FileReader(Paths.get(config.logData).toFile());
         Iterable<CSVRecord> inputData = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
         List<LogLine> logLines = new ArrayList<>();
-        inputData.forEach(inputRow -> logLines.add(UnixLogLine.getInstance(inputRow)));
+        inputData.forEach(inputRow -> logLines.add(LogLineUnix.getInstance(inputRow)));
 
         // *** derive hashTemplates
         extractTemplate(inputTemplates, logLines);
@@ -160,7 +160,7 @@ public class UnixParser implements Parser {
         Reader dataReader = new FileReader(Paths.get(config.logData).toFile());
         Iterable<CSVRecord> inputData = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
         List<LogLine> logLines = new ArrayList<>();
-        inputData.forEach(inputRow -> logLines.add(UnixLogLine.getInstance(inputRow)));
+        inputData.forEach(inputRow -> logLines.add(LogLineUnix.getInstance(inputRow)));
         dataReader.close();
 
         StringBuilder sb = new StringBuilder();

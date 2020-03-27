@@ -22,7 +22,8 @@ public class MainParser {
     public static void main(String[] args) throws ParseException, IOException {
 
         Options options = new Options();
-        options.addRequiredOption("c", "config.yaml", true, "SLOGERT Configuration");
+        options.addRequiredOption("c", "config.yaml", true, "SLOGERT I/O Config");
+        options.addRequiredOption("t", "template.yaml", true, "SLOGERT Regex & Namespaces");
 
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd = parser.parse(options, args);

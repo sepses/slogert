@@ -38,7 +38,7 @@ public class Template {
         this.templateText = templateText;
         this.config = config;
         config.parameters.forEach(parameter -> {
-            parameterMap.put(parameter.label, parameter);
+            parameterMap.put(parameter.id, parameter);
         });
         parameters = new ArrayList<>();
         keywords = new ArrayList<>();

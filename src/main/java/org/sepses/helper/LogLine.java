@@ -1,7 +1,9 @@
 package org.sepses.helper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class LogLine {
 
@@ -9,11 +11,13 @@ public abstract class LogLine {
     protected String dateTime;
     protected String content;
     protected List<String> parameters;
+    protected Map<String, String> specialParameters;
     protected String logpaiEventId;
     protected String templateHash;
 
     protected LogLine() {
         parameters = new ArrayList<>();
+        specialParameters = new HashMap<>();
     }
 
     public Integer getCounter() {
@@ -50,6 +54,10 @@ public abstract class LogLine {
                 parameters.add(param);
             }
         }
+    }
+
+    public Map<String, String> getSpecialParameters() {
+        return specialParameters;
     }
 
     public String getLogpaiEventId() {
