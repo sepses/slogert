@@ -1,0 +1,18 @@
+EventId,EventTemplate,Occurrences
+494c8a7c,"CONNECT: Client ""::ffff:<*>""",89
+b6470a69,"[sepses] <*> LOGIN: Client ""::ffff:<*>""",12
+748eaf84,"[sepses] OK MKDIR: Client ""::ffff:<*>"", ""/files/testfolder""",1
+8e4fc9cd,"[sepses] FAIL DOWNLOAD: Client ""::ffff:<*>"", <*> <*>.00Kbyte/sec",4
+e04d24a2,"[sepses] OK UPLOAD: Client ""::ffff:<*>"", <*> <*> bytes, <*>",2
+61fb54e1,"[ftp_akep] OK LOGIN: Client ""::ffff:<*>""",11
+d02b41f1,"[ftp_akep] FAIL DOWNLOAD: Client ""::ffff:<*>"", <*> <*>.00Kbyte/sec",4
+216d614e,"[ftp_akep] OK <*> Client ""::ffff:<*>"", <*> <*> bytes, <*>",9
+b9dad041,"[ftp_adminwp] OK LOGIN: Client ""::ffff:<*>""",1
+fb088fcd,"[ftp_admin] <*> LOGIN: Client ""::ffff:<*>""",15
+7fb25a61,"[ftp_jdoe] <*> LOGIN: Client ""::ffff:<*>""",4
+d2a8195d,"[ftp_admin] OK <*> Client ""::ffff:<*>"", <*> <*> bytes, <*>",7
+33bb1fae,"[ftp_jhalley] <*> LOGIN: Client ""::ffff:<*>""",14
+6850f3f2,"[ftp_jhalley] FAIL DOWNLOAD: Client ""::ffff:<*>"", <*> <*>.00Kbyte/sec",9
+a00fd76e,"[ftp_jhalley] OK <*> Client ""::ffff:<*>"", <*> <*> bytes, <*>",5
+24ba1eee,"[ftp_jdoe] FAIL DOWNLOAD: Client ""::ffff:<*>"", ""/files/Report_<*>.sh"", <*>.00Kbyte/sec",2
+70d584cb,"[ftp_admin] OK DELETE: Client ""::ffff:<*>"", ""/files/Report_<*>.sh""",1

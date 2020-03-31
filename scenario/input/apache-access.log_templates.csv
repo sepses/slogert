@@ -1,0 +1,7 @@
+EventId,EventTemplate,Occurrences
+20f25e8a,"GET <*> HTTP/<*>.<*>"" <*> <*> <*> ""Mozilla/<*>.<*> (X11; Ubuntu; Linux x86_<*>; rv:<*>.<*>) Gecko/<*> Firefox/<*>.<*>",217
+9554fc96,"POST /wp-cron.php?doing_wp_cron=<*>.<*> HTTP/<*>.<*>"" <*> <*> ""http://example.com/wp-cron.php?doing_wp_cron=<*>.<*>"" ""WordPress/<*>.<*>.<*>; http://example.com",10
+e2aa1865,"POST <*> HTTP/<*>.<*>"" <*> <*> <*> ""Mozilla/<*>.<*> (X11; Ubuntu; Linux x86_<*>; rv:<*>.<*>) Gecko/<*> Firefox/<*>.<*>",64
+6ba08980,"GET <*> HTTP/<*>.<*>"" <*> <*> <*> ""Mozilla/<*>.<*> (Windows NT <*>.<*>; Win64; x64) AppleWebKit/<*>.<*> (KHTML, like Gecko) Chrome<*> Safari/<*>.<*>",15
+0dafcad5,"HEAD /wp-content/uploads/<*>/<*>/test2.txt HTTP/<*>.<*>"" <*> <*> ""http://example.com/wp-content/uploads/<*>/<*>/test2.txt"" ""WordPress/<*>.<*>.<*>; http://example.com",5
+7e254654,"GET <*> HTTP/<*>.<*>"" <*> <*> ""-"" ""Wget/<*>.<*>.<*> (linux-gnu)",4
