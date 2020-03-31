@@ -1,4 +1,4 @@
-# SLOGERT v1.1.0-SNAPSHOT
+# SLOGERT v1.2.0-SNAPSHOT (Not up to date) 
 A **S**emantic **LOG E**xt**R**action **T**emplating (SLOGERT) Approach
 
 We tried to automatically extract and enrich low-level log data into an RDF Knowledge Graphs.
