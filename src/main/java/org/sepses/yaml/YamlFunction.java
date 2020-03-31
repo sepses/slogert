@@ -5,6 +5,7 @@ import org.sepses.helper.Utility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -56,14 +57,30 @@ public class YamlFunction {
      */
     public static void constructOttrTemplate(Config config) throws IOException {
 
+        // add NSs
         StringBuilder sb = new StringBuilder();
-        InputStream nerIS = YamlFunction.class.getClassLoader().getResourceAsStream(UNIX_BASE);
         config.ottrNS.forEach(ns -> {
             sb.append("@prefix ").append(ns.prefix).append(": <").append(ns.uri).append("> .")
                     .append(System.lineSeparator());
         });
         sb.append(System.lineSeparator());
+
+        // add default logLine
+        InputStream nerIS = YamlFunction.class.getClassLoader().getResourceAsStream(UNIX_BASE);
         sb.append(IOUtils.toString(nerIS, Charset.defaultCharset()));
+
+        // *** handle log-type specific params
+        InternalLogType iLogType = config.internalLogType;
+        iLogType.components.stream().forEach(component -> {
+            sb.append("# log-specific OTTR parameter: ").append(component.column).append(System.lineSeparator());
+            sb.append("id:").append(component.column).append("[ottr:IRI ?id, ").append(component.ottr.ottrType)
+                    .append(" ?value] :: {").append(System.lineSeparator());
+            sb.append("\t ottr:Triple(?id, ").append(component.ottr.ottrProperty).append(", ?value)")
+                    .append(System.lineSeparator());
+            sb.append("} .").append(System.lineSeparator());
+        });
+
+        // add params
         config.parameters.forEach(parameter -> {
             sb.append("# OTTR parameter: ").append(parameter.id).append(System.lineSeparator());
             sb.append("id:").append(parameter.id).append("[ottr:IRI ?id, ").append(parameter.ottr.ottrType)
@@ -72,10 +89,10 @@ public class YamlFunction {
                     .append(System.lineSeparator());
             sb.append("} .").append(System.lineSeparator());
         });
-
         sb.append(System.lineSeparator());
         sb.append("# *** LogPai-Generated Templates ***");
         sb.append(System.lineSeparator());
+
         log.info("resulted stottr: \n" + sb.toString());
         Utility.writeToFile(sb.toString(), config.targetOttr);
     }

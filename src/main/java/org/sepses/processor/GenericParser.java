@@ -3,10 +3,7 @@ package org.sepses.processor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.IOUtils;
-import org.sepses.helper.LogLine;
-import org.sepses.helper.Template;
-import org.sepses.helper.LogLineUnix;
-import org.sepses.helper.Utility;
+import org.sepses.helper.*;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.ConfigParameter;
 import org.sepses.yaml.YamlFunction;
@@ -18,10 +15,11 @@ import java.nio.charset.Charset;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class UnixParser implements Parser {
+public class GenericParser implements Parser {
 
-    private static final Logger log = LoggerFactory.getLogger(UnixParser.class);
+    private static final Logger log = LoggerFactory.getLogger(GenericParser.class);
 
     private static final String[] TEMPLATE_LOGPAI = { "EventId", "EventTemplate", "Occurrences" };
     private static final String[] TEMPLATE_SLOGERT = { "Hash", "EventTemplate", "OttrID", "Parameters", "Keywords" };
@@ -30,7 +28,7 @@ public class UnixParser implements Parser {
     private final Config config;
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
 
-    public UnixParser(Config config) throws IOException {
+    public GenericParser(Config config) throws IOException {
 
         // init regexNER & OTTR template
         YamlFunction.constructRegexNer(config);
@@ -120,7 +118,7 @@ public class UnixParser implements Parser {
         Reader dataReader = new FileReader(Paths.get(config.logData).toFile());
         Iterable<CSVRecord> inputData = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
         List<LogLine> logLines = new ArrayList<>();
-        inputData.forEach(inputRow -> logLines.add(LogLineUnix.getInstance(inputRow)));
+        inputData.forEach(inputRow -> logLines.add(createLogLine(inputRow)));
 
         // *** derive hashTemplates
         extractTemplate(inputTemplates, logLines);
@@ -160,7 +158,7 @@ public class UnixParser implements Parser {
         Reader dataReader = new FileReader(Paths.get(config.logData).toFile());
         Iterable<CSVRecord> inputData = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
         List<LogLine> logLines = new ArrayList<>();
-        inputData.forEach(inputRow -> logLines.add(LogLineUnix.getInstance(inputRow)));
+        inputData.forEach(inputRow -> logLines.add(createLogLine(inputRow)));
         dataReader.close();
 
         StringBuilder sb = new StringBuilder();
@@ -171,18 +169,35 @@ public class UnixParser implements Parser {
 
         logLines.forEach(logLine -> {
             Template template = hashTemplates.get(logLine.getTemplateHash());
+            String keywords = "()";
+            if (!template.keywords.isEmpty()) {
+                keywords = "(\"" + template.keywords.stream().
+                        map(Object::toString).
+                        collect(Collectors.joining("\",\"")).toString() + "\")";
+            }
 
             sb.append(template.ottrId);
             sb.append("(").append(Template.BASE_OTTR_ID).append(UUID.randomUUID()).append(",\"");
             sb.append(logLine.getDateTime()).append("\",\"");
             sb.append(Utility.cleanContent(logLine.getContent())).append("\",\"");
-            sb.append(logLine.getTemplateHash()).append("\",\"");
+            sb.append(logLine.getTemplateHash()).append("\",");
+            sb.append(keywords).append(",\"");
+
+            // log-specific params
+            config.internalLogType.components.stream().forEach(item -> {
+                String value = logLine.getSpecialParameters().get(item.column);
+                if (item.ottr.ottrType.equals("ottr:IRI")) {
+                    sb.delete(sb.length() - 1, sb.length());
+                    sb.append(value).append(",\"");
+                } else {
+                    sb.append(value).append("\",\"");
+                }
+            });
 
             for (int i = 0; i < template.parameters.size(); i++) {
                 String paramString = logLine.getParameters().get(i);
                 String paramType = template.parameters.get(i);
                 ConfigParameter parameter = parameterMap.get(paramType);
-
                 if (paramType.equals(Template.UNKNOWN_PARAMETER) || !parameter.ottr.ottrType
                         .equals(Utility.OTTR_IRI)) {
                     sb.append(Utility.cleanContent(paramString)).append("\",\"");
@@ -198,5 +213,36 @@ public class UnixParser implements Parser {
         });
 
         Utility.writeToFile(sb.toString(), config.targetData);
+    }
+
+    /**
+     * creation of a logline
+     * TODO: Check and update!
+     *
+     * @param record
+     * @return
+     * @throws NoSuchAlgorithmException
+     */
+    private LogLine createLogLine(CSVRecord record) {
+        LogLine logline;
+
+        try {
+            if (config.logType.equals("unix")) {
+                logline = new LogLineUnix(record, config.internalLogType);
+            } else if (config.logType.equals("audit")) {
+                logline = new LogLineAudit(record, config.internalLogType);
+            } else if (config.logType.equals("ftp")) {
+                logline = new LogLineFTP(record, config.internalLogType);
+            } else if (config.logType.equals("apache")) {
+                logline = new LogLineApache(record, config.internalLogType);
+            } else {
+                logline = null;
+            }
+        } catch (NoSuchAlgorithmException e) {
+            log.error(e.getMessage());
+            logline = null;
+        }
+
+        return logline;
     }
 }

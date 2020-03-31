@@ -1,0 +1,86 @@
+##
+# -- SLOGERT internal config --
+##
+
+lastModified: 2020-03-31T01:21:00
+logTypes:
+  - id: ftp
+    clazz: LogLineFTP.java
+    classPath: org.sepses.helper.LogLineFTP
+    header: LineId,dayOfWeek,month,day,time,year,pid,pidNumber,Content,EventId,EventTemplate,ParameterList
+    ottrNS:
+      - prefix: slog
+        uri: http://w3id.org/sepses/vocab/log/slogert#
+      - prefix: xsd
+        uri: http://www.w3.org/2001/XMLSchema#
+    components:
+      - column: pidNumber
+        columnNr: 7
+        ottr:
+          ottrPrefix:
+          ottrType: xsd:string
+          ottrProperty: slog:localPID
+  - id: unix
+    clazz: LogLineUnix.java
+    classPath: org.sepses.helper.LogLineUnix
+    header: LineId,Month,Date,Time,Type,Component,Content,EventId,EventTemplate,ParameterList
+    ottrNS:
+      - prefix: ottr
+        uri: http://ns.ottr.xyz/0.4/
+      - prefix: core
+        uri: http://w3id.org/sepses/vocab/log/core#
+      - prefix: xsd
+        uri: http://www.w3.org/2001/XMLSchema#
+      - prefix: sid
+        uri: http://w3id.org/sepses/slogert-id/
+      - prefix: slog
+        uri: http://w3id.org/sepses/vocab/log/slogert#
+    components:
+      - column: Type
+        columnNr: 4
+        ottr:
+          ottrPrefix: sid
+          ottrType: ottr:IRI
+          ottrProperty: core:host
+      - column: Component
+        columnNr: 5
+        ottr:
+          ottrPrefix:
+          ottrType: xsd:string
+          ottrProperty: slog:localPID
+  - id: audit
+    clazz: LogLineAudit.java
+    classPath: org.sepses.helper.LogLineAudit
+    header: LineId,type,time,Content,EventId,EventTemplate,ParameterList
+    ottrNS:
+      - prefix: ottr
+        uri: http://ns.ottr.xyz/0.4/
+      - prefix: core
+        uri: http://w3id.org/sepses/vocab/log/core#
+      - prefix: sid
+        uri: http://w3id.org/sepses/slogert-id/
+    components:
+      - column: type
+        columnNr: 1
+        ottr:
+          ottrPrefix: sid
+          ottrType: ottr:IRI
+          ottrProperty: core:auditType
+  - id: apache
+    clazz: LogLineApache.java
+    classPath: org.sepses.helper.LogLineApache
+    header: LineId,IP,DateTime,TimeZone,Content,EventId,EventTemplate,ParameterList
+    ottrNS:
+      - prefix: ottr
+        uri: http://ns.ottr.xyz/0.4/
+      - prefix: core
+        uri: http://w3id.org/sepses/vocab/log/core#
+      - prefix: sid
+        uri: http://w3id.org/sepses/slogert-id/
+    components:
+      - column: IP
+        columnNr: 1
+        ottr:
+          ottrPrefix: sid
+          ottrType: ottr:IRI
+          ottrProperty: core:connectedIp

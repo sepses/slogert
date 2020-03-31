@@ -1,0 +1,15 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+logType: audit
+logData: scenario/input/ultimate-audit.log_structured.csv
+logTemplate: scenario/input/ultimate-audit.log_templates.csv
+logBaseTemplate: scenario/input/ultimate-audit.log_templates-base.csv
+isOverride: true
+
+targetData: scenario/output/audit.log_structured.ottr
+targetOttr: scenario/output/audit.log_templates.stottr
+targetTurtle: scenario/output/audit.log_structured.ttl
+targetTemplate: scenario/output/audit-log_templates.ottr
+targetNer: scenario/output/audit-constructed_ner.rules

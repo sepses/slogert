@@ -25,28 +25,6 @@ parameters:
     regexNer:
       pattern: ([{word:/port/}] + ([{word:/(\d{1,5})/}]))
       action: Annotate($1, ner, "port")
-  - id: portWithColon
-    label: Port
-    comment: In computer networking, a port is a communication endpoint. Ports are identified for each protocol and address combination by 16-bit unsigned numbers, commonly known as the port number.
-    example: 8080
-    ottr:
-      ottrPrefix: sid
-      ottrType: ottr:IRI
-      ottrProperty: core:connectedPortWithColon
-    regexNer:
-      pattern: ([{word:/(\d{1,5}):(\d{1,5})/}])
-      action: Annotate($0, ner, "port2")
-  - id: mac
-    label: MacAddress
-    comment: empty.
-    example: 3D:F2:C9:A6:B3:4F
-    ottr:
-      ottrPrefix: sid
-      ottrType: ottr:IRI
-      ottrProperty: core:connectedMacAddress
-    regexNer:
-      pattern: ([{word:/([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})/}])
-      action: Annotate($0, ner, "mac")
   - id: url
     label: Url
     comment: A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.

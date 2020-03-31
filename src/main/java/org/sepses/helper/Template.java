@@ -4,6 +4,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.sepses.nlp.EntityRecognition;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.ConfigParameter;
+import org.sepses.yaml.InternalLogType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,12 +20,10 @@ public class Template {
 
     private static final Logger log = LoggerFactory.getLogger(Template.class);
     private final String BASE_HEADER =
-            "[ottr:IRI ?id, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash";
-    private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?timeStamp, ?message, ?templateHash)";
+            "[ottr:IRI ?id, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash, List<xsd:string> ?keywords";
+    private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?timeStamp, ?message, ?templateHash, ?keywords)";
     private final Config config;
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
-
-    // private final String[] TEMPLATE_HEADERS = { "logpai_id", "hash", "content", "template", "keywords" };
 
     public String hash;
     public String templateText;
@@ -109,6 +108,13 @@ public class Template {
         ottrHeader.append(ottrId);
         ottrHeader.append(BASE_HEADER);
         ottrContent.append(BASE_CONTENT);
+
+        // *** handle special components
+        InternalLogType iLogType = config.internalLogType;
+        iLogType.components.stream().forEach(component -> {
+            ottrHeader.append(", " + component.ottr.ottrType + " ?" + component.column);
+            ottrContent.append(", \n\t id:" + component.column + "(?id, ?" + component.column + ")");
+        });
 
         // *** create ottr
         int parameterCount = parameters.size();

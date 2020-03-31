@@ -1,0 +1,15 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+logType: unix
+logData: src/test/resources/authlog_structured.csv
+logTemplate: src/test/resources/authlog_templates.csv
+logBaseTemplate: src/test/resources/base_templates.csv
+isOverride: true
+
+targetTemplate: scenario/output/authlog_templates.ottr
+targetData: scenario/output/authlog_structured.ottr
+targetNer: scenario/output/authlog_structured-ner.rules
+targetOttr: scenario/output/authlog_structured-unix.stottr
+targetTurtle: scenario/output/authlog_structured-output.ttl

@@ -8,10 +8,7 @@ import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class EntityRecognition {
@@ -87,6 +84,22 @@ public class EntityRecognition {
             }
         }
 
+        //        HashMap<String, String> dicCodeToIndex = new HashMap<>();
+        //        dicCodeToIndex.put("Path", "/[a-zA-Z0-9-._/]+");
+        //        dicCodeToIndex.put("FileName", "[a-zA-Z0-9-_.]+\\.[a-zA-Z0-9]+");
+        //        dicCodeToIndex.put("FilePath", "[a-zA-Z0-9-._/]+\\.[a-zA-Z0-9]+");
+        //
+        //        // Parse sentence without word tokens - in case they dont split well, like with paths
+        //        for (String regexKey : dicCodeToIndex.keySet()) {
+        //            Pattern pattern = Pattern.compile(dicCodeToIndex.get(regexKey));
+        //            Matcher matcher = pattern.matcher(inputSentence);
+        //
+        //            while (matcher.find()) {
+        //                String found = matcher.group();
+        //                nerList.put(found, regexKey);
+        //            }
+        //        }
+
         return nerList;
     }
 
@@ -113,44 +126,58 @@ public class EntityRecognition {
         // for each sentence in the input text, run the TokensRegex pipeline
         HashMap<String, String> nerList = new HashMap<>();
 
-        CoreMap sentence = exampleSentencesAnnotation.get(CoreAnnotations.SentencesAnnotation.class).get(0);
-        List<MatchedExpression> matchedExpressions = extractor.extractExpressions(sentence);
+        List<CoreMap> mapList = exampleSentencesAnnotation.get(CoreAnnotations.SentencesAnnotation.class);
+        List<String> keywords = new ArrayList<>();
 
-        // Get keywords
-        List<String> wordsStr = new ArrayList<>();
-        List<CoreLabel> tokens = sentence.get(CoreAnnotations.TokensAnnotation.class);
-        String ngram = "";
-        boolean first = true;
+        if (!mapList.isEmpty()) {
+            CoreMap sentence = mapList.get(0);
+            List<MatchedExpression> matchedExpressions = extractor.extractExpressions(sentence);
 
-        for (int i = 0; i < tokens.size(); i++) {
-            //System.out.println("Word: " + tokens.get(i).word() + ": " + tokens.get(i).tag());
-            if (tokens.get(i).tag().equals("JJ") || tokens.get(i).tag().startsWith("NN") || tokens.get(i).tag()
-                    .startsWith("VB")) {
-                if (!first)
-                    ngram += " ";
+            // Get keywords
+            List<String> wordsStr = new ArrayList<>();
+            List<CoreLabel> tokens = sentence.get(CoreAnnotations.TokensAnnotation.class);
+            String ngram = "";
+            boolean first = true;
 
-                first = false;
-                ngram += tokens.get(i).lemma();
-                //System.out.println(tokens.get(i).lemma() + " (" + tokens.get(i).tag() + ") - " + tokens.get(i + 1).lemma() + " (" + tokens.get(i + 1).tag() + ")");
-            } else {
-                if (!ngram.isEmpty()) {
-                    wordsStr.add(ngram);
+            for (int i = 0; i < tokens.size(); i++) {
+                //System.out.println("Word: " + tokens.get(i).word() + ": " + tokens.get(i).tag());
+                if (tokens.get(i).tag().equals("JJ") || tokens.get(i).tag().startsWith("NN") || tokens.get(i).tag()
+                        .startsWith("VB")) {
+                    if (!first)
+                        ngram += " ";
+
+                    first = false;
+                    ngram += tokens.get(i).lemma();
+                    //System.out.println(tokens.get(i).lemma() + " (" + tokens.get(i).tag() + ") - " + tokens.get(i + 1).lemma() + " (" + tokens.get(i + 1).tag() + ")");
+                } else {
+                    if (!ngram.isEmpty()) {
+                        wordsStr.add(ngram);
+                    }
+                    first = true;
+                    ngram = "";
                 }
-                first = true;
-                ngram = "";
+            }
+
+            if (!ngram.isEmpty())
+                wordsStr.add(ngram);
+
+            for (String word : wordsStr) {
+                if (word.split(" ").length > 2) { // if the word is more than 2 words - split!
+                    String[] words = word.split(" ");
+                    List<String> temp = Arrays.asList(words);
+                    temp.stream().forEach(item -> filterKeyword(keywords, item));
+                } else {
+                    filterKeyword(keywords, word);
+                }
             }
         }
 
-        if (!ngram.isEmpty())
-            wordsStr.add(ngram);
-
-        List<String> keywords = new ArrayList<>();
-        for (String word : wordsStr) {
-            if (word.split(" ").length > 1)
-                //System.out.println(word);
-                keywords.add(word);
-        }
-
         return keywords;
+    }
+
+    private void filterKeyword(List<String> keywords, String item) {
+        String itemStr = item.toLowerCase().trim();
+        if (itemStr.length() > 1)
+            keywords.add(itemStr);
     }
 }

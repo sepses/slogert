@@ -1,0 +1,285 @@
+EventId,EventTemplate,Occurrences
+b183aa7d,[ <*>.<*>] kauditd_printk_skb: <*> callbacks suppressed,1
+e5dc5808,[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): <*> old=<*> auid=<*> ses=<*> res=<*>,9
+6123ddfc,"[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): pid=<*> uid=<*> auid=<*> ses=<*> msg='unit=auditd comm=""systemd"" exe=""/lib/systemd/systemd"" hostname=? addr=? terminal=? res=success'",7
+fed60bb0,[ <*>.<*>] hv_utils: Shutdown request received - graceful shutdown initiated,5
+8f72dbf6,[ <*>.<*>] <*> <*> <*> enabled,21
+be94182a,[ <*>.<*>] Linux version <*>.<*>.<*>-<*>-azure (buildd@lcy01-amd64-<*>) (gcc version <*>.<*>.<*> (Ubuntu <*>.<*>.<*>-1ubuntu1~<*>.<*>.<*>)) #<*>-Ubuntu SMP Mon Feb <*> <*>:<*>:<*> UTC <*> (Ubuntu <*>.<*>.<*>-<*>.<*>-azure <*>.<*>.<*>),5
+114429ff,[ <*>.<*>] Command line: BOOT_IMAGE=/boot/vmlinuz-<*>.<*>.<*>-<*>-azure root=UUID=5604f71e-1e5f-443c-a99e-b82bb5c201df ro console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=<*>,5
+965b1ec6,[ <*>.<*>] KERNEL supported cpus:,5
+936b8562,[ <*>.<*>] <*> <*>,150
+fde341ba,[ <*>.<*>] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers',5
+a6660de3,[ <*>.<*>] x86/fpu: Supporting XSAVE feature <*> <*> <*>,14
+94e7a6df,"[ <*>.<*>] x86/fpu: xstate_offset[<*>]: <*>, xstate_sizes[<*>]: <*>",10
+51ae9b48,"[ <*>.<*>] x86/fpu: Enabled xstate features <*> context size is <*> bytes, using <*> format.",5
+679f5927,[ <*>.<*>] BIOS-provided physical RAM map:,5
+d4d60197,[ <*>.<*>] BIOS-e820: [mem <*> <*>,25
+976560cf,[ <*>.<*>] BIOS-e820: [mem <*> ACPI <*>,10
+a2cd9fdb,[ <*>.<*>] NX (Execute Disable) protection: active,5
+271e8bd5,[ <*>.<*>] SMBIOS <*>.<*> present.,5
+b20e8a2e,"[ <*>.<*>] DMI: Microsoft Corporation Virtual Machine/Virtual Machine, BIOS <*> <*>/<*>/<*>",5
+91ab13e8,[ <*>.<*>] Hypervisor detected: Microsoft Hyper-V,5
+9d9bfdd0,"[ <*>.<*>] Hyper-V: features 0x2e7f, hints 0x44c2c",5
+e41e7a65,[ <*>.<*>] Hyper-V Host Build:<*>-<*>.<*>-<*>-<*>.<*>,5
+14bf15a5,[ <*>.<*>] Hyper-V: LAPIC Timer Frequency: 0xc<*>,5
+eaf7708b,[ <*>.<*>] tsc: Marking TSC unstable due to running on Hyper-V,5
+db4f6103,[ <*>.<*>] Hyper-V: Using hypercall for remote TLB flush,5
+835ab552,[ <*>.<*>] tsc: Detected <*>.<*> MHz processor,5
+7f8f754f,[ <*>.<*>] e820: update [mem <*> usable ==> reserved,10
+1f70e9aa,[ <*>.<*>] e820: remove [mem 0x000a0000-0x000fffff] usable,5
+893b62e4,[ <*>.<*>] last_pfn = <*> max_arch_pfn = 0x<*>,10
+1dbe8e7a,[ <*>.<*>] MTRR <*> <*> <*>,15
+d1b7c0bc,[ <*>.<*>] <*> base <*> mask <*> write-back,10
+5414a551,[ <*>.<*>] x86/PAT: Configuration [<*>-<*>]: WB WC UC- UC WB WP UC- WT,5
+849f346f,[ <*>.<*>] found SMP MP-table at [mem 0x000ff780-0x000ff78f],5
+5b3d4674,[ <*>.<*>] check: Scanning <*> areas for low memory corruption,5
+f6c22858,[ <*>.<*>] Using GB pages for direct mapping,5
+bd206d38,[ <*>.<*>] BRK <*> <*> PGTABLE,25
+1c598435,[ <*>.<*>] <*> [mem <*>,20
+5e4615b4,[ <*>.<*>] ACPI: Early table checksum verification disabled,5
+ef90a7c4,[ <*>.<*>] ACPI: RSDP 0x00000000000F5BF0 <*> (v00 ACPIAM),5
+99b568dc,[ <*>.<*>] ACPI: <*> <*> <*> <*> VRTUAL MICROSFT <*> MSFT <*>),40
+55f70f8e,[ <*>.<*>] ACPI: DSDT 0x000000003FFF1D24 003CBE (v01 MSFTVM MSFTVM02 <*> INTL <*>),5
+384a7d61,[ <*>.<*>] ACPI: <*> <*> <*>,30
+33c2304b,[ <*>.<*>] ACPI: Local APIC address 0xfee<*>,10
+3a0052b7,[ <*>.<*>] SRAT: PXM <*> -> APIC <*> -> Node <*>,10
+59806dab,[ <*>.<*>] ACPI: SRAT: Node <*> PXM <*> [mem <*> hotplug,30
+2149b3b0,[ <*>.<*>] NUMA: Node <*> [mem 0x00000000-0x3fffffff] + [mem 0x100000000-0x2bfffffff] -> [mem 0x00000000-0x2bfffffff],5
+b6667f9b,[ <*>.<*>] <*> <*> [mem <*>,20
+64c52242,[ <*>.<*>] Movable zone start for each node,5
+a091d2c8,[ <*>.<*>] Early memory node ranges,5
+466785ab,[ <*>.<*>] Zeroed struct page in unavailable ranges: <*> pages,5
+9b9613f5,[ <*>.<*>] Initmem setup node <*> [mem 0x0000000000001000-0x00000002bfffffff],5
+6d7e682c,[ <*>.<*>] On node <*> totalpages: <*>,5
+8f605fdb,[ <*>.<*>] <*> zone: <*> pages used for memmap,15
+4f135b04,[ <*>.<*>] DMA zone: <*> pages reserved,5
+c61c09e1,"[ <*>.<*>] <*> zone: <*> pages, LIFO batch:<*>",15
+b78b9daf,[ <*>.<*>] ACPI: PM-Timer IO Port: 0x<*>,5
+dd7dce95,[ <*>.<*>] ACPI: LAPIC_NMI (acpi_id[0xff] dfl dfl lint[0x1]),5
+a7e15138,"[ <*>.<*>] IOAPIC[<*>]: apic_id <*>, version <*>, address 0xfec00000, GSI <*>-<*>",5
+14e2150c,[ <*>.<*>] ACPI: INT_SRC_OVR (bus <*> bus_irq <*> global_irq <*> <*> <*>,10
+908df579,[ <*>.<*>] ACPI: <*> used by override.,10
+2d06faa7,[ <*>.<*>] Using ACPI (MADT) for SMP configuration information,5
+9b8c143d,"[ <*>.<*>] smpboot: Allowing <*> CPUs, <*> hotplug CPUs",5
+adb3b7e0,[ <*>.<*>] PM: Registered nosave memory: [mem <*>,35
+3f07a14b,[ <*>.<*>] [mem 0x40000000-0xffffffff] available for PCI devices,5
+8d50c11c,[ <*>.<*>] Booting paravirtualized kernel on bare hardware,5
+86aa80c1,[ <*>.<*>] clocksource: <*> mask: <*> max_cycles: <*> max_idle_ns: <*> ns,20
+443bf847,[ <*>.<*>] random: get_random_bytes called from start_kernel+0x93/0x503 with crng_init=<*>,5
+179bb8e8,[ <*>.<*>] setup_percpu: NR_CPUS:<*> nr_cpumask_bits:<*> nr_cpu_ids:<*> nr_node_ids:<*>,5
+e239aa8c,[ <*>.<*>] percpu: Embedded <*> pages/cpu s147456 r8192 d28672 u<*>,5
+9389e3c2,[ <*>.<*>] pcpu-alloc: s147456 r8192 d28672 u262144 alloc=<*>*<*>,5
+30022ec8,[ <*>.<*>] pcpu-alloc: [<*>] <*> <*> <*> <*> <*> <*> <*> <*>,80
+e2564448,"[ <*>.<*>] <*> <*> hash table entries: <*> <*> <*>, <*> bytes)",25
+6111a56b,"[ <*>.<*>] Built <*> zonelists, mobility grouping on. Total pages: <*>",5
+fea59dea,[ <*>.<*>] Policy zone: Normal,5
+96f4d3c0,[ <*>.<*>] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-<*>.<*>.<*>-<*>-azure root=UUID=5604f71e-1e5f-443c-a99e-b82bb5c201df ro console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=<*>,5
+4bf266f9,[ <*>.<*>] printk: log_buf_len individual max cpu contribution: <*> bytes,5
+eb09db24,[ <*>.<*>] printk: log_buf_len total cpu_extra contributions: <*> bytes,5
+87a236f5,[ <*>.<*>] printk: log_buf_len min size: <*> bytes,5
+ae7520bd,[ <*>.<*>] printk: <*> <*> <*>,10
+3836433f,[ <*>.<*>] printk: early log buf free: <*>(<*>%),5
+0ab61629,[ <*>.<*>] Calgary: detecting Calgary via BIOS EBDA area,5
+610ef30a,[ <*>.<*>] Calgary: Unable to locate Rio Grande table in EBDA - bailing!,5
+ee5e35c9,"[ <*>.<*>] Memory: 8114236K/8388152K available (12292K kernel code, 2233K rwdata, 3944K rodata, 2360K init, 5524K bss, 273916K reserved, 0K cma-reserved)",5
+0650e733,"[ <*>.<*>] SLUB: HWalign=<*>, Order=<*>-<*>, MinObjects=<*>, CPUs=<*>, Nodes=<*>",5
+1c356206,[ <*>.<*>] Kernel/User page tables isolation: enabled,5
+bff63748,[ <*>.<*>] ftrace: allocating <*> entries in <*> pages,5
+a4a8ef32,[ <*>.<*>] rcu: Hierarchical <*> implementation.,10
+b21b8830,[ <*>.<*>] rcu: RCU restricting CPUs from NR_CPUS=<*> to nr_cpu_ids=<*>.,5
+0b9385e9,[ <*>.<*>] Tasks RCU enabled.,5
+47b028da,[ <*>.<*>] rcu: RCU calculated value of scheduler-enlistment delay is <*> jiffies.,5
+b2110681,"[ <*>.<*>] rcu: Adjusting geometry for rcu_fanout_leaf=<*>, nr_cpu_ids=<*>",5
+448ffa05,"[ <*>.<*>] NR_IRQS: <*>, nr_irqs: <*>, preallocated irqs: <*>",5
+ba5a5b44,[ <*>.<*>] Console: colour VGA+ 80x<*>,5
+78932e3c,[ <*>.<*>] APIC: Switch to symmetric I/O mode setup,5
+e5c5d87b,[ <*>.<*>] Switched APIC routing to physical flat.,5
+cc148139,[ <*>.<*>] Hyper-V: Using IPI hypercalls,5
+ce2a1825,[ <*>.<*>] Hyper-V: Using enlightened APIC (xapic mode),5
+21d515eb,"[ <*>.<*>] Calibrating delay loop (skipped), value calculated using timer frequency.. <*>.<*> BogoMIPS (lpj=<*>)",5
+f518058d,[ <*>.<*>] pid_max: default: <*> minimum: <*>,5
+4a44d82f,[ <*>.<*>] LSM: Security Framework initializing,5
+2824e23c,[ <*>.<*>] Yama: becoming mindful.,5
+39dbb8e6,[ <*>.<*>] <*> <*> initialized,10
+6a78c96c,"[ <*>.<*>] <*> hash table entries: <*> (order: <*>, <*> bytes)",35
+fd5fafaf,"[ <*>.<*>] Last level iTLB entries: 4KB <*>, 2MB <*>, 4MB <*>",5
+7e4285f0,"[ <*>.<*>] Last level dTLB entries: 4KB <*>, 2MB <*>, 4MB <*>, 1GB <*>",5
+0a5fefa9,[ <*>.<*>] Spectre V1 : Mitigation: usercopy/swapgs barriers and __user pointer sanitization,5
+2b81bf58,[ <*>.<*>] Spectre V2 : Mitigation: Full generic retpoline,5
+0b47a21f,[ <*>.<*>] Spectre V2 : Spectre v2 / SpectreRSB mitigation: Filling RSB on context switch,5
+e996fac8,[ <*>.<*>] Speculative Store Bypass: Vulnerable,5
+c336bf06,[ <*>.<*>] <*> Mitigation: Clear CPU buffers,3
+b69059a5,[ <*>.<*>] Freeing <*> <*> memory: <*>,10
+91c6cedc,"[ <*>.<*>] smpboot: CPU0: Intel(R) Xeon(R) <*> <*> <*> @ <*> (family: 0x6, model: <*> stepping: <*>",5
+af43d4d4,"[ <*>.<*>] Performance Events: unsupported p6 CPU model <*> no PMU driver, software events only.",5
+dcaf4674,[ <*>.<*>] random: crng done (trusting CPU's manufacturer),5
+5fbc9904,[ <*>.<*>] NMI watchdog: Perf NMI watchdog permanently disabled,5
+b2081125,[ <*>.<*>] smp: Bringing up secondary CPUs ...,5
+0a1ec610,[ <*>.<*>] x86: Booting SMP configuration:,5
+3388cb84,"[ <*>.<*>] .... node #<*>, CPUs: #<*>",5
+2e12bf3b,"[ <*>.<*>] <*> CPU bug present and SMT on, data leak possible. See <*> for more details.",9
+84ff81ae,"[ <*>.<*>] smp: Brought up <*> node, <*> CPUs",5
+bb2b44d1,[ <*>.<*>] smpboot: Max logical packages: <*>,5
+674ff42a,[ <*>.<*>] smpboot: Total of <*> processors activated (<*>.<*> BogoMIPS),5
+515f329c,[ <*>.<*>] x86/mm: Memory block size: 128MB,5
+5360d077,[ <*>.<*>] PM: Registering ACPI NVS region [mem 0x3ffff000-0x3fffffff] (<*> bytes),5
+09628428,[ <*>.<*>] pinctrl core: initialized pinctrl subsystem,5
+0b45c280,"[ <*>.<*>] RTC time: <*>:<*>:<*>, date: <*>-<*>-<*>",5
+87d471e6,[ <*>.<*>] NET: Registered protocol family <*>,30
+4b0e5b36,[ <*>.<*>] audit: initializing netlink subsys (disabled),5
+74417e93,[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): state=initialized audit_enabled=<*> res=<*>,5
+cd3fa45b,[ <*>.<*>] EISA bus registered,5
+ebf1d118,[ <*>.<*>] cpuidle: using governor <*>,10
+35356d63,[ <*>.<*>] ACPI: bus type PCI registered,5
+572a6a6a,[ <*>.<*>] <*> <*> Hot Plug PCI Controller Driver version: <*>.<*>,10
+4e0fd40b,[ <*>.<*>] PCI: Using configuration type <*> for base access,5
+ed0c38b8,"[ <*>.<*>] HugeTLB registered <*>.<*> <*> page size, pre-allocated <*> pages",10
+382e1fc9,[ <*>.<*>] ACPI: Added <*> <*> <*>,10
+c1870ad0,[ <*>.<*>] ACPI: <*> <*>,20
+bfc45663,[ <*>.<*>] ACPI: <*> ACPI AML tables successfully acquired and loaded,5
+a19890d6,[ <*>.<*>] <*> Using <*> for <*> routing,10
+7ca6598a,"[ <*>.<*>] PCI: Using host bridge windows from ACPI; if necessary, use ""pci=nocrs"" and report a bug",5
+dd22b4d7,[ <*>.<*>] ACPI: Enabled <*> GPEs in block <*> to 0F,5
+4cc075f1,[ <*>.<*>] ACPI: PCI Root Bridge [PCI0] (domain <*> [bus <*>-ff]),5
+6a4e7cff,[ <*>.<*>] acpi PNP0A03:<*>: _OSC: OS supports [ASPM ClockPM Segments MSI],5
+cfb932ab,"[ <*>.<*>] acpi PNP0A03:<*>: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.",5
+7c45b630,[ <*>.<*>] PCI host bridge to bus <*>:<*>,5
+6124e846,[ <*>.<*>] pci_bus <*>:<*>: root bus resource <*> <*> window],25
+5a1ebdfa,[ <*>.<*>] pci_bus <*>:<*>: root bus resource [bus <*>-ff],5
+8d015fe4,[ <*>.<*>] pci <*>:<*>:<*>.<*>: [<*>:<*>] type <*> class 0x<*>,25
+32a4060e,[ <*>.<*>] pci <*>:<*>:<*>.<*>: <*> <*> <*> <*>,20
+181635a5,[ <*>.<*>] pci <*>:<*>:<*>.<*>: legacy IDE quirk: reg <*> [io <*>,20
+8a2b7de3,"[ <*>.<*>] * Found PM-Timer Bug on the chipset. Due to workarounds for a bug,",5
+62865f1f,[ <*>.<*>] * this clock source is slow. Consider trying other clock sources,5
+41ab7ff6,[ <*>.<*>] pci <*>:<*>:<*>.<*>: quirk: [io 0x0400-0x043f] claimed by PIIX4 ACPI,5
+36d5d52a,[ <*>.<*>] ACPI: PCI Interrupt Link [LNKA] (IRQs <*> <*> <*> <*> <*> <*> *<*> <*> <*> <*>),5
+314bf718,"[ <*>.<*>] ACPI: PCI Interrupt Link <*> (IRQs <*> <*> <*> <*> <*> <*> <*> <*> <*> <*>) *<*>, disabled.",15
+1c5da341,[ <*>.<*>] libata version <*>.<*> loaded.,5
+624c855c,[ <*>.<*>] pci <*>:<*>:<*>.<*>: vgaarb: setting as boot VGA device,5
+0c975011,"[ <*>.<*>] pci <*>:<*>:<*>.<*>: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none",5
+47dded99,[ <*>.<*>] pps_core: LinuxPPS API ver. <*> registered,5
+5062e8d4,[ <*>.<*>] pps_core: Software ver. <*>.<*>.<*> - Copyright <*>-<*> Rodolfo Giometti <giometti@linux.it>,5
+dbd17d1c,[ <*>.<*>] <*> <*> <*> registered,35
+d9a4db27,[ <*>.<*>] <*> <*> <*> <*>.<*>.<*>,10
+b4f56b29,[ <*>.<*>] hv_vmbus: Vmbus version:<*>.<*>,5
+a5db758e,[ <*>.<*>] PCI: pci_cache_line_size set to <*> bytes,5
+4790cbc8,[ <*>.<*>] e820: reserve RAM buffer [mem <*>,10
+47e096b1,[ <*>.<*>] NetLabel: domain hash size = <*>,5
+e79f8145,[ <*>.<*>] NetLabel: protocols = UNLABELED CIPSOv4 CALIPSO,5
+68b4478a,[ <*>.<*>] NetLabel: unlabeled traffic allowed by default,5
+1f32fb91,[ <*>.<*>] clocksource: Switched to clocksource hyperv_clocksource_tsc_page,5
+33812074,[ <*>.<*>] VFS: Disk quotas dquot_<*>.<*>.<*>,5
+83ce5f94,[ <*>.<*>] AppArmor: AppArmor Filesystem Enabled,5
+1faaa63f,[ <*>.<*>] pnp: PnP ACPI init,5
+bddfdc42,"[ <*>.<*>] <*> <*>:<*>: Plug and Play ACPI device, IDs <*> (active)",35
+3f6b66d2,"[ <*>.<*>] pnp <*>:<*>: Plug and Play ACPI device, IDs <*> <*> (active)",10
+d7764389,[ <*>.<*>] pnp <*>:<*>: [dma <*> disabled],10
+0c328929,[ <*>.<*>] pnp <*>:<*>: [dma <*>],5
+d9819c5a,[ <*>.<*>] system <*>:<*>: <*> <*> has been reserved,60
+e270d668,[ <*>.<*>] system <*>:<*>: [mem <*> could not be reserved,25
+f89824e6,[ <*>.<*>] pnp: PnP ACPI: found <*> devices,5
+b390ddbe,[ <*>.<*>] pci_bus <*>:<*>: resource <*> <*> <*> window],25
+a9c6a646,[ <*>.<*>] TCP: Hash tables configured (established <*> bind <*>),5
+6f240111,[ <*>.<*>] pci <*>:<*>:<*>.<*>: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff],5
+4158f22b,"[ <*>.<*>] PCI: CLS <*> bytes, default <*>",5
+fa42244b,[ <*>.<*>] Freeing initrd memory: 23568K,5
+e5f603b3,[ <*>.<*>] PCI-DMA: Using software bounce buffering for IO (SWIOTLB),5
+f8156a21,[ <*>.<*>] software IO TLB: mapped [mem 0x3bff0000-0x3fff0000] (64MB),5
+44ef95da,[ <*>.<*>] check: Scanning for low memory corruption every <*> seconds,5
+21a70e82,[ <*>.<*>] Initialise system trusted keyrings,5
+f1c1ebff,[ <*>.<*>] workingset: timestamp_bits=<*> max_order=<*> bucket_order=<*>,5
+f4b6394d,[ <*>.<*>] squashfs: version <*>.<*> (<*>/<*>/<*>) Phillip Lougher,5
+2d9471a3,[ <*>.<*>] fuse init (API version <*>.<*>),5
+3ecc6026,[ <*>.<*>] Asymmetric key parser 'x509' registered,5
+669e3ce3,[ <*>.<*>] Block layer SCSI generic (bsg) driver version <*>.<*> loaded (major <*>),5
+4b4d22f6,[ <*>.<*>] intel_idle: Please enable MWAIT in BIOS SETUP,5
+f2dc1a2f,[ <*>.<*>] input: Power Button as /devices/LNXSYSTM:<*>/LNXPWRBN:<*>/input/input<*>,5
+ea64f415,"[ <*>.<*>] Serial: <*>/<*> driver, <*> ports, IRQ sharing enabled",5
+7e28a5dc,"[ <*>.<*>] <*>:<*>: <*> at I/O <*> (irq = <*>, base_baud = <*>) is a 16550A",10
+2614401b,[ <*>.<*>] Linux agpgart interface v0.<*>,5
+0ae41d87,[ <*>.<*>] loop: module loaded,5
+12bef385,[ <*>.<*>] hv_vmbus: registering driver <*>,35
+48f9cb4d,[ <*>.<*>] <*> <*> version <*>,10
+26b1b5d7,"[ <*>.<*>] ata_piix <*>:<*>:<*>.<*>: Hyper-V Virtual Machine detected, ATA device ignore set",5
+9ebf0a1a,[ <*>.<*>] scsi <*> <*>,30
+fa004d8c,[ <*>.<*>] <*> PATA max UDMA/<*> cmd <*> ctl <*> bmdma <*> irq <*>,10
+4cf15d88,[ <*>.<*>] scsi <*>:<*>:<*>:<*>: Direct-Access Msft Virtual Disk <*>.<*> PQ: <*> ANSI: <*>,10
+557f1a34,[ <*>.<*>] libphy: Fixed MDIO Bus: probed,5
+88fbcf1e,[ <*>.<*>] sd <*>:<*>:<*>:<*>: Attached scsi generic <*> type <*>,10
+0a220e22,"[ <*>.<*>] tun: Universal TUN/TAP device driver, <*>.<*>",5
+9f727691,[ <*>.<*>] sd <*>:<*>:<*>:<*>: <*> <*> <*>-byte logical blocks: (<*>.<*> GB/<*>.<*> GiB),10
+0946490e,[ <*>.<*>] PPP generic driver version <*>.<*>.<*>,5
+bbce10d5,[ <*>.<*>] sd <*>:<*>:<*>:<*>: <*> <*> <*> <*>,20
+10c5c754,[ <*>.<*>] sd <*>:<*>:<*>:<*>: <*> Write Protect is off,10
+4ef74bfa,"[ <*>.<*>] i8042: PNP: PS/<*> Controller [PNP0303:PS2K,PNP0f03:PS2M] at 0x60,0x64 irq <*>,<*>",5
+735161ce,[ <*>.<*>] sd <*>:<*>:<*>:<*>: <*> Mode Sense: 0f <*> <*> <*>,10
+ffdecc77,"[ <*>.<*>] sd <*>:<*>:<*>:<*>: <*> Write cache: <*> read cache: enabled, supports DPO and FUA",10
+82ad81cc,"[ <*>.<*>] serio: i8042 <*> port at 0x60,0x64 irq <*>",10
+909da0e6,[ <*>.<*>] sda: sda1 sda14 sda<*>,5
+dbaeb175,[ <*>.<*>] mousedev: PS/<*> mouse device common for all mice,5
+516bbbf1,[ <*>.<*>] rtc_cmos <*>:<*>: RTC can wake from S<*>,5
+fcfaf745,[ <*>.<*>] rtc_cmos <*>:<*>: registered as rtc<*>,5
+139c403f,"[ <*>.<*>] rtc_cmos <*>:<*>: alarms up to one month, <*> bytes nvram",5
+d15b796b,[ <*>.<*>] input: AT Translated Set <*> keyboard as <*>,10
+5bb267ad,[ <*>.<*>] device-mapper: ioctl: <*>.<*>.<*>-ioctl (<*>-<*>-<*>) initialised: dm-devel@redhat.com,5
+eaf7c3db,"[ <*>.<*>] ata1.<*>: host indicates ignore ATA devices, ignored",10
+2de64ea0,[ <*>.<*>] platform eisa.<*>: <*> <*> <*> <*>,10
+be358a3d,[ <*>.<*>] platform eisa.<*>: EISA: Cannot allocate resource for mainboard,5
+0ad8dabf,[ <*>.<*>] platform eisa.<*>: Cannot allocate resource for EISA slot <*>,40
+26c4f486,[ <*>.<*>] Segment Routing with IPv<*>,5
+48176c35,[ <*>.<*>] mce: Using <*> MCE banks,5
+329258f5,[ <*>.<*>] RAS: Correctable Errors collector initialized.,5
+9a257afa,[ <*>.<*>] Loading compiled-in X.<*> certificates,5
+e0570adb,[ <*>.<*>] Loaded X.<*> cert 'Build time autogenerated kernel key: 9c13c25bb46bb08aadac8fd6055952f30e111a90',5
+18f18ee6,[ <*>.<*>] zswap: loaded using pool lzo/zbud,5
+c9165bad,[ <*>.<*>] AppArmor: AppArmor sha1 policy hashing enabled,5
+d7543f09,"[ <*>.<*>] ima: No TPM chip found, activating TPM-bypass!",5
+7adc29a9,[ <*>.<*>] ima: Allocated hash algorithm: sha<*>,5
+98199832,[ <*>.<*>] No architecture policies found,5
+d0626d7a,[ <*>.<*>] evm: Initialising EVM extended attributes:,5
+b86827a7,[ <*>.<*>] evm: HMAC attrs: 0x<*>,5
+7eec6703,[ <*>.<*>] Magic number: <*>:<*>:<*>,5
+841f29af,[ <*>.<*>] rtc_cmos <*>:<*>: setting system clock to <*> UTC (<*>),5
+efffaa04,"[ <*>.<*>] Unstable clock detected, switching default tracing clock to ""global""",5
+50e8f7c1,"[ <*>.<*>] If you want to keep using the local clock, then add:",5
+4be41c2d,"[ <*>.<*>] ""trace_clock=local""",5
+486444a8,[ <*>.<*>] on the kernel command line,5
+8cde047a,[ <*>.<*>] Freeing unused kernel image memory: <*>,15
+19fad870,[ <*>.<*>] Write protecting the kernel read-only data: 18432k,5
+0456e59a,"[ <*>.<*>] x86/mm: Checked W+X mappings: passed, no W+X pages found.",10
+03c80a6b,[ <*>.<*>] x86/mm: Checking user space page tables,5
+40c073a4,[ <*>.<*>] Run /init as init process,5
+e4ecf407,"[ <*>.<*>] hyperv_fb: Screen resolution: 1152x864, Color depth: <*>",5
+68ea4992,[ <*>.<*>] Console: switching to colour frame buffer device 144x<*>,5
+f3d3b6f6,[ <*>.<*>] hv_utils: Registering HyperV Utility Driver,5
+0b48689c,[ <*>.<*>] hidraw: raw HID events driver (C) Jiri Kosina,5
+46912ed2,[ <*>.<*>] hv_utils: <*> IC version <*>.<*>,25
+e5d797dd,[ <*>.<*>] input: Microsoft Vmbus HID-compliant Mouse as /devices/<*>:045E:<*>.<*>/input/input<*>,5
+4287df7a,[ <*>.<*>] hid <*>:045E:<*>.<*>: input: <UNKNOWN> HID v0.<*> Mouse [Microsoft Vmbus HID-compliant Mouse] on,5
+b55ab964,[ <*>.<*>] cryptd: max_cpu_qlen set to <*>,5
+652d384b,[ <*>.<*>] AVX2 version of gcm_enc/dec engaged.,5
+5efd1941,[ <*>.<*>] AES CTR mode by8 optimization enabled,5
+7c1956f1,[ <*>.<*>] raid6: <*> <*> <*> MB/s,66
+3af83ab9,[ <*>.<*>] raid6: using algorithm <*> gen() <*> MB/s,5
+50e3bf8c,"[ <*>.<*>] raid6: .... xor() <*> MB/s, rmw enabled",5
+3f61b053,[ <*>.<*>] raid6: using <*> recovery algorithm,5
+0e3aa785,[ <*>.<*>] xor: automatically using best checksumming function avx,5
+e521e594,[ <*>.<*>] async_tx: api initialized (async),5
+f00a0f63,"[ <*>.<*>] Btrfs loaded, crc32c=crc32c-intel",5
+4bb5e149,[ <*>.<*>] EXT4-fs <*> mounted filesystem with ordered data mode. Opts: (null),10
+d3875ee0,[ <*>.<*>] lp: driver loaded but no devices found,5
+3fadc048,[ <*>.<*>] ppdev: user-space parallel port driver,5
+ad8c625e,[ <*>.<*>] EXT4-fs (sda1): re-mounted. Opts: discard,5
+03df5b97,[ <*>.<*>] Loading iSCSI transport class v2.<*>-<*>.,5
+f5095d7f,[ <*>.<*>] iscsi: registered transport <*>,10
+68cfcc88,[ <*>.<*>] hv_balloon: Using Dynamic Memory protocol version <*>.<*>,5
+d32a19a0,[ <*>.<*>] KVM: vmx: using Hyper-V Enlightened VMCS,5
+66187c03,[ <*>.<*>] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready,5
+48338300,[ <*>.<*>] hv_utils: VSS: userspace daemon ver. <*> connected,5
+e95b0292,"[ <*>.<*>] new mount options do not match the existing superblock, will be ignored",5
+477a8bfb,[ <*>.<*>] bpfilter: Loaded bpfilter_umh pid <*>,5
+17369e2c,[ <*>.<*>] hv_balloon: Max. dynamic memory size: <*> MB,5
+2d20df2b,[ <*>.<*>] tty tty63: hash matches,1
+a10fc9a4,[ <*>.<*>] rfkill: input handler <*>,4
+3233ab26,"[ <*>.<*>] <*> Vulnerable: Clear CPU buffers attempted, no microcode",6
+21239b8b,[ <*>.<*>] x86/fpu: Supporting XSAVE feature 0x008: 'MPX bounds registers',1

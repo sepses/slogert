@@ -1,7 +1,10 @@
 package org.sepses.helper;
 
+import org.apache.commons.csv.CSVRecord;
+import org.sepses.yaml.InternalLogType;
+
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,9 +18,18 @@ public abstract class LogLine {
     protected String logpaiEventId;
     protected String templateHash;
 
-    protected LogLine() {
+    protected LogLine(CSVRecord record, InternalLogType iLogType) {
         parameters = new ArrayList<>();
-        specialParameters = new HashMap<>();
+        specialParameters = new LinkedHashMap<>();
+
+        iLogType.components.stream().forEach(component -> {
+            String data = record.get(component.column);
+            if (component.ottr.ottrType.equals("ottr:IRI")) {
+                data = Utility.cleanUriContent(data);
+                data = component.ottr.ottrPrefix + ":" + data;
+            }
+            specialParameters.put(component.column, data);
+        });
     }
 
     public Integer getCounter() {
