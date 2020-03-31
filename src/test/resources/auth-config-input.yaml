@@ -3,7 +3,7 @@
 ##
 
 logType: unix
-logData: scenario/input/ultimate-auth.log_templates.csv
+logData: scenario/input/ultimate-auth.log_structured.csv
 logTemplate: scenario/input/ultimate-auth.log_templates.csv
 logBaseTemplate: scenario/input/ultimate-auth.log_templates-base.csv
 isOverride: true
