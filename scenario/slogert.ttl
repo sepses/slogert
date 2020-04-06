@@ -1,0 +1,74 @@
+@prefix core:  <http://w3id.org/sepses/vocab/log/core#> .
+@prefix slog:  <http://w3id.org/sepses/vocab/log/slogert#> .
+@prefix slog-id:  <http://w3id.org/sepses/id/slogert/> .
+@prefix seps-id:  <http://w3id.org/sepses/id/sepses/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+
+<http://w3id.org/sepses/id/Template_cce7b5c7-49fa-4637-b80f-791df4acbc50>
+        a                core:Log ;
+        core:logMessage  "[ftp_jhalley] FAIL LOGIN: Client |::ffff:10.0.0.12|" ;
+        core:timestamp   "2020-03-14T12:29:13" ;
+        slog:keyword     "client" , "login" ;
+        slog:localPID    "9409" ;
+        slog:templateId  "2f69cc1bb15825c386d5cfe706931c34199475cedd57b87e8c9f2530c18f6817" .
+        slog:contained   "ffff:10.0.0.12" , "FAIL" , "ftp_jhalley" ;
+        slog:containedIp  		slog-id:93.243.136.158 
+
+
+
+seps-id:Template_1b307a37-14b9-4b68-94e3-4787e0584aaa
+    # should we already create specific classes for each LogEntry type?
+    # 	EK: would be better since we can show class hierarchies -> let's do this.
+    # 
+    a                 		core:LogEntry ;
+    core:originatedFrom 	seps-id:Scenario_Server ; # not yet generated
+    core:logType 			core:apache-access ; # not yet generated
+
+    # core:logSource -> contains originatedFrom and logType => to reduce storage
+    #  	can be used to link information about the source, e.g., version of apache server.
+
+    # note: that ottr has restrictions for the certain type of characters
+    # 	take a look on how this can be handled
+    core:logMessage   		"GET /pma2018/index.php?lang=en HTTP/1.1| 404 277 |-| |Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36" ;
+    core:timestamp    		"2020-03-14T15:50:58" ;
+    core:logFilePath 		"" ; # not yet generated -> needed? -> AE: don't need it.
+
+    # should we create specific properties for each type?
+    # 	
+    slog:containedIp  		slog-id:93.243.136.158 ; # originally core:connectedIp
+    #	slog:associatedIp -> if we know exactly, we can use a sub property of it.
+    slog:containedPid		slog-id:12315 ;
+
+    slog:containedVariable  "5.0" , "/pma2018/index.php?lang=en" , "1.1" , "537.36" , "10.0" , "404 277" , "/77.0.3865.120" ;
+    slog:template   		slog-id:7a42a00cf25640edb0804e5c71fab80f024d5758566fabb4f8d33e6941fead3a ; # originally string
+.
+
+# background knowledge? not yet generated
+slog-id:7a42a00cf25640edb0804e5c71fab80f024d5758566fabb4f8d33e6941fead3a
+	a slog:Template ;
+	rdfs:label 				"7a42a00cf25640edb0804e5c71fab80f024d5758566fabb4f8d33e6941fead3a" ;
+	slog:eventTemplate 		"""GET <*> HTTP/<*>.<*>" <*> <*> "-" "Mozilla/<*>.<*> (Windows NT <*>.<*>; Win64; x64) AppleWebKit/<*>.<*> (KHTML, like Gecko) Chrome<*> Safari/<*>.<*>""" ;
+	slog:eventParameters 	(slog:ParamUnknown slog:ParamUnknown slog:ParamUnknown slog:ParamUnknown slog:ParamUnknown slog:ParamUnknown slog:ParamUnknown) ;
+	# this was in the instance -> but more suitable here.
+    slog:templateKeyword    "http" , "windows nt" , "khtml" , "chrome" , "get" , "gecko" , "x64" , "mozilla" , "win64" , "safari" , "applewebkit" ; 
+.
+
+seps-id:Scenario_Server  # not yet generated
+	a core:Host ;
+	core:ipAddress slog-id:93.243.136.1 ;
+	core:hostName "Scenario-Server" ;
+.
+
+slog-id:93.243.136.1 # not yet generated
+	a core:Ip ; # there is no such class now
+	rdfs:label "93.243.136.158" ;
+.
+
+
+slog-id:12315 # not yet generated
+	a core:Ip ; # there is no such class now
+	rdfs:label "12315" ;
+.

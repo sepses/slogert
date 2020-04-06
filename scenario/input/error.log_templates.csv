@@ -1,6 +1,0 @@
-EventId,EventTemplate,Occurrences
-eaa31300,AH00163: Apache/<*>.<*>.<*> (Ubuntu) configured -- resuming normal operations,2
-e1ff65d0,AH00094: Command line: '/usr/sbin/apache2',1
-7a6f5062,"AH00171: Graceful restart requested, doing restart AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using <*>. Set the 'ServerName' directive globally to suppress this message",1
-b9d27b15,AH00094: Command line: '/usr/sbin/apache2' sh: <*>: /usr/sbin/sendmail: not found,1
-0ba6352f,[client <*>] script '/var/www/html/index.php' not found or unable to stat sh: <*>: /usr/sbin/sendmail: not found,1
