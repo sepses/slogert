@@ -7,13 +7,17 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.StringUtils;
+import org.sepses.yaml.ConfigParameter;
+import org.sepses.yaml.InternalConfig;
 
 import java.util.*;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class EntityRecognition {
 
     private static String RULE_FILE;
+    private static HashMap<String, String> dicCodeToIndex = new LinkedHashMap<>();
 
     private static EntityRecognition singleton = null;
     private StanfordCoreNLP pipeline = null;
@@ -51,9 +55,14 @@ public class EntityRecognition {
      * @param ruleFile
      * @return
      */
-    public static EntityRecognition getInstance(String ruleFile) {
+    public static EntityRecognition getInstance(String ruleFile, List<ConfigParameter> parameters) {
         if (singleton == null || !RULE_FILE.equals(ruleFile)) {
             RULE_FILE = ruleFile;
+            // add non-ner pattern to be checked.
+            parameters.stream().forEach(item -> {
+                dicCodeToIndex.put(item.id, item.regexNer.pattern);
+            });
+
             singleton = new EntityRecognition();
         }
 
@@ -84,21 +93,16 @@ public class EntityRecognition {
             }
         }
 
-        //        HashMap<String, String> dicCodeToIndex = new HashMap<>();
-        //        dicCodeToIndex.put("Path", "/[a-zA-Z0-9-._/]+");
-        //        dicCodeToIndex.put("FileName", "[a-zA-Z0-9-_.]+\\.[a-zA-Z0-9]+");
-        //        dicCodeToIndex.put("FilePath", "[a-zA-Z0-9-._/]+\\.[a-zA-Z0-9]+");
-        //
-        //        // Parse sentence without word tokens - in case they dont split well, like with paths
-        //        for (String regexKey : dicCodeToIndex.keySet()) {
-        //            Pattern pattern = Pattern.compile(dicCodeToIndex.get(regexKey));
-        //            Matcher matcher = pattern.matcher(inputSentence);
-        //
-        //            while (matcher.find()) {
-        //                String found = matcher.group();
-        //                nerList.put(found, regexKey);
-        //            }
-        //        }
+        // Parse sentence without word tokens - in case they dont split well, like with paths
+        for (String regexKey : dicCodeToIndex.keySet()) {
+            Pattern pattern = Pattern.compile(dicCodeToIndex.get(regexKey));
+            Matcher matcher = pattern.matcher(inputSentence);
+
+            while (matcher.find()) {
+                String found = matcher.group();
+                nerList.put(found, regexKey);
+            }
+        }
 
         return nerList;
     }

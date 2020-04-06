@@ -1,0 +1,15 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+logType: unix
+logData: scenario/input/sys.log_structured.csv
+logTemplate: scenario/input/sys.log_templates.csv
+logBaseTemplate: scenario/input/sys.log_templates-base.csv
+isOverride: true
+
+targetData: scenario/output/sys.log_structured.ottr
+targetOttr: scenario/output/sys.log_templates.stottr
+targetTurtle: scenario/output/sys.log_structured.ttl
+targetTemplate: scenario/output/sys-log_templates.ottr
+targetNer: scenario/output/sys-constructed_ner.rules

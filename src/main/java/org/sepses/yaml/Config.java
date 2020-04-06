@@ -17,6 +17,7 @@ public class Config {
 
     public List<ConfigNS> ottrNS;
     public List<ConfigParameter> parameters;
+    public List<ConfigParameter> internalParameters;
 
     public InternalLogType internalLogType;
 }

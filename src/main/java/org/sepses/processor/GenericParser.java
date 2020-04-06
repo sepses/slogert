@@ -15,7 +15,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class GenericParser implements Parser {
 
@@ -37,7 +36,12 @@ public class GenericParser implements Parser {
         // initialization
         hashTemplates = new HashMap<>();
         this.config = config;
+        // add ner parameters
         config.parameters.forEach(parameter -> {
+            parameterMap.put(parameter.id, parameter);
+        });
+        // add non-ner parameters
+        config.internalParameters.forEach(parameter -> {
             parameterMap.put(parameter.id, parameter);
         });
         createOrUpdateTemplate();
@@ -80,9 +84,11 @@ public class GenericParser implements Parser {
     }
 
     /**
+     * TODO: change it to RDF writer
      * @throws IOException
      */
     private void writeTemplate() throws IOException {
+
         StringBuilder sb = new StringBuilder();
         sb.append(String.join(",", TEMPLATE_SLOGERT)).append(System.lineSeparator());
         hashTemplates.entrySet().forEach(pair -> {
@@ -95,6 +101,7 @@ public class GenericParser implements Parser {
             sb.append(String.join("|", template.keywords)).append(System.lineSeparator());
         });
         Utility.writeToFile(sb.toString(), config.logBaseTemplate);
+
     }
 
     @Override public void createOrUpdateTemplate() throws IOException {
@@ -169,19 +176,21 @@ public class GenericParser implements Parser {
 
         logLines.forEach(logLine -> {
             Template template = hashTemplates.get(logLine.getTemplateHash());
-            String keywords = "()";
-            if (!template.keywords.isEmpty()) {
-                keywords = "(\"" + template.keywords.stream().
-                        map(Object::toString).
-                        collect(Collectors.joining("\",\"")).toString() + "\")";
-            }
+
+            // === this should be moved to the template RDF
+            //            String keywords = "()";
+            //            if (!template.keywords.isEmpty()) {
+            //                keywords = "(\"" + template.keywords.stream().
+            //                        map(Object::toString).
+            //                        collect(Collectors.joining("\",\"")).toString() + "\")";
+            //            }
+            //            sb.append(keywords).append(",\"");
 
             sb.append(template.ottrId);
             sb.append("(").append(Template.BASE_OTTR_ID).append(UUID.randomUUID()).append(",\"");
             sb.append(logLine.getDateTime()).append("\",\"");
             sb.append(Utility.cleanContent(logLine.getContent())).append("\",\"");
             sb.append(logLine.getTemplateHash()).append("\",");
-            sb.append(keywords).append(",\"");
 
             // log-specific params
             config.internalLogType.components.stream().forEach(item -> {

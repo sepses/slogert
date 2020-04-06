@@ -39,6 +39,10 @@ public class Template {
         config.parameters.forEach(parameter -> {
             parameterMap.put(parameter.id, parameter);
         });
+        // add non-ner parameters
+        config.internalParameters.forEach(parameter -> {
+            parameterMap.put(parameter.id, parameter);
+        });
         parameters = new ArrayList<>();
         keywords = new ArrayList<>();
     }
@@ -60,7 +64,7 @@ public class Template {
         ottrId = ottrTemplateName;
 
         // *** set keyword
-        EntityRecognition er = EntityRecognition.getInstance(config.targetNer);
+        EntityRecognition er = EntityRecognition.getInstance(config.targetNer, config.internalParameters);
         keywords = er.extractKeywords(templateText);
 
         // *** set & process parameters

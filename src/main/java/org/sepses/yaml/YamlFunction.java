@@ -80,9 +80,19 @@ public class YamlFunction {
             sb.append("} .").append(System.lineSeparator());
         });
 
-        // add params
+        // add params for ner parameters
         config.parameters.forEach(parameter -> {
-            sb.append("# OTTR parameter: ").append(parameter.id).append(System.lineSeparator());
+            sb.append("# OTTR ner parameter: ").append(parameter.id).append(System.lineSeparator());
+            sb.append("id:").append(parameter.id).append("[ottr:IRI ?id, ").append(parameter.ottr.ottrType)
+                    .append(" ?value] :: {").append(System.lineSeparator());
+            sb.append("\t ottr:Triple(?id, ").append(parameter.ottr.ottrProperty).append(", ?value)")
+                    .append(System.lineSeparator());
+            sb.append("} .").append(System.lineSeparator());
+        });
+
+        // add params for non-ner parameters
+        config.internalParameters.forEach(parameter -> {
+            sb.append("# OTTR non-ner parameter: ").append(parameter.id).append(System.lineSeparator());
             sb.append("id:").append(parameter.id).append("[ottr:IRI ?id, ").append(parameter.ottr.ottrType)
                     .append(" ?value] :: {").append(System.lineSeparator());
             sb.append("\t ottr:Triple(?id, ").append(parameter.ottr.ottrProperty).append(", ?value)")

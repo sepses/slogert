@@ -3,9 +3,9 @@
 ##
 
 logType: audit
-logData: scenario/input/ultimate-audit.log_structured.csv
-logTemplate: scenario/input/ultimate-audit.log_templates.csv
-logBaseTemplate: scenario/input/ultimate-audit.log_templates-base.csv
+logData: scenario/input/audit.log_structured.csv
+logTemplate: scenario/input/audit.log_templates.csv
+logBaseTemplate: scenario/input/audit.log_templates-base.csv
 isOverride: true
 
 targetData: scenario/output/audit.log_structured.ottr

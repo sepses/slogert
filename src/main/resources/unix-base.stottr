@@ -17,7 +17,7 @@ id:LineKeywords[ottr:IRI ?id, xsd:string ?value] :: {
 } .
 
 id:UnknownConnection[ottr:IRI ?id, xsd:string ?value] :: {
-    ottr:Triple(?id, slog:connected, ?value)
+    ottr:Triple(?id, slog:contained, ?value)
 } .
 
 # *** YAML Generated Templates ***

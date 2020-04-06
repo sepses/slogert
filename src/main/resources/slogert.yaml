@@ -19,7 +19,7 @@ logTypes:
         ottr:
           ottrPrefix:
           ottrType: xsd:string
-          ottrProperty: slog:localPID
+          ottrProperty: slog:localPid
   - id: unix
     clazz: LogLineUnix.java
     classPath: org.sepses.helper.LogLineUnix
@@ -41,13 +41,13 @@ logTypes:
         ottr:
           ottrPrefix: sid
           ottrType: ottr:IRI
-          ottrProperty: core:host
+          ottrProperty: slog:hostName
       - column: Component
         columnNr: 5
         ottr:
           ottrPrefix:
           ottrType: xsd:string
-          ottrProperty: slog:localPID
+          ottrProperty: slog:localPid
   - id: audit
     clazz: LogLineAudit.java
     classPath: org.sepses.helper.LogLineAudit
@@ -65,7 +65,7 @@ logTypes:
         ottr:
           ottrPrefix: sid
           ottrType: ottr:IRI
-          ottrProperty: core:auditType
+          ottrProperty: slog:auditType
   - id: apache
     clazz: LogLineApache.java
     classPath: org.sepses.helper.LogLineApache
@@ -83,4 +83,38 @@ logTypes:
         ottr:
           ottrPrefix: sid
           ottrType: ottr:IRI
-          ottrProperty: core:connectedIp
+          ottrProperty: slog:userIp
+parameters:
+  - id: path
+    label: Path
+    comment: generic path
+    example: /fajar/test
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedPath
+    regexNer:
+      pattern: "/[a-zA-Z0-9-_/]+"
+      action:
+  - id: fileName
+    label: FileName
+    comment: file name
+    example: fajar.exe
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedFileName
+    regexNer:
+      pattern: "[a-zA-Z0-9-_]+\\.[a-zA-Z]+"
+      action:
+  - id: filePath
+    label: FilePath
+    comment: file name
+    example: /fajar/test/test.txt
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedFileName
+    regexNer:
+      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]+"
+      action:

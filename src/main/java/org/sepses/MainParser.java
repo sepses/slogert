@@ -60,6 +60,10 @@ public class MainParser {
             InternalLogType internalLogType =
                     internalConfig.logTypes.stream().filter(item -> item.id.equals(config.logType)).findFirst().get();
             config.internalLogType = internalLogType;
+
+            // set internal parameter, i.e., non NER regex parameters
+            config.internalParameters = internalConfig.parameters;
+
             // add specific NSs to the config NS list.
             config.ottrNS.addAll(internalLogType.ottrNS);
 

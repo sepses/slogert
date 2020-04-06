@@ -1,0 +1,15 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+logType: apache
+logData: scenario/input/apache-host.log_structured.csv
+logTemplate: scenario/input/apache-host.log_templates.csv
+logBaseTemplate: scenario/input/apache-host.log_templates-base.csv
+isOverride: true
+
+targetData: scenario/output/apache-host.log_structured.ottr
+targetOttr: scenario/output/apache-host.log_templates.stottr
+targetTurtle: scenario/output/apache-host.log_structured.ttl
+targetTemplate: scenario/output/apache-host-log_templates.ottr
+targetNer: scenario/output/apache-host-constructed_ner.rules

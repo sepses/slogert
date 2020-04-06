@@ -3,13 +3,13 @@
 ##
 
 logType: unix
-logData: src/test/resources/authlog_structured.csv
-logTemplate: src/test/resources/authlog_templates.csv
-logBaseTemplate: src/test/resources/base_templates.csv
+logData: scenario/input/auth.log_structured.csv
+logTemplate: scenario/input/auth.log_templates.csv
+logBaseTemplate: scenario/input/auth.log_templates-base.csv
 isOverride: true
 
-targetTemplate: scenario/output/authlog_templates.ottr
-targetData: scenario/output/authlog_structured.ottr
-targetNer: scenario/output/authlog_structured-ner.rules
-targetOttr: scenario/output/authlog_structured-unix.stottr
-targetTurtle: scenario/output/authlog_structured-output.ttl
+targetData: scenario/output/auth.log_structured.ottr
+targetOttr: scenario/output/auth.log_templates.stottr
+targetTurtle: scenario/output/auth.log_structured.ttl
+targetTemplate: scenario/output/auth-log_templates.ottr
+targetNer: scenario/output/auth-constructed_ner.rules

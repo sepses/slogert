@@ -24,38 +24,27 @@ public class YamlParserTest {
         InputStream iConfigIS = YamlParserTest.class.getClassLoader().getResourceAsStream("slogert.yaml");
         Yaml yaml = new Yaml(new Constructor(InternalConfig.class));
         iConfig = yaml.load(iConfigIS);
+
+        InputStream configIS = YamlParserTest.class.getClassLoader().getResourceAsStream("auth-config.yaml");
+        InputStream templateIS = YamlParserTest.class.getClassLoader().getResourceAsStream("std-template.yaml");
+        InputStream is = new SequenceInputStream(configIS, templateIS);
+        yaml = new Yaml(new Constructor(Config.class));
+
+        config = yaml.load(is);
+        config.internalParameters = iConfig.parameters;
+        config.internalLogType =
+                iConfig.logTypes.stream().filter(item -> item.id.equals(config.logType)).findFirst().get();
     }
 
     @Test public void testYamlParser1() {
-        InputStream configIS = YamlParserTest.class.getClassLoader().getResourceAsStream("auth-config.yaml");
-        InputStream templateIS = YamlParserTest.class.getClassLoader().getResourceAsStream("auth-template.yaml");
-        InputStream is = new SequenceInputStream(configIS, templateIS);
-        Yaml yaml = new Yaml(new Constructor(Config.class));
-        config = yaml.load(is);
-        config.internalLogType =
-                iConfig.logTypes.stream().filter(item -> item.id.equals(config.logType)).findFirst().get();
         System.out.println(config.parameters.get(0).regexNer.action);
     }
 
     @Test public void testYamlNerConstruct() throws IOException {
-        InputStream configIS = YamlParserTest.class.getClassLoader().getResourceAsStream("auth-config.yaml");
-        InputStream templateIS = YamlParserTest.class.getClassLoader().getResourceAsStream("auth-template.yaml");
-        InputStream is = new SequenceInputStream(configIS, templateIS);
-        Yaml yaml = new Yaml(new Constructor(Config.class));
-        config = yaml.load(is);
-        config.internalLogType =
-                iConfig.logTypes.stream().filter(item -> item.id.equals(config.logType)).findFirst().get();
         YamlFunction.constructRegexNer(config);
     }
 
     @Test public void testYamlOttrConstruct() throws IOException {
-        InputStream configIS = YamlParserTest.class.getClassLoader().getResourceAsStream("auth-config.yaml");
-        InputStream templateIS = YamlParserTest.class.getClassLoader().getResourceAsStream("auth-template.yaml");
-        InputStream is = new SequenceInputStream(configIS, templateIS);
-        Yaml yaml = new Yaml(new Constructor(Config.class));
-        config = yaml.load(is);
-        config.internalLogType =
-                iConfig.logTypes.stream().filter(item -> item.id.equals(config.logType)).findFirst().get();
         YamlFunction.constructOttrTemplate(config);
     }
 
