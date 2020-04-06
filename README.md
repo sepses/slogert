@@ -24,4 +24,9 @@ and therefore you still need to do it in several steps as follows.
     scenario/output/apache-access.log_structured.ottr --mode expand --fetchMissing > scenario/output/apache-access.log_structured.ttl```) 
 5) Execute the transformation of the OTTR files into RDF graph using the command above from command line.  
         
+## Scenario execution 
+
+A script for executing transformation data for scenario has been created in the scenario folder `scenario/scenario.sh`    
+to run it, after you compile the project (`mvn clean install`), run `./scenario/scenario.sh` from project folder.
+
            
