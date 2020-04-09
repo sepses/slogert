@@ -5,8 +5,6 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
-import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.riot.RDFFormat;
 import org.sepses.helper.*;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.ConfigParameter;
@@ -89,15 +87,14 @@ public class GenericParser implements Parser {
         }
     }
 
-
     private void saveTemplates() {
 
     }
 
     private void writeTemplates() throws IOException {
 
-        String location = config.targetTemplate;
-        RDFDataMgr.write(new FileOutputStream(location), templateDS, RDFFormat.TRIG);
+        //        String location = config.targetTemplate;
+        //        RDFDataMgr.write(new FileOutputStream(location), templateDS, RDFFormat.TRIG);
 
     }
 
@@ -128,7 +125,7 @@ public class GenericParser implements Parser {
         extractTemplate(inputTemplates, logLines);
 
         // *** write templates
-        writeTemplates();
+        //        writeTemplates();
 
         // *** close readers
         templateReader.close();

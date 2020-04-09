@@ -20,14 +20,14 @@ function getDuration() {
 
 ## == process transformation to OTTR format
 
-java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/ftp-config.yaml -t src/test/resources/std-template.yaml
-java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/kern-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/sys-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-access-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-error-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-host-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/audit-config.yaml -t src/test/resources/std-template.yaml
+java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/ftp-config.yaml -t src/test/resources/std-template.yaml
+java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/kern-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/sys-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-access-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-error-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-host-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/audit-config.yaml -t src/test/resources/std-template.yaml
 
 
 ## == transform OTTR to Turtle
