@@ -40,7 +40,7 @@ logTypes:
         columnNr: 4
         ottr:
           ottrPrefix: sid
-          ottrType: ottr:IRI
+          ottrType: xsd:string
           ottrProperty: slog:hostName
       - column: Component
         columnNr: 5
@@ -64,7 +64,7 @@ logTypes:
         columnNr: 1
         ottr:
           ottrPrefix: sid
-          ottrType: ottr:IRI
+          ottrType: xsd:string
           ottrProperty: slog:auditType
   - id: apache
     clazz: LogLineApache.java
@@ -82,5 +82,5 @@ logTypes:
         columnNr: 1
         ottr:
           ottrPrefix: sid
-          ottrType: ottr:IRI
+          ottrType: xsd:string
           ottrProperty: slog:userIp
