@@ -84,37 +84,3 @@ logTypes:
           ottrPrefix: sid
           ottrType: ottr:IRI
           ottrProperty: slog:userIp
-parameters:
-  - id: path
-    label: Path
-    comment: generic path
-    example: /fajar/test
-    ottr:
-      ottrPrefix:
-      ottrType: xsd:string
-      ottrProperty: slog:containedPath
-    regexNer:
-      pattern: "/[a-zA-Z0-9-_/]+"
-      action:
-  - id: fileName
-    label: FileName
-    comment: file name
-    example: fajar.exe
-    ottr:
-      ottrPrefix:
-      ottrType: xsd:string
-      ottrProperty: slog:containedFileName
-    regexNer:
-      pattern: "[a-zA-Z0-9-_]+\\.[a-zA-Z]+"
-      action:
-  - id: filePath
-    label: FilePath
-    comment: file name
-    example: /fajar/test/test.txt
-    ottr:
-      ottrPrefix:
-      ottrType: xsd:string
-      ottrProperty: slog:containedFileName
-    regexNer:
-      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]+"
-      action:

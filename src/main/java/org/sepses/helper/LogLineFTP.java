@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 public class LogLineFTP extends LogLine {
 
     private static final Logger log = LoggerFactory.getLogger(LogLineFTP.class);
-    private static final String[] TEMPLATE_UNIX_LOG =
+    private static final String[] TEMPLATE_HEADER =
             //            {"LineId", "Month", "Date", "Time", "Type", "Component", "Content", "EventId", "EventTemplate","ParameterList" };
             { "LineId", "dayOfWeek", "month", "day", "time", "year", "pid", "pidNumber", "Content", "EventId",
                     "EventTemplate", "ParameterList" };
@@ -18,14 +18,14 @@ public class LogLineFTP extends LogLine {
     public LogLineFTP(CSVRecord record, InternalLogType ilogType) throws NoSuchAlgorithmException {
         super(record, ilogType);
 
-        counter = Integer.parseInt(record.get(TEMPLATE_UNIX_LOG[0]));
-        dateTime = Utility.getDate(record.get(TEMPLATE_UNIX_LOG[2]), record.get(TEMPLATE_UNIX_LOG[3]),
-                record.get(TEMPLATE_UNIX_LOG[4]));
-        content = record.get(TEMPLATE_UNIX_LOG[8]);
-        logpaiEventId = record.get(TEMPLATE_UNIX_LOG[9]);
-        templateHash = Utility.createHash(record.get(TEMPLATE_UNIX_LOG[10]));
+        counter = Integer.parseInt(record.get(TEMPLATE_HEADER[0]));
+        dateTime = Utility.getDate(record.get(TEMPLATE_HEADER[2]), record.get(TEMPLATE_HEADER[3]),
+                record.get(TEMPLATE_HEADER[4]));
+        content = record.get(TEMPLATE_HEADER[8]);
+        logpaiEventId = record.get(TEMPLATE_HEADER[9]);
+        templateHash = Utility.createHash(record.get(TEMPLATE_HEADER[10]));
 
-        setParameters(record.get(TEMPLATE_UNIX_LOG[11]));
+        setParameters(record.get(TEMPLATE_HEADER[11]));
 
     }
 

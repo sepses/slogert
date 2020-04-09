@@ -5,7 +5,6 @@ import org.sepses.helper.Utility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -37,7 +36,7 @@ public class YamlFunction {
         InputStream nerIS = YamlFunction.class.getClassLoader().getResourceAsStream(NER_BASE);
         sb.append(IOUtils.toString(nerIS, Charset.defaultCharset()));
 
-        config.parameters.forEach(parameter -> {
+        config.nerParameters.forEach(parameter -> {
             sb.append("{ ruleType: \"tokens\", ");
             sb.append("pattern: ").append(parameter.regexNer.pattern).append(", ");
             sb.append("action: ").append(parameter.regexNer.action).append(", ");
@@ -80,8 +79,8 @@ public class YamlFunction {
             sb.append("} .").append(System.lineSeparator());
         });
 
-        // add params for ner parameters
-        config.parameters.forEach(parameter -> {
+        // add params for ner nerParameters
+        config.nerParameters.forEach(parameter -> {
             sb.append("# OTTR ner parameter: ").append(parameter.id).append(System.lineSeparator());
             sb.append("id:").append(parameter.id).append("[ottr:IRI ?id, ").append(parameter.ottr.ottrType)
                     .append(" ?value] :: {").append(System.lineSeparator());
@@ -90,8 +89,8 @@ public class YamlFunction {
             sb.append("} .").append(System.lineSeparator());
         });
 
-        // add params for non-ner parameters
-        config.internalParameters.forEach(parameter -> {
+        // add params for non-ner nerParameters
+        config.nonNerParameters.forEach(parameter -> {
             sb.append("# OTTR non-ner parameter: ").append(parameter.id).append(System.lineSeparator());
             sb.append("id:").append(parameter.id).append("[ottr:IRI ?id, ").append(parameter.ottr.ottrType)
                     .append(" ?value] :: {").append(System.lineSeparator());

@@ -3,6 +3,10 @@ package org.sepses.processor;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.IOUtils;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.DatasetFactory;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFFormat;
 import org.sepses.helper.*;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.ConfigParameter;
@@ -26,8 +30,10 @@ public class GenericParser implements Parser {
     private final Map<String, Template> hashTemplates;
     private final Config config;
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
+    private final Dataset templateDS;
 
     public GenericParser(Config config) throws IOException {
+        templateDS = DatasetFactory.create();
 
         // init regexNER & OTTR template
         YamlFunction.constructRegexNer(config);
@@ -36,15 +42,15 @@ public class GenericParser implements Parser {
         // initialization
         hashTemplates = new HashMap<>();
         this.config = config;
-        // add ner parameters
-        config.parameters.forEach(parameter -> {
-            parameterMap.put(parameter.id, parameter);
-        });
-        // add non-ner parameters
-        config.internalParameters.forEach(parameter -> {
-            parameterMap.put(parameter.id, parameter);
-        });
+
+        // add NER and non-NER parameters
+        config.nerParameters.forEach(item -> parameterMap.put(item.id, item));
+        config.nonNerParameters.forEach(item -> parameterMap.put(item.id, item));
+
+        // parsing & update template
         createOrUpdateTemplate();
+
+        templateDS.close();
     }
 
     /**
@@ -55,7 +61,7 @@ public class GenericParser implements Parser {
      */
     private void extractTemplate(Iterable<CSVRecord> logpaiStructure, List<LogLine> inputData) {
 
-        // *** Annotate template parameters
+        // *** Annotate template nerParameters
         for (CSVRecord templateCandidate : logpaiStructure) {
             try {
                 String logpaiEventId = templateCandidate.get(TEMPLATE_LOGPAI[0]);
@@ -83,24 +89,15 @@ public class GenericParser implements Parser {
         }
     }
 
-    /**
-     * TODO: change it to RDF writer
-     * @throws IOException
-     */
-    private void writeTemplate() throws IOException {
 
-//        StringBuilder sb = new StringBuilder();
-//        sb.append(String.join(",", TEMPLATE_SLOGERT)).append(System.lineSeparator());
-//        hashTemplates.entrySet().forEach(pair -> {
-//            // String hash, String templateText, String ottrId, String parameters, String keywords
-//            Template template = pair.getValue();
-//            sb.append(pair.getKey()).append(",\"");
-//            sb.append(template.templateText).append("\",");
-//            sb.append(template.ottrId).append(",");
-//            sb.append(String.join("|", template.parameters)).append(",");
-//            sb.append(String.join("|", template.keywords)).append(System.lineSeparator());
-//        });
-//        Utility.writeToFile(sb.toString(), config.logBaseTemplate);
+    private void saveTemplates() {
+
+    }
+
+    private void writeTemplates() throws IOException {
+
+        String location = config.targetTemplate;
+        RDFDataMgr.write(new FileOutputStream(location), templateDS, RDFFormat.TRIG);
 
     }
 
@@ -131,7 +128,7 @@ public class GenericParser implements Parser {
         extractTemplate(inputTemplates, logLines);
 
         // *** write templates
-        writeTemplate();
+        writeTemplates();
 
         // *** close readers
         templateReader.close();

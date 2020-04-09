@@ -36,11 +36,11 @@ public class Template {
         this.hash = hash;
         this.templateText = templateText;
         this.config = config;
-        config.parameters.forEach(parameter -> {
+        config.nerParameters.forEach(parameter -> {
             parameterMap.put(parameter.id, parameter);
         });
-        // add non-ner parameters
-        config.internalParameters.forEach(parameter -> {
+        // add non-ner nerParameters
+        config.nonNerParameters.forEach(parameter -> {
             parameterMap.put(parameter.id, parameter);
         });
         parameters = new ArrayList<>();
@@ -64,10 +64,10 @@ public class Template {
         ottrId = ottrTemplateName;
 
         // *** set keyword
-        EntityRecognition er = EntityRecognition.getInstance(config.targetNer, config.internalParameters);
+        EntityRecognition er = EntityRecognition.getInstance(config.targetNer, config.nonNerParameters);
         keywords = er.extractKeywords(templateText);
 
-        // *** set & process parameters
+        // *** set & process nerParameters
         HashMap<String, String> matchedExpressions = er.annotateSentence(logLine.getContent());
         int paramSize = logLine.getParameters().size();
         if (paramSize > 0) {

@@ -1,8 +1,8 @@
 ##
-# - these parameters will be used to generate both OTTR template and Stanford RegexNER rules.
+# - these nerParameters will be used to generate both OTTR template and Stanford RegexNER rules.
 ##
 
-parameters:
+nerParameters:
   - id: ip
     label: Ip
     comment: An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication
@@ -58,10 +58,44 @@ parameters:
     regexNer:
       pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
       action: Annotate($1, ner, "user")
+nonNerParameters:
+  - id: path
+    label: Path
+    comment: generic path
+    example: /fajar/test
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedPath
+    regexNer:
+      pattern: "/[a-zA-Z0-9-_/]+"
+      action:
+  - id: fileName
+    label: FileName
+    comment: file name
+    example: fajar.exe
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedFileName
+    regexNer:
+      pattern: "[a-zA-Z0-9-_]+\\.[a-zA-Z]+"
+      action:
+  - id: filePath
+    label: FilePath
+    comment: file name
+    example: /fajar/test/test.txt
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedFileName
+    regexNer:
+      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]+"
+      action:
 
 ##
 # - these namespaces will be written in both ottr templates and instances
-# - you should put in all prefixes that you use in parameters above
+# - you should put in all prefixes that you use in nerParameters above
 ##
 
 ottrNS:

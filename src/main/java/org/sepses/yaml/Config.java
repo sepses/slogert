@@ -16,8 +16,8 @@ public class Config {
     public String targetTemplate;
 
     public List<ConfigNS> ottrNS;
-    public List<ConfigParameter> parameters;
-    public List<ConfigParameter> internalParameters;
+    public List<ConfigParameter> nerParameters;
+    public List<ConfigParameter> nonNerParameters;
 
     public InternalLogType internalLogType;
 }

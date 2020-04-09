@@ -24,6 +24,7 @@ public class MainParser {
 
     public static void main(String[] args) throws ParseException, IOException {
 
+        // loading internal configuration file.
         InputStream internalConfigIS = MainParser.class.getClassLoader().getResourceAsStream(INTERNAL_CONFIG);
         Yaml yaml = new Yaml(new Constructor(InternalConfig.class));
         internalConfig = yaml.load(internalConfigIS);
@@ -43,7 +44,7 @@ public class MainParser {
 
         yaml = new Yaml(new Constructor(Config.class));
 
-        // check
+        // check whether the parameters are files
         if (!configFile.isFile() || !templateFile.isFile())
             return;
 
@@ -56,15 +57,12 @@ public class MainParser {
         long end;
 
         try {
-            // check and set internalLogType when it is registered
+            // get internalLogType from the known log type list
             InternalLogType internalLogType =
                     internalConfig.logTypes.stream().filter(item -> item.id.equals(config.logType)).findFirst().get();
+            // set internal logtype; throw error when not found
             config.internalLogType = internalLogType;
-
-            // set internal parameter, i.e., non NER regex parameters
-            config.internalParameters = internalConfig.parameters;
-
-            // add specific NSs to the config NS list.
+            // add specific NS to the config NS list.
             config.ottrNS.addAll(internalLogType.ottrNS);
 
             log.info("*** start log parser ***");
