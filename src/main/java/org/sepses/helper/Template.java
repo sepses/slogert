@@ -20,8 +20,8 @@ public class Template {
 
     private static final Logger log = LoggerFactory.getLogger(Template.class);
     private final String BASE_HEADER =
-            "[ottr:IRI ?id, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash, List<xsd:string> ?keywords";
-    private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?timeStamp, ?message, ?templateHash, ?keywords)";
+            "[ottr:IRI ?id, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash";
+    private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?timeStamp, ?message, ?templateHash)";
     private final Config config;
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
 

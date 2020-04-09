@@ -89,18 +89,18 @@ public class GenericParser implements Parser {
      */
     private void writeTemplate() throws IOException {
 
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.join(",", TEMPLATE_SLOGERT)).append(System.lineSeparator());
-        hashTemplates.entrySet().forEach(pair -> {
-            // String hash, String templateText, String ottrId, String parameters, String keywords
-            Template template = pair.getValue();
-            sb.append(pair.getKey()).append(",\"");
-            sb.append(template.templateText).append("\",");
-            sb.append(template.ottrId).append(",");
-            sb.append(String.join("|", template.parameters)).append(",");
-            sb.append(String.join("|", template.keywords)).append(System.lineSeparator());
-        });
-        Utility.writeToFile(sb.toString(), config.logBaseTemplate);
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(String.join(",", TEMPLATE_SLOGERT)).append(System.lineSeparator());
+//        hashTemplates.entrySet().forEach(pair -> {
+//            // String hash, String templateText, String ottrId, String parameters, String keywords
+//            Template template = pair.getValue();
+//            sb.append(pair.getKey()).append(",\"");
+//            sb.append(template.templateText).append("\",");
+//            sb.append(template.ottrId).append(",");
+//            sb.append(String.join("|", template.parameters)).append(",");
+//            sb.append(String.join("|", template.keywords)).append(System.lineSeparator());
+//        });
+//        Utility.writeToFile(sb.toString(), config.logBaseTemplate);
 
     }
 
@@ -190,7 +190,7 @@ public class GenericParser implements Parser {
             sb.append("(").append(Template.BASE_OTTR_ID).append(UUID.randomUUID()).append(",\"");
             sb.append(logLine.getDateTime()).append("\",\"");
             sb.append(Utility.cleanContent(logLine.getContent())).append("\",\"");
-            sb.append(logLine.getTemplateHash()).append("\",");
+            sb.append(logLine.getTemplateHash()).append("\",\"");
 
             // log-specific params
             config.internalLogType.components.stream().forEach(item -> {
