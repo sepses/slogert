@@ -5,11 +5,12 @@
 logType: ftp
 logData: scenario/input/vsftpd.log_structured.csv
 logTemplate: scenario/input/vsftpd.log_templates.csv
-logBaseTemplate: scenario/input/vsftpd.log_templates-base.csv
 isOverride: true
 
 targetData: scenario/output/vsftpd.log_structured.ottr
 targetOttr: scenario/output/vsftpd.log_templates.stottr
 targetTurtle: scenario/output/vsftpd.log_structured.ttl
 targetTemplate: scenario/output/vsftpd-log_templates.ottr
-targetNer: scenario/output/vsftpd-constructed_ner.rules
+
+targetNer: scenario/ner.rules
+templateRdf: scenario/std-template.trig

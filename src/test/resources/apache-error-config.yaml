@@ -5,11 +5,12 @@
 logType: ftp
 logData: scenario/input/apache-error.log_structured.csv
 logTemplate: scenario/input/apache-error.log_templates.csv
-logBaseTemplate: scenario/input/apache-error.log_templates-base.csv
 isOverride: true
 
 targetData: scenario/output/apache-error.log_structured.ottr
 targetOttr: scenario/output/apache-error.log_templates.stottr
 targetTurtle: scenario/output/apache-error.log_structured.ttl
 targetTemplate: scenario/output/apache-error-log_templates.ottr
-targetNer: scenario/output/apache-error-constructed_ner.rules
+
+targetNer: scenario/ner.rules
+templateRdf: scenario/std-template.trig

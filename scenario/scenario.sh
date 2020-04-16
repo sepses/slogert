@@ -20,22 +20,22 @@ function getDuration() {
 
 ## == process transformation to OTTR format
 
-java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/ftp-config.yaml -t src/test/resources/std-template.yaml
-java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/kern-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/sys-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-access-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-error-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-host-config.yaml -t src/test/resources/std-template.yaml
-#java -jar target/slogert-1.2.1-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/audit-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-0.5.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/ftp-config.yaml -t src/test/resources/std-template.yaml
+java -jar target/slogert-0.5.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-0.5.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/kern-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-0.5.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/sys-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-0.5.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-access-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-0.5.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-error-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-0.5.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-host-config.yaml -t src/test/resources/std-template.yaml
+#java -jar target/slogert-0.5.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/audit-config.yaml -t src/test/resources/std-template.yaml
 
 
 ## == transform OTTR to Turtle
 
-start=$SECONDS
-java -jar exe/lutra.jar --library scenario/output/vsftpd-log_templates.ottr --libraryFormat stottr --inputFormat stottr scenario/output/vsftpd.log_structured.ottr --mode expand --fetchMissing > scenario/output-ttl/vsftpd.log_structured.ttl
-duration=$(( SECONDS - start ))
-getDuration "ftp" $duration
+#start=$SECONDS
+#java -jar exe/lutra.jar --library scenario/output/vsftpd-log_templates.ottr --libraryFormat stottr --inputFormat stottr scenario/output/vsftpd.log_structured.ottr --mode expand --fetchMissing > scenario/output-ttl/vsftpd.log_structured.ttl
+#duration=$(( SECONDS - start ))
+#getDuration "ftp" $duration
 #
 start=$SECONDS
 java -jar exe/lutra.jar --library scenario/output/auth-log_templates.ottr --libraryFormat stottr --inputFormat stottr scenario/output/auth.log_structured.ottr --mode expand --fetchMissing > scenario/output-ttl/auth.log_structured.ttl

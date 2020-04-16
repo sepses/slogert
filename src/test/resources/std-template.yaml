@@ -114,6 +114,6 @@ ottrNS:
   - prefix: slog
     uri: http://w3id.org/sepses/vocab/log/slogert#
   - prefix: sid
-    uri: http://w3id.org/sepses/slogert-id/
+    uri: http://w3id.org/sepses/id/slogert/
   - prefix: id
     uri: http://w3id.org/sepses/id/

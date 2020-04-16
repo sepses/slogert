@@ -5,14 +5,28 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
-import org.sepses.helper.*;
+import org.apache.jena.query.ReadWrite;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.vocabulary.OWL;
+import org.apache.jena.vocabulary.RDF;
+import org.sepses.helper.LogLine;
+import org.sepses.helper.Template;
+import org.sepses.helper.Utility;
+import org.sepses.rdf.Slogert;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.ConfigParameter;
+import org.sepses.yaml.InternalLogType;
 import org.sepses.yaml.YamlFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
 import java.nio.charset.Charset;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
@@ -23,15 +37,13 @@ public class GenericParser implements Parser {
     private static final Logger log = LoggerFactory.getLogger(GenericParser.class);
 
     private static final String[] TEMPLATE_LOGPAI = { "EventId", "EventTemplate", "Occurrences" };
-    private static final String[] TEMPLATE_SLOGERT = { "Hash", "EventTemplate", "OttrID", "Parameters", "Keywords" };
 
     private final Map<String, Template> hashTemplates;
     private final Config config;
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
-    private final Dataset templateDS;
+    private final Constructor<?> constructor;
 
-    public GenericParser(Config config) throws IOException {
-        templateDS = DatasetFactory.create();
+    public GenericParser(Config config) throws IOException, ReflectiveOperationException {
 
         // init regexNER & OTTR template
         YamlFunction.constructRegexNer(config);
@@ -41,14 +53,17 @@ public class GenericParser implements Parser {
         hashTemplates = new HashMap<>();
         this.config = config;
 
-        // add NER and non-NER parameters
+        // add NER and non-NER parameterList
         config.nerParameters.forEach(item -> parameterMap.put(item.id, item));
         config.nonNerParameters.forEach(item -> parameterMap.put(item.id, item));
 
+        // initialize reflective class for logline
+        String clazzString = config.internalLogType.classPath;
+        Class<?> clazz = Class.forName(clazzString);
+        constructor = clazz.getConstructor(CSVRecord.class, InternalLogType.class);
+
         // parsing & update template
         createOrUpdateTemplate();
-
-        templateDS.close();
     }
 
     /**
@@ -87,49 +102,82 @@ public class GenericParser implements Parser {
         }
     }
 
-    private void saveTemplates() {
-
-    }
-
-    private void writeTemplates() throws IOException {
-
-        //        String location = config.targetTemplate;
-        //        RDFDataMgr.write(new FileOutputStream(location), templateDS, RDFFormat.TRIG);
-
-    }
-
     @Override public void createOrUpdateTemplate() throws IOException {
+        String namedGraph = Slogert.NS_INSTANCE + config.logType;
+        Dataset templateDS = DatasetFactory.createTxnMem();
 
-        // *** load existing hashTemplates
-        if (!config.isOverride) {
-            String logpaiTemplateString = getClass().getClassLoader().getResource(config.logBaseTemplate).getFile();
-            if (!logpaiTemplateString.isEmpty()) {
-                File logpaiTemplate = new File(logpaiTemplateString);
-                Reader reader = new FileReader(logpaiTemplate);
-                Iterable<CSVRecord> readerIterator = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(reader);
-                hashTemplates.putAll(Utility.loadTemplates(readerIterator, config));
-                reader.close();
+        templateDS.begin(ReadWrite.WRITE);
+        log.debug("read and collect input logpai structure");
+        try {
+
+            // *** load existing hashTemplates
+            File templateRDF = new File(config.templateRdf);
+            log.debug("file: " + templateRDF.getAbsolutePath());
+            if (templateRDF.isFile()) {
+                log.debug("isFile");
+                FileInputStream fis = new FileInputStream(config.templateRdf);
+                log.debug("fis initialization");
+                RDFDataMgr.read(templateDS, fis, Lang.TRIG);
+                fis.close();
+
+                log.debug("reading in fis");
+                if (templateDS.containsNamedModel(namedGraph)) {
+                    log.debug("contain named graph");
+                    hashTemplates.putAll(Template.fromModel(templateDS.getNamedModel(namedGraph), config));
+                    log.debug("read to templates");
+                }
             }
+
+            // *** read and collect input logpai structure
+            Reader templateReader = new FileReader(Paths.get(config.logTemplate).toFile());
+            Iterable<CSVRecord> inputTemplates = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(templateReader);
+            log.debug("read and collect input logpai structure");
+
+            // *** read and collect input logpai data
+            Reader dataReader = new FileReader(Paths.get(config.logData).toFile());
+            Iterable<CSVRecord> inputData = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
+            List<LogLine> logLines = new ArrayList<>();
+            inputData.forEach(inputRow -> logLines.add(createLogLine(inputRow)));
+            log.debug("read and collect input logpai data");
+
+            // *** derive hashTemplates
+            extractTemplate(inputTemplates, logLines);
+            log.debug("derive hashTemplates");
+
+            // *** close readers
+            templateReader.close();
+            dataReader.close();
+            log.debug("close readers");
+
+            // *** setup DS
+            if (templateDS.getDefaultModel().isEmpty()) {
+                Model defaultModel = ModelFactory.createDefaultModel();
+                config.ottrNS.stream().forEach(ns -> defaultModel.setNsPrefix(ns.prefix, ns.uri));
+                Resource resource = defaultModel.createResource(Slogert.getURI());
+                defaultModel.add(resource, RDF.type, OWL.Ontology);
+
+                templateDS.setDefaultModel(defaultModel);
+                templateDS.getDefaultModel().setNsPrefixes(defaultModel.getNsPrefixMap());
+            }
+            log.debug("setup ds");
+
+            // *** write templates
+            Model model = ModelFactory.createOntologyModel();
+            hashTemplates.values().stream().forEach(item -> model.add(item.toModel()));
+            templateDS.replaceNamedModel(namedGraph, model);
+            templateDS.commit();
+            log.debug("commits");
+
+            FileOutputStream fos = new FileOutputStream(config.templateRdf);
+            RDFDataMgr.write(fos, templateDS, RDFFormat.TRIG);
+            log.debug("write templates");
+
+        } catch (Exception e) {
+            log.error("*** Jena Dataset error ***");
+            log.error(e.getMessage());
+        } finally {
+            templateDS.end();
         }
-
-        // *** read and collect input logpai structure
-        Reader templateReader = new FileReader(Paths.get(config.logTemplate).toFile());
-        Iterable<CSVRecord> inputTemplates = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(templateReader);
-        // *** read and collect input logpai data
-        Reader dataReader = new FileReader(Paths.get(config.logData).toFile());
-        Iterable<CSVRecord> inputData = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
-        List<LogLine> logLines = new ArrayList<>();
-        inputData.forEach(inputRow -> logLines.add(createLogLine(inputRow)));
-
-        // *** derive hashTemplates
-        extractTemplate(inputTemplates, logLines);
-
-        // *** write templates
-        //        writeTemplates();
-
-        // *** close readers
-        templateReader.close();
-        dataReader.close();
     }
 
     @Override public void generateOttrMap() throws IOException {
@@ -143,7 +191,7 @@ public class GenericParser implements Parser {
             sb.append(System.lineSeparator()).append(System.lineSeparator());
 
             hashTemplates.values().stream().forEach(template -> {
-                sb.append(template.ottrTemplate);
+                sb.append(template.generateOttrTemplate());
                 sb.append(System.lineSeparator());
             });
         } catch (IOException e) {
@@ -171,44 +219,23 @@ public class GenericParser implements Parser {
         logLines.forEach(logLine -> {
             Template template = hashTemplates.get(logLine.getTemplateHash());
 
-            // === this should be moved to the template RDF
-            //            String keywords = "()";
-            //            if (!template.keywords.isEmpty()) {
-            //                keywords = "(\"" + template.keywords.stream().
-            //                        map(Object::toString).
-            //                        collect(Collectors.joining("\",\"")).toString() + "\")";
-            //            }
-            //            sb.append(keywords).append(",\"");
-
             sb.append(template.ottrId);
             sb.append("(").append(Template.BASE_OTTR_ID).append(UUID.randomUUID()).append(",\"");
             sb.append(logLine.getDateTime()).append("\",\"");
-            sb.append(Utility.cleanContent(logLine.getContent())).append("\",\"");
+            sb.append(Utility.cleanContent(logLine.getContent())).append("\",\""); // necessary due to OTTR issue
             sb.append(logLine.getTemplateHash()).append("\",\"");
 
             // log-specific params
             config.internalLogType.components.stream().forEach(item -> {
                 String value = logLine.getSpecialParameters().get(item.column);
-                if (item.ottr.ottrType.equals("ottr:IRI")) {
-                    sb.delete(sb.length() - 1, sb.length());
-                    sb.append(value).append(",\"");
-                } else {
-                    sb.append(value).append("\",\"");
-                }
+                sb.append(value).append("\",\"");
             });
 
             for (int i = 0; i < template.parameters.size(); i++) {
                 String paramString = logLine.getParameters().get(i);
                 String paramType = template.parameters.get(i);
                 ConfigParameter parameter = parameterMap.get(paramType);
-                if (paramType.equals(Template.UNKNOWN_PARAMETER) || !parameter.ottr.ottrType
-                        .equals(Utility.OTTR_IRI)) {
-                    sb.append(Utility.cleanContent(paramString)).append("\",\"");
-                } else {
-                    sb.delete(sb.length() - 1, sb.length());
-                    paramString = parameter.ottr.ottrPrefix + ":" + Utility.cleanUriContent(paramString);
-                    sb.append(paramString).append(",\"");
-                }
+                sb.append(Utility.cleanContent(paramString)).append("\",\"");
             }
 
             sb.delete(sb.length() - 2, sb.length());
@@ -227,23 +254,15 @@ public class GenericParser implements Parser {
      * @throws NoSuchAlgorithmException
      */
     private LogLine createLogLine(CSVRecord record) {
-        LogLine logline;
+        LogLine logline = null;
 
         try {
-            if (config.logType.equals("unix")) {
-                logline = new LogLineUnix(record, config.internalLogType);
-            } else if (config.logType.equals("audit")) {
-                logline = new LogLineAudit(record, config.internalLogType);
-            } else if (config.logType.equals("ftp")) {
-                logline = new LogLineFTP(record, config.internalLogType);
-            } else if (config.logType.equals("apache")) {
-                logline = new LogLineApache(record, config.internalLogType);
-            } else {
-                logline = null;
-            }
-        } catch (NoSuchAlgorithmException e) {
+            logline = (LogLine) constructor.newInstance(record, config.internalLogType);
+        } catch (ReflectiveOperationException e) {
+            log.error("reflection error");
             log.error(e.getMessage());
-            logline = null;
+        } catch (Exception e) {
+            log.error(e.getMessage());
         }
 
         return logline;

@@ -24,10 +24,7 @@ public abstract class LogLine {
 
         iLogType.components.stream().forEach(component -> {
             String data = record.get(component.column);
-            if (component.ottr.ottrType.equals("ottr:IRI")) {
-                data = Utility.cleanUriContent(data);
-                data = component.ottr.ottrPrefix + ":" + data;
-            }
+            data = Utility.cleanContent(data);
             specialParameters.put(component.column, data);
         });
     }

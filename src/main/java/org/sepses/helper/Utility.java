@@ -1,7 +1,6 @@
 package org.sepses.helper;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.sepses.yaml.Config;
@@ -15,7 +14,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.*;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
@@ -24,7 +26,7 @@ public class Utility {
 
     public static final String TIME_ZONE = "Europe/Vienna";
     public static final String SECONDS = "SECONDS";
-    public static final String OTTR_IRI = "ottr:IRI";
+    public static final String XSD_DATETIME = "yyyy-MM-dd'T'HH:mm:ss";
 
     private static final Logger log = LoggerFactory.getLogger(Utility.class);
 
@@ -65,14 +67,21 @@ public class Utility {
         writer.close();
     }
 
-    public static Map<String, Template> loadTemplates(Iterable<CSVRecord> existingTemplates, Config config) {
-
+    /**
+     * TODO: finish this.
+     *
+     * @param filePath
+     * @param config
+     * @return
+     */
+    public static Map<String, Template> loadTemplates(String filePath, Config config) {
+        //
         Map<String, Template> templatesMap = new HashMap<>();
-        existingTemplates.forEach(existingTemplate -> {
-            Template template = Template.parseExistingTemplate(existingTemplate, config);
-            templatesMap.put(template.hash, template);
-        });
-
+        //        existingTemplates.forEach(existingTemplate -> {
+        //            Template template = Template.parseExistingTemplate(existingTemplate, config);
+        //            templatesMap.put(template.hash, template);
+        //        });
+        //
         return templatesMap;
     }
 
@@ -97,7 +106,7 @@ public class Utility {
 
         Date dateRepresentation = cal.getTime();
 
-        SimpleDateFormat xmlDateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        SimpleDateFormat xmlDateFormatter = new SimpleDateFormat(XSD_DATETIME);
         String dateString;
 
         dateString = xmlDateFormatter.format(dateRepresentation);
@@ -126,6 +135,6 @@ public class Utility {
             }
         }
 
-        return dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"));
+        return dateTime.format(DateTimeFormatter.ofPattern(XSD_DATETIME));
     }
 }

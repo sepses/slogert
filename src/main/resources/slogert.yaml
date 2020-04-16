@@ -5,7 +5,7 @@
 lastModified: 2020-03-31T01:21:00
 logTypes:
   - id: ftp
-    clazz: LogLineFTP.java
+    clazz: slog:FtpLogEntry
     classPath: org.sepses.helper.LogLineFTP
     header: LineId,dayOfWeek,month,day,time,year,pid,pidNumber,Content,EventId,EventTemplate,ParameterList
     ottrNS:
@@ -21,7 +21,7 @@ logTypes:
           ottrType: xsd:string
           ottrProperty: slog:localPid
   - id: unix
-    clazz: LogLineUnix.java
+    clazz: slog:UnixLogEntry
     classPath: org.sepses.helper.LogLineUnix
     header: LineId,Month,Date,Time,Type,Component,Content,EventId,EventTemplate,ParameterList
     ottrNS:
@@ -32,7 +32,7 @@ logTypes:
       - prefix: xsd
         uri: http://www.w3.org/2001/XMLSchema#
       - prefix: sid
-        uri: http://w3id.org/sepses/slogert-id/
+        uri: http://w3id.org/sepses/id/slogert/
       - prefix: slog
         uri: http://w3id.org/sepses/vocab/log/slogert#
     components:
@@ -41,7 +41,7 @@ logTypes:
         ottr:
           ottrPrefix: sid
           ottrType: xsd:string
-          ottrProperty: slog:hostName
+          ottrProperty: slog:localHost
       - column: Component
         columnNr: 5
         ottr:
@@ -49,7 +49,7 @@ logTypes:
           ottrType: xsd:string
           ottrProperty: slog:localPid
   - id: audit
-    clazz: LogLineAudit.java
+    clazz: slog:AuditLogEntry
     classPath: org.sepses.helper.LogLineAudit
     header: LineId,type,time,Content,EventId,EventTemplate,ParameterList
     ottrNS:
@@ -58,25 +58,29 @@ logTypes:
       - prefix: core
         uri: http://w3id.org/sepses/vocab/log/core#
       - prefix: sid
-        uri: http://w3id.org/sepses/slogert-id/
+        uri: http://w3id.org/sepses/id/slogert/
+      - prefix: slog
+        uri: http://w3id.org/sepses/vocab/log/slogert#
     components:
       - column: type
         columnNr: 1
         ottr:
           ottrPrefix: sid
           ottrType: xsd:string
-          ottrProperty: slog:auditType
+          ottrProperty: slog:containedAuditType
   - id: apache
-    clazz: LogLineApache.java
+    clazz: slog:ApacheLogEntry
     classPath: org.sepses.helper.LogLineApache
     header: LineId,IP,DateTime,TimeZone,Content,EventId,EventTemplate,ParameterList
     ottrNS:
       - prefix: ottr
-        uri: http://ns.ottr.xyz/0.4/
+        uri: http://ns.ottr.xyz/0.4slog:containedAuditType/
       - prefix: core
         uri: http://w3id.org/sepses/vocab/log/core#
       - prefix: sid
-        uri: http://w3id.org/sepses/slogert-id/
+        uri: http://w3id.org/sepses/id/slogert/
+      - prefix: slog
+        uri: http://w3id.org/sepses/vocab/log/slogert#
     components:
       - column: IP
         columnNr: 1

@@ -44,7 +44,7 @@ public class MainParser {
 
         yaml = new Yaml(new Constructor(Config.class));
 
-        // check whether the parameters are files
+        // check whether the parameterList are files
         if (!configFile.isFile() || !templateFile.isFile())
             return;
 
@@ -73,6 +73,10 @@ public class MainParser {
 
         } catch (NoSuchElementException e) {
             log.error("*** Unsupported log type ***");
+            log.error(e.getMessage());
+        } catch (ReflectiveOperationException e) {
+            log.error("*** Reflection error ***");
+            log.error(e.getMessage());
         }
 
         StringBuilder sb = new StringBuilder();

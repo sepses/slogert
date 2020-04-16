@@ -5,11 +5,12 @@
 logType: unix
 logData: scenario/input/kern.log_structured.csv
 logTemplate: scenario/input/kern.log_templates.csv
-logBaseTemplate: scenario/input/kern.log_templates-base.csv
 isOverride: true
 
 targetData: scenario/output/kern.log_structured.ottr
 targetOttr: scenario/output/kern.log_templates.stottr
 targetTurtle: scenario/output/kern.log_structured.ttl
 targetTemplate: scenario/output/kern-log_templates.ottr
-targetNer: scenario/output/kern-constructed_ner.rules
+
+targetNer: scenario/ner.rules
+templateRdf: scenario/std-template.trig

@@ -108,7 +108,7 @@ public class EntityRecognition {
     }
 
     /**
-     * extracting keywords from the template logContent.
+     * extracting keyword from the template logContent.
      *
      * @param templateText
      * @return
@@ -137,7 +137,7 @@ public class EntityRecognition {
             CoreMap sentence = mapList.get(0);
             List<MatchedExpression> matchedExpressions = extractor.extractExpressions(sentence);
 
-            // Get keywords
+            // Get keyword
             List<String> wordsStr = new ArrayList<>();
             List<CoreLabel> tokens = sentence.get(CoreAnnotations.TokensAnnotation.class);
             String ngram = "";

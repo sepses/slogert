@@ -44,7 +44,7 @@ public class YamlFunction {
             sb.append(System.lineSeparator());
         });
 
-        log.info("resulted rule: " + sb.toString());
+        //        log.info("resulted rule: " + sb.toString());
         Utility.writeToFile(sb.toString(), config.targetNer);
     }
 
@@ -102,7 +102,7 @@ public class YamlFunction {
         sb.append("# *** LogPai-Generated Templates ***");
         sb.append(System.lineSeparator());
 
-        log.info("resulted stottr: \n" + sb.toString());
+        //        log.info("resulted stottr: \n" + sb.toString());
         Utility.writeToFile(sb.toString(), config.targetOttr);
     }
 

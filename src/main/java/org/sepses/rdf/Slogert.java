@@ -21,8 +21,9 @@ public class Slogert {
     public static final Resource Template;
 
     // template variables
-    public static final Property parameters;
-    public static final Property keywords;
+    public static final Property templateHash;
+    public static final Property parameterList;
+    public static final Property keyword;
     public static final Property ottrID;
     public static final Property logType;
     public static final Property pattern;
@@ -51,8 +52,9 @@ public class Slogert {
 
         Template = m.createResource("http://w3id.org/sepses/vocab/log/slogert#Template");
 
-        parameters = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#parameters");
-        keywords = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#keywords");
+        templateHash = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#templateHash");
+        parameterList = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#parameterList");
+        keyword = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#keyword");
         ottrID = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#ottrID");
         logType = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#logType");
         pattern = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#pattern");
@@ -75,6 +77,6 @@ public class Slogert {
     }
 
     public static String getURI() {
-        return "http://www.w3.org/2004/02/skos/core#";
+        return "http://w3id.org/sepses/vocab/log/slogert";
     }
 }

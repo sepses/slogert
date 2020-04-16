@@ -6,14 +6,15 @@ public class Config {
     public String logData;
     public String logType;
     public String logTemplate;
-    public String logBaseTemplate;
     public Boolean isOverride;
 
     public String targetData;
     public String targetOttr;
     public String targetTurtle;
-    public String targetNer;
     public String targetTemplate;
+
+    public String targetNer;
+    public String templateRdf;
 
     public List<ConfigNS> ottrNS;
     public List<ConfigParameter> nerParameters;

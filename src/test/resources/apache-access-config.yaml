@@ -5,11 +5,12 @@
 logType: apache
 logData: scenario/input/apache-access.log_structured.csv
 logTemplate: scenario/input/apache-access.log_templates.csv
-logBaseTemplate: scenario/input/apache-access.log_templates-base.csv
 isOverride: true
 
 targetData: scenario/output/apache-access.log_structured.ottr
 targetOttr: scenario/output/apache-access.log_templates.stottr
 targetTurtle: scenario/output/apache-access.log_structured.ttl
 targetTemplate: scenario/output/apache-access-log_templates.ottr
-targetNer: scenario/output/apache-access-constructed_ner.rules
+
+targetNer: scenario/ner.rules
+templateRdf: scenario/std-template.trig

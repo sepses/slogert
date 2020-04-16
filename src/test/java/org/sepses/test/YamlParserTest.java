@@ -31,13 +31,12 @@ public class YamlParserTest {
         yaml = new Yaml(new Constructor(Config.class));
 
         config = yaml.load(is);
-        config.nonNerParameters = iConfig.parameters;
         config.internalLogType =
                 iConfig.logTypes.stream().filter(item -> item.id.equals(config.logType)).findFirst().get();
     }
 
     @Test public void testYamlParser1() {
-        System.out.println(config.nerParameters.get(0).regexNer.action);
+        log.info(config.nerParameters.get(0).regexNer.action);
     }
 
     @Test public void testYamlNerConstruct() throws IOException {
