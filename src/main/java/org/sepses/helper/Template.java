@@ -15,10 +15,10 @@ import java.util.*;
 public class Template {
 
     public static final String UNKNOWN_PARAMETER = "Unknown";
-    public static final String BASE_OTTR_ID = "id:Template_";
 
     private static final Logger log = LoggerFactory.getLogger(Template.class);
 
+    private final String BASE_OTTR_ID = "id:Template_";
     private final String BASE_HEADER =
             "[ottr:IRI ?id, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash";
     private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?timeStamp, ?message, ?templateHash)";
@@ -35,6 +35,7 @@ public class Template {
     private Template(String hash, String templateText, Config config) {
 
         this.hash = hash;
+        this.ottrId = BASE_OTTR_ID + hash;
         this.templateText = templateText;
         this.config = config;
 
@@ -45,20 +46,16 @@ public class Template {
         keywords = new ArrayList<>();
     }
 
-    public Template(String hash, String templateText, String ottrId, String parameters, String keywords,
-            Config config) {
-        this(hash, templateText, config);
-        this.ottrId = BASE_OTTR_ID + ottrId;
-        setParameters(parameters);
-        setKeywords(keywords);
-    }
+    //    public Template(String hash, String templateText, String ottrId, String parameters, String keywords,
+    //            Config config) {
+    //        this(hash, templateText, config);
+    //        this.ottrId = ottrId;
+    //        setParameters(parameters);
+    //        setKeywords(keywords);
+    //    }
 
     public Template(String templateText, String templateHash, LogLine logLine, Config config) {
         this(templateHash, templateText, config);
-
-        // *** set ottrId
-        String ottrTemplateName = BASE_OTTR_ID + hash;
-        ottrId = ottrTemplateName;
 
         // *** set keyword
         EntityRecognition er = EntityRecognition.getInstance(config.targetNer, config.nonNerParameters);
@@ -78,6 +75,31 @@ public class Template {
                 }
             }
         }
+    }
+
+    public static Map<String, Template> fromModel(Model model, Config config) {
+        Map<String, Template> templateMap = new HashMap<>();
+
+        model.listSubjectsWithProperty(RDF.type, Slogert.Template).forEachRemaining(ind -> {
+            RDFNode hashNode = ind.getProperty(Slogert.templateHash).getObject();
+            String hash = hashNode.asLiteral().getString();
+
+            RDFNode patternNode = ind.getProperty(Slogert.pattern).getObject();
+            String pattern = patternNode.asLiteral().getString();
+
+            String ottrId = ind.getProperty(Slogert.templateHash).getObject().asLiteral().getString();
+            RDFList paramList = ind.getProperty(Slogert.parameterList).getObject().as(RDFList.class);
+            StmtIterator keywords = ind.listProperties(Slogert.keyword);
+
+            Template template = new Template(hash, pattern, config);
+            paramList.asJavaList().forEach(item -> template.parameters.add(item.asLiteral().getString()));
+            keywords.forEachRemaining(item -> template.keywords.add(item.getObject().asLiteral().getString()));
+
+            templateMap.put(hash, template);
+
+        });
+
+        return templateMap;
     }
 
     public void setParameters(String parameters) {
@@ -161,32 +183,6 @@ public class Template {
         model.add(template, Slogert.parameterList, list);
 
         return model;
-    }
-
-    public static Map<String, Template> fromModel(Model model, Config config) {
-        Map<String, Template> templateMap = new HashMap<>();
-
-        model.listSubjectsWithProperty(RDF.type, Slogert.Template).forEachRemaining(ind -> {
-            RDFNode hashNode = ind.getProperty(Slogert.templateHash).getObject();
-            String hash = hashNode.asLiteral().getString();
-
-            RDFNode patternNode = ind.getProperty(Slogert.pattern).getObject();
-            String pattern = patternNode.asLiteral().getString();
-
-            String ottrId = ind.getProperty(Slogert.templateHash).getObject().asLiteral().getString();
-            RDFList paramList = ind.getProperty(Slogert.parameterList).getObject().as(RDFList.class);
-            StmtIterator keywords = ind.listProperties(Slogert.keyword);
-
-            Template template = new Template(hash, pattern, config);
-            template.ottrId = ottrId;
-            paramList.asJavaList().forEach(item -> template.parameters.add(item.asLiteral().getString()));
-            keywords.forEachRemaining(item -> template.keywords.add(item.getObject().asLiteral().getString()));
-
-            templateMap.put(hash, template);
-
-        });
-
-        return templateMap;
     }
 
 }

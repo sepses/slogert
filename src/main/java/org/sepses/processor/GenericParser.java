@@ -38,6 +38,7 @@ public class GenericParser implements Parser {
 
     private static final String[] TEMPLATE_LOGPAI = { "EventId", "EventTemplate", "Occurrences" };
 
+    private final String BASE_INSTANCE = "id:LogEntry_";
     private final Map<String, Template> hashTemplates;
     private final Config config;
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
@@ -220,7 +221,7 @@ public class GenericParser implements Parser {
             Template template = hashTemplates.get(logLine.getTemplateHash());
 
             sb.append(template.ottrId);
-            sb.append("(").append(Template.BASE_OTTR_ID).append(UUID.randomUUID()).append(",\"");
+            sb.append("(").append(BASE_INSTANCE).append(UUID.randomUUID()).append(",\"");
             sb.append(logLine.getDateTime()).append("\",\"");
             sb.append(Utility.cleanContent(logLine.getContent())).append("\",\""); // necessary due to OTTR issue
             sb.append(logLine.getTemplateHash()).append("\",\"");
