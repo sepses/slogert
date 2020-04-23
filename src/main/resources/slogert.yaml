@@ -74,7 +74,7 @@ logTypes:
     header: LineId,IP,DateTime,TimeZone,Content,EventId,EventTemplate,ParameterList
     ottrNS:
       - prefix: ottr
-        uri: http://ns.ottr.xyz/0.4slog:containedAuditType/
+        uri: http://ns.ottr.xyz/0.4/
       - prefix: core
         uri: http://w3id.org/sepses/vocab/log/core#
       - prefix: sid
