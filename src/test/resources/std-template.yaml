@@ -69,6 +69,7 @@ nerParameters:
     regexNer:
       pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
       action: Annotate($1, ner, "user")
+
 nonNerParameters:
   - id: path
     label: Path
@@ -121,9 +122,20 @@ nonNerParameters:
     ottr:
       ottrPrefix:
       ottrType: xsd:string
-      ottrProperty: slog:containedUrlWithParams
+      ottrProperty: slog:containedIpWithParams
     regexNer:
       pattern: "[a-f]{4}\\:(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})"
+      action:
+  - id: user
+    label: User
+    comment: User in the beginning of ftp logs
+    example: [akep]
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedUser
+    regexNer:
+      pattern: "\\[([a-zA-Z0-9]+)\\]"
       action:
 ##
 # - these namespaces will be written in both ottr templates and instances
