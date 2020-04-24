@@ -135,7 +135,7 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedUser
     regexNer:
-      pattern: "\\[([a-zA-Z0-9]+)\\]"
+      pattern: "\\[([a-zA-Z0-9_\\.+]+)\\]"
       action:
 ##
 # - these namespaces will be written in both ottr templates and instances
