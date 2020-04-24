@@ -25,6 +25,17 @@ nerParameters:
     regexNer:
       pattern: ([{word:/port/}] + ([{word:/(\d{1,5})/}]))
       action: Annotate($1, ner, "port")
+  - id: hostName
+    label: HostName
+    comment: Hostname
+    example: hostname=UbuntuApp
+    ottr:
+      ottrPrefix: sid
+      ottrType: xsd:string
+      ottrProperty: slog:containedHostName
+    regexNer:
+      pattern: ([{word:/hostname/}] + [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
+      action: Annotate($1, ner, "hostName")
   - id: url
     label: Url
     comment: A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
@@ -68,7 +79,7 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedPath
     regexNer:
-      pattern: "/[a-zA-Z0-9-_/]+"
+      pattern: "[a-zA-Z0-9-_]+/[a-zA-Z0-9-_/]+"
       action:
   - id: fileName
     label: FileName
@@ -79,7 +90,7 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedFileName
     regexNer:
-      pattern: "[a-zA-Z0-9-_]+\\.[a-zA-Z]+"
+      pattern: "[a-zA-Z0-9-_]+\\.[a-zA-Z]{3,4}+"
       action:
   - id: filePath
     label: FilePath
@@ -90,9 +101,30 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedFileName
     regexNer:
-      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]+"
+      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]{3,4}+"
       action:
-
+  - id: urlWithParameters
+    label: UrlWithParameters
+    comment: Url with parameters
+    example: /fajar/test/test.txt?param=test
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedUrlWithParams
+    regexNer:
+      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]{3,4}\\?([a-zA-Z]+\\=[a-zA-Z1-9&=]+)"
+      action:
+  - id: ipWithPrefix
+    label: IpWithParameters
+    comment: Ip with Prefix like in ftp logs
+    example: ffff:10.0.0.7
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedUrlWithParams
+    regexNer:
+      pattern: "[a-f]{4}\\:(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})"
+      action:
 ##
 # - these namespaces will be written in both ottr templates and instances
 # - you should put in all prefixes that you use in nerParameters above
