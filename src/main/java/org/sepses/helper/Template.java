@@ -1,5 +1,6 @@
 package org.sepses.helper;
 
+import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.vocabulary.RDF;
 import org.sepses.nlp.EntityRecognition;
@@ -65,13 +66,42 @@ public class Template {
         HashMap<String, String> matchedExpressions = er.annotateSentence(logLine.getContent());
         int paramSize = logLine.getParameters().size();
         if (paramSize > 0) {
-            for (int counter = 0; counter < paramSize; counter++) {
+            LevenshteinDistance distance = new LevenshteinDistance();
+
+            paramLoop: for (int counter = 0; counter < paramSize; counter++) {
                 String param = logLine.getParameters().get(counter);
+
                 if (matchedExpressions.containsKey(param)) {
                     String type = matchedExpressions.get(param);
                     parameters.add(type);
-                } else {
-                    parameters.add(UNKNOWN_PARAMETER);
+                }
+                else{
+                    // fuzzy distance for  unexpected parameters
+                    double currentMinimalDistance = 1;
+                    String minmalDistanceKey = "";
+
+                    for (Map.Entry<String, String> entry : matchedExpressions.entrySet()) {
+                        if(entry.getKey() != null){
+                            String k = entry.getKey();
+                            double dist = distance.apply(k, param);
+                            double maxLength = ((param.length() > k.length()) ? param.length() : k.length());
+                            double relativeDistance = dist / maxLength;
+
+                            if(relativeDistance < currentMinimalDistance){
+                                currentMinimalDistance = relativeDistance;
+                                minmalDistanceKey = k;
+                            }
+                        }
+                    }
+
+                    // 20% relative distance accepted for cases like http://test.com vs //test.com
+                    if(currentMinimalDistance < 0.2) {
+                        String type = matchedExpressions.get(minmalDistanceKey);
+                        parameters.add(type);
+                    }
+                    else {
+                        parameters.add(UNKNOWN_PARAMETER);
+                    }
                 }
             }
         }
