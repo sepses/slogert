@@ -94,8 +94,8 @@ public class Template {
                         }
                     }
 
-                    // 20% relative distance accepted for cases like http://test.com vs //test.com
-                    if(currentMinimalDistance < 0.2) {
+                    // Relative distance accepted for cases like http://test.com vs //test.com
+                    if(currentMinimalDistance < 0.25) {
                         String type = matchedExpressions.get(minmalDistanceKey);
                         parameters.add(type);
                     }
