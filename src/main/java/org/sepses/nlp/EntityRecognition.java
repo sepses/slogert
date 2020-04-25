@@ -101,6 +101,13 @@ public class EntityRecognition {
             while (matcher.find()) {
                 String found = matcher.group();
                 nerList.put(found, regexKey);
+
+                // Add first group as well
+                if(matcher.groupCount() > 0)
+                {
+                    found = matcher.group(1);
+                    nerList.put(found, regexKey);
+                }
             }
         }
 
