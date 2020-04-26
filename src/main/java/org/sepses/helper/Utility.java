@@ -126,7 +126,7 @@ public class Utility {
 
         } else {
             try {
-                fromFormatter = DateTimeFormatter.ofPattern(timeFormat);
+                fromFormatter = DateTimeFormatter.ofPattern(timeFormat).withLocale(Locale.ENGLISH);
                 dateTime = LocalDateTime.parse(timeParam, fromFormatter);
             } catch (IllegalArgumentException e) {
                 log.error(e.getMessage());

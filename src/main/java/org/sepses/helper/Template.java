@@ -7,6 +7,8 @@ import org.sepses.rdf.Slogert;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.ConfigParameter;
 import org.sepses.yaml.InternalLogType;
+import org.simmetrics.StringMetric;
+import org.simmetrics.metrics.StringMetrics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,6 +27,7 @@ public class Template {
 
     private final Config config;
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
+    private final StringMetric metric = StringMetrics.longestCommonSubsequence();
 
     public String hash;
     public String templateText;
@@ -67,12 +70,26 @@ public class Template {
         if (paramSize > 0) {
             for (int counter = 0; counter < paramSize; counter++) {
                 String param = logLine.getParameters().get(counter);
-                if (matchedExpressions.containsKey(param)) {
-                    String type = matchedExpressions.get(param);
-                    parameters.add(type);
-                } else {
-                    parameters.add(UNKNOWN_PARAMETER);
+                String parameterType = UNKNOWN_PARAMETER;
+                for (String key : matchedExpressions.keySet()) {
+                    Float result = metric.compare(key, param);
+                    //                    log.info(key + " - " + param + " : " + result);
+                    if (result >= 0.85) {
+                        parameterType = matchedExpressions.get(key);
+                        break;
+                    }
                 }
+                parameters.add(parameterType);
+
+                //                if (matchedExpressions.containsKey(param)) {
+                //                    String type = matchedExpressions.get(param);
+                //                    parameters.add(type);
+                //                    // TODO: add string similarity instead of matching?
+                //                } else {
+                //                    parameters.add(UNKNOWN_PARAMETER);
+                //                }
+                //                Float result = metric.compare(first, second); //0.4767
+                //                log.info(result.toString());
             }
         }
     }
