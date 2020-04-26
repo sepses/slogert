@@ -126,7 +126,11 @@ public class Utility {
 
         } else {
             try {
-                fromFormatter = DateTimeFormatter.ofPattern(timeFormat).withLocale(Locale.ENGLISH);
+                //<<<<<<< HEAD
+                //                fromFormatter = DateTimeFormatter.ofPattern(timeFormat).withLocale(Locale.ENGLISH);
+                //=======
+                fromFormatter = DateTimeFormatter.ofPattern(timeFormat, Locale.ENGLISH);
+                //>>>>>>> 33c7192b6f9365b6e7d77cae0484cdeaf7edf203
                 dateTime = LocalDateTime.parse(timeParam, fromFormatter);
             } catch (IllegalArgumentException e) {
                 log.error(e.getMessage());

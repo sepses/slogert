@@ -25,6 +25,17 @@ nerParameters:
     regexNer:
       pattern: ([{word:/port/}] + ([{word:/(\d{1,5})/}]))
       action: Annotate($1, ner, "port")
+  - id: hostName
+    label: HostName
+    comment: Hostname
+    example: hostname=UbuntuApp
+    ottr:
+      ottrPrefix: sid
+      ottrType: xsd:string
+      ottrProperty: slog:containedHostName
+    regexNer:
+      pattern: ([{word:/hostname/}] + [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
+      action: Annotate($1, ner, "hostName")
   - id: url
     label: Url
     comment: A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
@@ -58,6 +69,18 @@ nerParameters:
     regexNer:
       pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
       action: Annotate($1, ner, "user")
+  - id: userPassword
+    label: User near password
+    comment: A user is a person who utilizes a computer or network service.
+    example: password for fajar
+    ottr:
+      ottrPrefix: sid
+      ottrType: xsd:string
+      ottrProperty: slog:containedUserEnteringPassword
+    regexNer:
+      pattern: ([{word:/password/}] [{word:/for/}] ([{word:/(\w+)/}]))
+      action: Annotate($1, ner, "user")
+
 nonNerParameters:
   - id: path
     label: Path
@@ -68,7 +91,7 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedPath
     regexNer:
-      pattern: "/[a-zA-Z0-9-_/]+"
+      pattern: "[a-zA-Z0-9-_]+/[a-zA-Z0-9-_/]+"
       action:
   - id: fileName
     label: FileName
@@ -79,7 +102,7 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedFileName
     regexNer:
-      pattern: "[a-zA-Z0-9-_]+\\.[a-zA-Z]+"
+      pattern: "[a-zA-Z0-9-_]+\\.[a-zA-Z]{3,4}+"
       action:
   - id: filePath
     label: FilePath
@@ -90,8 +113,109 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedFileName
     regexNer:
-      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]+"
+      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]{3,4}+"
       action:
+  - id: urlWithParameters
+    label: UrlWithParameters
+    comment: Url with parameters
+    example: /fajar/test/test.txt?param=test
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedUrlWithParams
+    regexNer:
+      pattern: "(https?:)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/[a-zA-Z0-9-_\\./]+)?\\?[a-zA-Z]+\\=[a-zA-Z1-9&=\\+]+"
+      action:
+  - id: urlWithoutParameters
+    label: UrlWithoutParameters
+    comment: Url without parameters
+    example: /fajar/test/test.txt
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedUrl
+    regexNer:
+      pattern: "(https?:)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/([a-zA-Z0-9-_\\./])+)?"
+      action:
+  - id: ipWithPrefix
+    label: IpWithParameters
+    comment: Ip with Prefix like in ftp logs
+    example: ffff:10.0.0.7
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedIpWithParams
+    regexNer:
+      pattern: "[a-f]{4}\\:(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})"
+      action:
+  - id: ftpUser
+    label: FtpUser
+    comment: User in the beginning of ftp logs
+    example: [akep]
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedFtpUser
+    regexNer:
+      pattern: "^\\[([a-zA-Z0-9_\\.+]+)\\]"
+      action:
+  - id: group
+    label: Group
+    comment: Group in ftp logs
+    example: "new group: name=ftp_admin"
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedGroup
+    regexNer:
+      pattern: "group: name\\=([a-zA-Z0-9_\\.]+)"
+      action:
+  - id: ciscoMac
+    label: CiscoMac
+    comment: Cisco Mac
+    example: 001d.7172.6c40
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedCiscoMac
+    regexNer:
+      pattern: "([A-Fa-f0-9]{4}\\.){2}[A-Fa-f0-9]{4}"
+      action:
+  - id: CommonMac
+    label: CommonMac
+    comment: Common Mac
+    example: 00:1A:C2:7B:00:47
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedCommonMac
+    regexNer:
+      pattern: "([A-Fa-f0-9]{2}:){5}[A-Fa-f0-9]{2}"
+      action:
+  - id: Ipv6
+    label: Ipv6
+    comment: Ipv6
+    example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334 and 2001:db8:85a3::8a2e:370:7334
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedIpv6
+    regexNer:
+      pattern: "((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:)))(%.+)?"
+      action:
+  - id: exe
+    label: exe
+    comment: Executable
+    example: exe=|/usr/lib/firefox/firefox|
+    ottr:
+      ottrPrefix:
+      ottrType: xsd:string
+      ottrProperty: slog:containedExe
+    regexNer:
+      pattern: "exe\\=\"[a-zA-Z0-9-_\\./]+"
+      action:
+
+## https://github.com/elastic/logstash/blob/v1.4.2/patterns/grok-patterns
 
 ##
 # - these namespaces will be written in both ottr templates and instances
