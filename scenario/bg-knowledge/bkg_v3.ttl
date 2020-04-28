@@ -1,0 +1,112 @@
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:       <http://www.w3.org/2002/07/owl#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
+@prefix core: <http://w3id.org/ns/log/core#> .
+@prefix : <http://example.com/resource/> .
+
+
+###################################################### CLASSES
+
+foaf:Person a owl:Class .
+core:Ip a owl:Class .
+core:Port a owl:Class .
+core:Device a owl:Class .
+core:Host a owl:Class .
+core:Service a owl:Class .
+core:PublicService a owl:Class ;
+	rdfs:subClassOf core:Service .
+core:Account a owl:Class .
+
+
+###################################################### (OBJECT) PROPERTIES
+
+core:assignedHost a owl:ObjectProperty ;
+	rdfs:domain core:Device ;
+	rdfs:range core:Host ;
+.
+core:dhcpLease a owl:ObjectProperty ;
+	rdfs:domain core:Device ;
+	rdfs:range core:Ip ;
+.
+core:hasLocalService a owl:ObjectProperty ;
+	rdfs:domain core:Device ;
+	rdfs:range core:Service ;
+.
+core:hasRegisteredDevice a owl:ObjectProperty ;
+	rdfs:domain core:Network ;
+	rdfs:range core:Device ;
+.
+core:hasUserAccount a owl:ObjectProperty ;
+	rdfs:domain core:Person ;
+	rdfs:range core:Account ;
+.
+core:hasAccountService a owl:ObjectProperty ;
+	rdfs:domain core:Account ;
+	rdfs:range core:Service ;
+.
+core:hasParentService a owl:ObjectProperty ;
+	rdfs:domain core:Service ;
+	rdfs:range core:Service ;
+.
+
+core:hasIp a owl:ObjectProperty ;
+	rdfs:domain core:PublicService ;
+	rdfs:range core:Ip ;
+.
+core:hasPort a owl:ObjectProperty ;
+	rdfs:domain core:PublicService ;
+	rdfs:range core:Port ;
+.
+
+
+###################################################### INSTANCES
+
+:SepsesNetwork a core:Network ;
+	rdfs:label "Sepses Network" ;
+	core:hasRegisteredDevice :Client1 ;
+.
+
+:Client1 a core:Device ;
+	rdfs:label "Client 1" ;
+	core:assignedHost :SepsesNetwork.Client1 ;
+	core:deviceIp :10.0.0.1 ;
+	core:hasLocalService :Client1.ubuntu, :Client1.ftp ;
+.
+
+:Client1.ubuntu a core:Service ;
+	rdfs:label "Client 1 Ubuntu" ;
+.
+:Client1.ftp a core:PublicService ;
+	rdfs:label "Client 1 FTP Service" ;
+	core:hasParentService :Client1.ubuntu ;
+	core:hasPort :Port.21 ;
+.
+
+
+:JohnDoe a foaf:Person ;
+	rdfs:label "John Doe" ;
+	core:hasUserAccount :Client1.jdoe, :Client1.ftp_jdoe, :Client1.ftp_admin ;
+.
+
+:Client1.jdoe a core:Account ;
+	rdfs:label "jdoe" ;
+	core:hasAccountService :Client1.ubuntu ;
+.
+:Client1.ftp_jdoe a core:Account ;
+	rdfs:label "ftp_jdoe" ;
+	core:hasAccountService :Client1.ftp ;
+.
+:Client1.ftp_admin a core:Account ;
+	rdfs:label "ftp_admin" ;
+	core:hasAccountService :Client1.ftp ;
+.
+
+:SepsesNetwork.Client1 a core:Host .
+:10.0.0.1 a core:Ip .
+:Port_21 a core:Port .
+
+
+
