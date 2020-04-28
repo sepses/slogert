@@ -64,7 +64,7 @@ nerParameters:
     example: fajar
     ottr:
       ottrPrefix: sid
-      ottrType: xsd:string
+      ottrType: xsd:stringn
       ottrProperty: slog:containedUser
     regexNer:
       pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
@@ -111,7 +111,7 @@ nonNerParameters:
     ottr:
       ottrPrefix:
       ottrType: xsd:string
-      ottrProperty: slog:containedFileName
+      ottrProperty: slog:containedFilePath
     regexNer:
       pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]{3,4}+"
       action:
