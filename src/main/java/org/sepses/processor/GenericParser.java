@@ -261,7 +261,7 @@ public class GenericParser implements Parser {
      * @return
      * @throws NoSuchAlgorithmException
      */
-    private LogLine createLogLine(CSVRecord record) {
+    private LogLine  createLogLine(CSVRecord record) {
         LogLine logline = null;
 
         try {
