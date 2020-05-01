@@ -58,11 +58,11 @@ public abstract class LogLine {
         // ['ftp_akep', 'DOWNLOAD:', 'ffff:10.0.0.9', '"/files/test2.txt", 11', '1.06Kbyte/sec']
 
         // normalize the parameter list into ', ' format
-        if(parameterString.equalsIgnoreCase("['ftp_akep', 'DOWNLOAD:', 'ffff:10.0.0.9', '\"/files/test2.txt\", 11', '1.06Kbyte/sec']")) {
-            System.out.println();
-        }
+//        if(parameterString.equalsIgnoreCase("['ftp_akep', 'DOWNLOAD:', 'ffff:10.0.0.9', '\"/files/test2.txt\", 11', '1.06Kbyte/sec']")) {
+//            System.out.println();
+//        }
+//        System.out.println(parameterString);
 
-        System.out.println(parameterString);
         String paramStringValue = parameterString.replaceAll("\", '", "', '");
         paramStringValue = paramStringValue.replaceAll("', \"", "', '");
 
@@ -70,7 +70,7 @@ public abstract class LogLine {
             String rawParams = paramStringValue.trim().substring(2, parameterString.length() - 2);
             String[] params = rawParams.split("', '");
             for (String param : params) {
-                String[] spaceParams = param.split(" ");
+                String[] spaceParams = param.split(" +");
                 for (String spaceParam : spaceParams) {
                     parameters.add(spaceParam);
                 }
