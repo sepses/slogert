@@ -36,17 +36,17 @@ nerParameters:
     regexNer:
       pattern: ([{word:/hostname/}] + [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
       action: Annotate($1, ner, "hostName")
-  - id: url
-    label: Url
-    comment: A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
-    example: http://semantics.id
-    ottr:
-      ottrPrefix: sid
-      ottrType: xsd:string
-      ottrProperty: slog:containedURL
-    regexNer:
-      pattern: ([{word:/(https?|ftp|file):\/\/[-a-zA-Z0-9+&@#\/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#\/%=~_|]/}])
-      action: Annotate($0, ner, "url")
+#  - id: url
+#    label: Url
+#    comment: A Uniform Resource Locator (URL), colloquially termed a web address, is a reference to a web resource that specifies its location on a computer network and a mechanism for retrieving it.
+#    example: http://semantics.id
+#    ottr:
+#      ottrPrefix: sid
+#      ottrType: xsd:string
+#      ottrProperty: slog:containedURL
+#    regexNer:
+#      pattern: ([{word:/(https?|ftp|file):\/\/[-a-zA-Z0-9+&@#\/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#\/%=~_|]/}])
+#      action: Annotate($0, ner, "url")
   - id: domain
     label: Domain
     comment: A domain name is an identification string that defines a realm of administrative autonomy, authority or control within the Internet.
@@ -91,19 +91,19 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedPath
     regexNer:
-      pattern: "[a-zA-Z0-9-_]+/[a-zA-Z0-9-_/]+"
+      pattern: "[a-zA-Z0-9-_\\+&@#%~]+/[a-zA-Z0-9-_\\+&@#%~]+"
       action:
-  - id: fileName
-    label: FileName
-    comment: file name
-    example: fajar.exe
-    ottr:
-      ottrPrefix:
-      ottrType: xsd:string
-      ottrProperty: slog:containedFileName
-    regexNer:
-      pattern: "[a-zA-Z0-9-_]+\\.[a-zA-Z]{3,4}+"
-      action:
+#  - id: fileName
+#    label: FileName
+#    comment: file name
+#    example: fajar.exe
+#    ottr:
+#      ottrPrefix:
+#      ottrType: xsd:string
+#      ottrProperty: slog:containedFileName
+#    regexNer:
+#      pattern: "[a-zA-Z0-9-_\\+&@#%~]+\\.[a-zA-Z]{3,4}+"
+#      action:
   - id: filePath
     label: FilePath
     comment: file name
@@ -113,7 +113,7 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedFilePath
     regexNer:
-      pattern: "[a-zA-Z0-9-_/]+\\.[a-zA-Z]{3,4}+"
+      pattern: "[a-zA-Z0-9-_\\+&@#%~/]+\\.[a-zA-Z]{3,4}+"
       action:
   - id: urlWithParameters
     label: UrlWithParameters
@@ -124,19 +124,19 @@ nonNerParameters:
       ottrType: xsd:string
       ottrProperty: slog:containedUrlWithParams
     regexNer:
-      pattern: "(https?:)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/[a-zA-Z0-9-_\\./]+)?\\?[a-zA-Z]+\\=[a-zA-Z1-9&=\\+]+"
+      pattern: "((https? | ftp | file):)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/[a-zA-Z0-9-_\\+&@#%~/\\./]+)?\\?[a-zA-Z]+\\=[a-zA-Z1-9&=\\+]+"
       action:
-  - id: urlWithoutParameters
-    label: UrlWithoutParameters
-    comment: Url without parameters
-    example: /fajar/test/test.txt
-    ottr:
-      ottrPrefix:
-      ottrType: xsd:string
-      ottrProperty: slog:containedUrl
-    regexNer:
-      pattern: "(https?:)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/([a-zA-Z0-9-_\\./])+)?"
-      action:
+#  - id: urlWithoutParameters
+#    label: UrlWithoutParameters
+#    comment: Url without parameters
+#    example: /fajar/test/test.txt
+#    ottr:
+#      ottrPrefix:
+#      ottrType: xsd:string
+#      ottrProperty: slog:containedUrl
+#    regexNer:
+#      pattern: "(https?:)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/([a-zA-Z0-9-_\\./])+)?"
+#      action:
   - id: ipWithPrefix
     label: IpWithParameters
     comment: Ip with Prefix like in ftp logs
