@@ -3,10 +3,10 @@ package org.sepses.helper;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
-import org.sepses.yaml.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -20,7 +20,9 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class Utility {
 
@@ -61,7 +63,13 @@ public class Utility {
     }
 
     public static void writeToFile(String string, String filename) throws IOException {
-        FileWriter writer = new FileWriter(filename);
+        File file = new File(filename);
+
+        File folder = file.getParentFile();
+        if (folder != null && !folder.exists())
+            folder.mkdirs();
+
+        FileWriter writer = new FileWriter(file);
         writer.write(string);
         writer.flush();
         writer.close();
