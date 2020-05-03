@@ -6,7 +6,7 @@ lastModified: 2020-03-31T01:21:00
 logTypes:
   - id: ftp
     clazz: slog:FtpLogEntry
-    classPath: org.sepses.helper.LogLineFTP
+    classPath: org.sepses.logline.LogLineFTP
     header: LineId,dayOfWeek,month,day,time,year,pid,pidNumber,Content,EventId,EventTemplate,ParameterList
     ottrNS:
       - prefix: slog
@@ -22,7 +22,7 @@ logTypes:
           ottrProperty: slog:localPid
   - id: unix
     clazz: slog:UnixLogEntry
-    classPath: org.sepses.helper.LogLineUnix
+    classPath: org.sepses.logline.LogLineUnix
     header: LineId,Month,Date,Time,Type,Component,Content,EventId,EventTemplate,ParameterList
     ottrNS:
       - prefix: ottr
@@ -50,7 +50,7 @@ logTypes:
           ottrProperty: slog:localPid
   - id: audit
     clazz: slog:AuditLogEntry
-    classPath: org.sepses.helper.LogLineAudit
+    classPath: org.sepses.logline.LogLineAudit
     header: LineId,type,time,Content,EventId,EventTemplate,ParameterList
     ottrNS:
       - prefix: ottr
@@ -70,7 +70,7 @@ logTypes:
           ottrProperty: slog:containedAuditType
   - id: apache
     clazz: slog:ApacheLogEntry
-    classPath: org.sepses.helper.LogLineApache
+    classPath: org.sepses.logline.LogLineApache
     header: LineId,IP,DateTime,TimeZone,Content,EventId,EventTemplate,ParameterList
     ottrNS:
       - prefix: ottr

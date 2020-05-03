@@ -30,6 +30,7 @@ public class Slogert {
 
     // root variable
     public static final Property containedVariable;
+    public static final Property origin;
 
     // ner variables
     public static final Property containedIp;
@@ -60,6 +61,7 @@ public class Slogert {
         pattern = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#pattern");
 
         containedVariable = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#containedVariable");
+        origin = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#origin");
 
         containedIp = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#containedIp");
         containedPort = m.createProperty("http://w3id.org/sepses/vocab/log/slogert#containedPort");

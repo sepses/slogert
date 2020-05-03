@@ -14,7 +14,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.vocabulary.OWL;
 import org.apache.jena.vocabulary.RDF;
-import org.sepses.helper.LogLine;
+import org.sepses.logline.LogLine;
 import org.sepses.helper.Template;
 import org.sepses.helper.Utility;
 import org.sepses.rdf.Slogert;
@@ -22,8 +22,6 @@ import org.sepses.yaml.Config;
 import org.sepses.yaml.ConfigParameter;
 import org.sepses.yaml.InternalLogType;
 import org.sepses.yaml.YamlFunction;
-import org.simmetrics.StringMetric;
-import org.simmetrics.metrics.StringMetrics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -229,6 +227,7 @@ public class GenericParser implements Parser {
 
             sb.append(template.ottrId);
             sb.append("(").append(BASE_INSTANCE).append(UUID.randomUUID()).append(",\"");
+            sb.append(logLine.getDevice()).append("\",\"");
             sb.append(logLine.getDateTime()).append("\",\"");
             sb.append(Utility.cleanContent(logLine.getContent())).append("\",\""); // necessary due to OTTR issue
             sb.append(logLine.getTemplateHash()).append("\",\"");
