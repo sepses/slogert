@@ -3,6 +3,7 @@ package org.sepses.helper;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.vocabulary.RDF;
+import org.sepses.logline.LogLine;
 import org.sepses.nlp.EntityRecognition;
 import org.sepses.rdf.Slogert;
 import org.sepses.yaml.Config;
@@ -23,8 +24,8 @@ public class Template {
 
     private final String BASE_OTTR_ID = "id:Template_";
     private final String BASE_HEADER =
-            "[ottr:IRI ?id, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash";
-    private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?timeStamp, ?message, ?templateHash)";
+            "[ottr:IRI ?id, xsd:string ?device, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash";
+    private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?device, ?timeStamp, ?message, ?templateHash)";
 
     private final Config config;
     private final HashMap<String, ConfigParameter> parameterMap = new HashMap<>();
@@ -50,14 +51,6 @@ public class Template {
         keywords = new ArrayList<>();
     }
 
-    //    public Template(String hash, String templateText, String ottrId, String parameters, String keywords,
-    //            Config config) {
-    //        this(hash, templateText, config);
-    //        this.ottrId = ottrId;
-    //        setParameters(parameters);
-    //        setKeywords(keywords);
-    //    }
-
     public Template(String templateText, String templateHash, LogLine logLine, Config config) {
         this(templateHash, templateText, config);
 
@@ -74,15 +67,6 @@ public class Template {
             paramLoop:
             for (int counter = 0; counter < paramSize; counter++) {
                 String param = logLine.getParameters().get(counter);
-                //<<<<<<< HEAD
-                //                String parameterType = UNKNOWN_PARAMETER;
-                //                for (String key : matchedExpressions.keySet()) {
-                //                    Float result = metric.compare(key, param);
-                //                    //                    log.info(key + " - " + param + " : " + result);
-                //                    if (result >= 0.85) {
-                //                        parameterType = matchedExpressions.get(key);
-                //                        break;
-                //=======
 
                 if (matchedExpressions.containsKey(param)) {
                     String type = matchedExpressions.get(param);
@@ -112,20 +96,8 @@ public class Template {
                         parameters.add(type);
                     } else {
                         parameters.add(UNKNOWN_PARAMETER);
-                        //>>>>>>> 33c7192b6f9365b6e7d77cae0484cdeaf7edf203
                     }
                 }
-                //                parameters.add(parameterType);
-
-                //                if (matchedExpressions.containsKey(param)) {
-                //                    String type = matchedExpressions.get(param);
-                //                    parameters.add(type);
-                //                    // TODO: add string similarity instead of matching?
-                //                } else {
-                //                    parameters.add(UNKNOWN_PARAMETER);
-                //                }
-                //                Float result = metric.compare(first, second); //0.4767
-                //                log.info(result.toString());
             }
         }
     }

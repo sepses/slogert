@@ -1,6 +1,7 @@
-package org.sepses.helper;
+package org.sepses.logline;
 
 import org.apache.commons.csv.CSVRecord;
+import org.sepses.helper.Utility;
 import org.sepses.yaml.InternalLogType;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.Map;
 public abstract class LogLine {
 
     protected Integer counter;
+    protected String device;
     protected String dateTime;
     protected String content;
     protected List<String> parameters;
@@ -27,6 +29,10 @@ public abstract class LogLine {
             data = Utility.cleanContent(data);
             specialParameters.put(component.column, data);
         });
+    }
+
+    public String getDevice() {
+        return device;
     }
 
     public Integer getCounter() {
@@ -51,17 +57,6 @@ public abstract class LogLine {
 
     protected void setParameters(String parameterString) {
         parameters.clear();
-
-        // 38,Mon,Mar,9,23:01:18,2020,pid,10737,
-        // "[ftp_akep] FAIL DOWNLOAD: Client ""::ffff:10.0.0.9"", ""/files/t.txt"", 0.00Kbyte/sec",32eb2840,"[<*>] FAIL DOWNLOAD: Client ""::ffff:<*>""
-        // , <*> <*>.00Kbyte/sec","['ftp_akep', '10.0.0.9', '""/files/t.txt"", 0']"
-        // ['ftp_akep', 'DOWNLOAD:', 'ffff:10.0.0.9', '"/files/test2.txt", 11', '1.06Kbyte/sec']
-
-        // normalize the parameter list into ', ' format
-//        if(parameterString.equalsIgnoreCase("['ftp_akep', 'DOWNLOAD:', 'ffff:10.0.0.9', '\"/files/test2.txt\", 11', '1.06Kbyte/sec']")) {
-//            System.out.println();
-//        }
-//        System.out.println(parameterString);
 
         String paramStringValue = parameterString.replaceAll("\", '", "', '");
         paramStringValue = paramStringValue.replaceAll("', \"", "', '");

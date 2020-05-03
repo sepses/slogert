@@ -39,8 +39,8 @@ public class Utility {
      */
     public static String createHash(String templateText) throws NoSuchAlgorithmException {
         final MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        final byte[] hashbytes = digest.digest(templateText.getBytes(StandardCharsets.UTF_8));
-        return DigestUtils.sha256Hex(hashbytes);
+        final byte[] hashBytes = digest.digest(templateText.getBytes(StandardCharsets.UTF_8));
+        return DigestUtils.sha256Hex(hashBytes);
     }
 
     public static String cleanContent(String inputContent) {
@@ -65,24 +65,6 @@ public class Utility {
         writer.write(string);
         writer.flush();
         writer.close();
-    }
-
-    /**
-     * TODO: finish this.
-     *
-     * @param filePath
-     * @param config
-     * @return
-     */
-    public static Map<String, Template> loadTemplates(String filePath, Config config) {
-        //
-        Map<String, Template> templatesMap = new HashMap<>();
-        //        existingTemplates.forEach(existingTemplate -> {
-        //            Template template = Template.parseExistingTemplate(existingTemplate, config);
-        //            templatesMap.put(template.hash, template);
-        //        });
-        //
-        return templatesMap;
     }
 
     public static String getDate(String month, String day, String time) {
@@ -126,11 +108,7 @@ public class Utility {
 
         } else {
             try {
-                //<<<<<<< HEAD
-                //                fromFormatter = DateTimeFormatter.ofPattern(timeFormat).withLocale(Locale.ENGLISH);
-                //=======
                 fromFormatter = DateTimeFormatter.ofPattern(timeFormat, Locale.ENGLISH);
-                //>>>>>>> 33c7192b6f9365b6e7d77cae0484cdeaf7edf203
                 dateTime = LocalDateTime.parse(timeParam, fromFormatter);
             } catch (IllegalArgumentException e) {
                 log.error(e.getMessage());

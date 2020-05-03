@@ -1,6 +1,7 @@
-package org.sepses.helper;
+package org.sepses.logline;
 
 import org.apache.commons.csv.CSVRecord;
+import org.sepses.helper.Utility;
 import org.sepses.yaml.InternalLogType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,17 +11,18 @@ import java.security.NoSuchAlgorithmException;
 public class LogLineAudit extends LogLine {
     private static final Logger log = LoggerFactory.getLogger(LogLineUnix.class);
     private static final String[] TEMPLATE_HEADER =
-            { "LineId", "type", "time", "Content", "EventId", "EventTemplate", "ParameterList" };
+            { "Device", "LineId", "type", "time", "Content", "EventId", "EventTemplate", "ParameterList" };
 
     public LogLineAudit(CSVRecord record, InternalLogType ilogType) throws NoSuchAlgorithmException {
         super(record, ilogType);
 
-        counter = Integer.parseInt(record.get(TEMPLATE_HEADER[0]));
-        dateTime = getDate(record.get(TEMPLATE_HEADER[2]));
-        content = record.get(TEMPLATE_HEADER[3]);
-        logpaiEventId = record.get(TEMPLATE_HEADER[4]);
-        templateHash = Utility.createHash(record.get(TEMPLATE_HEADER[5]));
-        setParameters(record.get(TEMPLATE_HEADER[6]));
+        device = record.get(TEMPLATE_HEADER[0]);
+        counter = Integer.parseInt(record.get(TEMPLATE_HEADER[1]));
+        dateTime = getDate(record.get(TEMPLATE_HEADER[3]));
+        content = record.get(TEMPLATE_HEADER[4]);
+        logpaiEventId = record.get(TEMPLATE_HEADER[5]);
+        templateHash = Utility.createHash(record.get(TEMPLATE_HEADER[6]));
+        setParameters(record.get(TEMPLATE_HEADER[7]));
     }
 
     private static String getDate(String timeSinceEpoch) {
