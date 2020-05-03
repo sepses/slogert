@@ -1,46 +1,46 @@
 EventId,EventTemplate,Occurrences
-e2d09e15,Inserted module <*>,35
-e1db1317,Starting Flush Journal to Persistent Storage...,16
 2204a9d7,cannot open file /<*>,16
+e1db1317,Starting Flush Journal to Persistent Storage...,16
 2ac0e54c,Started udev Coldplug all Devices.,15
-0180b609,Started <*> <*> daemon.,16
 a7fe3d48,Started Create Static Device Nodes in /<*>,14
 22110ed5,Starting udev Kernel Device Manager...,14
-92499399,"Started Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.",15
+e2d09e15,Inserted module <*>,35
+7a4412e1,Started Flush Journal to Persistent Storage.,16
 f95692bb,Started <*> Kernel <*>,31
 40de610b,Mounting <*> <*> File System...,30
 96c375ea,Starting Apply Kernel Variables...,15
 737d7ce7,Mounted <*> <*> File System.,31
-7a4412e1,Started Flush Journal to Persistent Storage.,16
+0180b609,Started <*> <*> daemon.,16
 0964e582,Started udev Kernel Device Manager.,16
-b4c65ba8,"link_config: autonegotiation is unset or enabled, the speed and duplex are not writable.",32
+92499399,"Started Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.",15
 07b8c44b,Found device <*>,32
+b4c65ba8,"link_config: autonegotiation is unset or enabled, the speed and duplex are not writable.",32
 293cf4f7,Listening on Load/<*> RF Kill Switch Status /<*> Watch.,16
 af718609,Started Hyper-V <*> Protocol Daemon.,32
 5c47e00b,KVP starting; pid is:<*>,16
 ab48c2c2,KVP LIC Version: <*>.<*>,16
 046d6255,Started Set the console keyboard layout.,16
-46c291bc,Reached target <*> File Systems (Pre).,32
 2e7c532c,Started Dispatch Password Requests to Console Directory Watch.,16
 34b1ff8d,Reached target Local <*> <*>,17
+46c291bc,Reached target <*> File Systems (Pre).,32
 aba829c1,Found device Virtual_Disk <*>,29
 cc864f0b,Mounting /<*>,17
 53d23e31,Mounted /<*>,17
-5be8af45,Starting Set console font and keymap...,16
-553b6ace,Starting Create Volatile Files and Directories...,16
-cf714a33,Starting ebtables ruleset management...,16
 0ef14e86,Starting Tell Plymouth To Write Out Runtime Data...,31
-c28ff93c,Starting AppArmor initialization...,16
+cf714a33,Starting ebtables ruleset management...,16
 46a50284,Starting Commit a transient machine-id on disk...,3
+5be8af45,Starting Set console font and keymap...,16
+c28ff93c,Starting AppArmor initialization...,16
+553b6ace,Starting Create Volatile Files and Directories...,16
 789c1938,Started Set console font and keymap.,16
+6c9f2ba4,Started Tell Plymouth To Write Out Runtime Data.,31
+e752b074,Started Commit a transient machine-id on disk.,3
 0dce4002,Started Create Volatile Files and Directories.,16
 efe6c9f1,Starting Network <*> <*>,32
 37528435,Starting Update UTMP about System Boot/<*>,16
-6c9f2ba4,Started Tell Plymouth To Write Out Runtime Data.,31
-82f7e520,Started Update UTMP about System Boot/<*>,16
-e752b074,Started Commit a transient machine-id on disk.,3
-5ec4b9d4,* Starting AppArmor profiles,16
 556c2007,Started ebtables ruleset management.,16
+82f7e520,Started Update UTMP about System Boot/<*>,16
+5ec4b9d4,* Starting AppArmor profiles,16
 19632b36,Started Network <*> <*>,32
 f1929b07,Reached target System Time Synchronized.,15
 8a13912a,Skipping profile in /<*>: <*>,27
@@ -57,37 +57,177 @@ bc8025b4,Listening on <*>,30
 bbadc51a,Sending on <*>,60
 959474a6,DHCPDISCOVER on eth0 to <*> port <*> interval <*> (xid=<*>),38
 f8f69ec0,DHCPREQUEST of <*> on eth0 to <*> port <*> (xid=<*>),30
-be94182a,[ <*>.<*>] Linux version <*>.<*>.<*>-<*>-azure (buildd@lcy01-amd64-<*>) (gcc version <*>.<*>.<*> (Ubuntu <*>.<*>.<*>-1ubuntu1~<*>.<*>.<*>)) #<*>-Ubuntu SMP Mon Feb <*> <*>:<*>:<*> UTC <*> (Ubuntu <*>.<*>.<*>-<*>.<*>-azure <*>.<*>.<*>),16
 82041fd7,DHCPOFFER of <*> from <*>,30
 151a0778,DHCPACK of <*> from <*>,30
-5fbfbc32,[ <*>.<*>] Command line: BOOT_IMAGE=<*><*>.<*>.<*>-<*>-azure root=<*>=<*> ro console=<*> console=<*> earlyprintk=<*> rootdelay=<*>,16
-965b1ec6,[ <*>.<*>] KERNEL supported cpus:,16
-936b8562,[ <*>.<*>] <*> <*>,479
 032e2c6f,bound to <*> -- renewal in <*> seconds.,30
-18f54aba,[ <*>.<*>] x86/<*>: Supporting XSAVE feature 0x001: 'x87 floating point registers',16
 9719122c,Cloud-init v. <*>.<*>-<*>-gbb4131a2-0ubuntu1~<*>.<*>.<*> running <*> at <*> <*> Mar <*> <*>:<*>:<*> <*>. Up <*>.<*> seconds.,64
-d4f09af2,[ <*>.<*>] x86/<*>: Supporting XSAVE feature <*> <*> <*>,44
-6368c3fb,[ <*>.<*>] x86/<*>: Supporting XSAVE feature 0x008: 'MPX bounds registers',3
 4d107eed,Started Initial cloud-init job (pre-networking).,16
 3f508636,Reached target <*> <*>,142
-2260ae38,"[ <*>.<*>] x86/<*>: xstate_offset[<*>]: <*>, xstate_sizes[<*>]: <*>",31
 2e322db0,Starting <*> Service...,56
 d7e5ae8a,Enumeration completed,16
+251593e6,Started <*> Service.,56
+f4377478,eth0: Link <*>,76
+85e5c000,eth0: Gained <*>,67
+1968e964,eth0: Lost carrier,32
+d4606850,"Network configuration changed, trying to establish connection.",52
+9ee30012,"eth0: Removing non-existent address: fe80::<*>:<*>:<*>:<*><*> (valid forever), ignoring",27
+29a897b8,Starting Wait for Network to be Configured...,16
+16786b5a,ignoring: lo,54
+48f48d37,eth0: IPv6 successfully enabled,16
+fda80c60,lo: Link is not managed by us,16
+7fab82ac,message repeated <*> times: [ ignoring: lo],4
+9d5e0649,Positive Trust Anchors:,16
+52252e0a,. IN DS <*> <*> <*> 49aac11d7b6f6446702e54a1607371607a1a41855200fd2ce1cdde32f24e8fb<*>,16
+feb133fd,. IN DS <*> <*> <*> e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d,16
+be94182a,[ <*>.<*>] Linux version <*>.<*>.<*>-<*>-azure (buildd@lcy01-amd64-<*>) (gcc version <*>.<*>.<*> (Ubuntu <*>.<*>.<*>-1ubuntu1~<*>.<*>.<*>)) #<*>-Ubuntu SMP Mon Feb <*> <*>:<*>:<*> UTC <*> (Ubuntu <*>.<*>.<*>-<*>.<*>-azure <*>.<*>.<*>),16
+5fbfbc32,[ <*>.<*>] Command line: BOOT_IMAGE=<*><*>.<*>.<*>-<*>-azure root=<*>=<*> ro console=<*> console=<*> earlyprintk=<*> rootdelay=<*>,16
+965b1ec6,[ <*>.<*>] KERNEL supported cpus:,16
+02923d72,Negative trust anchors: <*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa d.f.ip6.arpa corp home internal intranet lan local private test,16
+95016386,Using system hostname <*>,16
+50ef944c,Reached target Host and Network Name Lookups.,16
+1482f31a,Reached target <*>,122
+0de29e31,eth0: DHCPv4 address <*>/<*> via <*>,17
+97681fc7,eth0: Configured,17
+02a30c10,managing: eth<*>,16
+4969deb1,Started Wait for Network to be Configured.,16
+cdc459be,Starting Initial cloud-init job (metadata service crawler)...,16
+14b27b51,ci-info: ++++++++++++++++++++++++++++++++++++Net device <*>,16
+08a08cfa,ci-info: <*>,144
+547d2eda,ci-info: | <*> | <*> | <*> | <*> | <*> | <*> |,160
+d12607e6,ci-info: ++++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++++,16
+936b8562,[ <*>.<*>] <*> <*>,479
+18f76c70,ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++,16
+f9acf2a5,ci-info: | <*> | <*> | <*> | <*> | <*> |,64
+9eb84f4a,Version <*>.<*>.<*> integrated FUSE <*>,15
+206e2e98,"Mounted /<*> (Read-Only, label ""Temporary Storage"", NTFS <*>.<*>)",15
+a04e25eb,Cmdline options: ro,15
+d1cc88b6,"Mount options: ro,allow_other,nonempty,relatime,fsname=<*>,blkdev,blksize=<*>",15
+3167901f,"Ownership and permissions disabled, configuration type <*>",15
+64e69a5b,Unmounting /<*> (Temporary Storage),15
+c39f5440,Reloading.,83
+30c50e8b,Generating public/<*> <*> key pair.,12
+470960ae,Your identification has been saved in /<*>,12
+250f32cb,Your public key has been saved in /<*>,12
+e330a02d,The key fingerprint is:,12
+c784e62e,<*> root@Client<*>,12
+890114fb,The key's randomart image is:,12
+05a160dc,+---[RSA <*>]----+,3
+1f5411c5,| <*> <*> |,10
+9e2d93ad,|+.+ +. |,1
+20903e7b,|<*> oo |,1
+901d1654,|= o o E |,1
+ac86d0b7,|<*> <*> . <*> <*> . |,2
+75291344,|<*> = o o .. o |,1
+cc79f8c7,|<*> o=*=<*> . . |,1
+0367e66d,| <*> <*> .. |,2
+adc32fbf,+----[<*>]-----+,12
+dd21cfec,+---[DSA <*>]----+,3
+4a43f9b2,| =<*> oo+*+ o.|,1
+4624c061,| ..*o..o .Bo++oE.|,1
+1e4dfb01,| o <*>,2
+b1efce1f,| . oo= ++ .o|,1
+fa594d1d,| <*> <*> .|,2
+1a87b914,| <*> <*> . <*> |,6
+200498e3,| <*> |,8
+98d28617,+---[ECDSA <*>]---+,3
+24f17471,|+=+ ooo |,1
+14b0be3e,|+o.+ o |,1
+2ff5e442,| .. <*> <*> |,2
+2d55fa95,|<*> .o o |,1
+dbd4a20d,|<*>+. o S |,1
+7283b5f5,|<*>++=<*>= * o |,1
+4bab95c7,|<*>*oB * o o |,1
+359fe051,|<*>+oo.= o . |,1
+bb5e01dd,|<*>=*E o . |,1
+2044903c,+--[ED25519 <*>]--+,3
+5d67291d,| .+ .+ +.**o. |,1
+d3f46817,| + <*> <*> <*> |,2
+f2ae0bb4,| <*> <*> <*> . |,5
+7c647ef1,Started Initial cloud-init job (metadata service crawler).,16
+18485d6f,Reached target Network is Online.,16
+fdfb28e9,Reached target <*> File Systems.,31
+53251afc,Starting Availability of block devices...,16
+29d363e3,Started ACPI Events Check.,16
+b362abbb,Listening on <*> <*> <*> socket.,32
+d39a60d5,Listening on D-Bus <*> Message Bus Socket.,27
+8694f3ec,Starting Socket activation for snappy daemon.,16
+d3980a7a,Started Daily Cleanup of Temporary Directories.,16
+4c52e87a,Starting LXD - <*> <*>,32
+43d542ce,Started Daily apt download activities.,24
+be35dfa1,Started Daily apt upgrade and clean activities.,22
+81d45750,Listening on <*> <*> Socket.,32
+f19f71b6,Started Discard unused blocks once a week.,16
+345a768e,Started Message of the Day.,28
+92b30dcd,Started Availability of block devices.,16
+fa48fe96,Listening on Socket activation for snappy daemon.,16
+b68084b7,Started FUSE filesystem for LXC.,16
+9c2aca04,Starting Pollinate to seed the pseudo random number generator...,3
+75ebfe87,Starting LSB: Record successful boot for GRUB...,16
+ed3143cc,Starting Dispatcher daemon for systemd-networkd...,16
+36e71184,Started Deferred execution scheduler.,16
+0b755803,Started Regular background program processing daemon.,16
+d939bebe,Started Azure Linux Agent.,16
+c1c8232e,Starting LSB: automatic crash report generation...,16
+5946521f,Started <*> daemon.,48
+f538b97b,Started D-Bus <*> Message Bus.,27
+f2ba3844,VSS starting; pid is:<*>,16
+c5381bd5,VSS: kernel module version: <*>,16
+0dfcd344,(CRON) INFO (pidfile fd = <*>),16
+a91f3deb,mount namespace: <*>,16
+0590ae93,hierarchies:,16
+dbc81913,<*> fd: <*>: <*>,208
+f1eab20a,client sent challenge to [https:<*>],3
+f73113ee,(CRON) INFO (Running @reboot jobs),16
+78c40491,[<*>] AppArmor D-Bus mediation is enabled,16
+179d2b81,Started Hyper-V File Copy Protocol Daemon.,16
+62b65d58,Starting <*> <*> Service...,36
+fce63473,Starting Permit User Sessions...,16
+b46a9c57,starting; pid is:<*>,16
+d8df2a6f,open /<*> failed; error: <*> No such file or directory,16
+42329515,Starting <*> daemon...,33
+a52131cd,"hv-fcopy-daemon.service: Main process exited, code=<*>, status=<*>/<*>",16
+0206d3ec,hv-fcopy-daemon.service: Failed with result 'exit-code'.,16
+d6957a01,Started Permit User Sessions.,16
+28163593,"[<*>] Activating via systemd: service <*> <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> "" label=""unconfined"")",35
+695db85f,* Recording successful boot for GRUB,16
+81a51bcf,Starting <*> Manager...,32
+d7beaac3,* Starting automatic crash report generation: apport,16
+d55ac2ff,Started Unattended Upgrades Shutdown.,16
+74c403bb,Starting Hold until boot process finishes up...,16
+2e4b9e91,Starting Terminate Plymouth Boot Screen...,15
+c7e62b9e,Started LSB: automatic crash report generation.,16
+496c75dc,Started Hold until boot process finishes up.,16
+0151ab30,Started Terminate Plymouth Boot Screen.,15
+6d9af0fb,Starting Set console scheme...,16
+b2e22f90,Started Serial Getty on ttyS0.,16
+442d64d2,Started Set console scheme.,16
+d50e6330,Created slice system-getty.slice.,16
+74fc2902,Started Getty on tty1.,15
+b0b3e1bf,Started LSB: Record successful boot for GRUB.,16
+197eb60b,started daemon version <*>.<*> using authority implementation `local' version `<*>.<*>',16
+1cb09ff1,[<*>] Successfully activated service <*>,53
+1e4ccd56,Started <*> Manager.,32
+3d3aa139,started daemon version <*>.<*>.<*>,16
+f673f85d,No valid path found for <*>,30
+d943e338,Started Dispatcher daemon for systemd-networkd.,16
+88b3c0a3,Started <*> <*> Service.,35
+890670fe,imuxsock: Acquired UNIX socket '/<*>' (fd <*>) from systemd. [v8.<*>.<*>],16
+65151288,rsyslogd's <*> changed to <*>,32
+cd65d4fe,"[origin software=""rsyslogd"" swVersion=""<*>.<*>.<*>"" x-pid=""<*>"" x-info=""http:<*>""] start",16
+18f54aba,[ <*>.<*>] x86/<*>: Supporting XSAVE feature 0x001: 'x87 floating point registers',16
+d4f09af2,[ <*>.<*>] x86/<*>: Supporting XSAVE feature <*> <*> <*>,44
+2260ae38,"[ <*>.<*>] x86/<*>: xstate_offset[<*>]: <*>, xstate_sizes[<*>]: <*>",31
 a3a72cf2,"[ <*>.<*>] x86/<*>: Enabled xstate features <*> context size is <*> bytes, using <*> format.",16
 679f5927,[ <*>.<*>] BIOS-provided physical RAM map:,16
 d4d60197,[ <*>.<*>] BIOS-e820: [mem <*> <*>,80
-f4377478,eth0: Link <*>,76
 976560cf,[ <*>.<*>] BIOS-e820: [mem <*> ACPI <*>,32
-251593e6,Started <*> Service.,56
 8f72dbf6,[ <*>.<*>] <*> <*> <*> enabled,65
 a2cd9fdb,[ <*>.<*>] NX (Execute Disable) protection: active,16
 271e8bd5,[ <*>.<*>] SMBIOS <*>.<*> present.,16
 22803ace,"[ <*>.<*>] DMI: Microsoft Corporation Virtual Machine/<*> Machine, BIOS <*> <*>/<*>/<*>",16
-825d44ae,eth0: <*> carrier,80
 91ab13e8,[ <*>.<*>] Hypervisor detected: Microsoft Hyper-V,16
 9d9bfdd0,"[ <*>.<*>] Hyper-V: features 0x2e7f, hints 0x44c2c",16
 e41e7a65,[ <*>.<*>] Hyper-V Host Build:<*>-<*>.<*>-<*>-<*>.<*>,16
-d4606850,"Network configuration changed, trying to establish connection.",52
 14bf15a5,[ <*>.<*>] Hyper-V: LAPIC Timer Frequency: 0xc<*>,16
 eaf7708b,[ <*>.<*>] tsc: Marking TSC unstable due to running on Hyper-V,16
 db4f6103,[ <*>.<*>] Hyper-V: Using hypercall for remote TLB flush,16
@@ -108,27 +248,15 @@ ef90a7c4,[ <*>.<*>] ACPI: RSDP 0x00000000000F5BF0 <*> (v00 ACPIAM),16
 99b568dc,[ <*>.<*>] ACPI: <*> <*> <*> <*> VRTUAL MICROSFT <*> MSFT <*>),128
 55f70f8e,[ <*>.<*>] ACPI: DSDT 0x000000003FFF1D24 003CBE (v01 MSFTVM MSFTVM02 <*> INTL <*>),16
 384a7d61,[ <*>.<*>] ACPI: <*> <*> <*>,96
-9ee30012,"eth0: Removing non-existent address: fe80::<*>:<*>:<*>:<*><*> (valid forever), ignoring",27
-48f48d37,eth0: IPv6 successfully enabled,16
 33c2304b,[ <*>.<*>] ACPI: Local APIC address 0xfee<*>,32
 3a0052b7,[ <*>.<*>] SRAT: PXM <*> -> APIC <*> -> Node <*>,32
 59806dab,[ <*>.<*>] ACPI: SRAT: Node <*> PXM <*> [mem <*> hotplug,96
-fda80c60,lo: Link is not managed by us,16
 2149b3b0,[ <*>.<*>] NUMA: Node <*> [mem 0x00000000-0x3fffffff] + [mem 0x100000000-0x2bfffffff] -> [mem 0x00000000-0x2bfffffff],16
 b6667f9b,[ <*>.<*>] <*> <*> [mem <*>,64
-29a897b8,Starting Wait for Network to be Configured...,16
 64c52242,[ <*>.<*>] Movable zone start for each node,16
 a091d2c8,[ <*>.<*>] Early memory node ranges,16
 466785ab,[ <*>.<*>] Zeroed struct page in unavailable ranges: <*> pages,16
 9b9613f5,[ <*>.<*>] Initmem setup node <*> [mem 0x0000000000001000-0x00000002bfffffff],16
-9d5e0649,Positive Trust Anchors:,16
-52252e0a,. IN DS <*> <*> <*> 49aac11d7b6f6446702e54a1607371607a1a41855200fd2ce1cdde32f24e8fb<*>,16
-feb133fd,. IN DS <*> <*> <*> e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d,16
-02923d72,Negative trust anchors: <*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa d.f.ip6.arpa corp home internal intranet lan local private test,16
-95016386,Using system hostname <*>,16
-50ef944c,Reached target Host and Network Name Lookups.,16
-1482f31a,Reached target <*>,122
-0de29e31,eth0: DHCPv4 address <*>/<*> via <*>,17
 6d7e682c,[ <*>.<*>] On node <*> totalpages: <*>,16
 8f605fdb,[ <*>.<*>] <*> zone: <*> pages used for memmap,48
 4f135b04,[ <*>.<*>] DMA zone: <*> pages reserved,16
@@ -187,7 +315,7 @@ d606f323,[ <*>.<*>] Spectre V1 : Mitigation: usercopy/<*> barriers and __user po
 2b81bf58,[ <*>.<*>] Spectre V2 : Mitigation: Full generic retpoline,16
 0b47a21f,[ <*>.<*>] Spectre V2 : Spectre v2 / SpectreRSB mitigation: Filling RSB on context switch,16
 e996fac8,[ <*>.<*>] Speculative Store Bypass: Vulnerable,16
-3233ab26,"[ <*>.<*>] <*> Vulnerable: Clear CPU buffers attempted, no microcode",20
+c336bf06,[ <*>.<*>] <*> Mitigation: Clear CPU buffers,9
 b69059a5,[ <*>.<*>] Freeing <*> <*> memory: <*>,32
 91c6cedc,"[ <*>.<*>] smpboot: CPU0: Intel(R) Xeon(R) <*> <*> <*> @ <*> (family: 0x6, model: <*> stepping: <*>",16
 af43d4d4,"[ <*>.<*>] Performance Events: unsupported p6 CPU model <*> no PMU driver, software events only.",16
@@ -281,53 +409,54 @@ ea64f415,"[ <*>.<*>] Serial: <*>/<*> driver, <*> ports, IRQ sharing enabled",16
 48f9cb4d,[ <*>.<*>] <*> <*> version <*>,32
 26b1b5d7,"[ <*>.<*>] ata_piix <*>:<*>:<*>.<*>: Hyper-V Virtual Machine detected, ATA device ignore set",16
 9ebf0a1a,[ <*>.<*>] scsi <*> <*>,96
-4920f446,[ <*>.<*>] scsi <*>:<*>:<*>:<*>: <*> Msft Virtual <*> <*>.<*> PQ: <*> ANSI: <*>,35
-7fc4e243,[ <*>.<*>] <*> <*>:<*>:<*>:<*>: Attached scsi generic <*> type <*>,35
 fa004d8c,[ <*>.<*>] <*> PATA max UDMA/<*> cmd <*> ctl <*> bmdma <*> irq <*>,32
-dd6b14b6,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] <*> <*>-byte logical blocks: (<*>.<*> GB/<*>.<*> GiB),32
+4920f446,[ <*>.<*>] scsi <*>:<*>:<*>:<*>: <*> Msft Virtual <*> <*>.<*> PQ: <*> ANSI: <*>,35
 557f1a34,[ <*>.<*>] libphy: Fixed MDIO Bus: probed,16
-edea71f6,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] <*> <*> <*>,64
-df4e5c67,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] Write Protect is off,32
+7fc4e243,[ <*>.<*>] <*> <*>:<*>:<*>:<*>: Attached scsi generic <*> type <*>,35
 c4228b1a,"[ <*>.<*>] tun: Universal TUN/<*> device driver, <*>.<*>",16
+dd6b14b6,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] <*> <*>-byte logical blocks: (<*>.<*> GB/<*>.<*> GiB),32
 0946490e,[ <*>.<*>] PPP generic driver version <*>.<*>.<*>,16
+edea71f6,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] <*> <*> <*>,64
+649ca0e7,"[ <*>.<*>] i8042: PNP: PS/<*> Controller [PNP0303:<*>,PNP0f03:<*>] at 0x60,0x64 irq <*>,<*>",16
+df4e5c67,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] Write Protect is off,32
+82ad81cc,"[ <*>.<*>] serio: i8042 <*> port at 0x60,0x64 irq <*>",32
 b8ee8148,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] Mode Sense: 0f <*> <*> <*>,32
 21a4ddfa,"[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] Write cache: <*> read cache: enabled, supports DPO and FUA",32
-649ca0e7,"[ <*>.<*>] i8042: PNP: PS/<*> Controller [PNP0303:<*>,PNP0f03:<*>] at 0x60,0x64 irq <*>,<*>",16
-82ad81cc,"[ <*>.<*>] serio: i8042 <*> port at 0x60,0x64 irq <*>",32
-5d79e4a3,[ <*>.<*>] GPT:<*> header thinks Alt. header is not at the end of the disk.,3
-8a328cfc,[ <*>.<*>] GPT:<*> != <*>,6
 dbaeb175,[ <*>.<*>] mousedev: PS/<*> mouse device common for all mice,16
-51762e4e,[ <*>.<*>] GPT:<*> GPT header not at the end of the disk.,3
 516bbbf1,[ <*>.<*>] rtc_cmos <*>:<*>: RTC can wake from S<*>,16
-dd89679f,[ <*>.<*>] GPT: Use GNU Parted to correct GPT errors.,3
-909da0e6,[ <*>.<*>] sda: sda1 sda14 sda<*>,16
 fcfaf745,[ <*>.<*>] rtc_cmos <*>:<*>: registered as rtc<*>,16
 139c403f,"[ <*>.<*>] rtc_cmos <*>:<*>: alarms up to one month, <*> bytes nvram",16
 5bb267ad,[ <*>.<*>] device-mapper: ioctl: <*>.<*>.<*>-ioctl (<*>-<*>-<*>) initialised: dm-devel@redhat.com,16
 2de64ea0,[ <*>.<*>] platform eisa.<*>: <*> <*> <*> <*>,32
+5d79e4a3,[ <*>.<*>] GPT:<*> header thinks Alt. header is not at the end of the disk.,3
+8a328cfc,[ <*>.<*>] GPT:<*> != <*>,6
+51762e4e,[ <*>.<*>] GPT:<*> GPT header not at the end of the disk.,3
+dd89679f,[ <*>.<*>] GPT: Use GNU Parted to correct GPT errors.,3
+909da0e6,[ <*>.<*>] sda: sda1 sda14 sda<*>,16
 be358a3d,[ <*>.<*>] platform eisa.<*>: EISA: Cannot allocate resource for mainboard,16
 0ad8dabf,[ <*>.<*>] platform eisa.<*>: Cannot allocate resource for EISA slot <*>,128
 26c4f486,[ <*>.<*>] Segment Routing with IPv<*>,16
-eaf7c3db,"[ <*>.<*>] ata1.<*>: host indicates ignore ATA devices, ignored",32
 48176c35,[ <*>.<*>] mce: Using <*> MCE banks,16
-31169089,[ <*>.<*>] ata2.<*>: NODEV after polling detection,3
+d15b796b,[ <*>.<*>] input: AT Translated Set <*> keyboard as <*>,32
 329258f5,[ <*>.<*>] RAS: Correctable Errors collector initialized.,16
+eaf7c3db,"[ <*>.<*>] ata1.<*>: host indicates ignore ATA devices, ignored",32
 9a257afa,[ <*>.<*>] Loading compiled-in X.<*> certificates,16
 e0570adb,[ <*>.<*>] Loaded X.<*> cert 'Build time autogenerated kernel key: 9c13c25bb46bb08aadac8fd6055952f30e111a90',16
 bd410c1e,[ <*>.<*>] zswap: loaded using pool lzo/<*>,16
-d15b796b,[ <*>.<*>] input: AT Translated Set <*> keyboard as <*>,32
+31169089,[ <*>.<*>] ata2.<*>: NODEV after polling detection,3
 32444bcd,"[ <*>.<*>] ata2.<*>: ATAPI: Virtual CD, , max MWDMA<*>",3
-42876bc1,[ <*>.<*>] sr <*>:<*>:<*>:<*>: [<*>] scsi3-mmc drive: 0x/<*> tray,3
-3c032de4,[ <*>.<*>] cdrom: Uniform CD-ROM driver Revision: <*>.<*>,3
-74c6e44a,[ <*>.<*>] sr <*>:<*>:<*>:<*>: Attached scsi CD-ROM sr<*>,3
+87f8c292,[ <*>.<*>] scsi: waiting for bus probes to complete ...,2
 c9165bad,[ <*>.<*>] AppArmor: AppArmor sha1 policy hashing enabled,16
 d7543f09,"[ <*>.<*>] ima: No TPM chip found, activating TPM-bypass!",16
 7adc29a9,[ <*>.<*>] ima: Allocated hash algorithm: sha<*>,16
 98199832,[ <*>.<*>] No architecture policies found,16
 d0626d7a,[ <*>.<*>] evm: Initialising EVM extended attributes:,16
 b86827a7,[ <*>.<*>] evm: HMAC attrs: 0x<*>,16
+42876bc1,[ <*>.<*>] sr <*>:<*>:<*>:<*>: [<*>] scsi3-mmc drive: 0x/<*> tray,3
 7eec6703,[ <*>.<*>] Magic number: <*>:<*>:<*>,16
+3c032de4,[ <*>.<*>] cdrom: Uniform CD-ROM driver Revision: <*>.<*>,3
 9f29b756,[ <*>.<*>] <*> <*> hash matches,12
+74c6e44a,[ <*>.<*>] sr <*>:<*>:<*>:<*>: Attached scsi CD-ROM sr<*>,3
 841f29af,[ <*>.<*>] rtc_cmos <*>:<*>: setting system clock to <*> UTC (<*>),16
 efffaa04,"[ <*>.<*>] Unstable clock detected, switching default tracing clock to ""global""",16
 50e8f7c1,"[ <*>.<*>] If you want to keep using the local clock, then add:",16
@@ -338,14 +467,14 @@ efffaa04,"[ <*>.<*>] Unstable clock detected, switching default tracing clock to
 cf642a1a,"[ <*>.<*>] x86/<*>: Checked W+X mappings: passed, no W+X pages found.",32
 86492a29,[ <*>.<*>] x86/<*>: Checking user space page tables,16
 a9655090,[ <*>.<*>] Run /<*> as init process,16
-f3d3b6f6,[ <*>.<*>] hv_utils: Registering HyperV Utility Driver,16
-0b48689c,[ <*>.<*>] hidraw: raw HID events driver (C) Jiri Kosina,16
-46912ed2,[ <*>.<*>] hv_utils: <*> IC version <*>.<*>,80
 e4ecf407,"[ <*>.<*>] hyperv_fb: Screen resolution: 1152x864, Color depth: <*>",16
 68ea4992,[ <*>.<*>] Console: switching to colour frame buffer device 144x<*>,16
-b55ab964,[ <*>.<*>] cryptd: max_cpu_qlen set to <*>,16
+f3d3b6f6,[ <*>.<*>] hv_utils: Registering HyperV Utility Driver,16
+46912ed2,[ <*>.<*>] hv_utils: <*> IC version <*>.<*>,80
+0b48689c,[ <*>.<*>] hidraw: raw HID events driver (C) Jiri Kosina,16
 f82969d4,[ <*>.<*>] input: Microsoft Vmbus HID-compliant Mouse as /<*><*>:<*>:<*>.<*>/<*><*>,16
 cb036f4c,[ <*>.<*>] hid <*>:<*>:<*>.<*>: input: <UNKNOWN> HID v0.<*> Mouse [Microsoft Vmbus HID-compliant Mouse] on,16
+b55ab964,[ <*>.<*>] cryptd: max_cpu_qlen set to <*>,16
 ec915500,[ <*>.<*>] AVX2 version of gcm_enc/<*> engaged.,16
 5efd1941,[ <*>.<*>] AES CTR mode by8 optimization enabled,16
 50f876a5,[ <*>.<*>] raid6: <*> <*> <*> MB/<*>,210
@@ -361,149 +490,24 @@ e521e594,[ <*>.<*>] async_tx: api initialized (async),16
 3d0daf6c,[ <*>.<*>] systemd[<*>]: Set hostname to <*>,16
 f3b24724,[ <*>.<*>] systemd[<*>]: Initializing machine ID from random generator.,3
 1d176cae,[ <*>.<*>] systemd[<*>]: Installed transient /<*> file.,3
-758439b5,[ <*>.<*>] systemd[<*>]: Started Forward Password Requests to Wall Directory Watch.,11
 1f65be94,[ <*>.<*>] systemd[<*>]: Set up automount Arbitrary Executable File Formats File System Automount Point.,9
 458a5a28,[ <*>.<*>] systemd[<*>]: Created slice User and Session Slice.,10
-10e7127e,[ <*>.<*>] systemd[<*>]: Created slice System Slice.,15
+758439b5,[ <*>.<*>] systemd[<*>]: Started Forward Password Requests to Wall Directory Watch.,11
+59424490,[ <*>.<*>] systemd[<*>]: Reached target User and Group Name Lookups.,12
 ad8c625e,[ <*>.<*>] EXT4-fs (sda1): re-mounted. Opts: discard,16
 03df5b97,[ <*>.<*>] Loading iSCSI transport class v2.<*>-<*>.,16
-f5095d7f,[ <*>.<*>] iscsi: registered transport <*>,32
 138077ab,[ <*>.<*>] systemd-journald[<*>]: Received request to flush runtime journal from PID <*>,16
+f5095d7f,[ <*>.<*>] iscsi: registered transport <*>,32
 68cfcc88,[ <*>.<*>] hv_balloon: Using Dynamic Memory protocol version <*>.<*>,16
 d32a19a0,[ <*>.<*>] KVM: vmx: using Hyper-V Enlightened VMCS,16
 d4a7c861,"[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): apparmor=""STATUS"" operation=""profile_load"" profile=""unconfined"" <*> pid=<*> comm=""apparmor_parser""",64
 2c9bf7f3,"[ <*>.<*>] UDF-fs: INFO Mounting volume 'UDF Volume', timestamp <*>/<*>/<*> <*>:<*> (<*>)",3
 66187c03,[ <*>.<*>] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready,16
+17369e2c,[ <*>.<*>] hv_balloon: Max. dynamic memory size: <*> MB,16
 cf01d4a6,[ <*>.<*>] EXT4-fs (sda1): resizing filesystem from <*> to <*> blocks,3
 3a31a68c,[ <*>.<*>] EXT4-fs (sda1): resized filesystem to <*>,3
 48338300,[ <*>.<*>] hv_utils: VSS: userspace daemon ver. <*> connected,16
 e95b0292,"[ <*>.<*>] new mount options do not match the existing superblock, will be ignored",16
-6df84209,eth0: Gained IPv6LL,19
-97681fc7,eth0: Configured,17
-02a30c10,managing: eth<*>,16
-16786b5a,ignoring: lo,54
-4969deb1,Started Wait for Network to be Configured.,16
-cdc459be,Starting Initial cloud-init job (metadata service crawler)...,16
-14b27b51,ci-info: ++++++++++++++++++++++++++++++++++++Net device <*>,16
-08a08cfa,ci-info: <*>,144
-547d2eda,ci-info: | <*> | <*> | <*> | <*> | <*> | <*> |,160
-d12607e6,ci-info: ++++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++++,16
-18f76c70,ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++,16
-f9acf2a5,ci-info: | <*> | <*> | <*> | <*> | <*> |,64
-9eb84f4a,Version <*>.<*>.<*> integrated FUSE <*>,15
-206e2e98,"Mounted /<*> (Read-Only, label ""Temporary Storage"", NTFS <*>.<*>)",15
-a04e25eb,Cmdline options: ro,15
-d1cc88b6,"Mount options: ro,allow_other,nonempty,relatime,fsname=<*>,blkdev,blksize=<*>",15
-3167901f,"Ownership and permissions disabled, configuration type <*>",15
-64e69a5b,Unmounting /<*> (Temporary Storage),15
-c39f5440,Reloading.,83
-30c50e8b,Generating public/<*> <*> key pair.,12
-470960ae,Your identification has been saved in /<*>,12
-250f32cb,Your public key has been saved in /<*>,12
-e330a02d,The key fingerprint is:,12
-c784e62e,<*> root@Client<*>,12
-890114fb,The key's randomart image is:,12
-05a160dc,+---[RSA <*>]----+,3
-200498e3,| <*> |,8
-f2ae0bb4,| <*> <*> <*> . |,10
-f203d405,| <*> <*> <*> . . |,2
-164f7323,| <*> + = <*> <*>,2
-a6ded2b1,| .. S* + * =<*>|,1
-55c4dc16,| .o. O = =<*>|,1
-4aea1f6e,| .E.o. B = o|,1
-1f5411c5,| <*> <*> |,10
-adc32fbf,+----[<*>]-----+,12
-dd21cfec,+---[DSA <*>]----+,3
-d3ef4983,| o o.. * = o |,1
-9512083e,| . o = = = |,1
-7a775429,| . . S X + |,1
-922657f1,| . . O B . o |,1
-b1db98d8,| o <*> <*> <*> |,4
-f1145122,| + <*> <*>,2
-b79b8251,| <*> .. <*> |,2
-98d28617,+---[ECDSA <*>]---+,3
-d4d2a870,| <*> <*> o |,4
-52bb2854,| <*> <*> . |,4
-2044903c,+--[ED25519 <*>]--+,3
-8452fdab,|<*>+Bo+ |,1
-b3a14582,| * . + |,1
-d98df1aa,| <*> <*> o <*> |,2
-8959c6c0,| o . S o ...|,1
-5447ae3d,| . + o . . .o+|,1
-de1fd825,|<*> * o + . .oE|,1
-ce58d668,|<*>+oB + . o o ..|,1
-2e007d3c,| o**= o.. + .|,1
-7c647ef1,Started Initial cloud-init job (metadata service crawler).,16
-81d45750,Listening on <*> <*> Socket.,32
-29d363e3,Started ACPI Events Check.,16
-8694f3ec,Starting Socket activation for snappy daemon.,16
-345a768e,Started Message of the Day.,28
-f19f71b6,Started Discard unused blocks once a week.,16
-4c52e87a,Starting LXD - <*> <*>,32
-d3980a7a,Started Daily Cleanup of Temporary Directories.,16
-d39a60d5,Listening on D-Bus <*> Message Bus Socket.,27
-b362abbb,Listening on <*> <*> <*> socket.,32
-43d542ce,Started Daily apt download activities.,24
-be35dfa1,Started Daily apt upgrade and clean activities.,22
-18485d6f,Reached target Network is Online.,16
-53251afc,Starting Availability of block devices...,16
-fdfb28e9,Reached target <*> File Systems.,31
-fa48fe96,Listening on Socket activation for snappy daemon.,16
-92b30dcd,Started Availability of block devices.,16
-5946521f,Started <*> daemon.,48
-179d2b81,Started Hyper-V File Copy Protocol Daemon.,16
-c1c8232e,Starting LSB: automatic crash report generation...,16
-36e71184,Started Deferred execution scheduler.,16
-f538b97b,Started D-Bus <*> Message Bus.,27
-b46a9c57,starting; pid is:<*>,16
-d8df2a6f,open /<*> failed; error: <*> No such file or directory,16
-78c40491,[<*>] AppArmor D-Bus mediation is enabled,16
-0b755803,Started Regular background program processing daemon.,16
-0dfcd344,(CRON) INFO (pidfile fd = <*>),16
-9c2aca04,Starting Pollinate to seed the pseudo random number generator...,3
-75ebfe87,Starting LSB: Record successful boot for GRUB...,16
-f73113ee,(CRON) INFO (Running @reboot jobs),16
-ed3143cc,Starting Dispatcher daemon for systemd-networkd...,16
-b68084b7,Started FUSE filesystem for LXC.,16
-fce63473,Starting Permit User Sessions...,16
-d939bebe,Started Azure Linux Agent.,16
-62b65d58,Starting <*> <*> Service...,36
-42329515,Starting <*> daemon...,33
-a52131cd,"hv-fcopy-daemon.service: Main process exited, code=<*>, status=<*>/<*>",16
-0206d3ec,hv-fcopy-daemon.service: Failed with result 'exit-code'.,16
-d6957a01,Started Permit User Sessions.,16
-f2ba3844,VSS starting; pid is:<*>,16
-c5381bd5,VSS: kernel module version: <*>,16
-74c403bb,Starting Hold until boot process finishes up...,16
-2e4b9e91,Starting Terminate Plymouth Boot Screen...,15
-496c75dc,Started Hold until boot process finishes up.,16
-b2e22f90,Started Serial Getty on ttyS0.,16
-695db85f,* Recording successful boot for GRUB,16
-6d9af0fb,Starting Set console scheme...,16
-0151ab30,Started Terminate Plymouth Boot Screen.,15
-a91f3deb,mount namespace: <*>,16
-0590ae93,hierarchies:,16
-dbc81913,<*> fd: <*>: <*>,208
-442d64d2,Started Set console scheme.,16
-d50e6330,Created slice system-getty.slice.,16
-74fc2902,Started Getty on tty1.,15
-d7beaac3,* Starting automatic crash report generation: apport,16
-c7e62b9e,Started LSB: automatic crash report generation.,16
-f1eab20a,client sent challenge to [https:<*>],3
-28163593,"[<*>] Activating via systemd: service <*> <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> "" label=""unconfined"")",35
-81a51bcf,Starting <*> Manager...,32
-d55ac2ff,Started Unattended Upgrades Shutdown.,16
-b0b3e1bf,Started LSB: Record successful boot for GRUB.,16
-88b3c0a3,Started <*> <*> Service.,35
-890670fe,imuxsock: Acquired UNIX socket '/<*>' (fd <*>) from systemd. [v8.<*>.<*>],16
-65151288,rsyslogd's <*> changed to <*>,32
-cd65d4fe,"[origin software=""rsyslogd"" swVersion=""<*>.<*>.<*>"" x-pid=""<*>"" x-info=""http:<*>""] start",16
-197eb60b,started daemon version <*>.<*> using authority implementation `local' version `<*>.<*>',16
-1cb09ff1,[<*>] Successfully activated service <*>,53
-1e4ccd56,Started <*> Manager.,32
-3d3aa139,started daemon version <*>.<*>.<*>,16
-f673f85d,No valid path found for <*>,30
-d943e338,Started Dispatcher daemon for systemd-networkd.,16
 ddbe9295,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon <*> <*> <*> <*>,67
 a5e07ed2,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon <*> <*> <*>,26
 6d407701,2020/<*>/<*> <*>:<*>:<*>.<*> INFO <*> <*> <*>,60
@@ -513,15 +517,6 @@ f443d7ca,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Test for route to <*>,3
 c39af840,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Fabric preferred wire protocol version:<*>-<*>-<*>,3
 94e16801,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon ssh host key found at: /<*>,3
 d541f8e8,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Thumbprint obtained from : /<*>,3
-1c07c042,client verified challenge/<*> with [https:<*>],3
-d976432b,client hashed response from [https:<*>],3
-82ed3b43,client successfully seeded [/<*>],3
-88c3d6df,Started Pollinate to seed the pseudo random number generator.,3
-d3100102,Starting OpenBSD Secure Shell server...,19
-2dd27e8c,AppArmor status: apparmor is enabled and all features are available,17
-e5862279,Started OpenBSD Secure Shell server.,19
-afdc6247,daemon.go:<*>: started <*> (series <*>; classic) ubuntu/<*>.<*> (amd64) linux/<*>.<*>.<*>-<*>-azure.,16
-c32dbefb,daemon.go:<*>: adjusting startup timeout by <*> (pessimistic estimate of 30s plus 5s per snap),16
 f68290a6,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon RDMA capabilities are not enabled, skipping",16
 d56fdd20,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon <*> Agent WALinuxAgent-<*>.<*>.<*> <*> <*> <*> <*> agent,19
 87725a79,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Agent WALinuxAgent-<*>.<*>.<*> is running as the goal state agent,3
@@ -532,21 +527,27 @@ dd0da35d,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Distro info: ubuntu <*>.<
 820f6d00,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Hostname record does not exist, creating [/<*>] with hostname [<*>]",3
 342e8210,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler WALinuxAgent-<*>.<*>.<*> running as process <*>,3
 13c19fbb,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Started tracking new cgroup: walinuxagent.service, path: /<*>",6
-e54bb5b8,Started LXD - container startup/<*>,16
 477a8bfb,[ <*>.<*>] bpfilter: Loaded bpfilter_umh pid <*>,16
+da2b330e,Created slice Slice for <*> <*>,17
+f2cc8e2a,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Created slice for walinuxagent extensions system-walinuxagent.extensions.slice,3
 31978809,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Route table: [{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0003"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0001"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0007"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0007"", ""Metric"": ""<*>""}]",3
 9044befb,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Initial NIC state: [{ ""name"": ""lo"", ""link"": ""<LOOPBACK,UP,LOWER_UP> mtu <*> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <*>\ link/<*> <*>:<*>:<*>:<*>:<*>:<*> brd <*>:<*>:<*>:<*>:<*>:<*>"" }, { ""name"": ""eth0"", ""link"": ""<BROADCAST,MULTICAST,UP,LOWER_UP> mtu <*> qdisc mq state UP mode DEFAULT group default qlen <*>\ link/<*> <*>:<*>:<*>:<*>:<*>:<*> brd ff:<*>:<*>:<*>:<*>:<*>"" }]",3
 33030b14,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Successfully added Azure fabric firewall rules,3
-9d9f7ea0,helpers.go:<*>: error trying to compare the snap system key: system-key missing on disk,3
 14a9d1ee,"Chain <*> (policy ACCEPT <*> packets, <*> bytes)",57
 a44d892b,pkts bytes target prot opt in out source destination,57
 c68c5454,<*> <*> ACCEPT tcp -- * * <*>/<*> <*> owner UID match <*>,19
 2ec9101a,"0 <*> DROP tcp -- * * <*>/<*> <*> ctstate INVALID,NEW",19
 fa6a14e9,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Set block dev timeout: <*> with timeout: <*>,6
-da2b330e,Created slice Slice for <*> <*>,17
-f2cc8e2a,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Created slice for walinuxagent extensions system-walinuxagent.extensions.slice,3
-245e6809,Starting Wait until snapd is fully seeded...,16
 9b4076a5,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Agent WALinuxAgent-<*>.<*>.<*> discovered update WALinuxAgent-<*>.<*>.<*> -- exiting,3
+2dd27e8c,AppArmor status: apparmor is enabled and all features are available,17
+1c07c042,client verified challenge/<*> with [https:<*>],3
+d976432b,client hashed response from [https:<*>],3
+82ed3b43,client successfully seeded [/<*>],3
+88c3d6df,Started Pollinate to seed the pseudo random number generator.,3
+d3100102,Starting OpenBSD Secure Shell server...,19
+e5862279,Started OpenBSD Secure Shell server.,19
+afdc6247,daemon.go:<*>: started <*> (series <*>; classic) ubuntu/<*>.<*> (amd64) linux/<*>.<*>.<*>-<*>-azure.,16
+c32dbefb,daemon.go:<*>: adjusting startup timeout by <*> (pessimistic estimate of 30s plus 5s per snap),16
 ac0adfc6,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Agent WALinuxAgent-<*>.<*>.<*> launched with command 'python3 -u <*> -run-exthandlers' is successfully running,15
 230df6e9,<*> INFO ExtHandler Agent WALinuxAgent-<*>.<*>.<*> is running as the goal state agent,16
 e6c89b45,"<*> INFO ExtHandler Distro info: ubuntu <*>.<*>, osutil class being used: Ubuntu18OSUtil, agent service name: walinuxagent",16
@@ -559,51 +560,105 @@ e93f3aff,<*> INFO ExtHandler WALinuxAgent-<*>.<*>.<*> running as process <*>,16
 c968888e,<*> INFO ExtHandler CGroups Status: The cgroup filesystem is ready to use,16
 a7362d20,<*> INFO ExtHandler Started tracking new cgroup: <*> path: <*>,42
 e6316713,"<*> INFO ExtHandler Route table: [{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0003"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0001"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0007"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0007"", ""Metric"": ""<*>""}]",16
+e54bb5b8,Started LXD - container startup/<*>,16
 37047c7b,"<*> INFO ExtHandler Initial NIC state: [{ ""name"": ""lo"", ""link"": ""<LOOPBACK,UP,LOWER_UP> mtu <*> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <*>\ link/<*> <*>:<*>:<*>:<*>:<*>:<*> brd <*>:<*>:<*>:<*>:<*>:<*>"" }, { ""name"": ""eth0"", ""link"": ""<BROADCAST,MULTICAST,UP,LOWER_UP> mtu <*> qdisc mq state UP mode DEFAULT group default qlen <*>\ link/<*> <*>:<*>:<*>:<*>:<*>:<*> brd ff:<*>:<*>:<*>:<*>:<*>"" }]",16
 860b1bfd,<*> INFO ExtHandler Successfully added Azure fabric firewall rules,16
 0eebed22,<*> INFO ExtHandler Firewall rules:,16
-1b53365a,Started Wait until snapd is fully seeded.,16
-95581589,Starting Apply the settings specified in cloud-config...,16
+9d9f7ea0,helpers.go:<*>: error trying to compare the snap system key: system-key missing on disk,3
+245e6809,Starting Wait until snapd is fully seeded...,16
 448a341d,<*> INFO ExtHandler Created slice for walinuxagent extensions system-walinuxagent.extensions.slice,16
 0fe03be8,<*> INFO ExtHandler ProcessGoalState completed [incarnation <*>; <*> ms],17
+1b53365a,Started Wait until snapd is fully seeded.,16
+95581589,Starting Apply the settings specified in cloud-config...,16
 2af85575,Stopping OpenBSD Secure Shell server...,7
 e721f659,Stopped OpenBSD Secure Shell server.,3
+ee7619c4,daemon.go:<*>: <*> waiting for running hooks,30
+fd1bf301,daemon stop requested to wait for socket activation,15
 8e99a18f,"Server returned error NXDOMAIN, mitigating potential DNS violation DVE-<*>-<*>, retrying transaction with reduced feature level UDP.",54
 3035b695,"message repeated <*> times: [ Server returned error NXDOMAIN, mitigating potential DNS violation DVE-<*>-<*>, retrying transaction with reduced feature level UDP.]",6
 d48b7433,Started Apply the settings specified in cloud-config.,16
 12493f0c,Starting Write warning to Azure ephemeral disk...,16
 d5c705ed,Added ephemeral disk warning to /<*>,15
 3dc2c4b7,Started Write warning to Azure ephemeral disk.,16
-8e456186,Starting Update UTMP about System Runlevel Changes...,16
 31b32990,Starting Execute cloud user/<*> scripts...,16
+8e456186,Starting Update UTMP about System Runlevel Changes...,16
 dc652287,Started Update UTMP about System Runlevel Changes.,16
 21394369,#############################################################,6
 48d1f90d,-----BEGIN SSH HOST KEY FINGERPRINTS-----,3
-4bf1bccf,1024 <*> <*> (DSA),3
-344cdedf,256 <*> root@Client01 <*>,2
-7d296023,2048 <*> <*> (RSA),3
+12305ae2,<*> SHA256:<*> root@Client03 <*>,2
+98203b87,256 <*> root@Client03 <*>,2
 132107e0,-----END SSH HOST KEY FINGERPRINTS-----,3
 62d7009f,ci-info: no authorized SSH keys fingerprints found for user <*>,3
 61a51dda,Cloud-init v. <*>.<*>-<*>-gbb4131a2-0ubuntu1~<*>.<*>.<*> finished at <*> <*> Mar <*> <*>:<*>:<*> <*>. Datasource DataSourceAzure [seed=<*>]. Up <*>.<*> seconds,16
 c187fe3d,Started Execute cloud user/<*> scripts.,16
-445bb66c,Startup finished in <*> (kernel) + <*> (userspace) = <*>,7
-ee7619c4,daemon.go:<*>: <*> waiting for running hooks,30
-fd1bf301,daemon stop requested to wait for socket activation,15
+9fb3797c,Startup finished in <*> (kernel) + <*> <*> (userspace) = <*> <*>,8
+075790be,Timed out waiting for reply from <*> (ntp.ubuntu.com).,1
 fcf987af,Synchronized to time server <*> (ntp.ubuntu.com).,18
-17369e2c,[ <*>.<*>] hv_balloon: Max. dynamic memory size: <*> MB,16
+038a758d,Starting Cleanup of Temporary Directories...,13
+20447797,Started Cleanup of Temporary Directories.,13
+fed60bb0,[ <*>.<*>] hv_utils: Shutdown request received - graceful shutdown initiated,13
+990f29b7,Stopped target <*> <*>,35
+7c92d15c,Stopped Execute cloud user/<*> scripts.,9
+cdd32468,Unmounting /<*>,8
+e5432bfb,Stopping LSB: Record successful boot for GRUB...,4
+60eafebc,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Agent WALinuxAgent-<*>.<*>.<*> forwarding signal <*> to WALinuxAgent-<*>.<*>.<*>,4
+ccd65f81,Stopping Azure Linux Agent...,3
+44aa85e3,Stopping <*> Service...,9
+4ba2a6b8,Stopping Getty on tty1...,2
+bb850b38,Stopping <*> Manager...,13
+2f579c3c,Stopping Availability of block devices...,8
+6b3c4980,Stopped target <*>,18
+6578c4e4,Stopped Message of the Day.,5
+ffbc4cc7,Stopping LXD - container startup/<*>,4
+80f3c511,Stopping Unattended Upgrades Shutdown...,2
+268cbe38,Closed Load/<*> RF Kill Switch Status /<*> Watch.,8
+a7f3ac59,Stopping <*> daemon...,7
+3cc3fc9f,Stopped target Host and Network Name Lookups.,6
+01b25ed8,Stopping FUSE filesystem for LXC...,4
+bcc51a2b,Stopping LSB: automatic crash report generation...,3
+471731bd,Stopping Serial Getty on ttyS0...,3
+603cf896,Stopping Hyper-V VSS Protocol Daemon...,5
+46160522,Stopping Deferred execution scheduler...,5
+5c9b0447,Started Remount Root and Kernel File Systems.,2
+9dd390d7,Started Create list of required static device nodes for the current kernel.,1
+440eb43f,Mounted POSIX Message Queue File System.,1
+e9cddce5,Started Uncomplicated firewall.,1
+2b7c62ce,Starting Create Static Device Nodes in /<*>,2
+9d0d59c6,Starting Load/<*> Random Seed...,2
+63b9abf7,Started Load/<*> Random Seed.,6
+1d8dc2ea,Could not set WakeOnLan of eth0 to off: Operation not supported,13
+8be10702,Starting File System Check on /<*>,25
+f57935a5,"fsck.ntfs doesn't exist, not checking file system on /<*>",24
+1f3bde23,Started File System Check on /<*>,25
+3e39fcb9,+ echo cleaning persistent cloud-init object,13
+54734564,cleaning persistent cloud-init object,13
+b90f7849,+ rm /<*>,13
+042a95d5,Stopped File System Check on /<*>,12
+10e7127e,[ <*>.<*>] systemd[<*>]: Created slice System Slice.,15
+d14165d4,[ <*>.<*>] systemd[<*>]: Listening on <*> <*> <*>,10
+bd719c49,[ <*>.<*>] systemd[<*>]: Listening on fsck to fsckd communication Socket.,1
+efacbb2f,<*> INFO ExtHandler Detect protocol endpoints,13
+1545f29b,<*> INFO ExtHandler Clean protocol and wireserver endpoint,13
+edf6e59d,<*> INFO ExtHandler WireServer endpoint is not found. Rerun dhcp handler,13
+ef8e5c57,<*> INFO ExtHandler Test for route to <*>,13
+46dee939,<*> INFO ExtHandler Route to <*> exists,13
+67358bb5,<*> INFO ExtHandler Fabric preferred wire protocol version:<*>-<*>-<*>,13
+dd6d9ee4,<*> INFO ExtHandler Server preferred version:<*>-<*>-<*>,13
+caf05f0e,patch.go:<*>: Patching system state level <*> to sublevel <*>...,6
+51ba57c8,<*> INFO ExtHandler Set block dev timeout: <*> with timeout: <*>,26
+445bb66c,Startup finished in <*> (kernel) + <*> (userspace) = <*>,7
 4ecb915b,Created slice User Slice of <*>,14
 c0177403,Starting User Manager for UID <*>...,14
 88de019e,Started Session <*> of user <*>,18
-dfe24560,Listening on GnuPG cryptographic agent and passphrase cache (restricted).,14
-e952c116,Listening on GnuPG cryptographic agent and passphrase cache.,14
 11f62f72,Listening on GnuPG network certificate management daemon.,14
-4c6577c1,Listening on REST API socket for snapd user session agent.,14
+e952c116,Listening on GnuPG cryptographic agent and passphrase cache.,14
 c28f6ce1,Listening on GnuPG cryptographic agent (ssh-agent emulation).,14
+dfe24560,Listening on GnuPG cryptographic agent and passphrase cache (restricted).,14
+4c6577c1,Listening on REST API socket for snapd user session agent.,14
 0e44be6e,Listening on GnuPG cryptographic agent and passphrase cache (access for web browsers).,14
-bce4e9d6,Started User Manager for UID <*>.,14
 360bc5b1,Startup finished in <*>,14
-038a758d,Starting Cleanup of Temporary Directories...,13
-20447797,Started Cleanup of Temporary Directories.,13
+bce4e9d6,Started User Manager for UID <*>.,14
+19d4b0cd,(root) CMD ( cd / && run-parts --report /<*>),30
 26126b81,[<*>] Reloaded configuration,21
 11167ea2,message repeated <*> times: [ [<*>] Reloaded configuration],3
 bd9620bb,Specified user 'usbmux' unknown,3
@@ -624,7 +679,6 @@ f9c26eca,debug: os detected by /<*>,3
 199dbc88,debug: Not on UEFI platform,6
 fef99ba6,debug: /<*> is a FAT32 partition,9
 084e41cd,debug: /<*> is not <*> <*> partition: exiting,27
-19d4b0cd,(root) CMD ( cd / && run-parts --report /<*>),30
 80183258,Starting xrdp session manager...,17
 7b144b8b,(<*>)(<*>)[<*>] libscp initialized,17
 5652cab2,(<*>)(<*>)[<*>] Testing if <*> can listen on <*> port <*>.,34
@@ -633,11 +687,17 @@ dc443f0f,(<*>)(<*>)[<*>] Closed socket <*> (AF_INET6 <*> port <*>),593
 10c3deda,(<*>)(<*>)[INFO ] listening to port <*> on <*>,34
 82e94d41,Started xrdp session manager.,17
 cf932bb0,xrdp.service: Can't open PID file /<*> (yet?) after start: No such file or directory,17
-a7f3ac59,Stopping <*> daemon...,7
+4ebfb0b4,Starting Message of the Day...,12
+7fc62c9b,"* Latest Kubernetes <*>.<*> beta is now available for your laptop, NUC, cloud",12
+1fcbbd97,"instance or Raspberry Pi, with automatic updates to the final GA release.",12
+40dc91f5,sudo snap install microk8s --channel=<*>.<*>/<*> --classic,12
+d511cc34,* Multipass <*>.<*> adds proxy support for developers behind enterprise,12
+3fda4710,firewalls. Rapid prototyping for cloud operations just got easier.,12
+3f794f25,https:<*>,12
 772fc7c9,Stopped xrdp daemon.,4
 be8da61f,Stopping xrdp session manager...,4
-483fc1a7,"xrdp-sesman.service: Control process exited, code=<*> status=<*>",4
 6864f900,(<*>)(<*>)[INFO ] shutting down sesman <*>,11
+483fc1a7,"xrdp-sesman.service: Control process exited, code=<*> status=<*>",4
 e3a5c07a,xrdp-sesman.service: Failed with result 'exit-code'.,4
 773c3945,Stopped xrdp session manager.,4
 b86f0db1,(<*>)(<*>)[INFO ] Socket <*>: AF_INET6 connection received from ::<*>:<*> port <*>,154
@@ -663,9 +723,13 @@ b975037c,(<*>)(<*>)[<*>] return value from xrdp_mm_connect <*>,21
 009d0f45,(<*>)(<*>)[<*>] xrdp_wm_log_msg: <*> <*>,36
 b5901751,(<*>)(<*>)[INFO ] /<*> :<*> -auth .Xauthority -config xrdp/<*> -noreset -nolisten tcp -logfile .xorgxrdp.%s.log,11
 8ac8ee2b,(<*>)(<*>)[CORE ] waiting for window manager (pid <*>) to exit,11
+31ced4e3,(<*>)(<*>)[INFO ] lib_mod_log_peer: xrdp_pid=<*> connected to X11rdp_pid=<*> X11rdp_uid=<*> X11rdp_gid=<*> client_ip=::<*>:<*> client_port=<*>,18
+0a6c60d3,(<*>)(<*>)[<*>] xrdp_mm_connect_chansrv: chansrv connect successful,18
 03eb0dc2,[session uid=<*> pid=<*>] AppArmor D-Bus mediation is enabled,17
 5d128491,"[session uid=<*> pid=<*>] Activating service <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> <*> <*> label=""unconfined"")",16
 67d59674,[session uid=<*> pid=<*>] Activated service 'org.freedesktop.systemd1' failed: Process org.freedesktop.systemd1 exited with status <*>,9
+9ca21165,(<*>)(<*>)[INFO ] The following channel is allowed: <*> (<*>),72
+af17a281,(<*>)(<*>)[<*>] The allow channel list now initialized for this session,18
 4a42177f,"[session uid=<*> pid=<*>] Activating service <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> "" label=""unconfined"")",54
 399f293b,[session uid=<*> pid=<*>] Successfully activated service <*>,121
 3130b9ca,Started GnuPG cryptographic agent and passphrase cache.,10
@@ -674,33 +738,32 @@ c647a2f9,gpg-agent (GnuPG) <*>.<*>.<*> starting in supervised mode.,10
 54a37b86,listening on: std=<*> extra=<*> browser=<*> ssh=<*>,10
 a6afff43,Starting Daemon for power management...,11
 518d8ca6,Started Daemon for power management.,11
-31ced4e3,(<*>)(<*>)[INFO ] lib_mod_log_peer: xrdp_pid=<*> connected to X11rdp_pid=<*> X11rdp_uid=<*> X11rdp_gid=<*> client_ip=::<*>:<*> client_port=<*>,18
-0a6c60d3,(<*>)(<*>)[<*>] xrdp_mm_connect_chansrv: chansrv connect successful,18
 31c0f27b,"[<*>] Activating via systemd: service name='org.freedesktop.RealtimeKit1' unit='rtkit-daemon.service' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""/<*> --start --log-target=<*> "" label=""unconfined"")",10
-9ca21165,(<*>)(<*>)[INFO ] The following channel is allowed: <*> (<*>),72
 951d628c,Starting RealtimeKit Scheduling Policy Service...,11
 95421767,Started RealtimeKit Scheduling Policy Service.,11
 88d5c36d,Successfully called <*>,12
 007c470b,Successfully dropped privileges.,11
 a6390a73,Successfully limited resources.,11
 dbc87ec8,Running.,11
-ea081b3c,Canary thread running.,11
 e23b1677,Watchdog thread running.,11
-af17a281,(<*>)(<*>)[<*>] The allow channel list now initialized for this session,18
+ea081b3c,Canary thread running.,11
 46c92b9f,Registered thumbailer /<*> -s %s %u %o,34
 364d11da,[<*>] authkey.c: Failed to <*> <*> <*> '/<*>': No such file or directory,12
 86a00688,"[session uid=<*> pid=<*>] Activating service name='org.a11y.Bus' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""exo-open --launch <*> "" label=""unconfined"")",3
 f82e65d7,"dbus-daemon[<*>]: Activating service name='org.a11y.atspi.Registry' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""exo-open --launch <*> "" label=""unconfined"")",9
 2a3ce7d6,dbus-daemon[<*>]: Successfully activated service 'org.a11y.atspi.Registry',12
 2fdc53d4,SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry,12
-e6606746,g_udev_device_has_property: assertion 'G_UDEV_IS_DEVICE (device)' failed,30
-5cffdb36,message repeated <*> times: [ g_udev_device_has_property: assertion 'G_UDEV_IS_DEVICE (device)' failed],5
 0f51c41e,Supervising <*> threads of <*> processes of <*> users.,33
 2c1c73c3,message repeated <*> times: [ Supervising <*> threads of <*> processes of <*> users.],15
 53f856aa,Started dispatcher: /<*> pid: <*>,18
 0bf58d5e,"No plugins found, exiting",18
-9ecca45c,dispatcher <*> reaped,17
+5b81dd29,auditd.service: <*> <*> timed out. <*>,2
+f3406f87,auditd.service: Killing process <*> (auditd) with signal SIGKILL.,2
+5e3bc36c,"auditd.service: Control process exited, code=<*> status=<*>",1
+13ccb0cc,auditd.service: Failed with result 'timeout'.,1
+c65d46c4,Failed to start Security Auditing Service.,1
 1dc1bdd9,"Init complete, auditd <*>.<*>.<*> listening for events (startup state enable)",17
+9ecca45c,dispatcher <*> reaped,17
 dd23ebe3,/<*>: No change,14
 cc63a5ac,No rules,17
 669adf99,enabled <*>,51
@@ -711,48 +774,27 @@ df89639b,rate_limit <*>,51
 f03cbe60,lost <*>,51
 058f6143,backlog <*>,51
 26a2e0f6,backlog_wait_time <*>,51
-fed60bb0,[ <*>.<*>] hv_utils: Shutdown request received - graceful shutdown initiated,13
-2449c013,Stopping Session <*> of user <*>,9
-cdd32468,Unmounting /<*>,8
+cf4b3a36,Stopping RealtimeKit Scheduling Policy Service...,5
+e2d83938,Stopping Daemon for power management...,4
+497d7fa4,A connection to the bus can't be made,1
 124c54ab,(<*>)(<*>)[<*>] Closed socket <*> (AF_UNIX),22
-2f579c3c,Stopping Availability of block devices...,8
-990f29b7,Stopped target <*> <*>,35
-bb850b38,Stopping <*> Manager...,13
-44aa85e3,Stopping <*> Service...,9
-7c92d15c,Stopped Execute cloud user/<*> scripts.,9
-0d04d382,Stopping <*> <*> Service...,4
+2449c013,Stopping Session <*> of user <*>,9
 938d1c42,(<*>)(<*>)[WARN ] receiving SIGHUP <*>,4
-603cf896,Stopping Hyper-V VSS Protocol Daemon...,5
-ffbc4cc7,Stopping LXD - container startup/<*>,4
-1d8dc2ea,Could not set WakeOnLan of eth0 to off: Operation not supported,13
-c336bf06,[ <*>.<*>] <*> Mitigation: Clear CPU buffers,9
-d14165d4,[ <*>.<*>] systemd[<*>]: Listening on <*> <*> <*>,10
-e713074b,[ <*>.<*>] systemd[<*>]: Listening on Syslog Socket.,2
-05092031,[ <*>.<*>] systemd[<*>]: Listening on <*> <*> <*> <*>,7
-8be10702,Starting File System Check on /<*>,25
-f57935a5,"fsck.ntfs doesn't exist, not checking file system on /<*>",24
-1f3bde23,Started File System Check on /<*>,25
-3e39fcb9,+ echo cleaning persistent cloud-init object,13
-54734564,cleaning persistent cloud-init object,13
-b90f7849,+ rm /<*>,13
-7fab82ac,message repeated <*> times: [ ignoring: lo],4
-042a95d5,Stopped File System Check on /<*>,12
-4ebfb0b4,Starting Message of the Day...,12
-efacbb2f,<*> INFO ExtHandler Detect protocol endpoints,13
-1545f29b,<*> INFO ExtHandler Clean protocol and wireserver endpoint,13
-edf6e59d,<*> INFO ExtHandler WireServer endpoint is not found. Rerun dhcp handler,13
-ef8e5c57,<*> INFO ExtHandler Test for route to <*>,13
-46dee939,<*> INFO ExtHandler Route to <*> exists,13
-67358bb5,<*> INFO ExtHandler Fabric preferred wire protocol version:<*>-<*>-<*>,13
-dd6d9ee4,<*> INFO ExtHandler Server preferred version:<*>-<*>-<*>,13
-caf05f0e,patch.go:<*>: Patching system state level <*> to sublevel <*>...,6
-51ba57c8,<*> INFO ExtHandler Set block dev timeout: <*> with timeout: <*>,26
-7fc62c9b,"* Latest Kubernetes <*>.<*> beta is now available for your laptop, NUC, cloud",12
-1fcbbd97,"instance or Raspberry Pi, with automatic updates to the final GA release.",12
-40dc91f5,sudo snap install microk8s --channel=<*>.<*>/<*> --classic,12
-d511cc34,* Multipass <*>.<*> adds proxy support for developers behind enterprise,12
-3fda4710,firewalls. Rapid prototyping for cloud operations just got easier.,12
-3f794f25,https:<*>,12
+417f62b7,"(<*>)(<*>)[CORE ] window manager (pid <*>) did exit, cleaning up session",2
+fc551061,Stopped Discard unused blocks once a week.,5
+24c6eb57,Stopped Daily apt upgrade and clean activities.,5
+484dc364,(<*>)(<*>)[INFO ] calling auth_stop_session and auth_end from pid <*>,2
+cda267b8,Stopped Daily apt download activities.,5
+6328188f,Stopped target System Time Synchronized.,4
+4c3b472a,Stopped Daily Cleanup of Temporary Directories.,5
+f7b4ee4f,Stopping User Manager for UID <*>...,7
+2fb9b74e,SIGTERM received - shutting down ...,2
+04b56fe9,Stopping GnuPG cryptographic agent and passphrase cache...,2
+4ac826c0,Stopping Dispatcher daemon for systemd-networkd...,3
+7da47a20,Stopped Write warning to Azure ephemeral disk.,3
+e65e5dbd,Stopped Apply the settings specified in cloud-config.,3
+4eee359e,gpg-agent (GnuPG) <*>.<*>.<*> stopped,1
+3233ab26,"[ <*>.<*>] <*> Vulnerable: Clear CPU buffers attempted, no microcode",20
 b06f0da5,Starting D-Bus User Message Bus Socket.,11
 08c9d9c4,"[session uid=<*> pid=<*>] Activating via systemd: service <*> <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> "" label=""unconfined"")",44
 4c1a9a74,Starting <*> <*> service...,14
@@ -767,99 +809,16 @@ accf02b5,Started Virtual filesystem metadata service.,8
 8e3092d9,Starting <*> <*> Server...,9
 82bee054,Started GNOME <*> <*>,9
 b37fee6f,Starting Daily apt download activities...,8
+0d04d382,Stopping <*> <*> Service...,4
 2e87be9e,The audit daemon is exiting.,3
 bc851626,Stopped Security Auditing Service.,3
 e5dc5808,[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): <*> old=<*> auid=<*> ses=<*> res=<*>,6
 8e9ed447,"[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): pid=<*> uid=<*> auid=<*> ses=<*> msg='unit=<*> comm=""systemd"" exe=""/<*>"" hostname=? addr=? terminal=? res=<*>'",6
-e2d83938,Stopping Daemon for power management...,4
-6b3c4980,Stopped target <*>,18
-24c6eb57,Stopped Daily apt upgrade and clean activities.,5
-cda267b8,Stopped Daily apt download activities.,5
-fc551061,Stopped Discard unused blocks once a week.,5
-6578c4e4,Stopped Message of the Day.,5
-3cc3fc9f,Stopped target Host and Network Name Lookups.,6
-4c3b472a,Stopped Daily Cleanup of Temporary Directories.,5
-6328188f,Stopped target System Time Synchronized.,4
-268cbe38,Closed Load/<*> RF Kill Switch Status /<*> Watch.,8
-035d5eb7,Stopping Regular background program processing daemon...,2
-7da47a20,Stopped Write warning to Azure ephemeral disk.,3
-e65e5dbd,Stopped Apply the settings specified in cloud-config.,3
-46160522,Stopping Deferred execution scheduler...,5
-63b9abf7,Started Load/<*> Random Seed.,6
-76b18ae2,Starting Daily apt upgrade and clean activities...,6
-9fb3797c,Startup finished in <*> (kernel) + <*> <*> (userspace) = <*> <*>,8
-504550ad,"(<*>)(<*>)[INFO ] ++ reconnected session: username <*> display :<*>.<*>, session_pid <*>, ip ::<*>:<*> - socket: <*>",7
-5c9b0447,Started Remount Root and Kernel File Systems.,2
-9d0d59c6,Starting Load/<*> Random Seed...,2
-2b7c62ce,Starting Create Static Device Nodes in /<*>,2
-9900485a,| <*>,8
-c276fe8c,| ...=<*> =|,1
-7f0fb0a7,| S = =<*>|,1
-1e4dfb01,| o <*>,2
-b843cbac,|* o..+. .... |,1
-25fb7d27,|<*> = == oo..o |,1
-57b30ce4,|<*> + *+=+o .o . |,1
-f1eae329,|<*> . =<*>+ + oo.+ |,1
-817dd825,| . <*> <*> <*> |,2
-c0ed4bf7,| . @ . o .|,1
-93cc29d3,| . ..+ o o|,1
-6e105162,| o.+ +*... B|,1
-87f8c292,[ <*>.<*>] scsi: waiting for bus probes to complete ...,2
-59424490,[ <*>.<*>] systemd[<*>]: Reached target User and Group Name Lookups.,12
-570510cb,256 <*> root@Client02 <*>,2
-b71c58f9,Startup finished in <*>.530s (kernel) + <*>.265s (userspace) = 1min <*>.795s.,1
-04b56fe9,Stopping GnuPG cryptographic agent and passphrase cache...,2
-60eafebc,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Agent WALinuxAgent-<*>.<*>.<*> forwarding signal <*> to WALinuxAgent-<*>.<*>.<*>,4
-cf4b3a36,Stopping RealtimeKit Scheduling Policy Service...,5
-2fb9b74e,SIGTERM received - shutting down ...,2
-9e2d93ad,|+.+ +. |,1
-20903e7b,|<*> oo |,1
-901d1654,|= o o E |,1
-ac86d0b7,|<*> <*> . <*> <*> . |,2
-75291344,|<*> = o o .. o |,1
-cc79f8c7,|<*> o=*=<*> . . |,1
-0367e66d,| <*> <*> .. |,2
-4a43f9b2,| =<*> oo+*+ o.|,1
-4624c061,| ..*o..o .Bo++oE.|,1
-b1efce1f,| . oo= ++ .o|,1
-412887fd,| S..oo . .|,1
-24f17471,|+=+ ooo |,1
-14b0be3e,|+o.+ o |,1
-2d55fa95,|<*> .o o |,1
-dbd4a20d,|<*>+. o S |,1
-7283b5f5,|<*>++=<*>= * o |,1
-4bab95c7,|<*>*oB * o o |,1
-359fe051,|<*>+oo.= o . |,1
-bb5e01dd,|<*>=*E o . |,1
-5d67291d,| .+ .+ +.**o. |,1
-76659f78,| + *. = oE++ |,1
-98203b87,256 <*> root@Client03 <*>,2
-075790be,Timed out waiting for reply from <*> (ntp.ubuntu.com).,1
-e5432bfb,Stopping LSB: Record successful boot for GRUB...,4
-ccd65f81,Stopping Azure Linux Agent...,3
-4ba2a6b8,Stopping Getty on tty1...,2
-80f3c511,Stopping Unattended Upgrades Shutdown...,2
-01b25ed8,Stopping FUSE filesystem for LXC...,4
-bcc51a2b,Stopping LSB: automatic crash report generation...,3
-471731bd,Stopping Serial Getty on ttyS0...,3
-9dd390d7,Started Create list of required static device nodes for the current kernel.,1
-440eb43f,Mounted POSIX Message Queue File System.,1
-e9cddce5,Started Uncomplicated firewall.,1
-bd719c49,[ <*>.<*>] systemd[<*>]: Listening on fsck to fsckd communication Socket.,1
-5b81dd29,auditd.service: <*> <*> timed out. <*>,2
-f3406f87,auditd.service: Killing process <*> (auditd) with signal SIGKILL.,2
-5e3bc36c,"auditd.service: Control process exited, code=<*> status=<*>",1
-13ccb0cc,auditd.service: Failed with result 'timeout'.,1
-c65d46c4,Failed to start Security Auditing Service.,1
-497d7fa4,A connection to the bus can't be made,1
-417f62b7,"(<*>)(<*>)[CORE ] window manager (pid <*>) did exit, cleaning up session",2
-484dc364,(<*>)(<*>)[INFO ] calling auth_stop_session and auth_end from pid <*>,2
-f7b4ee4f,Stopping User Manager for UID <*>...,7
-4ac826c0,Stopping Dispatcher daemon for systemd-networkd...,3
-4eee359e,gpg-agent (GnuPG) <*>.<*>.<*> stopped,1
 fa7ab593,Stopping Accessibility services bus...,3
 58de6dd7,"dbus-daemon[<*>]: Activating service name='org.a11y.atspi.Registry' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""xfce4-appfinder "" label=""unconfined"")",1
 bb6e830a,Stopping D-Bus <*> Message Bus...,5
+76b18ae2,Starting Daily apt upgrade and clean activities...,6
+035d5eb7,Stopping Regular background program processing daemon...,2
 0988eeda,xrdp-sesman.service: Unit not needed anymore. Stopping.,1
 7fb5b6e7,Stopped Wait until snapd is fully seeded.,1
 60bc125e,xrdp.service: Start operation timed out. Terminating.,1
@@ -879,6 +838,30 @@ ed752ab4,2020-<*>-14T10:<*>:<*>.878808Z INFO [Microsoft.Azure.NetworkWatcher.Net
 acd131b7,Deactivating block devices:,1
 8821ee3b,Started File System Check Daemon to report status.,1
 fdfb82ad,"/<*>: clean, <*>/<*> files, <*>/<*> blocks",1
+e6606746,g_udev_device_has_property: assertion 'G_UDEV_IS_DEVICE (device)' failed,30
+504550ad,"(<*>)(<*>)[INFO ] ++ reconnected session: username <*> display :<*>.<*>, session_pid <*>, ip ::<*>:<*> - socket: <*>",7
+5cffdb36,message repeated <*> times: [ g_udev_device_has_property: assertion 'G_UDEV_IS_DEVICE (device)' failed],5
+184e0fc4,| . <*> <*> |,3
+d4d2a870,| <*> <*> o |,3
+9900485a,| <*>,8
+c276fe8c,| ...=<*> =|,1
+7f0fb0a7,| S = =<*>|,1
+b843cbac,|* o..+. .... |,1
+25fb7d27,|<*> = == oo..o |,1
+57b30ce4,|<*> + *+=+o .o . |,1
+f1eae329,|<*> . =<*>+ + oo.+ |,1
+817dd825,| . <*> <*> <*> |,4
+b1db98d8,| o <*> <*> <*> |,3
+c0ed4bf7,| . @ . o .|,1
+93cc29d3,| . ..+ o o|,1
+6e105162,| o.+ +*... B|,1
+6368c3fb,[ <*>.<*>] x86/<*>: Supporting XSAVE feature 0x008: 'MPX bounds registers',3
+e713074b,[ <*>.<*>] systemd[<*>]: Listening on Syslog Socket.,2
+4bf1bccf,1024 <*> <*> (DSA),2
+570510cb,256 <*> root@Client02 <*>,2
+7d296023,2048 <*> <*> (RSA),2
+b71c58f9,Startup finished in <*>.530s (kernel) + <*>.265s (userspace) = 1min <*>.795s.,1
+05092031,[ <*>.<*>] systemd[<*>]: Listening on <*> <*> <*> <*>,7
 b4b6e001,"[origin software=""rsyslogd"" swVersion=""<*>.<*>.<*>"" x-pid=""<*>"" x-info=""http:<*>""] rsyslogd was HUPed",2
 4994b3db,Job <*> terminated,3
 6e5dbedf,Job <*> started,2
@@ -1255,3 +1238,22 @@ ee2c53a3,[<*>-<*>-14T15:<*>:<*> ERROR audio_thread_priority::<*>] setrlimit64: <
 38508887,"# Use ""-- "" to terminate the options and put the command line to execute after it.",3
 b6d2245c,"Window manager warning: Window 0x2a02d5a (Target fil) sets an MWM hint indicating it isn't resizable, but sets min size <*> x <*> and max size <*> x <*>; this doesn't make much sense.",1
 9f03dbf5,"message repeated <*> times: [ Window manager warning: Window 0x2a02d5a (Target fil) sets an MWM hint indicating it isn't resizable, but sets min size <*> x <*> and max size <*> x <*>; this doesn't make much sense.]",1
+f203d405,| <*> <*> <*> . . |,2
+dde83105,| ...+ + = = .|,1
+a6ded2b1,| .. S* + * =<*>|,1
+55c4dc16,| .o. O = =<*>|,1
+4aea1f6e,| .E.o. B = o|,1
+d3ef4983,| o o.. * = o |,1
+9512083e,| . o = = = |,1
+7a775429,| . . S X + |,1
+922657f1,| . . O B . o |,1
+2de85fd8,| + o ooo|,1
+52bb2854,| <*> <*> . |,2
+8452fdab,|<*>+Bo+ |,1
+b3a14582,| * . + |,1
+8959c6c0,| o . S o ...|,1
+5447ae3d,| . + o . . .o+|,1
+de1fd825,|<*> * o + . .oE|,1
+ce58d668,|<*>+oB + . o o ..|,1
+2e007d3c,| o**= o.. + .|,1
+344cdedf,256 <*> root@Client01 <*>,2

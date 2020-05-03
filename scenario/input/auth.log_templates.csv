@@ -48,9 +48,6 @@ ada372e1,Failed password for <*> from <*> port <*> ssh<*>,87
 c7adec7d,"Received disconnect from <*> port <*>:<*>: Normal Shutdown, Thank you for playing [<*>]",272
 b542638e,message repeated <*> times: [ Failed password for root from <*> port <*> ssh2],26
 1dc5d48d,PAM <*> more authentication failures; logname= uid=<*> euid=<*> tty=<*> ruser= rhost=<*> user=<*>,26
-893a989f,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*> <*>,3
-3397f45b,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*>,7
-12c452f8,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*>,10
 487439a9,pam_unix(sudo:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*><*> ruser=<*> rhost= user=<*>,5
 f0d88756,pam_unix(sudo:<*>): conversation failed,1
 4b4664ce,pam_unix(sudo:<*>): auth could not identify password for [<*>],1
@@ -91,3 +88,6 @@ f29171e2,sepses: Error executing command as another user: Not authorized [USER=<
 7ced9d6f,sepses : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> -d /<*> -m <*>,3
 a4cd9d08,change user 'ftp_jdoe' home from '/<*>' to '/<*>',1
 3a6d94bc,Disconnected from user sepses <*> port <*>,1
+893a989f,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*> <*>,3
+3397f45b,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*>,7
+12c452f8,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*>,10
