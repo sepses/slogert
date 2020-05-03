@@ -7,7 +7,7 @@ import org.apache.jena.riot.RDFFormat;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.sepses.helper.LogLine;
+import org.sepses.logline.LogLine;
 import org.sepses.helper.Template;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.InternalConfig;
