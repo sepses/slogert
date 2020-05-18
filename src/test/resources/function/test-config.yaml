@@ -1,0 +1,126 @@
+logFormats:
+  - uri: lid:LogSource_ftp
+    header: Device,LineId,dayOfWeek,month,day,time,year,pid,pidNumber,Content,EventId,EventTemplate,ParameterList
+    properties:
+      - column: Device
+        property: log:originatedFrom
+      - column: pidNumber
+        property: log:pid
+    functions:
+      - columns: month,day,time,year
+        function: getDate
+  - uri: lid:LogSource_unix
+    header: Device,Month,Date,Time,Type,Component,Content,EventId,EventTemplate,ParameterList
+    properties:
+      - column: Device
+        property: log:originatedFrom
+    functions:
+      - columns: Month,Date,Time
+        function: getDate
+      - columns: Component
+        function: getPidPname
+  - uri: lid:LogSource_audit
+    header: Device,LineId,type,time,Content,EventId,EventTemplate,ParameterList
+    properties:
+      - column: Device
+        property: log:originatedFrom
+      - column: type
+        property: log:cmd
+    functions:
+      - columns: time
+        function: getDate
+  - uri: lid:LogSource_apache
+    header: Device,LineId,IP,DateTime,TimeZone,Content,EventId,EventTemplate,ParameterList
+    properties:
+      - column: Device
+        property: log:originatedFrom
+      - column: IP
+        property: log:hasIPv4
+    functions:
+      - columns: DateTime,TimeZone
+        function: getDate
+
+nerParameters:
+  - id: ip
+    property: log:hasIPv4
+    pattern: ([{word:/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/}])
+    action: Annotate($0, ner, "ip")
+  - id: port
+    property: log:hasPort
+    pattern: ([{word:/port/}] + ([{word:/(\d{1,5})/}]))
+    action: Annotate($1, ner, "port")
+  - id: host
+    property: log:hasHost
+    pattern: ([{word:/hostname/}] + [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
+    action: Annotate($1, ner, "hostName")
+  - id: domain
+    property: log:hasDomain
+    pattern: ([{word:/((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}/}])
+    action: Annotate($0, ner, "domain")
+  - id: user
+    property: log:hasUser
+    pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
+    action: Annotate($1, ner, "user")
+  - id: userPassword
+    property: log:hasUser
+    pattern: ([{word:/password/}] [{word:/for/}] ([{word:/(\w+)/}]))
+    action: Annotate($1, ner, "user")
+
+nonNerParameters:
+  - id: path
+    property: log:hasPath
+    pattern: "[a-zA-Z0-9-_\\+&@#%~]+/[a-zA-Z0-9-_\\+&@#%~]+"
+    action: 
+  - id: filePath
+    property: log:hasFilePath
+    pattern: "[a-zA-Z0-9-_\\+&@#%~/]+\\.[a-zA-Z]{3,4}+"
+    action: 
+  - id: urlWithParameters
+    property: log:hasURL
+    pattern: "((https? | ftp | file):)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/[a-zA-Z0-9-_\\+&@#%~/\\./]+)?\\?[a-zA-Z]+\\=[a-zA-Z1-9&=\\+]+"
+    action: splitUrlParameter
+  - id: ipWithPrefix
+    property: log:hasIPv4
+    pattern: "[a-f]{4}\\:(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})"
+    action: splitIpPrefix
+  - id: ftpUser
+    property: log:hasUser
+    pattern: "^\\[([a-zA-Z0-9_\\.+]+)\\]"
+    action: 
+  - id: group
+    property: log:hasGroup 
+    pattern: "group: name\\=([a-zA-Z0-9_\\.]+)"
+    action: 
+  - id: mac
+    property: log:hasMac 
+    pattern: "([A-Fa-f0-9]{2}:){5}[A-Fa-f0-9]{2}"
+    action: 
+  - id: ciscoMac
+    property: log:hasMac
+    pattern: "([A-Fa-f0-9]{4}\\.){2}[A-Fa-f0-9]{4}"
+    action: 
+  - id: ipv6
+    property: log:hasIPv6
+    pattern: "((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:)))(%.+)?"
+    action: 
+  - id: exe
+    property: log:hasApp
+    pattern: "exe\\=\"[a-zA-Z0-9-_\\./]+"
+    action: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

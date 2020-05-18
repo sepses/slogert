@@ -3,6 +3,7 @@
 ##
 
 logType: ftp
+logName: core:ApacheErrorLogEntry
 logData: scenario/input/apache-error.log_structured.csv
 logTemplate: scenario/input/apache-error.log_templates.csv
 isOverride: true
@@ -14,3 +15,4 @@ targetTemplate: scenario/output/apache-error-log_templates.ottr
 
 targetNer: scenario/ner.rules
 templateRdf: scenario/std-template.trig
+slogertTrig: scenario/slogert.trig

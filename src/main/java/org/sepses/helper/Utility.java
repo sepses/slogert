@@ -104,6 +104,41 @@ public class Utility {
         return dateString;
     }
 
+    public static String getDate(String timeSinceEpoch) {
+        String time = timeSinceEpoch.split(":")[0].replaceAll("\\.", "");
+        time = time.substring(0, time.length()-3); // convert from ms to second
+        return Utility.localTimeConversion(time, Utility.SECONDS);
+    }
+
+    public static String getDate(String month, String day, String time, String year) {
+
+        day = StringUtils.leftPad(day, 2, "0");
+        LocalTime localTime = LocalTime.parse(time);
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, 1); // default
+        try {
+            cal.set(Calendar.MONTH, new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month).getMonth());
+        } catch (ParseException e) {
+            log.error("incorrect month format - defaulted to January");
+            log.error(e.getMessage());
+        }
+        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(day));
+        cal.set(Calendar.HOUR, localTime.getHour());
+        cal.set(Calendar.MINUTE, localTime.getMinute());
+        cal.set(Calendar.SECOND, localTime.getSecond());
+        cal.set(Calendar.YEAR, Integer.parseInt(year));
+
+        Date dateRepresentation = cal.getTime();
+
+        SimpleDateFormat xmlDateFormatter = new SimpleDateFormat(XSD_DATETIME);
+        String dateString;
+
+        dateString = xmlDateFormatter.format(dateRepresentation);
+
+        return dateString;
+    }
+
     public static String localTimeConversion(String timeParam, String timeFormat) {
 
         LocalDateTime dateTime = LocalDateTime.ofEpochSecond(0, 0, ZoneOffset.UTC);

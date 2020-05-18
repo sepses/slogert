@@ -18,16 +18,10 @@ public class LogLineAudit extends LogLine {
 
         device = record.get(TEMPLATE_HEADER[0]);
         counter = Integer.parseInt(record.get(TEMPLATE_HEADER[1]));
-        dateTime = getDate(record.get(TEMPLATE_HEADER[3]));
+        dateTime = Utility.getDate(record.get(TEMPLATE_HEADER[3]));
         content = record.get(TEMPLATE_HEADER[4]);
         logpaiEventId = record.get(TEMPLATE_HEADER[5]);
         templateHash = Utility.createHash(record.get(TEMPLATE_HEADER[6]));
         setParameters(record.get(TEMPLATE_HEADER[7]));
-    }
-
-    private static String getDate(String timeSinceEpoch) {
-        String time = timeSinceEpoch.split(":")[0].replaceAll("\\.", "");
-        time = time.substring(0, time.length()-3); // convert from ms to second
-        return Utility.localTimeConversion(time, Utility.SECONDS);
     }
 }

@@ -82,13 +82,13 @@ public class GenericParser implements Parser {
                 String logpaiTemplate = templateCandidate.get(TEMPLATE_LOGPAI[1]);
                 String hashCandidate = Utility.createHash(logpaiTemplate);
 
-                if(hashCandidate.equalsIgnoreCase("c56033738cc8a503610c9a743687746ab3d59ca61a0b8564c5323b4bb4f56b6e")) {
-                    log.info(hashCandidate);
-                }
+//                if(hashCandidate.equalsIgnoreCase("c56033738cc8a503610c9a743687746ab3d59ca61a0b8564c5323b4bb4f56b6e")) {
+//                    log.info(hashCandidate);
+//                }
 
                 if (!hashTemplates.containsKey(hashCandidate)) {
                     // *** Generate new template
-                    log.info(hashCandidate);
+//                    log.info(hashCandidate);
                     for (LogLine logLine : inputData) {
                         // ** Find logLine with the corresponding template
                         if (logpaiEventId.equals(logLine.getLogpaiEventId())) {

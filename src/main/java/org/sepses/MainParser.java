@@ -6,6 +6,7 @@ import org.sepses.processor.Parser;
 import org.sepses.yaml.Config;
 import org.sepses.yaml.InternalConfig;
 import org.sepses.yaml.InternalLogType;
+import org.sepses.yaml.YamlFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
@@ -65,6 +66,8 @@ public class MainParser {
             // add specific NS to the config NS list.
             config.ottrNS.addAll(internalLogType.ottrNS);
 
+            YamlFunction.convertConfigToOwl(config);
+
             log.info("*** start log parser ***");
             Parser unixParser = new GenericParser(config);
             unixParser.generateOttrMap();
@@ -74,6 +77,7 @@ public class MainParser {
         } catch (NoSuchElementException e) {
             log.error("*** Unsupported log type ***");
             log.error(e.getMessage());
+
         } catch (ReflectiveOperationException e) {
             log.error("*** Reflection error ***");
             log.error(e.getMessage());

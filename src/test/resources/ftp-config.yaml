@@ -3,6 +3,7 @@
 ##
 
 logType: ftp
+logName: core:FtpLogEntry
 logData: scenario/input/vsftpd.log_structured.csv
 logTemplate: scenario/input/vsftpd.log_templates.csv
 isOverride: true
@@ -14,3 +15,4 @@ targetTemplate: scenario/output/vsftpd-log_templates.ottr
 
 targetNer: scenario/ner.rules
 templateRdf: scenario/std-template.trig
+slogertTrig: scenario/slogert.trig

@@ -3,6 +3,7 @@
 ##
 
 logType: unix
+logName: core:AuthLogEntry
 logData: scenario/input/auth.log_structured.csv
 logTemplate: scenario/input/auth.log_templates.csv
 isOverride: true
@@ -14,3 +15,4 @@ targetTemplate: scenario/output/auth-log_templates.ottr
 
 targetNer: scenario/ner.rules
 templateRdf: scenario/std-template.trig
+slogertTrig: scenario/slogert.trig

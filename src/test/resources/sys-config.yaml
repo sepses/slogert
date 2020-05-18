@@ -3,6 +3,7 @@
 ##
 
 logType: unix
+logName: core:SysLogEntry
 logData: scenario/input/sys.log_structured.csv
 logTemplate: scenario/input/sys.log_templates.csv
 isOverride: true
@@ -14,3 +15,4 @@ targetTemplate: scenario/output/sys-log_templates.ottr
 
 targetNer: scenario/ner.rules
 templateRdf: scenario/std-template.trig
+slogertTrig: scenario/slogert.trig

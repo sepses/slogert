@@ -19,10 +19,10 @@ import java.util.*;
 public class Template {
 
     public static final String UNKNOWN_PARAMETER = "Unknown";
+    public static final String BASE_OTTR_ID = "id:Template_";
 
     private static final Logger log = LoggerFactory.getLogger(Template.class);
 
-    private final String BASE_OTTR_ID = "id:Template_";
     private final String BASE_HEADER =
             "[ottr:IRI ?id, xsd:string ?device, xsd:datetime ?timeStamp, xsd:string ?message, xsd:string ?templateHash";
     private final String BASE_CONTENT = "\n\t id:BasicLog(?id, ?device, ?timeStamp, ?message, ?templateHash)";
@@ -112,8 +112,7 @@ public class Template {
             RDFNode patternNode = ind.getProperty(Slogert.pattern).getObject();
             String pattern = patternNode.asLiteral().getString();
 
-            String ottrId = ind.getProperty(Slogert.templateHash).getObject().asLiteral().getString();
-            RDFList paramList = ind.getProperty(Slogert.parameterList).getObject().as(RDFList.class);
+            RDFList paramList = ind.getProperty(Slogert.hasParameterList).getObject().as(RDFList.class);
             StmtIterator keywords = ind.listProperties(Slogert.keyword);
 
             Template template = new Template(hash, pattern, config);
@@ -154,7 +153,7 @@ public class Template {
         // *** handle special components
         InternalLogType iLogType = config.internalLogType;
         iLogType.components.stream().forEach(component -> {
-            ottrHeader.append(", " + component.ottr.ottrType + " ?" + component.column);
+            ottrHeader.append(", xsd:string ?" + component.column);
             ottrContent.append(", \n\t id:" + component.column + "(?id, ?" + component.column + ")");
         });
 
@@ -185,13 +184,14 @@ public class Template {
     public Model toModel() {
 
         Model model = ModelFactory.createOntologyModel();
-        Resource template = model.createResource(Slogert.instanceURI + hash);
+        Resource template = model.createResource(Slogert.NS_INSTANCE + hash);
 
         model.add(template, RDF.type, Slogert.Template);
         model.add(template, Slogert.templateHash, hash);
         model.add(template, Slogert.logType, config.internalLogType.id);
+        //        model.add(template, Slogert.targetClass, config.logName);
         model.add(template, Slogert.pattern, templateText);
-        model.add(template, Slogert.ottrID, ottrId);
+        //        model.add(template, Slogert.ottrID, ottrId);
         keywords.stream().forEach(keyword -> {
             model.add(template, Slogert.keyword, keyword);
         });
@@ -205,7 +205,7 @@ public class Template {
             }
 
         }
-        model.add(template, Slogert.parameterList, list);
+        model.add(template, Slogert.hasParameterList, list);
 
         return model;
     }

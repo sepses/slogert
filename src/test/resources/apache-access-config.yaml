@@ -3,6 +3,7 @@
 ##
 
 logType: apache
+logName: core:ApacheAccessLogEntry
 logData: scenario/input/apache-access.log_structured.csv
 logTemplate: scenario/input/apache-access.log_templates.csv
 isOverride: true
@@ -14,3 +15,4 @@ targetTemplate: scenario/output/apache-access-log_templates.ottr
 
 targetNer: scenario/ner.rules
 templateRdf: scenario/std-template.trig
+slogertTrig: scenario/slogert.trig
