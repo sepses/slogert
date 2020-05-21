@@ -1,4 +1,4 @@
-# SLOGERT v0.5.0-SNAPSHOT 
+# SLOGERT v0.6.0-SNAPSHOT 
 A **S**emantic **LOG E**xt**R**action **T**emplating (SLOGERT) Approach
 
 We aim to automatically extract and enrich low-level log data into an RDF Knowledge Graphs.
@@ -12,16 +12,16 @@ Unfortunately, it's not so easy to combine **LogPai** and **OTTR Engine** togeth
 and therefore you still need to do it in several steps as follows.
 
 1) Run LogPai to generate `<logname>_structured.csv` and `<logname>_templates.csv`. 
-    Examples of such files are available on the `src/test/resources` folder.  
+    Examples of such files are available on the `scenario/input` folder.  
 2) Compile this project (`mvn clean install`)
-3) Transform the CSVs into OTTR format using config file (I/O settings) and template file (parameter extractions). 
+3) Transform the CSVs into OTTR format using config file (I/O settings). 
     Examples of config and template files are available on the `src/test/resources` folder 
-    (e.g., `apache-config.yaml` and `apache-template.yaml` for apache log data).
+    (e.g., `auth-config.yaml`for auth log data).
     By default, the following script should work to work on the example file. 
-    (```java -jar target/slogert-1.2.0-SNAPSHOT-jar-with-dependencies.jar -c apache-config.yaml -t apache-template.yaml```)
+    (```java -jar target/slogert-0.6.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
 4) After the transformation finished, it will provide you with the command to execute lutra, such as the following: (```
-    java -jar exe/lutra.jar --library scenario/output/apache-log_templates.ottr --libraryFormat stottr --inputFormat stottr 
-    scenario/output/apache-access.log_structured.ottr --mode expand --fetchMissing > scenario/output/apache-access.log_structured.ttl```) 
+    java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat 
+    stottr scenario/output/auth.log_structured.ottr --mode expand --fetchMissing > scenario/output/auth.ttl```) 
 5) Execute the transformation of the OTTR files into RDF graph using the command above from command line.  
         
 ## Scenario execution 
