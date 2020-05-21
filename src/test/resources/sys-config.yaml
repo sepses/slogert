@@ -2,17 +2,19 @@
 # -- SLOGERT Configuration File --
 ##
 
-logType: unix
-logName: core:SysLogEntry
-logData: scenario/input/sys.log_structured.csv
-logTemplate: scenario/input/sys.log_templates.csv
-isOverride: true
+source: scenario/input/sys.log
+sourceLogpai: scenario/input/sys.log_structured.csv
+sourceLogpaiTemplate: scenario/input/sys.log_templates.csv
 
-targetData: scenario/output/sys.log_structured.ottr
-targetOttr: scenario/output/sys.log_templates.stottr
-targetTurtle: scenario/output/sys.log_structured.ttl
-targetTemplate: scenario/output/sys-log_templates.ottr
+logFormat: unix
+logSourceType: syslog
 
-targetNer: scenario/ner.rules
-templateRdf: scenario/std-template.trig
-slogertTrig: scenario/slogert.trig
+isOverrideExisting: false
+paramExtractAttempt: 3
+
+targetOttr: scenario/output/sys.log_structured.ottr
+targetOttrTurtle: scenario/output/sys.ttl
+
+targetOttrBase: scenario/config-base.ottr
+targetStanfordNer: scenario/config-ner.rules
+targetConfigTurtle: scenario/config-turtle.ttl

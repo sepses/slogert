@@ -1,0 +1,63 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ottr: <http://ns.ottr.xyz/0.4/> .
+@prefix log: <https://w3id.org/sepses/ns/log#> .
+@prefix logex: <https://w3id.org/sepses/ns/logex#> .
+@prefix lid: <https://w3id.org/sepses/id/log/> .
+@prefix lxid: <https://w3id.org/sepses/id/logex/> .
+
+### basic templates
+
+lid:BasicEvent[ottr:IRI ?id, xsd:string ?device, xsd:dateTime ?timeStamp, xsd:string ?message, ottr:IRI ?template] :: {
+    ottr:Triple(?id, rdf:type, log:Event),
+    ottr:Triple(?id, log:originatedFrom, ?device),
+    ottr:Triple(?id, log:time, ?timeStamp),
+    ottr:Triple(?id, log:msg, ?message),
+    ottr:Triple(?template, logex:isLogEventTemplateOf, ?id)
+} .
+
+lid:contain[ottr:IRI ?id, xsd:string ?value] :: {
+    ottr:Triple(?id, log:contain, ?value)
+} .
+
+lid:pid[ottr:IRI ?id, xsd:string ?value] :: {
+    ottr:Triple(?id, log:pid, ?value)
+} .
+
+### ner parameter
+
+lid:hasIPv4[ottr:IRI ?id, ottr:IRI ?ip, xsd:string ?value] :: {
+    ottr:Triple(?id, log:hasIPv4, ?ip),
+    ottr:Triple(?ip, rdfs:label, ?value)
+} .
+
+lid:hasPort[ottr:IRI ?id, ottr:IRI ?port, xsd:string ?value] :: {
+    ottr:Triple(?id, log:hasPort, ?port)
+    ottr:Triple(?port, rdfs:label, ?value)
+} .
+
+lid:hasHost[ottr:IRI ?id, ottr:IRI ?host, xsd:string ?value] :: {
+    ottr:Triple(?id, log:hasHost, ?host)
+    ottr:Triple(?host, rdfs:label, ?value)
+} .
+
+lid:hasUser[ottr:IRI ?id, ottr:IRI ?host, xsd:string ?value] :: {
+    ottr:Triple(?id, log:hasHost, ?host)
+    ottr:Triple(?host, rdfs:label, ?value)
+} .
+
+lid:hasIpWithPrefix[ottr:IRI ?id, ottr:IRI ?ip, xsd:string ?value, xsd:string ?prefix] :: {
+    ottr:Triple(?id, log:hasIPv4, ?ip)
+    ottr:Triple(?ip, rdfs:label, ?value)
+} .
+
+lid:hasIpWithPrefix[ottr:IRI ?id, ottr:IRI ?ip, xsd:string ?value, xsd:string ?prefix] :: {
+    ottr:Triple(?id, log:hasIPv4, ?ip)
+    ottr:Triple(?ip, rdfs:label, ?value)
+} .
+
+
+# *** YAML Generated Templates ***
+

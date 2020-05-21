@@ -7,8 +7,7 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.StringUtils;
-import org.sepses.yaml.ConfigParameter;
-import org.sepses.yaml.InternalConfig;
+import org.sepses.config.Parameter;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -55,12 +54,12 @@ public class EntityRecognition {
      * @param ruleFile
      * @return
      */
-    public static EntityRecognition getInstance(String ruleFile, List<ConfigParameter> parameters) {
+    public static EntityRecognition getInstanceConfig(String ruleFile, List<Parameter> parameters) {
         if (singleton == null || !RULE_FILE.equals(ruleFile)) {
             RULE_FILE = ruleFile;
             // add non-ner pattern to be checked.
             parameters.stream().forEach(item -> {
-                dicCodeToIndex.put(item.id, item.regexNer.pattern);
+                dicCodeToIndex.put(item.id, item.pattern);
             });
 
             singleton = new EntityRecognition();
@@ -103,8 +102,7 @@ public class EntityRecognition {
                 nerList.put(found, regexKey);
 
                 // Add first group as well
-                if(matcher.groupCount() > 0)
-                {
+                if (matcher.groupCount() > 0) {
                     found = matcher.group(1);
                     nerList.put(found, regexKey);
                 }

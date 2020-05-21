@@ -2,11 +2,20 @@ package org.sepses.helper;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.ResourceFactory;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.joda.time.DateTime;
+import org.sepses.config.ExtractionConfig;
+import org.sepses.event.LogEventTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -20,9 +29,7 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 
 public class Utility {
 
@@ -32,17 +39,67 @@ public class Utility {
 
     private static final Logger log = LoggerFactory.getLogger(Utility.class);
 
+    public static Map<String, LogEventTemplate> getLogEventTemplateMap(ExtractionConfig config) throws IOException {
+        Map<String, LogEventTemplate> templates = new HashMap<>();
+        // *** load existing hashTemplates
+        Model model = Utility.createModel(config);
+        File configTurtle = new File(config.targetConfigTurtle);
+        if (configTurtle.isFile()) {
+            FileInputStream fis = new FileInputStream(config.targetConfigTurtle);
+            RDFDataMgr.read(model, fis, Lang.TRIG);
+            fis.close();
+            templates.putAll(LogEventTemplate.fromModel(model, config));
+        }
+        model.close();
+
+        return templates;
+    }
+
+    public static Model createModel(ExtractionConfig config) {
+        Model model = ModelFactory.createDefaultModel();
+        config.namespaces.forEach(ns -> model.setNsPrefix(ns.prefix, ns.uri));
+        return model;
+    }
+
+    public static Resource createResource(Resource cls, String ns, String label) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(ns).append(cls.getLocalName()).append("_").append(cleanUriContent(label));
+        return ResourceFactory.createResource(sb.toString());
+    }
+
+    public static String createPrefixedName(Resource cls, String prefix, String label) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(prefix).append(":").append(cls.getLocalName()).append("_").append(cleanUriContent(label));
+        return sb.toString();
+    }
+
+    public static String createPrefixedName(Resource cls, String prefix) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(prefix).append(":").append(cls.getLocalName());
+        return sb.toString();
+    }
+
+    public static String getDate(String dateTime, String timeZone) {
+        String timeString = dateTime + timeZone;
+        return Utility.localTimeConversion(timeString, "dd/MMM/yyyy':'HH:mm:ssZ");
+    }
+
     /**
      * *** create hash out of content
      *
      * @param templateText
      * @return
-     * @throws NoSuchAlgorithmException
      */
-    public static String createHash(String templateText) throws NoSuchAlgorithmException {
-        final MessageDigest digest = MessageDigest.getInstance("SHA-256");
-        final byte[] hashBytes = digest.digest(templateText.getBytes(StandardCharsets.UTF_8));
-        return DigestUtils.sha256Hex(hashBytes);
+    public static String createHash(String templateText) {
+        String hash = null;
+        try {
+            final MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            final byte[] hashBytes = digest.digest(templateText.getBytes(StandardCharsets.UTF_8));
+            hash = DigestUtils.sha256Hex(hashBytes);
+        } catch (NoSuchAlgorithmException e) {
+            log.error(e.getMessage());
+        }
+        return hash;
     }
 
     public static String cleanContent(String inputContent) {
@@ -52,6 +109,20 @@ public class Utility {
         cleanContent = cleanContent.replaceAll("'", "|");
 
         return cleanContent;
+    }
+
+    /**
+     * Create a default model that contains all necessary prefixes
+     *
+     * @param config Slogert config
+     * @return {@link Model}
+     */
+    public static Model createModelWithNS(ExtractionConfig config) {
+        Model model = ModelFactory.createDefaultModel();
+        config.namespaces.forEach(ns -> {
+            model.setNsPrefix(ns.prefix, ns.uri);
+        });
+        return model;
     }
 
     public static String cleanUriContent(String inputContent) {
@@ -106,7 +177,7 @@ public class Utility {
 
     public static String getDate(String timeSinceEpoch) {
         String time = timeSinceEpoch.split(":")[0].replaceAll("\\.", "");
-        time = time.substring(0, time.length()-3); // convert from ms to second
+        time = time.substring(0, time.length() - 3); // convert from ms to second
         return Utility.localTimeConversion(time, Utility.SECONDS);
     }
 

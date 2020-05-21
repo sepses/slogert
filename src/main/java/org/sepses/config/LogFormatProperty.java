@@ -1,4 +1,4 @@
-package org.sepses.test.function;
+package org.sepses.config;
 
 public class LogFormatProperty {
     public String column;

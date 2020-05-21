@@ -2,17 +2,19 @@
 # -- SLOGERT Configuration File --
 ##
 
-logType: ftp
-logName: core:ApacheErrorLogEntry
-logData: scenario/input/apache-error.log_structured.csv
-logTemplate: scenario/input/apache-error.log_templates.csv
-isOverride: true
+source: scenario/input/apache-error.log
+sourceLogpai: scenario/input/apache-error.log_structured.csv
+sourceLogpaiTemplate: scenario/input/apache-error.log_templates.csv
 
-targetData: scenario/output/apache-error.log_structured.ottr
-targetOttr: scenario/output/apache-error.log_templates.stottr
-targetTurtle: scenario/output/apache-error.log_structured.ttl
-targetTemplate: scenario/output/apache-error-log_templates.ottr
+logFormat: ftp
+logSourceType: apache-error
 
-targetNer: scenario/ner.rules
-templateRdf: scenario/std-template.trig
-slogertTrig: scenario/slogert.trig
+isOverrideExisting: false
+paramExtractAttempt: 3
+
+targetOttr: scenario/output/apache-error.log_structured.ottr
+targetOttrTurtle: scenario/output/apache-error.ttl
+
+targetOttrBase: scenario/config-base.ottr
+targetStanfordNer: scenario/config-ner.rules
+targetConfigTurtle: scenario/config-turtle.ttl

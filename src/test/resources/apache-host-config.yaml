@@ -2,17 +2,19 @@
 # -- SLOGERT Configuration File --
 ##
 
-logType: apache
-logName: core:ApacheHostLogEntry
-logData: scenario/input/apache-host.log_structured.csv
-logTemplate: scenario/input/apache-host.log_templates.csv
-isOverride: true
+source: scenario/input/apache-host.log
+sourceLogpai: scenario/input/apache-host.log_structured.csv
+sourceLogpaiTemplate: scenario/input/apache-host.log_templates.csv
 
-targetData: scenario/output/apache-host.log_structured.ottr
-targetOttr: scenario/output/apache-host.log_templates.stottr
-targetTurtle: scenario/output/apache-host.log_structured.ttl
-targetTemplate: scenario/output/apache-host-log_templates.ottr
+logFormat: apache
+logSourceType: apache-host
 
-targetNer: scenario/ner.rules
-templateRdf: scenario/std-template.trig
-slogertTrig: scenario/slogert.trig
+isOverrideExisting: false
+paramExtractAttempt: 3
+
+targetOttr: scenario/output/apache-host.log_structured.ottr
+targetOttrTurtle: scenario/output/apache-host.ttl
+
+targetOttrBase: scenario/config-base.ottr
+targetStanfordNer: scenario/config-ner.rules
+targetConfigTurtle: scenario/config-turtle.ttl

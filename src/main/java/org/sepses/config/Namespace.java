@@ -1,6 +1,6 @@
-package org.sepses.yaml;
+package org.sepses.config;
 
-public class ConfigNS {
+public class Namespace {
     public String prefix;
     public String uri;
 }

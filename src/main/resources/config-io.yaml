@@ -1,5 +1,10 @@
 ##
-# -- SLOGERT Configuration File --
+# -- IO Config --
+#
+#   - lid:LogSource_unix
+#   - lid:LogSource_apache
+#   - lid:LogSource_audit
+#   - lid:LogSource_ftp
 ##
 
 source: scenario/input/auth.log
@@ -18,3 +23,5 @@ targetOttrTurtle: scenario/output/auth.ttl
 targetOttrBase: scenario/config-base.ottr
 targetStanfordNer: scenario/config-ner.rules
 targetConfigTurtle: scenario/config-turtle.ttl
+
+

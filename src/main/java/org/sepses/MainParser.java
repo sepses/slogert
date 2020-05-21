@@ -1,98 +1,332 @@
 package org.sepses;
 
+import com.google.common.base.Stopwatch;
 import org.apache.commons.cli.*;
-import org.sepses.processor.GenericParser;
-import org.sepses.processor.Parser;
-import org.sepses.yaml.Config;
-import org.sepses.yaml.InternalConfig;
-import org.sepses.yaml.InternalLogType;
-import org.sepses.yaml.YamlFunction;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.text.similarity.LevenshteinDistance;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFFormat;
+import org.sepses.config.*;
+import org.sepses.event.LogEvent;
+import org.sepses.event.LogEventTemplate;
+import org.sepses.helper.Utility;
+import org.sepses.nlp.EntityRecognition;
+import org.sepses.ottr.OttrInstance;
+import org.sepses.ottr.OttrTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.*;
-import java.util.NoSuchElementException;
+import java.nio.charset.Charset;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.stream.Stream;
+
+import static org.sepses.helper.Utility.getLogEventTemplateMap;
 
 public class MainParser {
 
     private static final Logger log = LoggerFactory.getLogger(MainParser.class);
-
-    private static final String INTERNAL_CONFIG = "slogert.yaml";
-    private static Config config;
-    private static InternalConfig internalConfig;
+    private static final String CONFIG_YAML = "config.yaml";
+    private static ExtractionConfig config;
 
     public static void main(String[] args) throws ParseException, IOException {
 
-        // loading internal configuration file.
-        InputStream internalConfigIS = MainParser.class.getClassLoader().getResourceAsStream(INTERNAL_CONFIG);
-        Yaml yaml = new Yaml(new Constructor(InternalConfig.class));
-        internalConfig = yaml.load(internalConfigIS);
-        internalConfigIS.close();
-
         Options options = new Options();
-        options.addRequiredOption("c", "config.yaml", true, "SLOGERT I/O Config");
-        options.addRequiredOption("t", "template.yaml", true, "SLOGERT Regex & Namespaces");
-
+        options.addRequiredOption("c", "config-io", true, "SLOGERT Configuration for I/O");
         CommandLineParser parser = new DefaultParser();
         CommandLine cmd = parser.parse(options, args);
-
-        String configFileString = cmd.getOptionValue("c").trim();
-        File configFile = new File(configFileString);
-        String templateFileString = cmd.getOptionValue("t").trim();
-        File templateFile = new File(templateFileString);
-
-        yaml = new Yaml(new Constructor(Config.class));
-
-        // check whether the parameterList are files
-        if (!configFile.isFile() || !templateFile.isFile())
+        String ioString = cmd.getOptionValue("c").trim();
+        File ioFile = new File(ioString);
+        if (!ioFile.isFile())
             return;
+        log.info("*** YAML input config-io file is valid");
 
-        InputStream configIS = new FileInputStream(configFile);
-        InputStream templateIS = new FileInputStream(templateFile);
-        InputStream is = new SequenceInputStream(configIS, templateIS);
+        // ** config initialization
+        Yaml yaml = new Yaml(new Constructor(ExtractionConfig.class));
+        InputStream configIS = MainParser.class.getClassLoader().getResourceAsStream(CONFIG_YAML);
+        InputStream ioIS = new FileInputStream(ioFile);
+        InputStream is = new SequenceInputStream(configIS, ioIS);
         config = yaml.load(is);
-
-        long start = System.currentTimeMillis();
-        long end;
+        extractExtraConfig(config); // done
+        log.info("*** YAML files configuration is being loaded");
 
         try {
-            // get internalLogType from the known log type list
-            InternalLogType internalLogType =
-                    internalConfig.logTypes.stream().filter(item -> item.id.equals(config.logType)).findFirst().get();
-            // set internal logtype; throw error when not found
-            config.internalLogType = internalLogType;
-            // add specific NS to the config NS list.
-            config.ottrNS.addAll(internalLogType.ottrNS);
 
-            YamlFunction.convertConfigToOwl(config);
+            StringBuilder logSB = new StringBuilder();
+            logSB.append(System.lineSeparator());
+            logSB.append("****** Time log for file: " + config.source).append(System.lineSeparator());
+            Stopwatch timer = Stopwatch.createStarted();
+            extractNerRules(config); // done
+            logSB.append("*** Standford NER rules are generated in " + timer.stop()).append(System.lineSeparator());
+            timer = Stopwatch.createStarted();
+            extractLogEventTemplates(config); // done
+            logSB.append("*** LogEvent templates are generated in " + timer.stop()).append(System.lineSeparator());
+            timer = Stopwatch.createStarted();
+            extractOttrBase(config); // done
+            logSB.append("*** OTTR templates are generated in " + timer.stop()).append(System.lineSeparator());
+            timer = Stopwatch.createStarted();
+            extractLogEvents(config); // done
+            logSB.append("*** OTTR instances are generated in " + timer.stop()).append(System.lineSeparator());
 
-            log.info("*** start log parser ***");
-            Parser unixParser = new GenericParser(config);
-            unixParser.generateOttrMap();
-            unixParser.parseLogpaiData();
-            log.info("*** log parser processing finished ***");
+            logSB.append("****** End of log processing \n\n");
+
+            logSB.append("Lutra execution command: ");
+            logSB.append("java -jar exe/lutra.jar --library ").append(config.targetOttrBase)
+                    .append(" --libraryFormat stottr --inputFormat stottr ").append(config.targetOttr)
+                    .append(" --mode expand --fetchMissing > ").append(config.targetOttrTurtle);
+
+            log.info(logSB.toString());
 
         } catch (NoSuchElementException e) {
             log.error("*** Unsupported log type ***");
             log.error(e.getMessage());
 
-        } catch (ReflectiveOperationException e) {
-            log.error("*** Reflection error ***");
-            log.error(e.getMessage());
         }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("java -jar exe/lutra.jar --library ").append(config.targetTemplate)
-                .append(" --libraryFormat stottr --inputFormat stottr ").append(config.targetData)
-                .append(" --mode expand --fetchMissing > ").append(config.targetTurtle);
-
-        end = System.currentTimeMillis();
-        log.info("Transformation process finished in " + (end - start) + " milliseconds");
-        log.info("Execute Lutra with the following commands: " + sb.toString());
-
         System.gc();
+
+    }
+
+    private static void extractExtraConfig(ExtractionConfig config) {
+
+        config.logFormatInstance =
+                config.logFormats.stream().filter(format -> config.logFormat.equals(format.id)).findFirst()
+                        .orElse(null);
+        config.logFormatOttrBase = config.ottrTemplates.stream()
+                .filter(template -> config.logFormatInstance.ottrBaseTemplate.equals(template.uri)).findFirst()
+                .orElse(null);
+    }
+
+    private static void extractOttrBase(ExtractionConfig config) throws IOException {
+
+        StringBuilder sb = new StringBuilder();
+
+        config.namespaces.forEach(ns -> {
+            sb.append("@prefix ").append(ns.prefix).append(": <").append(ns.uri).append("> . \n");
+        });
+
+        sb.append("\n### Basic OTTR templates \n\n");
+        config.ottrTemplates.forEach(ot -> {
+            sb.append(buildOttrString(ot));
+        });
+
+        sb.append("\n### Parameter OTTR templates \n\n");
+        Stream<Parameter> ps = Stream.concat(config.nerParameters.stream(), config.nonNerParameters.stream());
+        ps.forEach(parameter -> {
+            sb.append(buildOttrString(parameter.ottrTemplate));
+        });
+
+        sb.append("\n### LogEventTemplate OTTR templates \n\n");
+        config.logEventTemplates.values().stream().forEach(let -> {
+            sb.append(buildOttrString(let.generateOttrTemplate(config)));
+        });
+
+        Utility.writeToFile(sb.toString(), config.targetOttrBase);
+    }
+
+    private static String buildOttrString(OttrTemplate ot) {
+        StringBuilder sb = new StringBuilder();
+
+        StringJoiner sj = new StringJoiner(", ", "[", "]");
+        ot.parameters.forEach(parameter -> sj.add(parameter));
+        sb.append(ot.uri).append(sj).append(" :: { \n");
+
+        StringJoiner tripleSJ = new StringJoiner(", \n");
+        ot.functions.forEach(function -> tripleSJ.add("\t" + function));
+        sb.append(tripleSJ);
+
+        sb.append("\n} . \n\n");
+
+        return sb.toString();
+    }
+
+    private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
+        StringBuilder sb = new StringBuilder();
+
+        config.namespaces.forEach(ns -> {
+            sb.append("@prefix ").append(ns.prefix).append(": <").append(ns.uri).append("> . \n");
+        });
+        sb.append("\n### OTTR Instances \n\n");
+
+        events.forEach(event -> {
+            OttrInstance ot = event.toOttrInstance(config);
+            StringJoiner sj = new StringJoiner(",", "(", ")");
+            ot.parameters.forEach(parameter -> sj.add(parameter));
+            sb.append(ot.uri).append(sj).append(". \n");
+        });
+
+        Utility.writeToFile(sb.toString(), config.targetOttr);
+    }
+
+    private static void extractLogEvents(ExtractionConfig config) throws IOException {
+
+        // *** read and collect input logpai data
+        log.info("Start reading logpai data for LogEventTemplate parameter information extractions");
+        Reader dataReader = new FileReader(Paths.get(config.sourceLogpai).toFile());
+        Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
+        List<LogEvent> logEvents = new ArrayList<>();
+        records.forEach(record -> logEvents.add(new LogEvent(record, config)));
+
+        extractOttrInstances(config, logEvents);
+
+    }
+
+    private static void extractLogEventTemplates(ExtractionConfig config) {
+
+        log.debug("read and collect input logpai structure");
+        try {
+
+            // *** read and collect input logpai structure
+            Reader templateReader = new FileReader(Paths.get(config.sourceLogpaiTemplate).toFile());
+            Iterable<CSVRecord> inputTemplates = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(templateReader);
+            log.debug("read and collect input logpai structure");
+
+            // *** if desired, we can load existing template ***
+            if (!config.isOverrideExisting) {
+                // *** load existing hashTemplates
+                config.logEventTemplates.putAll(getLogEventTemplateMap(config));
+            }
+
+            // *** Create LogEventTemplate ***
+            log.info("LogEventTemplate creation started");
+            // * initiate templates with keywords and log source type
+            for (CSVRecord templateCandidate : inputTemplates) {
+                String eventTemplate = templateCandidate.get(LogEvent.LOGPAI_EVENT_TEMPLATE);
+                String hashCandidate = Utility.createHash(eventTemplate);
+
+                LogEventTemplate let;
+                if (!config.logEventTemplates.containsKey(hashCandidate)) {
+                    let = new LogEventTemplate();
+                    EntityRecognition er =
+                            EntityRecognition.getInstanceConfig(config.targetStanfordNer, config.nonNerParameters);
+
+                    let.label = hashCandidate;
+                    let.keywords = er.extractKeywords(eventTemplate);
+                    let.pattern = templateCandidate.get(LogEvent.LOGPAI_EVENT_TEMPLATE);
+
+                    let.ottrBaseTemplate = config.logFormatInstance.ottrBaseTemplate;
+
+                    config.logEventTemplates.put(hashCandidate, let);
+                } else {
+                    let = config.logEventTemplates.get(hashCandidate);
+                }
+                let.logSourceTypes.add(config.logSourceType);
+
+            }
+            log.info("LogEventTemplates creation finished (no parameter information)");
+
+            // *** Add LogEventTemplate parameters information to LogEventTemplate
+
+            // * read and collect input logpai data
+            log.info("Start reading logpai data for LogEventTemplate parameter information extractions");
+            Reader dataReader = new FileReader(Paths.get(config.sourceLogpai).toFile());
+            Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(dataReader);
+            List<LogEvent> logEvents = new ArrayList<>();
+            records.forEach(record -> logEvents.add(new LogEvent(record, config)));
+
+            // * only process logpai data when the LogEventTemplate is empty
+            log.info("Start logEvent reading");
+
+            logEvents.stream().forEach(logEvent -> {
+                LogEventTemplate let = config.logEventTemplates.get(logEvent.templateHash);
+
+                if (let.parameters.isEmpty()) {
+                    let.example = logEvent.content;
+                    let.extractionCount = 1;
+                    // * set & process nerParameters
+                    logEvent.contentParameters.forEach(param -> {
+                        String paramType = getParamType(logEvent, param);
+                        let.parameters.add(paramType);
+                    });
+                } else {
+                    // * well.. if it's unknown, probably we can try it with other lines? up to paramExtractAttempt
+                    if (let.extractionCount++ <= config.paramExtractAttempt) {
+                        for (int i = 0; i < let.parameters.size(); i++) {
+                            String templateParam = let.parameters.get(i);
+                            if (templateParam.equals(LogEvent.UNKNOWN_PARAMETER)) {
+                                String param = logEvent.contentParameters.get(i);
+                                let.parameters.set(i, getParamType(logEvent, param));
+                            }
+                        }
+                    }
+                }
+            });
+            log.debug("End of LogEventTemplate parameter information extractions");
+
+            // *** write templates
+            Model model = Utility.createModel(config);
+            config.logEventTemplates.values().stream().forEach(item -> model.add(item.toModel()));
+            log.info("LogEventTemplates are committed");
+
+            FileOutputStream fos = new FileOutputStream(config.targetConfigTurtle);
+            RDFDataMgr.write(fos, model, RDFFormat.TRIG);
+            fos.close();
+            model.close();
+            log.info("LogEventTemplates file is written");
+
+        } catch (Exception e) {
+            log.error("*** Error ***");
+            log.error(e.getMessage());
+        }
+    }
+
+    private static String getParamType(LogEvent logEvent, String param) {
+        EntityRecognition er = EntityRecognition.getInstanceConfig(config.targetStanfordNer, config.nonNerParameters);
+        LevenshteinDistance distance = new LevenshteinDistance();
+        HashMap<String, String> matchedExpressions = er.annotateSentence(logEvent.content);
+
+        String paramType = LogEvent.UNKNOWN_PARAMETER;
+
+        if (matchedExpressions.containsKey(param)) {
+            paramType = matchedExpressions.get(param);
+        } else {
+            // * fuzzy distance for  unexpected parameters
+            double minDistance = 1;
+            String minDistanceKey = "";
+            for (Map.Entry<String, String> entry : matchedExpressions.entrySet()) {
+                if (entry.getKey() != null) {
+                    String key = entry.getKey();
+                    double dist = distance.apply(key, param);
+                    double maxLength = ((param.length() > key.length()) ? param.length() : key.length());
+                    double relativeDistance = dist / maxLength;
+
+                    if (relativeDistance < minDistance) {
+                        minDistance = relativeDistance;
+                        minDistanceKey = key;
+                    }
+                }
+            }
+
+            // ** Relative distance accepted for cases like http://test.com vs //test.com
+            if (minDistance < 0.25) {
+                paramType = matchedExpressions.get(minDistanceKey);
+            }
+        }
+
+        return paramType;
+    }
+
+    private static void extractNerRules(ExtractionConfig config) throws IOException {
+
+        StringBuilder sb = new StringBuilder();
+        InputStream nerIS = MainParser.class.getClassLoader().getResourceAsStream("config-base.rules");
+        sb.append(IOUtils.toString(nerIS, Charset.defaultCharset()));
+
+        config.nerParameters.forEach(parameter -> {
+            sb.append("{ ruleType: \"tokens\", ");
+            sb.append("pattern: ").append(parameter.pattern).append(", ");
+            sb.append("action: ").append(parameter.action).append(", ");
+            sb.append("result: \"").append(parameter.id).append("\" }");
+            sb.append(System.lineSeparator());
+        });
+
+        Utility.writeToFile(sb.toString(), config.targetStanfordNer);
 
     }
 
