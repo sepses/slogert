@@ -4,9 +4,10 @@ import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.tuple.Pair;
 import org.sepses.config.ExtractionConfig;
 import org.sepses.config.LogFormat;
-import org.sepses.ottr.OttrInstance;
+import org.sepses.config.LogFormatFunction;
 import org.sepses.config.Parameter;
 import org.sepses.helper.Utility;
+import org.sepses.ottr.OttrInstance;
 import org.sepses.rdf.LOG;
 import org.sepses.rdf.LOGEX;
 import org.slf4j.Logger;
@@ -50,30 +51,43 @@ public class LogEvent {
         config.logFormatInstance.parameters.forEach(p -> {
             templateParameters.add(p.column);
         });
-
-        config.logFormatInstance.functions.forEach(p -> {
-            String[] keys = p.columns.split(",");
-            List<String> values = new ArrayList<>();
-            for (String key : keys) {
-                values.add(record.get(key));
-            }
-
-            try {
-                Method method = this.getClass().getMethod(p.function, List.class);
-                method.invoke(this, values);
-            } catch (NoSuchMethodException e) {
-                log.error("NoSuchMethodException Error");
-                log.error(e.getMessage());
-            } catch (IllegalAccessException e) {
-                log.error("IllegalAccessException Error");
-                log.error(e.getMessage());
-            } catch (InvocationTargetException e) {
-                log.error("InvocationTargetException Error");
-                log.error(e.getMessage());
-            }
-        });
+        config.logFormatInstance.functions.forEach(function -> executeFunction(function, record));
     }
 
+    /**
+     * Execute function as defined in the configuration file.
+     *
+     * @param function {@link LogFormatFunction}
+     * @param record   {@link CSVRecord}
+     */
+    private void executeFunction(LogFormatFunction function, CSVRecord record) {
+
+        String[] keys = function.columns.split(",");
+        List<String> values = new ArrayList<>();
+        for (String key : keys)
+            values.add(record.get(key));
+
+        try {
+            Method method = this.getClass().getMethod(function.function, List.class);
+            method.invoke(this, values);
+        } catch (NoSuchMethodException e) {
+            log.error("NoSuchMethodException Error");
+            log.error(e.getMessage());
+        } catch (IllegalAccessException e) {
+            log.error("IllegalAccessException Error");
+            log.error(e.getMessage());
+        } catch (InvocationTargetException e) {
+            log.error("InvocationTargetException Error");
+            log.error(e.getMessage());
+        }
+    }
+
+    /**
+     * Transform this LogEvent into an {@link OttrInstance} class instance
+     *
+     * @param config
+     * @return OttrInstance
+     */
     public OttrInstance toOttrInstance(ExtractionConfig config) {
         OttrInstance ottr = new OttrInstance();
 
@@ -82,7 +96,7 @@ public class LogEvent {
         ottr.parameters.add(Utility.createPrefixedName(LOG.Address, LOG.NS_INSTANCE_PREFIX, hostString));
         ottr.parameters.add("\"" + hostString + "\"");
         ottr.parameters.add("\"" + timestamp + "\"");
-        ottr.parameters.add("\"" + content.replaceAll("\"", "'").replaceAll("\\\\", "\\\\\\\\") + "\"");
+        ottr.parameters.add("\"" + Utility.cleanContent(content) + "\"");
         ottr.parameters.add(ottr.uri);
         templateParameters.forEach(tp -> {
             String value = tp;
@@ -107,8 +121,7 @@ public class LogEvent {
 
         for (int i = 0; i < let.parameters.size(); i++) {
             Parameter ottrParam = map.get(let.parameters.get(i));
-            String value = contentParameters.get(i).replaceAll("'", "").replaceAll("\"", "").replaceAll(",", "")
-                    .replaceAll("\\\\", "\\\\\\\\");
+            String value = Utility.cleanParameter(contentParameters.get(i));
             if (ottrParam == null || ottrParam.function.equals("literal")) {
 
                 ottr.parameters.add("\"" + value + "\"");
@@ -173,6 +186,11 @@ public class LogEvent {
         return ottr;
     }
 
+    /**
+     * Get pid and pname from a composite variable.
+     *
+     * @param values
+     */
     public void getPidPname(List<String> values) {
         List<String> result = new ArrayList<>();
 
@@ -192,6 +210,11 @@ public class LogEvent {
         templateParameters.addAll(result);
     }
 
+    /**
+     * Process ip from a variable.
+     *
+     * @param values
+     */
     public void getIp(List<String> values) {
         List<Pair<String, String>> result = new ArrayList<>();
         String ipURL = "";
@@ -206,7 +229,15 @@ public class LogEvent {
         templateParameters.add(ipString);
     }
 
-    // TODO: rework this later
+    /**
+     * handle heterogeneous date creation based on different {@link LogFormat}.
+     * <p>
+     * TODO: rework this later
+     *
+     * @param record
+     * @param format
+     * @return String date
+     */
     public String getDate(CSVRecord record, LogFormat format) {
         String result = null;
 
@@ -229,6 +260,12 @@ public class LogEvent {
         return result;
     }
 
+    /**
+     * Extract parameters from LogPai parameter list.
+     *
+     * @param parameterString
+     * @return @{@link List} of string that contains all parameters
+     */
     private List<String> setParameters(String parameterString) {
 
         List<String> result = new ArrayList<>();

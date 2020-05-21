@@ -26,6 +26,7 @@ public class ExtractionConfig {
     public String targetOttrBase;
     public String targetStanfordNer;
     public String targetConfigTurtle;
+    public String targetConfigTimer;
 
     public List<LogFormat> logFormats;
     public List<Parameter> nerParameters;

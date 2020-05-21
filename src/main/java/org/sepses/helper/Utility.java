@@ -11,6 +11,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.joda.time.DateTime;
 import org.sepses.config.ExtractionConfig;
 import org.sepses.event.LogEventTemplate;
+import org.sepses.ottr.OttrTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,8 +40,16 @@ public class Utility {
 
     private static final Logger log = LoggerFactory.getLogger(Utility.class);
 
+    /**
+     * Load existing @{@link LogEventTemplate} map from the config-turtle.ttl (if any)
+     *
+     * @param config
+     * @return
+     * @throws IOException
+     */
     public static Map<String, LogEventTemplate> getLogEventTemplateMap(ExtractionConfig config) throws IOException {
         Map<String, LogEventTemplate> templates = new HashMap<>();
+
         // *** load existing hashTemplates
         Model model = Utility.createModel(config);
         File configTurtle = new File(config.targetConfigTurtle);
@@ -55,27 +64,43 @@ public class Utility {
         return templates;
     }
 
+    /**
+     * Create a Jena Model that already includes all necessary namespaces and prefixes.
+     *
+     * @param config
+     * @return Jena {@link Model}
+     */
     public static Model createModel(ExtractionConfig config) {
         Model model = ModelFactory.createDefaultModel();
         config.namespaces.forEach(ns -> model.setNsPrefix(ns.prefix, ns.uri));
         return model;
     }
 
+    /**
+     * Create a resource from inputs
+     *
+     * @param cls
+     * @param ns
+     * @param label
+     * @return @{@link Resource}
+     */
     public static Resource createResource(Resource cls, String ns, String label) {
         StringBuilder sb = new StringBuilder();
         sb.append(ns).append(cls.getLocalName()).append("_").append(cleanUriContent(label));
         return ResourceFactory.createResource(sb.toString());
     }
 
+    /**
+     * Helper function to create a prefixed resource string
+     *
+     * @param cls
+     * @param prefix
+     * @param label
+     * @return String
+     */
     public static String createPrefixedName(Resource cls, String prefix, String label) {
         StringBuilder sb = new StringBuilder();
         sb.append(prefix).append(":").append(cls.getLocalName()).append("_").append(cleanUriContent(label));
-        return sb.toString();
-    }
-
-    public static String createPrefixedName(Resource cls, String prefix) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(prefix).append(":").append(cls.getLocalName());
         return sb.toString();
     }
 
@@ -103,12 +128,7 @@ public class Utility {
     }
 
     public static String cleanContent(String inputContent) {
-
-        String cleanContent = inputContent.replace("\\", "|"); // clean up cleanContent
-        cleanContent = cleanContent.replaceAll("\"", "|");
-        cleanContent = cleanContent.replaceAll("'", "|");
-
-        return cleanContent;
+        return inputContent.replaceAll("\"", "'").replaceAll("\\\\", "\\\\\\\\");
     }
 
     /**
@@ -232,5 +252,31 @@ public class Utility {
         }
 
         return dateTime.format(DateTimeFormatter.ofPattern(XSD_DATETIME));
+    }
+
+    /**
+     * Helper function to generate OTTR string for OTTR templates.
+     *
+     * @param ottrTemplate
+     * @return
+     */
+    public static String buildOttrString(OttrTemplate ottrTemplate) {
+        StringBuilder sb = new StringBuilder();
+
+        StringJoiner sj = new StringJoiner(", ", "[", "]");
+        ottrTemplate.parameters.forEach(parameter -> sj.add(parameter));
+        sb.append(ottrTemplate.uri).append(sj).append(" :: { \n");
+
+        StringJoiner tripleSJ = new StringJoiner(", \n");
+        ottrTemplate.functions.forEach(function -> tripleSJ.add("\t" + function));
+        sb.append(tripleSJ);
+
+        sb.append("\n} . \n\n");
+
+        return sb.toString();
+    }
+
+    public static String cleanParameter(String s) {
+        return s.replaceAll("'", "").replaceAll("\"", "").replaceAll(",", "").replaceAll("\\\\", "\\\\\\\\");
     }
 }
