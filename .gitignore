@@ -1,5 +1,4 @@
 slogert.iml
 .idea/*
-notes.txt
-target/
-scenario/input/*-base.csv
+target/*
+notes/*
