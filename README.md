@@ -1,4 +1,5 @@
-# SLOGERT v0.6.0-SNAPSHOT 
+# SLOGERT v0.6.0
+
 A **S**emantic **LOG E**xt**R**action **T**emplating (SLOGERT) Approach
 
 We aim to automatically extract and enrich low-level log data into an RDF Knowledge Graphs.
@@ -18,7 +19,7 @@ and therefore you still need to do it in several steps as follows.
     Examples of config and template files are available on the `src/test/resources` folder 
     (e.g., `auth-config.yaml`for auth log data).
     By default, the following script should work to work on the example file. 
-    (```java -jar target/slogert-0.6.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
+    (```java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
 4) After the transformation finished, it will provide you with the command to execute lutra, such as the following: (```
     java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat 
     stottr scenario/output/auth.log_structured.ottr --mode expand --fetchMissing > scenario/output/auth.ttl```) 
