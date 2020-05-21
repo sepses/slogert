@@ -18,3 +18,4 @@ targetOttrTurtle: scenario/output/vsftpd.ttl
 targetOttrBase: scenario/config-base.ottr
 targetStanfordNer: scenario/config-ner.rules
 targetConfigTurtle: scenario/config-turtle.ttl
+targetConfigTimer: scenario/config-timer.csv

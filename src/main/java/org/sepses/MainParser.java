@@ -9,13 +9,13 @@ import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
-import org.sepses.config.*;
+import org.sepses.config.ExtractionConfig;
+import org.sepses.config.Parameter;
 import org.sepses.event.LogEvent;
 import org.sepses.event.LogEventTemplate;
 import org.sepses.helper.Utility;
 import org.sepses.nlp.EntityRecognition;
 import org.sepses.ottr.OttrInstance;
-import org.sepses.ottr.OttrTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
@@ -23,8 +23,12 @@ import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.time.Instant;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import static org.sepses.helper.Utility.getLogEventTemplateMap;
@@ -57,25 +61,42 @@ public class MainParser {
         log.info("*** YAML files configuration is being loaded");
 
         try {
+            StringBuilder timerSB = new StringBuilder();
 
             StringBuilder logSB = new StringBuilder();
             logSB.append(System.lineSeparator());
-            logSB.append("****** Time log for file: " + config.source).append(System.lineSeparator());
+            logSB.append("****** Time log for file: " + config.logSourceType).append(System.lineSeparator());
+            timerSB.append(Instant.now()).append(";");
+            timerSB.append(config.source).append(";");
+
             Stopwatch timer = Stopwatch.createStarted();
             extractNerRules(config); // done
             logSB.append("*** Standford NER rules are generated in " + timer.stop()).append(System.lineSeparator());
+            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
             timer = Stopwatch.createStarted();
             extractLogEventTemplates(config); // done
             logSB.append("*** LogEvent templates are generated in " + timer.stop()).append(System.lineSeparator());
+            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
             timer = Stopwatch.createStarted();
             extractOttrBase(config); // done
             logSB.append("*** OTTR templates are generated in " + timer.stop()).append(System.lineSeparator());
+            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
             timer = Stopwatch.createStarted();
             extractLogEvents(config); // done
             logSB.append("*** OTTR instances are generated in " + timer.stop()).append(System.lineSeparator());
+            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
+
+            try {
+                Files.write(Paths.get(config.targetConfigTimer), timerSB.toString().getBytes(),
+                        StandardOpenOption.APPEND);
+            } catch (IOException e) {
+                log.error(e.getMessage());
+            }
 
             logSB.append("****** End of log processing \n\n");
-
             logSB.append("Lutra execution command: ");
             logSB.append("java -jar exe/lutra.jar --library ").append(config.targetOttrBase)
                     .append(" --libraryFormat stottr --inputFormat stottr ").append(config.targetOttr)
@@ -93,6 +114,11 @@ public class MainParser {
 
     }
 
+    /**
+     * derive additional configuration from initial config file.
+     *
+     * @param config
+     */
     private static void extractExtraConfig(ExtractionConfig config) {
 
         config.logFormatInstance =
@@ -103,6 +129,12 @@ public class MainParser {
                 .orElse(null);
     }
 
+    /**
+     * Extracting OTTR template for the running conversion process
+     *
+     * @param config
+     * @throws IOException
+     */
     private static void extractOttrBase(ExtractionConfig config) throws IOException {
 
         StringBuilder sb = new StringBuilder();
@@ -113,39 +145,30 @@ public class MainParser {
 
         sb.append("\n### Basic OTTR templates \n\n");
         config.ottrTemplates.forEach(ot -> {
-            sb.append(buildOttrString(ot));
+            sb.append(Utility.buildOttrString(ot));
         });
 
         sb.append("\n### Parameter OTTR templates \n\n");
         Stream<Parameter> ps = Stream.concat(config.nerParameters.stream(), config.nonNerParameters.stream());
         ps.forEach(parameter -> {
-            sb.append(buildOttrString(parameter.ottrTemplate));
+            sb.append(Utility.buildOttrString(parameter.ottrTemplate));
         });
 
         sb.append("\n### LogEventTemplate OTTR templates \n\n");
         config.logEventTemplates.values().stream().forEach(let -> {
-            sb.append(buildOttrString(let.generateOttrTemplate(config)));
+            sb.append(Utility.buildOttrString(let.generateOttrTemplate(config)));
         });
 
         Utility.writeToFile(sb.toString(), config.targetOttrBase);
     }
 
-    private static String buildOttrString(OttrTemplate ot) {
-        StringBuilder sb = new StringBuilder();
-
-        StringJoiner sj = new StringJoiner(", ", "[", "]");
-        ot.parameters.forEach(parameter -> sj.add(parameter));
-        sb.append(ot.uri).append(sj).append(" :: { \n");
-
-        StringJoiner tripleSJ = new StringJoiner(", \n");
-        ot.functions.forEach(function -> tripleSJ.add("\t" + function));
-        sb.append(tripleSJ);
-
-        sb.append("\n} . \n\n");
-
-        return sb.toString();
-    }
-
+    /**
+     * Generation of OTTR instances from log events
+     *
+     * @param config
+     * @param events
+     * @throws IOException
+     */
     private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
         StringBuilder sb = new StringBuilder();
 
@@ -164,6 +187,12 @@ public class MainParser {
         Utility.writeToFile(sb.toString(), config.targetOttr);
     }
 
+    /**
+     * Generatiion of @{@link LogEvent} from the input CSV instances file
+     *
+     * @param config
+     * @throws IOException
+     */
     private static void extractLogEvents(ExtractionConfig config) throws IOException {
 
         // *** read and collect input logpai data
@@ -177,6 +206,11 @@ public class MainParser {
 
     }
 
+    /**
+     * Generation of @{@link LogEventTemplate} from the input CSV template file
+     *
+     * @param config
+     */
     private static void extractLogEventTemplates(ExtractionConfig config) {
 
         log.debug("read and collect input logpai structure");
@@ -194,6 +228,7 @@ public class MainParser {
             }
 
             // *** Create LogEventTemplate ***
+
             log.info("LogEventTemplate creation started");
             // * initiate templates with keywords and log source type
             for (CSVRecord templateCandidate : inputTemplates) {
@@ -245,7 +280,7 @@ public class MainParser {
                         let.parameters.add(paramType);
                     });
                 } else {
-                    // * well.. if it's unknown, probably we can try it with other lines? up to paramExtractAttempt
+                    // * if it's unknown, probably we retry it with next lines - up to "paramExtractAttempt" attempts
                     if (let.extractionCount++ <= config.paramExtractAttempt) {
                         for (int i = 0; i < let.parameters.size(); i++) {
                             String templateParam = let.parameters.get(i);
@@ -276,6 +311,13 @@ public class MainParser {
         }
     }
 
+    /**
+     * The parameter recognition function; given a parameter and the full message, derive type of @{@link LogEvent}
+     *
+     * @param logEvent
+     * @param param
+     * @return String paramType
+     */
     private static String getParamType(LogEvent logEvent, String param) {
         EntityRecognition er = EntityRecognition.getInstanceConfig(config.targetStanfordNer, config.nonNerParameters);
         LevenshteinDistance distance = new LevenshteinDistance();
@@ -312,6 +354,12 @@ public class MainParser {
         return paramType;
     }
 
+    /**
+     * Extraction of NER rules from the configuration file.
+     *
+     * @param config
+     * @throws IOException
+     */
     private static void extractNerRules(ExtractionConfig config) throws IOException {
 
         StringBuilder sb = new StringBuilder();
