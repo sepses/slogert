@@ -1,9 +1,11 @@
 package org.sepses;
 
 import com.google.common.base.Stopwatch;
+import com.google.common.collect.Lists;
 import org.apache.commons.cli.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.apache.jena.rdf.model.Model;
@@ -98,7 +100,7 @@ public class MainParser {
 
             logSB.append("****** End of log processing \n\n");
             logSB.append("Lutra execution command: ");
-            logSB.append("java -jar exe/lutra.jar --library ").append(config.targetOttrBase)
+            logSB.append("time java -jar exe/lutra.jar --library ").append(config.targetOttrBase)
                     .append(" --libraryFormat stottr --inputFormat stottr ").append(config.targetOttr)
                     .append(" --mode expand --fetchMissing > ").append(config.targetOttrTurtle);
 
@@ -170,21 +172,45 @@ public class MainParser {
      * @throws IOException
      */
     private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
-        StringBuilder sb = new StringBuilder();
+        Integer maxCount = config.logEventsPerExtraction;
 
+        if (events.size() > maxCount) {
+            String filename = config.targetOttr;
+            String path = FilenameUtils.getPath(filename);
+            String base = FilenameUtils.getBaseName(filename);
+            String extension = FilenameUtils.getExtension(filename);
+
+            List<List<LogEvent>> partitions = Lists.partition(events, maxCount);
+            for (int i = 0; i < partitions.size(); i++) {
+                filename = new StringBuilder(path).append(base).append("-").append(i).append(".").append(extension)
+                        .toString();
+                executeExtract(config, partitions.get(i), filename);
+            }
+
+        } else {
+            executeExtract(config, events, config.targetOttr);
+        }
+    }
+
+    private static void executeExtract(ExtractionConfig config, List<LogEvent> events, String fileName)
+            throws IOException {
+        StringBuilder sb = new StringBuilder();
         config.namespaces.forEach(ns -> {
             sb.append("@prefix ").append(ns.prefix).append(": <").append(ns.uri).append("> . \n");
         });
-        sb.append("\n### OTTR Instances \n\n");
 
+        // add metadata on log sources
+        sb.append("\n### ottr metadata \n\n");
+        OttrInstance ottr = Utility.createOttrMetadata(config);
+        sb.append(ottr.toString());
+
+        // add instances
+        sb.append("\n### ottr instances \n\n");
         events.forEach(event -> {
             OttrInstance ot = event.toOttrInstance(config);
-            StringJoiner sj = new StringJoiner(",", "(", ")");
-            ot.parameters.forEach(parameter -> sj.add(parameter));
-            sb.append(ot.uri).append(sj).append(". \n");
+            sb.append(ot.toString());
         });
-
-        Utility.writeToFile(sb.toString(), config.targetOttr);
+        Utility.writeToFile(sb.toString(), fileName);
     }
 
     /**

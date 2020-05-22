@@ -11,7 +11,10 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.joda.time.DateTime;
 import org.sepses.config.ExtractionConfig;
 import org.sepses.event.LogEventTemplate;
+import org.sepses.ottr.OttrInstance;
 import org.sepses.ottr.OttrTemplate;
+import org.sepses.rdf.LOG;
+import org.sepses.rdf.LOGEX;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,7 +101,7 @@ public class Utility {
      * @param label
      * @return String
      */
-    public static String createPrefixedName(Resource cls, String prefix, String label) {
+    public static String getPrefixedName(Resource cls, String prefix, String label) {
         StringBuilder sb = new StringBuilder();
         sb.append(prefix).append(":").append(cls.getLocalName()).append("_").append(cleanUriContent(label));
         return sb.toString();
@@ -145,6 +148,12 @@ public class Utility {
         return model;
     }
 
+    /**
+     * Cleaning string to comply to URI specification
+     *
+     * @param inputContent
+     * @return
+     */
     public static String cleanUriContent(String inputContent) {
 
         String cleanContent = inputContent.replaceAll("[^a-zA-Z0-9._-]", "_");
@@ -153,6 +162,13 @@ public class Utility {
         return cleanContent;
     }
 
+    /**
+     * Wrting file to certain location
+     *
+     * @param string
+     * @param filename
+     * @throws IOException
+     */
     public static void writeToFile(String string, String filename) throws IOException {
         File file = new File(filename);
 
@@ -166,6 +182,14 @@ public class Utility {
         writer.close();
     }
 
+    /**
+     * Date string generation
+     *
+     * @param month
+     * @param day
+     * @param time
+     * @return String date
+     */
     public static String getDate(String month, String day, String time) {
 
         day = StringUtils.leftPad(day, 2, "0");
@@ -278,5 +302,28 @@ public class Utility {
 
     public static String cleanParameter(String s) {
         return s.replaceAll("'", "").replaceAll("\"", "").replaceAll(",", "").replaceAll("\\\\", "\\\\\\\\");
+    }
+
+    /**
+     * Create a metadata instance by a given config file
+     *
+     * @param config
+     * @return OttrInstance representing a configuration file
+     */
+    public static OttrInstance createOttrMetadata(ExtractionConfig config) {
+
+        OttrInstance ottr = new OttrInstance();
+        ottr.uri = Utility.getPrefixedName(LOGEX.OttrTemplate, LOGEX.NS_INSTANCE_PREFIX, LOG.Source.getLocalName());
+        ottr.parameters.add(Utility
+                .getPrefixedName(LOG.Source, LOG.NS_INSTANCE_PREFIX, Utility.cleanUriContent(config.source)));
+        ottr.parameters.add("\"" + config.source + "\"");
+        ottr.parameters.add(Utility.getPrefixedName(LOG.SourceType, LOG.NS_INSTANCE_PREFIX,
+                Utility.cleanUriContent(config.logSourceType)));
+        ottr.parameters.add("\"" + config.logSourceType + "\"");
+        ottr.parameters.add(Utility
+                .getPrefixedName(LOG.Format, LOG.NS_INSTANCE_PREFIX, Utility.cleanUriContent(config.logFormat)));
+        ottr.parameters.add("\"" + config.logFormat + "\"");
+
+        return ottr;
     }
 }

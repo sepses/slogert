@@ -19,11 +19,12 @@ public class ExtractionConfig {
 
     public Boolean isOverrideExisting;
     public Integer paramExtractAttempt;
+    public Integer logEventsPerExtraction;
 
     public String targetOttr;
     public String targetOttrTurtle;
-
     public String targetOttrBase;
+
     public String targetStanfordNer;
     public String targetConfigTurtle;
     public String targetConfigTimer;

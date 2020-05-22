@@ -91,13 +91,17 @@ public class LogEvent {
     public OttrInstance toOttrInstance(ExtractionConfig config) {
         OttrInstance ottr = new OttrInstance();
 
-        ottr.uri = Utility.createPrefixedName(LOGEX.LogEventTemplate, LOGEX.NS_INSTANCE_PREFIX, templateHash);
-        ottr.parameters.add(Utility.createPrefixedName(LOG.Event, LOG.NS_INSTANCE_PREFIX, idString));
-        ottr.parameters.add(Utility.createPrefixedName(LOG.Address, LOG.NS_INSTANCE_PREFIX, hostString));
+        ottr.uri = Utility.getPrefixedName(LOGEX.LogEventTemplate, LOGEX.NS_INSTANCE_PREFIX, templateHash);
+
+        ottr.parameters.add(Utility.getPrefixedName(LOG.Event, LOG.NS_INSTANCE_PREFIX, idString));
+        ottr.parameters.add(Utility.getPrefixedName(LOG.Address, LOG.NS_INSTANCE_PREFIX, hostString));
         ottr.parameters.add("\"" + hostString + "\"");
         ottr.parameters.add("\"" + timestamp + "\"");
         ottr.parameters.add("\"" + Utility.cleanContent(content) + "\"");
         ottr.parameters.add(ottr.uri);
+        ottr.parameters.add(Utility
+                .getPrefixedName(LOG.Source, LOG.NS_INSTANCE_PREFIX, Utility.cleanUriContent(config.source)));
+
         templateParameters.forEach(tp -> {
             String value = tp;
             // TODO: fix this
@@ -107,6 +111,20 @@ public class LogEvent {
             }
             ottr.parameters.add(value);
         });
+
+        processOttrParameters(config, ottr);
+
+        return ottr;
+    }
+
+    /**
+     * Processing OttrInstance parameters
+     * TODO: handle hardcode functionalities
+     *
+     * @param config
+     * @param ottr
+     */
+    private void processOttrParameters(ExtractionConfig config, OttrInstance ottr) {
 
         LogEventTemplate let = config.logEventTemplates.get(templateHash);
         Map<String, Parameter> map = new HashMap<>();
@@ -118,7 +136,6 @@ public class LogEvent {
                 }
             });
         });
-
         for (int i = 0; i < let.parameters.size(); i++) {
             Parameter ottrParam = map.get(let.parameters.get(i));
             String value = Utility.cleanParameter(contentParameters.get(i));
@@ -133,7 +150,7 @@ public class LogEvent {
                 ottr.parameters.add("\"" + value + "\"");
 
             } else if (ottrParam.function.equals("filePathSplit")) {
-                String iri = Utility.createPrefixedName(LOG.File, LOG.NS_INSTANCE_PREFIX, value);
+                String iri = Utility.getPrefixedName(LOG.File, LOG.NS_INSTANCE_PREFIX, value);
                 String[] values = value.split("/");
                 List<String> list = Arrays.asList(values);
 
@@ -148,7 +165,7 @@ public class LogEvent {
 
             } else if (ottrParam.function.equals("splitUrlParameter")) {
                 String[] values = value.split("\\?");
-                String iri = Utility.createPrefixedName(LOG.URL, LOG.NS_INSTANCE_PREFIX, values[0]);
+                String iri = Utility.getPrefixedName(LOG.URL, LOG.NS_INSTANCE_PREFIX, values[0]);
                 String url = values[0];
                 String param = "";
                 if (values.length > 1) {
@@ -163,14 +180,14 @@ public class LogEvent {
                 List<String> list = Arrays.asList(values);
                 String ip = list.get(list.size() - 1);
                 String prefix = list.get(list.size() - 2);
-                String iri = Utility.createPrefixedName(LOG.URL, LOG.NS_INSTANCE_PREFIX, ip);
+                String iri = Utility.getPrefixedName(LOG.URL, LOG.NS_INSTANCE_PREFIX, ip);
 
                 ottr.parameters.add(iri);
                 ottr.parameters.add("\"" + ip + "\"");
                 ottr.parameters.add("\"" + prefix + "\"");
 
             } else if (ottrParam.function.equals("portCreation")) {
-                String addressURI = Utility.createPrefixedName(LOG.Address, LOG.NS_INSTANCE_PREFIX, value);
+                String addressURI = Utility.getPrefixedName(LOG.Address, LOG.NS_INSTANCE_PREFIX, value);
                 String portURI = SERVICES_NS_INSTANCE_PREFIX + ":Port_" + value;
 
                 ottr.parameters.add(addressURI);
@@ -182,8 +199,6 @@ public class LogEvent {
 
             }
         }
-
-        return ottr;
     }
 
     /**
@@ -222,7 +237,7 @@ public class LogEvent {
 
         if (!values.isEmpty()) {
             ipString = values.get(0);
-            ipURL = Utility.createPrefixedName(LOG.IPv4, LOG.NS_INSTANCE_PREFIX, ipString);
+            ipURL = Utility.getPrefixedName(LOG.IPv4, LOG.NS_INSTANCE_PREFIX, ipString);
         }
 
         templateParameters.add(ipURL);

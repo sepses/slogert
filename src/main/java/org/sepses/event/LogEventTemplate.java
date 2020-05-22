@@ -70,11 +70,11 @@ public class LogEventTemplate {
     public OttrTemplate generateOttrTemplate(ExtractionConfig config) {
 
         OttrTemplate ottr = new OttrTemplate();
-        ottr.uri = Utility.createPrefixedName(LOGEX.LogEventTemplate, LOGEX.NS_INSTANCE_PREFIX, label);
+        ottr.uri = Utility.getPrefixedName(LOGEX.LogEventTemplate, LOGEX.NS_INSTANCE_PREFIX, label);
         ottr.appendTemplate(config.logFormatOttrBase);
 
         parameters.forEach(p -> {
-            String ottrTemplateUri = Utility.createPrefixedName(LOGEX.OttrTemplate, LOGEX.NS_INSTANCE_PREFIX, p);
+            String ottrTemplateUri = Utility.getPrefixedName(LOGEX.OttrTemplate, LOGEX.NS_INSTANCE_PREFIX, p);
             Stream<Parameter> stream = Stream.concat(config.nerParameters.stream(), config.nonNerParameters.stream());
             Parameter cp = stream.filter(np -> p.equals(np.id)).findAny().orElse(null);
             if (cp == null) {
@@ -88,18 +88,6 @@ public class LogEventTemplate {
         });
 
         return ottr;
-    }
-
-    public String getOttrString(String uri, List<String> ottrVars) {
-        StringBuilder sb = new StringBuilder();
-        StringJoiner sj = new StringJoiner(",", "(", ")");
-        ottrVars.forEach(var -> {
-            String[] keyValue = var.split(" +");
-            sj.add(keyValue[1]);
-        });
-        sb.append(uri).append(sj.toString());
-
-        return sb.toString();
     }
 
     public Model toModel() {

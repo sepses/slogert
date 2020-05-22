@@ -29,6 +29,7 @@ public class EntityRecognition {
         pipelineProps.setProperty("annotators", "tokenize,ssplit,pos,lemma");
         pipelineProps.setProperty("ner.applyFineGrained", "false");
         pipelineProps.setProperty("ssplit.eolonly", "true");
+        pipelineProps.setProperty("tokenize.options", "untokenizable=noneKeep");  // to remove warnings
         pipeline = new StanfordCoreNLP(pipelineProps);
 
         // *** set up the TokensRegex pipeline
