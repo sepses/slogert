@@ -7,7 +7,11 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import edu.stanford.nlp.util.StringUtils;
+import org.apache.commons.text.similarity.LevenshteinDistance;
+import org.sepses.config.ExtractionConfig;
 import org.sepses.config.Parameter;
+import org.sepses.event.LogEvent;
+import org.sepses.helper.Utility;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -189,5 +193,50 @@ public class EntityRecognition {
         String itemStr = item.toLowerCase().trim();
         if (itemStr.length() > 1)
             keywords.add(itemStr);
+    }
+
+    /**
+     * The parameter recognition function; given a parameter and the full message, derive type of @{@link LogEvent}
+     *
+     * @param logEvent
+     * @param param
+     * @return String paramType
+     */
+    public static String getParamType(LogEvent logEvent, String param, ExtractionConfig config) {
+        EntityRecognition er = EntityRecognition.getInstanceConfig(config.targetStanfordNer, config.nonNerParameters);
+        LevenshteinDistance distance = new LevenshteinDistance();
+        HashMap<String, String> matchedExpressions = er.annotateSentence(logEvent.content);
+        String paramType = LogEvent.UNKNOWN_PARAMETER;
+
+        // ** first clean it before detection
+        param = Utility.cleanParameter(param);
+
+        if (matchedExpressions.containsKey(param)) {
+            paramType = matchedExpressions.get(param);
+        } else {
+            // * fuzzy distance for  unexpected parameters
+            double minDistance = 1;
+            String minDistanceKey = "";
+            for (Map.Entry<String, String> entry : matchedExpressions.entrySet()) {
+                if (entry.getKey() != null) {
+                    String key = entry.getKey();
+                    double dist = distance.apply(key, param);
+                    double maxLength = ((param.length() > key.length()) ? param.length() : key.length());
+                    double relativeDistance = dist / maxLength;
+
+                    if (relativeDistance < minDistance) {
+                        minDistance = relativeDistance;
+                        minDistanceKey = key;
+                    }
+                }
+            }
+
+            // ** Relative distance accepted for cases like http://test.com vs //test.com
+            if (minDistance < 0.25) {
+                paramType = matchedExpressions.get(minDistanceKey);
+            }
+        }
+
+        return paramType;
     }
 }

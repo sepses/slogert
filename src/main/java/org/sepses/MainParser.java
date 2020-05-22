@@ -7,7 +7,6 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.text.similarity.LevenshteinDistance;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
@@ -29,7 +28,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
@@ -300,7 +301,7 @@ public class MainParser {
                     let.extractionCount = 1;
                     // * set & process nerParameters
                     logEvent.contentParameters.forEach(param -> {
-                        String paramType = getParamType(logEvent, param);
+                        String paramType = EntityRecognition.getParamType(logEvent, param, config);
                         let.parameters.add(paramType);
                     });
                 } else {
@@ -310,7 +311,7 @@ public class MainParser {
                             String templateParam = let.parameters.get(i);
                             if (templateParam.equals(LogEvent.UNKNOWN_PARAMETER)) {
                                 String param = logEvent.contentParameters.get(i);
-                                let.parameters.set(i, getParamType(logEvent, param));
+                                let.parameters.set(i, EntityRecognition.getParamType(logEvent, param, config));
                             }
                         }
                     }
@@ -333,49 +334,6 @@ public class MainParser {
             log.error("*** Error ***");
             log.error(e.getMessage());
         }
-    }
-
-    /**
-     * The parameter recognition function; given a parameter and the full message, derive type of @{@link LogEvent}
-     *
-     * @param logEvent
-     * @param param
-     * @return String paramType
-     */
-    private static String getParamType(LogEvent logEvent, String param) {
-        EntityRecognition er = EntityRecognition.getInstanceConfig(config.targetStanfordNer, config.nonNerParameters);
-        LevenshteinDistance distance = new LevenshteinDistance();
-        HashMap<String, String> matchedExpressions = er.annotateSentence(logEvent.content);
-
-        String paramType = LogEvent.UNKNOWN_PARAMETER;
-
-        if (matchedExpressions.containsKey(param)) {
-            paramType = matchedExpressions.get(param);
-        } else {
-            // * fuzzy distance for  unexpected parameters
-            double minDistance = 1;
-            String minDistanceKey = "";
-            for (Map.Entry<String, String> entry : matchedExpressions.entrySet()) {
-                if (entry.getKey() != null) {
-                    String key = entry.getKey();
-                    double dist = distance.apply(key, param);
-                    double maxLength = ((param.length() > key.length()) ? param.length() : key.length());
-                    double relativeDistance = dist / maxLength;
-
-                    if (relativeDistance < minDistance) {
-                        minDistance = relativeDistance;
-                        minDistanceKey = key;
-                    }
-                }
-            }
-
-            // ** Relative distance accepted for cases like http://test.com vs //test.com
-            if (minDistance < 0.25) {
-                paramType = matchedExpressions.get(minDistanceKey);
-            }
-        }
-
-        return paramType;
     }
 
     /**

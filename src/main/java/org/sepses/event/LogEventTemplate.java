@@ -38,7 +38,6 @@ public class LogEventTemplate {
             String label = ind.getProperty(RDFS.label).getString();
             String pattern = ind.getProperty(LOGEX.pattern).getString();
             String example = ind.getProperty(LOGEX.example).getString();
-            String ottrBase = ind.getProperty(LOGEX.ottrBaseTemplate).getString();
             StmtIterator keywords = ind.listProperties(LOGEX.keyword);
             StmtIterator sourceTypes = ind.listProperties(LOGEX.associatedLogSourceType);
             RDFList paramList = ind.getProperty(LOGEX.hasParameterList).getObject().as(RDFList.class);

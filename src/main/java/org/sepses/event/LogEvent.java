@@ -138,7 +138,12 @@ public class LogEvent {
         });
         for (int i = 0; i < let.parameters.size(); i++) {
             Parameter ottrParam = map.get(let.parameters.get(i));
+
             String value = Utility.cleanParameter(contentParameters.get(i));
+            //            if (value.contains("/home/jdoe/.cache/mozilla/firefox/11zoizrf.default")) {
+            //                log.error("");
+            //            }
+
             if (ottrParam == null || ottrParam.function.equals("literal")) {
 
                 ottr.parameters.add("\"" + value + "\"");
@@ -146,6 +151,7 @@ public class LogEvent {
             } else if (ottrParam.function.startsWith("object")) {
                 String[] functions = ottrParam.function.split(" ")[1].split(":");
                 String iri = LOG.NS_INSTANCE_PREFIX + ":" + functions[1] + "_" + Utility.cleanUriContent(value);
+
                 ottr.parameters.add(iri);
                 ottr.parameters.add("\"" + value + "\"");
 
@@ -153,24 +159,29 @@ public class LogEvent {
                 String iri = Utility.getPrefixedName(LOG.File, LOG.NS_INSTANCE_PREFIX, value);
                 String[] values = value.split("/");
                 List<String> list = Arrays.asList(values);
+                String path = "\"\"";
+
+                if (!list.isEmpty()) {
+                    path = "\"" + list.get(list.size() - 1) + "\"";
+                }
 
                 ottr.parameters.add(iri);
                 ottr.parameters.add("\"" + value + "\"");
-
-                if (list.isEmpty()) {
-                    ottr.parameters.add("\"\"");
-                } else {
-                    ottr.parameters.add("\"" + list.get(list.size() - 1) + "\"");
-                }
+                ottr.parameters.add(path);
 
             } else if (ottrParam.function.equals("splitUrlParameter")) {
                 String[] values = value.split("\\?");
-                String iri = Utility.getPrefixedName(LOG.URL, LOG.NS_INSTANCE_PREFIX, values[0]);
-                String url = values[0];
+                String url = "";
                 String param = "";
-                if (values.length > 1) {
-                    param = values[1];
+
+                if (values.length > 0) {
+                    url = values[0];
+                    if (values.length > 1) {
+                        param = values[1];
+                    }
                 }
+
+                String iri = Utility.getPrefixedName(LOG.URL, LOG.NS_INSTANCE_PREFIX, url);
                 ottr.parameters.add(iri);
                 ottr.parameters.add("\"" + url + "\"");
                 ottr.parameters.add("\"" + param + "\"");
@@ -178,10 +189,18 @@ public class LogEvent {
             } else if (ottrParam.function.equals("ipWithPrefix")) {
                 String[] values = value.split(":");
                 List<String> list = Arrays.asList(values);
-                String ip = list.get(list.size() - 1);
-                String prefix = list.get(list.size() - 2);
-                String iri = Utility.getPrefixedName(LOG.URL, LOG.NS_INSTANCE_PREFIX, ip);
 
+                String ip = "";
+                String prefix = "";
+
+                if (list.size() < 2) {
+                    log.debug("ipWithPrefix contains less than two parts");
+                } else {
+                    ip = list.get(list.size() - 1);
+                    prefix = list.get(list.size() - 2);
+                }
+
+                String iri = Utility.getPrefixedName(LOG.IPv4, LOG.NS_INSTANCE_PREFIX, ip); // default instance
                 ottr.parameters.add(iri);
                 ottr.parameters.add("\"" + ip + "\"");
                 ottr.parameters.add("\"" + prefix + "\"");

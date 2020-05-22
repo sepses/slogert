@@ -34,6 +34,8 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utility {
 
@@ -300,8 +302,22 @@ public class Utility {
         return sb.toString();
     }
 
-    public static String cleanParameter(String s) {
-        return s.replaceAll("'", "").replaceAll("\"", "").replaceAll(",", "").replaceAll("\\\\", "\\\\\\\\");
+    public static String cleanParameter(String input) {
+        String output = input.trim();
+
+        Pattern pattern = Pattern.compile("(^\\w+=\\\"*\\'*)([A-Za-z0-9.\\-:_\\/]+)");
+        Matcher matcher = pattern.matcher(output);
+        while (matcher.find()) {
+            output = matcher.group(2);
+        }
+
+        output = output.replaceAll("'", ""); // remove all single quote
+        output = output.replaceAll("\"", ""); // remove all double quote
+
+        output = output.replaceAll(",", ""); // remove all commas in the beginning or end
+        output = output.replaceAll("\\\\", "\\\\\\\\"); // replace backslash with double backslash
+
+        return output;
     }
 
     /**
