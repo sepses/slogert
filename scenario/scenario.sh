@@ -18,50 +18,53 @@ function getDuration() {
 }
 
 start=$SECONDS
-java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/ftp-config.yaml
-java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/vsftpd.log_structured.ottr --mode expand --fetchMissing > scenario/output/vsftpd.ttl
+time java -jar target/slogert-0.7.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/ftp-config.yaml
+time java -jar exe/lutra.jar --library scenario/output/vsftpd-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/vsftpd.ottr --mode expand --fetchMissing > scenario/output/vsftpd.ttl
 duration=$(( SECONDS - start ))
 getDuration "ftp" $duration
 
 start=$SECONDS
-java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml
-java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/auth.log_structured.ottr --mode expand --fetchMissing > scenario/output/auth.ttl
+time java -jar target/slogert-0.7.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml
+time java -jar exe/lutra.jar --library scenario/output/auth-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/auth.ottr --mode expand --fetchMissing > scenario/output/auth.ttl
 duration=$(( SECONDS - start ))
 getDuration "authlog" $duration
 
 start=$SECONDS
-java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/kern-config.yaml
-java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/kern.log_structured.ottr --mode expand --fetchMissing > scenario/output/kern.ttl
+time java -jar target/slogert-0.7.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/kern-config.yaml
+time java -jar exe/lutra.jar --library scenario/output/kern-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/kern.ottr --mode expand --fetchMissing > scenario/output/kern.ttl
 duration=$(( SECONDS - start ))
 getDuration "kern" $duration
 
 start=$SECONDS
-java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/sys-config.yaml
-java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/sys.log_structured.ottr --mode expand --fetchMissing > scenario/output/sys.ttl
+time java -jar target/slogert-0.7.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/sys-config.yaml
+time java -jar exe/lutra.jar --library scenario/output/sys-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/sys.ottr --mode expand --fetchMissing > scenario/output/sys.ttl
 duration=$(( SECONDS - start ))
 getDuration "syslog" $duration
 
 start=$SECONDS
-java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/apache-error-config.yaml
-java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/apache-error.log_structured.ottr --mode expand --fetchMissing > scenario/output/apache-error.ttl
+time java -jar target/slogert-0.7.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-error-config.yaml
+time java -jar exe/lutra.jar --library scenario/output/apache-error-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/apache-error.ottr --mode expand --fetchMissing > scenario/output/apache-error.ttl
 duration=$(( SECONDS - start ))
 getDuration "apache-error" $duration
 
 start=$SECONDS
-java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/apache-host-config.yaml
-java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/apache-host.log_structured.ottr --mode expand --fetchMissing > scenario/output/apache-host.ttl
+time java -jar target/slogert-0.7.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-host-config.yaml
+time java -jar exe/lutra.jar --library scenario/output/apache-host-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/apache-host.ottr --mode expand --fetchMissing > scenario/output/apache-host.ttl
 duration=$(( SECONDS - start ))
 getDuration "apache-host" $duration
 
 start=$SECONDS
-java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/apache-access-config.yaml
-java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/apache-access.log_structured.ottr --mode expand --fetchMissing > scenario/output/apache-access.ttl
+time java -jar target/slogert-0.7.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/apache-access-config.yaml
+time java -jar exe/lutra.jar --library scenario/output/apache-access-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/apache-access.ottr --mode expand --fetchMissing > scenario/output/apache-access.ttl
 duration=$(( SECONDS - start ))
 getDuration "apache-access" $duration
 
 start=$SECONDS
-java -jar target/slogert-0.6.0-jar-with-dependencies.jar -c src/test/resources/audit-config.yaml
-java -jar exe/lutra.jar --library scenario/config-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/audit.log_structured.ottr --mode expand --fetchMissing > scenario/output/audit.ttl
+time java -jar target/slogert-0.7.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/audit-config.yaml
+time java -jar exe/lutra.jar --library scenario/output/audit-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/audit-0.ottr --mode expand --fetchMissing > scenario/output/audit-0.ttl
+time java -jar exe/lutra.jar --library scenario/output/audit-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/audit-1.ottr --mode expand --fetchMissing > scenario/output/audit-1.ttl
+time java -jar exe/lutra.jar --library scenario/output/audit-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/audit-2.ottr --mode expand --fetchMissing > scenario/output/audit-2.ttl
+time java -jar exe/lutra.jar --library scenario/output/audit-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/audit-3.ottr --mode expand --fetchMissing > scenario/output/audit-3.ttl
 duration=$(( SECONDS - start ))
 getDuration "auditlog" $duration
 
