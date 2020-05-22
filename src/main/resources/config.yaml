@@ -296,7 +296,8 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - ottr:IRI ?template        
+      - ottr:IRI ?template
+      - ottr:IRI ?logSource
     functions: 
       - ottr:Triple(?id,rdf:type,log:Event)
       - ottr:Triple(?id,log:hasSourceAddress,?hostUrl)
@@ -305,6 +306,7 @@ ottrTemplates:
       - ottr:Triple(?id,log:time,?timestamp)
       - ottr:Triple(?id,log:msg,?message)      
       - ottr:Triple(?template,logex:isLogEventTemplateOf,?id)
+      - ottr:Triple(?id,log:hasSource,?logSource)
 
   - uri: lxid:OttrTemplate_unix
     parameters: 
@@ -314,10 +316,11 @@ ottrTemplates:
       - xsd:dateTime ?timestamp
       - xsd:string ?message
       - ottr:IRI ?template
+      - ottr:IRI ?logSource
       - xsd:string ?pname        
       - xsd:string ?pid
     functions: 
-      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template)
+      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
       - ottr:Triple(?id,log:pid,?pid)
       - ottr:Triple(?id,log:pname,?pname)
 
@@ -329,9 +332,10 @@ ottrTemplates:
       - xsd:dateTime ?timestamp
       - xsd:string ?message
       - ottr:IRI ?template
+      - ottr:IRI ?logSource
       - xsd:string ?pid
     functions: 
-      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template)
+      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
       - ottr:Triple(?id,log:pid,?pid)
 
   - uri: lxid:OttrTemplate_audit
@@ -342,9 +346,10 @@ ottrTemplates:
       - xsd:dateTime ?timestamp
       - xsd:string ?message
       - ottr:IRI ?template
+      - ottr:IRI ?logSource
       - xsd:string ?cmd
     functions: 
-      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template)
+      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
       - ottr:Triple(?id,log:cmd,?cmd)
 
   - uri: lxid:OttrTemplate_apache
@@ -355,10 +360,11 @@ ottrTemplates:
       - xsd:dateTime ?timestamp
       - xsd:string ?message
       - ottr:IRI ?template
+      - ottr:IRI ?logSource
       - ottr:IRI ?ip
       - xsd:string ?ipString
     functions: 
-      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template)
+      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
       - ottr:Triple(?id,log:hasIPv4,?ip)
       - ottr:Triple(?ip,rdf:type,log:IPv4)
       - ottr:Triple(?ip,log:ip.label,?ipString)
@@ -369,6 +375,24 @@ ottrTemplates:
       - xsd:string ?unknown
     functions: 
       - ottr:Triple(?id,log:contain,?unknown)
+
+  - uri: lxid:OttrTemplate_Source
+    parameters:
+      - ottr:IRI ?logSource
+      - xsd:string ?logSourceString
+      - ottr:IRI ?sourceType
+      - xsd:string ?sourceTypeString
+      - ottr:IRI ?logFormat
+      - xsd:string ?logFormatString
+    functions:
+      - ottr:Triple(?logSource,rdf:type,log:Source)
+      - ottr:Triple(?logSource,rdfs:label,?logSourceString)
+      - ottr:Triple(?logSource,log:hasSourceType,?sourceType)
+      - ottr:Triple(?sourceType,rdf:type,log:SourceType)
+      - ottr:Triple(?sourceType,rdfs:label,?sourceTypeString)
+      - ottr:Triple(?sourceType,log:hasFormat,?logFormat)
+      - ottr:Triple(?logFormat,rdf:type,log:Format)
+      - ottr:Triple(?logFormat,rdfs:label,?logFormatString)
 
 
 

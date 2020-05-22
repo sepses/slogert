@@ -11,11 +11,12 @@ logSourceType: kern
 
 isOverrideExisting: false
 paramExtractAttempt: 3
+logEventsPerExtraction: 25000
 
-targetOttr: scenario/output/kern.log_structured.ottr
+targetOttr: scenario/output/kern.ottr
 targetOttrTurtle: scenario/output/kern.ttl
+targetOttrBase: scenario/output/kern-base.ottr
 
-targetOttrBase: scenario/config-base.ottr
 targetStanfordNer: scenario/config-ner.rules
 targetConfigTurtle: scenario/config-turtle.ttl
 targetConfigTimer: scenario/config-timer.csv

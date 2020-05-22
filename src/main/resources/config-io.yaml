@@ -7,20 +7,21 @@
 #   - lid:LogSource_ftp
 ##
 
-source: scenario/input/auth.log
-sourceLogpai: scenario/input/auth.log_structured.csv
-sourceLogpaiTemplate: scenario/input/auth.log_templates.csv
+source: scenario/input/audit.log
+sourceLogpai: scenario/input/audit.log_structured.csv
+sourceLogpaiTemplate: scenario/input/audit.log_templates.csv
 
-logFormat: unix
-logSourceType: auth
+logFormat: audit
+logSourceType: audit
 
 isOverrideExisting: false
 paramExtractAttempt: 3
+logEventsPerExtraction: 25000
 
-targetOttr: scenario/output/auth.log_structured.ottr
-targetOttrTurtle: scenario/output/auth.ttl
+targetOttr: scenario/output/audit.ottr
+targetOttrTurtle: scenario/output/audit.ttl
+targetOttrBase: scenario/output/audit-base.ottr
 
-targetOttrBase: scenario/config-base.ottr
 targetStanfordNer: scenario/config-ner.rules
 targetConfigTurtle: scenario/config-turtle.ttl
 targetConfigTimer: scenario/config-timer.csv

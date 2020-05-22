@@ -11,11 +11,12 @@ logSourceType: auth
 
 isOverrideExisting: false
 paramExtractAttempt: 3
+logEventsPerExtraction: 25000
 
-targetOttr: scenario/output/auth.log_structured.ottr
+targetOttr: scenario/output/auth.ottr
 targetOttrTurtle: scenario/output/auth.ttl
+targetOttrBase: scenario/output/auth-base.ottr
 
-targetOttrBase: scenario/config-base.ottr
 targetStanfordNer: scenario/config-ner.rules
 targetConfigTurtle: scenario/config-turtle.ttl
 targetConfigTimer: scenario/config-timer.csv

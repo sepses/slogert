@@ -11,11 +11,12 @@ logSourceType: apache-host
 
 isOverrideExisting: false
 paramExtractAttempt: 3
+logEventsPerExtraction: 25000
 
-targetOttr: scenario/output/apache-host.log_structured.ottr
+targetOttr: scenario/output/apache-host.ottr
 targetOttrTurtle: scenario/output/apache-host.ttl
+targetOttrBase: scenario/output/apache-host-base.ottr
 
-targetOttrBase: scenario/config-base.ottr
 targetStanfordNer: scenario/config-ner.rules
 targetConfigTurtle: scenario/config-turtle.ttl
 targetConfigTimer: scenario/config-timer.csv

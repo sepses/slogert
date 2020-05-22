@@ -11,11 +11,12 @@ logSourceType: audit
 
 isOverrideExisting: false
 paramExtractAttempt: 3
+logEventsPerExtraction: 25000
 
-targetOttr: scenario/output/audit.log_structured.ottr
+targetOttr: scenario/output/audit.ottr
 targetOttrTurtle: scenario/output/audit.ttl
+targetOttrBase: scenario/output/audit-base.ottr
 
-targetOttrBase: scenario/config-base.ottr
 targetStanfordNer: scenario/config-ner.rules
 targetConfigTurtle: scenario/config-turtle.ttl
 targetConfigTimer: scenario/config-timer.csv
