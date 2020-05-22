@@ -271,8 +271,6 @@ public class MainParser {
                     let.keywords = er.extractKeywords(eventTemplate);
                     let.pattern = templateCandidate.get(LogEvent.LOGPAI_EVENT_TEMPLATE);
 
-                    let.ottrBaseTemplate = config.logFormatInstance.ottrBaseTemplate;
-
                     config.logEventTemplates.put(hashCandidate, let);
                 } else {
                     let = config.logEventTemplates.get(hashCandidate);

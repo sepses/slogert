@@ -18,7 +18,6 @@ public class LogEventTemplate {
     public String label;
     public String pattern;
     public String example;
-    public String ottrBaseTemplate;
     public List<String> logSourceTypes;
     public List<String> keywords;
     public List<String> parameters;
@@ -48,7 +47,6 @@ public class LogEventTemplate {
             let.label = label;
             let.pattern = pattern;
             let.example = example;
-            let.ottrBaseTemplate = ottrBase;
             let.extractionCount = config.paramExtractAttempt;
 
             keywords.forEachRemaining(item -> let.keywords.add(item.getObject().toString()));
@@ -100,7 +98,6 @@ public class LogEventTemplate {
         model.add(resource, RDFS.label, label);
         model.add(resource, LOGEX.pattern, pattern);
         model.add(resource, LOGEX.example, example);
-        model.add(resource, LOGEX.ottrBaseTemplate, ottrBaseTemplate);
 
         RDFList paramList = model.createList();
         for (String parameter : parameters) {
