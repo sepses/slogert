@@ -320,6 +320,18 @@ public class Utility {
         return output;
     }
 
+    public static String getIp(String input) {
+        String output = input.trim();
+
+        Pattern pattern = Pattern.compile("(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})");
+        Matcher matcher = pattern.matcher(output);
+        while (matcher.find()) {
+            output = matcher.group();
+        }
+
+        return output;
+    }
+
     /**
      * Create a metadata instance by a given config file
      *

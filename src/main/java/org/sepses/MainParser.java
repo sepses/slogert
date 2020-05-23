@@ -62,6 +62,7 @@ public class MainParser {
         config = yaml.load(is);
         extractExtraConfig(config); // done
         log.info("*** YAML files configuration is being loaded");
+        log.info("*** Processing of "+config.source+ " file is now started!");
 
         try {
             StringBuilder timerSB = new StringBuilder();

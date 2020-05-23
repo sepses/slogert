@@ -140,9 +140,6 @@ public class LogEvent {
             Parameter ottrParam = map.get(let.parameters.get(i));
 
             String value = Utility.cleanParameter(contentParameters.get(i));
-            //            if (value.contains("/home/jdoe/.cache/mozilla/firefox/11zoizrf.default")) {
-            //                log.error("");
-            //            }
 
             if (ottrParam == null || ottrParam.function.equals("literal")) {
 
@@ -187,23 +184,11 @@ public class LogEvent {
                 ottr.parameters.add("\"" + param + "\"");
 
             } else if (ottrParam.function.equals("ipWithPrefix")) {
-                String[] values = value.split(":");
-                List<String> list = Arrays.asList(values);
 
-                String ip = "";
-                String prefix = "";
-
-                if (list.size() < 2) {
-                    log.debug("ipWithPrefix contains less than two parts");
-                } else {
-                    ip = list.get(list.size() - 1);
-                    prefix = list.get(list.size() - 2);
-                }
-
+                String ip = Utility.getIp(value);
                 String iri = Utility.getPrefixedName(LOG.IPv4, LOG.NS_INSTANCE_PREFIX, ip); // default instance
                 ottr.parameters.add(iri);
                 ottr.parameters.add("\"" + ip + "\"");
-                ottr.parameters.add("\"" + prefix + "\"");
 
             } else if (ottrParam.function.equals("portCreation")) {
                 String addressURI = Utility.getPrefixedName(LOG.Address, LOG.NS_INSTANCE_PREFIX, value);
