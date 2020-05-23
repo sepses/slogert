@@ -94,7 +94,7 @@ public class LogEvent {
         ottr.uri = Utility.getPrefixedName(LOGEX.LogEventTemplate, LOGEX.NS_INSTANCE_PREFIX, templateHash);
 
         ottr.parameters.add(Utility.getPrefixedName(LOG.Event, LOG.NS_INSTANCE_PREFIX, idString));
-        ottr.parameters.add(Utility.getPrefixedName(LOG.Address, LOG.NS_INSTANCE_PREFIX, hostString));
+        ottr.parameters.add(Utility.getPrefixedName(LOG.Host, LOG.NS_INSTANCE_PREFIX, hostString));
         ottr.parameters.add("\"" + hostString + "\"");
         ottr.parameters.add("\"" + timestamp + "\"");
         ottr.parameters.add("\"" + Utility.cleanContent(content) + "\"");
@@ -191,11 +191,11 @@ public class LogEvent {
                 ottr.parameters.add("\"" + ip + "\"");
 
             } else if (ottrParam.function.equals("portCreation")) {
-                String addressURI = Utility.getPrefixedName(LOG.Address, LOG.NS_INSTANCE_PREFIX, value);
-                String portURI = SERVICES_NS_INSTANCE_PREFIX + ":Port_" + value;
+                String portURI = Utility.getPrefixedName(LOG.Port, LOG.NS_INSTANCE_PREFIX, value);
+                String linkedPortURI = SERVICES_NS_INSTANCE_PREFIX + ":Port_" + value;
 
-                ottr.parameters.add(addressURI);
                 ottr.parameters.add(portURI);
+                ottr.parameters.add(linkedPortURI);
                 ottr.parameters.add(value);
 
             } else {
