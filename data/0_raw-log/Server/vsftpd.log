@@ -1,0 +1,190 @@
+Sat Mar  7 11:52:10 2020 [pid 24301] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 11:52:30 2020 [pid 24294] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar  7 11:54:42 2020 [pid 26614] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 11:54:59 2020 [pid 26607] [sepses] FAIL LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:02:42 2020 [pid 33939] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:03:08 2020 [pid 34344] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:03:32 2020 [pid 34343] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:11:33 2020 [pid 34706] [sepses] OK MKDIR: Client "::ffff:10.0.0.7", "/files/testfolder"
+Sat Mar  7 12:12:14 2020 [pid 42684] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:12:26 2020 [pid 42683] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:19:45 2020 [pid 49487] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:20:00 2020 [pid 49486] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:20:11 2020 [pid 49708] [sepses] FAIL DOWNLOAD: Client "::ffff:10.0.0.7", "/ftp/files/test2.txt", 0.00Kbyte/sec
+Sat Mar  7 12:21:15 2020 [pid 49708] [sepses] FAIL DOWNLOAD: Client "::ffff:10.0.0.7", "/test.txt", 0.00Kbyte/sec
+Sat Mar  7 12:21:29 2020 [pid 49708] [sepses] FAIL DOWNLOAD: Client "::ffff:10.0.0.7", "/test.txt", 0.00Kbyte/sec
+Sat Mar  7 12:21:39 2020 [pid 49708] [sepses] FAIL DOWNLOAD: Client "::ffff:10.0.0.7", "/open", 0.00Kbyte/sec
+Sat Mar  7 12:30:01 2020 [pid 58773] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:30:12 2020 [pid 58772] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:32:55 2020 [pid 61432] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:33:07 2020 [pid 61431] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:36:22 2020 [pid 61614] [sepses] OK UPLOAD: Client "::ffff:10.0.0.7", "/files/t.txt", 8 bytes, 15.44Kbyte/sec
+Sat Mar  7 12:44:22 2020 [pid 71825] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:44:33 2020 [pid 71824] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:49:51 2020 [pid 76810] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:50:00 2020 [pid 76962] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar  7 12:50:11 2020 [pid 76961] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Mon Mar  9 22:14:26 2020 [pid 7871] CONNECT: Client "::ffff:10.0.0.7"
+Mon Mar  9 22:14:26 2020 [pid 7866] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Mon Mar  9 22:15:16 2020 [pid 7940] CONNECT: Client "::ffff:10.0.0.7"
+Mon Mar  9 22:15:16 2020 [pid 7939] [sepses] OK LOGIN: Client "::ffff:10.0.0.7"
+Mon Mar  9 22:15:16 2020 [pid 7941] [sepses] OK UPLOAD: Client "::ffff:10.0.0.7", "/files/again/newfile.txt", 6 bytes, 0.57Kbyte/sec
+Mon Mar  9 22:58:13 2020 [pid 10518] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 22:58:13 2020 [pid 10517] [sepses] OK LOGIN: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:00:59 2020 [pid 10710] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:00:59 2020 [pid 10709] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:01:18 2020 [pid 10736] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:01:18 2020 [pid 10735] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:01:18 2020 [pid 10737] [ftp_akep] FAIL DOWNLOAD: Client "::ffff:10.0.0.9", "/files/t.txt", 0.00Kbyte/sec
+Mon Mar  9 23:03:11 2020 [pid 10865] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:03:11 2020 [pid 10864] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:03:11 2020 [pid 10866] [ftp_akep] OK UPLOAD: Client "::ffff:10.0.0.9", "/files/bash", 1118122 bytes, 79124.35Kbyte/sec
+Mon Mar  9 23:03:37 2020 [pid 10866] [ftp_akep] OK DOWNLOAD: Client "::ffff:10.0.0.9", "/files/bash", 1118122 bytes, 45092.55Kbyte/sec
+Mon Mar  9 23:03:46 2020 [pid 10866] [ftp_akep] FAIL DOWNLOAD: Client "::ffff:10.0.0.9", "/files/t.txt", 0.00Kbyte/sec
+Mon Mar  9 23:03:51 2020 [pid 10866] [ftp_akep] OK DOWNLOAD: Client "::ffff:10.0.0.9", "/files/test2.txt", 11 bytes, 1.06Kbyte/sec
+Mon Mar  9 23:04:19 2020 [pid 10956] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:04:25 2020 [pid 10965] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:14:27 2020 [pid 11869] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:14:33 2020 [pid 11878] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:15:16 2020 [pid 11997] CONNECT: Client "::ffff:10.0.0.9"
+Mon Mar  9 23:15:16 2020 [pid 11995] [ftp_adminwp] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:04:33 2020 [pid 7478] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:04:39 2020 [pid 7487] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:05:01 2020 [pid 7506] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:05:07 2020 [pid 7518] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:05:35 2020 [pid 7544] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:05:41 2020 [pid 7550] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:05:53 2020 [pid 7564] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:05:59 2020 [pid 7570] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:07:51 2020 [pid 7832] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:07:57 2020 [pid 7838] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:10:02 2020 [pid 8056] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:10:04 2020 [pid 8055] [ftp_admin] FAIL LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:10:32 2020 [pid 8092] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:10:32 2020 [pid 8091] [ftp_jdoe] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:12:40 2020 [pid 8421] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 12:12:42 2020 [pid 8420] [ftp_admin] FAIL LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar 14 12:14:59 2020 [pid 8588] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 12:14:59 2020 [pid 8587] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar 14 12:16:02 2020 [pid 8651] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:16:02 2020 [pid 8650] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:16:22 2020 [pid 8678] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:16:22 2020 [pid 8677] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:26:40 2020 [pid 9248] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:26:40 2020 [pid 9249] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:26:40 2020 [pid 9247] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:26:40 2020 [pid 9246] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 12:26:40 2020 [pid 9251] [ftp_admin] OK UPLOAD: Client "::ffff:10.0.0.6", "/files/Reports_2019.csv", 10 bytes, 1.48Kbyte/sec
+Sat Mar 14 12:26:40 2020 [pid 9250] [ftp_admin] OK UPLOAD: Client "::ffff:10.0.0.6", "/files/Reports_2020.csv", 5 bytes, 0.81Kbyte/sec
+Sat Mar 14 12:28:24 2020 [pid 9354] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:28:25 2020 [pid 9353] [ftp_jhalley] FAIL LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:28:44 2020 [pid 9376] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:28:44 2020 [pid 9375] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:29:11 2020 [pid 9410] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:29:13 2020 [pid 9409] [ftp_jhalley] FAIL LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:30:54 2020 [pid 9499] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:30:55 2020 [pid 9498] [ftp_jhalley] FAIL LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:31:16 2020 [pid 9523] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:31:16 2020 [pid 9522] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:32:29 2020 [pid 9592] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:32:29 2020 [pid 9594] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:32:29 2020 [pid 9591] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:32:29 2020 [pid 9593] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:32:29 2020 [pid 9595] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2019.csv", 0.00Kbyte/sec
+Sat Mar 14 12:32:29 2020 [pid 9596] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2020.csv", 0.00Kbyte/sec
+Sat Mar 14 12:33:11 2020 [pid 9596] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2020.csv", 0.00Kbyte/sec
+Sat Mar 14 12:33:11 2020 [pid 9595] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2019.csv", 0.00Kbyte/sec
+Sat Mar 14 12:33:27 2020 [pid 9595] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2019.csv", 0.00Kbyte/sec
+Sat Mar 14 12:33:46 2020 [pid 9666] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:33:46 2020 [pid 9665] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:33:46 2020 [pid 9667] [ftp_akep] FAIL DOWNLOAD: Client "::ffff:10.0.0.9", "/files/Reports_2020.csv", 0.00Kbyte/sec
+Sat Mar 14 12:38:19 2020 [pid 9971] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:38:19 2020 [pid 9970] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:38:19 2020 [pid 9972] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2019.csv", 0.00Kbyte/sec
+Sat Mar 14 12:41:04 2020 [pid 10214] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:41:04 2020 [pid 10213] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:41:04 2020 [pid 10215] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2019.csv", 0.00Kbyte/sec
+Sat Mar 14 12:41:16 2020 [pid 10231] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:41:16 2020 [pid 10230] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:41:29 2020 [pid 10215] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2019.csv", 0.00Kbyte/sec
+Sat Mar 14 12:42:57 2020 [pid 10323] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:42:57 2020 [pid 10322] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:42:57 2020 [pid 10324] [ftp_jhalley] FAIL DOWNLOAD: Client "::ffff:10.0.0.12", "/files/bash", 0.00Kbyte/sec
+Sat Mar 14 12:43:07 2020 [pid 10324] [ftp_jhalley] OK DOWNLOAD: Client "::ffff:10.0.0.12", "/files/test2.txt", 11 bytes, 0.95Kbyte/sec
+Sat Mar 14 12:46:10 2020 [pid 10543] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:46:10 2020 [pid 10544] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:46:10 2020 [pid 10541] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:46:10 2020 [pid 10542] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 12:46:10 2020 [pid 10545] [ftp_jhalley] OK DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2019.csv", 10 bytes, 4.60Kbyte/sec
+Sat Mar 14 12:46:10 2020 [pid 10546] [ftp_jhalley] OK DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2020.csv", 5 bytes, 3.85Kbyte/sec
+Sat Mar 14 12:46:22 2020 [pid 10559] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:46:22 2020 [pid 10560] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:46:22 2020 [pid 10557] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:46:22 2020 [pid 10558] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 12:46:22 2020 [pid 10561] [ftp_akep] OK DOWNLOAD: Client "::ffff:10.0.0.9", "/files/Reports_2019.csv", 10 bytes, 1.78Kbyte/sec
+Sat Mar 14 12:46:22 2020 [pid 10562] [ftp_akep] OK DOWNLOAD: Client "::ffff:10.0.0.9", "/files/Reports_2020.csv", 5 bytes, 3.23Kbyte/sec
+Sat Mar 14 12:46:33 2020 [pid 10561] [ftp_akep] OK UPLOAD: Client "::ffff:10.0.0.9", "/files/Reports_2019.csv", 10 bytes, 5.15Kbyte/sec
+Sat Mar 14 12:46:39 2020 [pid 10545] [ftp_jhalley] OK UPLOAD: Client "::ffff:10.0.0.12", "/files/Reports_2020.csv", 5 bytes, 1.16Kbyte/sec
+Sat Mar 14 16:15:54 2020 [pid 22918] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:15:54 2020 [pid 22917] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:16:20 2020 [pid 22946] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:16:20 2020 [pid 22945] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:16:20 2020 [pid 22947] [ftp_admin] OK UPLOAD: Client "::ffff:10.0.0.7", "/files/Report_2020.sh", 325 bytes, 14.53Kbyte/sec
+Sat Mar 14 16:20:42 2020 [pid 23562] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:20:53 2020 [pid 23636] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:20:54 2020 [pid 23638] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:21:10 2020 [pid 23637] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:21:10 2020 [pid 23658] [ftp_admin] OK DOWNLOAD: Client "::ffff:10.0.0.7", "/files/Report_2020.sh", 325 bytes, 286.71Kbyte/sec
+Sat Mar 14 16:22:50 2020 [pid 23771] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:22:51 2020 [pid 23773] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 16:30:13 2020 [pid 24284] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:30:14 2020 [pid 24286] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:30:31 2020 [pid 24285] [ftp_jdoe] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:30:31 2020 [pid 24310] [ftp_jdoe] FAIL DOWNLOAD: Client "::ffff:10.0.0.6", "/files/Report_2020.sh", 0.00Kbyte/sec
+Sat Mar 14 16:32:42 2020 [pid 24442] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:32:43 2020 [pid 24444] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:32:51 2020 [pid 24443] [ftp_jdoe] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:32:51 2020 [pid 24450] [ftp_jdoe] FAIL DOWNLOAD: Client "::ffff:10.0.0.6", "/files/Report_2020.sh", 0.00Kbyte/sec
+Sat Mar 14 16:33:06 2020 [pid 24464] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:33:07 2020 [pid 24470] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:33:27 2020 [pid 24469] [ftp_jdoe] FAIL LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 16:34:15 2020 [pid 24536] CONNECT: Client "::ffff:10.0.0.4"
+Sat Mar 14 16:34:29 2020 [pid 24556] CONNECT: Client "::ffff:10.0.0.4"
+Sat Mar 14 16:34:30 2020 [pid 24558] CONNECT: Client "::ffff:10.0.0.4"
+Sat Mar 14 16:34:30 2020 [pid 24557] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.4"
+Sat Mar 14 16:34:30 2020 [pid 24559] [ftp_admin] OK DOWNLOAD: Client "::ffff:10.0.0.4", "/files/Report_2020.sh", 325 bytes, 103.72Kbyte/sec
+Sat Mar 14 16:34:48 2020 [pid 24584] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:34:49 2020 [pid 24586] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:35:13 2020 [pid 24585] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:35:13 2020 [pid 24608] [ftp_akep] FAIL DOWNLOAD: Client "::ffff:10.0.0.9", "/files/Report_2020.sh", 0.00Kbyte/sec
+Sat Mar 14 16:36:59 2020 [pid 24713] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:37:00 2020 [pid 24715] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:38:07 2020 [pid 24782] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:38:08 2020 [pid 24788] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:39:37 2020 [pid 24787] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:39:37 2020 [pid 24987] [ftp_akep] OK DOWNLOAD: Client "::ffff:10.0.0.9", "/files/Report_2020.sh", 325 bytes, 382.85Kbyte/sec
+Sat Mar 14 16:42:00 2020 [pid 25126] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:42:03 2020 [pid 25125] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 16:42:03 2020 [pid 25130] [ftp_akep] OK DOWNLOAD: Client "::ffff:10.0.0.9", "/files/Report_2020.sh", 325 bytes, 191.66Kbyte/sec
+Sat Mar 14 17:00:15 2020 [pid 26257] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 17:00:15 2020 [pid 26256] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar 14 17:00:20 2020 [pid 26259] [ftp_admin] OK UPLOAD: Client "::ffff:10.0.0.7", "/files/Report_2020.sh", 312 bytes, 271.32Kbyte/sec
+Sat Mar 14 17:00:41 2020 [pid 26294] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 17:00:42 2020 [pid 26296] CONNECT: Client "::ffff:10.0.0.9"
+Sat Mar 14 17:00:45 2020 [pid 26295] [ftp_akep] OK LOGIN: Client "::ffff:10.0.0.9"
+Sat Mar 14 17:00:45 2020 [pid 26297] [ftp_akep] OK DOWNLOAD: Client "::ffff:10.0.0.9", "/files/Report_2020.sh", 312 bytes, 312.18Kbyte/sec
+Sat Mar 14 17:06:30 2020 [pid 26646] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 17:06:31 2020 [pid 26648] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 17:06:49 2020 [pid 26647] [ftp_jhalley] FAIL LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 17:07:20 2020 [pid 26696] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 17:07:21 2020 [pid 26698] CONNECT: Client "::ffff:10.0.0.12"
+Sat Mar 14 17:07:33 2020 [pid 26697] [ftp_jhalley] OK LOGIN: Client "::ffff:10.0.0.12"
+Sat Mar 14 17:07:33 2020 [pid 26717] [ftp_jhalley] OK DOWNLOAD: Client "::ffff:10.0.0.12", "/files/Report_2020.sh", 312 bytes, 287.44Kbyte/sec
+Sat Mar 14 17:11:29 2020 [pid 27035] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 17:11:29 2020 [pid 27034] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 17:11:45 2020 [pid 27050] CONNECT: Client "::ffff:10.0.0.6"
+Sat Mar 14 17:11:45 2020 [pid 27049] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.6"
+Sat Mar 14 17:11:45 2020 [pid 27051] [ftp_admin] OK DOWNLOAD: Client "::ffff:10.0.0.6", "/files/Report_2020.sh", 312 bytes, 193.45Kbyte/sec
+Sat Mar 14 17:15:38 2020 [pid 27300] CONNECT: Client "::ffff:10.0.0.7"
+Sat Mar 14 17:15:38 2020 [pid 27299] [ftp_admin] OK LOGIN: Client "::ffff:10.0.0.7"
+Sat Mar 14 17:15:50 2020 [pid 27301] [ftp_admin] OK DELETE: Client "::ffff:10.0.0.7", "/files/Report_2020.sh"

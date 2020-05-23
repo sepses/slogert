@@ -1,0 +1,219 @@
+Mar  9 10:43:14 Client03 useradd[1220]: new group: name=akep, GID=1000
+Mar  9 10:43:14 Client03 useradd[1220]: new user: name=akep, UID=1000, GID=1000, home=/home/akep, shell=/bin/bash
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'adm'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'dialout'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'cdrom'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'floppy'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'sudo'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'audio'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'dip'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'video'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'plugdev'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'lxd'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to group 'netdev'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'adm'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'dialout'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'cdrom'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'floppy'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'sudo'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'audio'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'dip'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'video'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'plugdev'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'lxd'
+Mar  9 10:43:14 Client03 useradd[1220]: add 'akep' to shadow group 'netdev'
+Mar  9 10:43:14 Client03 systemd-logind[1266]: New seat seat0.
+Mar  9 10:43:14 Client03 systemd-logind[1266]: Watching system buttons on /dev/input/event0 (Power Button)
+Mar  9 10:43:14 Client03 systemd-logind[1266]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+Mar  9 10:43:14 Client03 systemd-logind[1266]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Mar  9 10:43:17 Client03 sshd[1628]: Server listening on 0.0.0.0 port 22.
+Mar  9 10:43:17 Client03 sshd[1628]: Server listening on :: port 22.
+Mar  9 10:43:20 Client03 sshd[1628]: Received signal 15; terminating.
+Mar  9 10:43:20 Client03 sshd[1848]: Server listening on 0.0.0.0 port 22.
+Mar  9 10:43:20 Client03 sshd[1848]: Server listening on :: port 22.
+Mar  9 10:57:24 Client03 sshd[1848]: Received signal 15; terminating.
+Mar  9 12:12:47 Client03 systemd-logind[1289]: New seat seat0.
+Mar  9 12:12:47 Client03 systemd-logind[1289]: Watching system buttons on /dev/input/event0 (Power Button)
+Mar  9 12:12:47 Client03 systemd-logind[1289]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+Mar  9 12:12:47 Client03 systemd-logind[1289]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Mar  9 12:12:47 Client03 sshd[1395]: Server listening on 0.0.0.0 port 22.
+Mar  9 12:12:47 Client03 sshd[1395]: Server listening on :: port 22.
+Mar  9 12:15:37 Client03 sshd[1867]: Accepted password for akep from 185.81.215.145 port 62609 ssh2
+Mar  9 12:15:37 Client03 sshd[1867]: pam_unix(sshd:session): session opened for user akep by (uid=0)
+Mar  9 12:15:37 Client03 systemd-logind[1289]: New session 1 of user akep.
+Mar  9 12:15:37 Client03 systemd: pam_unix(systemd-user:session): session opened for user akep by (uid=0)
+Mar  9 12:15:50 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt-get update
+Mar  9 12:15:50 Client03 sudo: pam_unix(sudo:session): session opened for user root by akep(uid=0)
+Mar  9 12:15:59 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:16:02 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt-get install xfce4
+Mar  9 12:16:02 Client03 sudo: pam_unix(sudo:session): session opened for user root by akep(uid=0)
+Mar  9 12:17:01 Client03 CRON[3520]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  9 12:17:01 Client03 CRON[3520]: pam_unix(cron:session): session closed for user root
+Mar  9 12:18:44 Client03 groupadd[6444]: group added to /etc/group: name=rtkit, GID=115
+Mar  9 12:18:44 Client03 groupadd[6444]: group added to /etc/gshadow: name=rtkit
+Mar  9 12:18:44 Client03 groupadd[6444]: new group: name=rtkit, GID=115
+Mar  9 12:18:44 Client03 useradd[6448]: new user: name=rtkit, UID=111, GID=115, home=/proc, shell=/usr/sbin/nologin
+Mar  9 12:18:44 Client03 usermod[6454]: change user 'rtkit' password
+Mar  9 12:18:44 Client03 chage[6459]: changed password expiry for rtkit
+Mar  9 12:18:44 Client03 chfn[6462]: changed user 'rtkit' information
+Mar  9 12:18:52 Client03 useradd[6650]: new user: name=usbmux, UID=112, GID=46, home=/var/lib/usbmux, shell=/usr/sbin/nologin
+Mar  9 12:18:52 Client03 usermod[6656]: change user 'usbmux' password
+Mar  9 12:18:52 Client03 chage[6661]: changed password expiry for usbmux
+Mar  9 12:18:52 Client03 chfn[6664]: changed user 'usbmux' information
+Mar  9 12:19:10 Client03 groupadd[7008]: group added to /etc/group: name=pulse, GID=116
+Mar  9 12:19:10 Client03 groupadd[7008]: group added to /etc/gshadow: name=pulse
+Mar  9 12:19:10 Client03 groupadd[7008]: new group: name=pulse, GID=116
+Mar  9 12:19:10 Client03 useradd[7012]: new user: name=pulse, UID=113, GID=116, home=/var/run/pulse, shell=/usr/sbin/nologin
+Mar  9 12:19:10 Client03 usermod[7018]: change user 'pulse' password
+Mar  9 12:19:10 Client03 chage[7023]: changed password expiry for pulse
+Mar  9 12:19:10 Client03 chfn[7026]: changed user 'pulse' information
+Mar  9 12:19:10 Client03 gpasswd[7031]: user pulse added by root to group audio
+Mar  9 12:19:10 Client03 groupadd[7041]: group added to /etc/group: name=pulse-access, GID=117
+Mar  9 12:19:10 Client03 groupadd[7041]: group added to /etc/gshadow: name=pulse-access
+Mar  9 12:19:10 Client03 groupadd[7041]: new group: name=pulse-access, GID=117
+Mar  9 12:20:36 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:25:35 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt-get install xfce4
+Mar  9 12:25:35 Client03 sudo: pam_unix(sudo:session): session opened for user root by akep(uid=0)
+Mar  9 12:25:36 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:25:49 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt-get -y install xrdp
+Mar  9 12:25:49 Client03 sudo: pam_unix(sudo:session): session opened for user root by akep(uid=0)
+Mar  9 12:25:52 Client03 groupadd[25714]: group added to /etc/group: name=ssl-cert, GID=118
+Mar  9 12:25:52 Client03 groupadd[25714]: group added to /etc/gshadow: name=ssl-cert
+Mar  9 12:25:52 Client03 groupadd[25714]: new group: name=ssl-cert, GID=118
+Mar  9 12:25:53 Client03 groupadd[25738]: group added to /etc/group: name=xrdp, GID=119
+Mar  9 12:25:53 Client03 groupadd[25738]: group added to /etc/gshadow: name=xrdp
+Mar  9 12:25:53 Client03 groupadd[25738]: new group: name=xrdp, GID=119
+Mar  9 12:25:53 Client03 useradd[25742]: new user: name=xrdp, UID=114, GID=119, home=/var/run/xrdp, shell=/usr/sbin/nologin
+Mar  9 12:25:54 Client03 chage[25748]: changed password expiry for xrdp
+Mar  9 12:25:59 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:26:12 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/bin/systemctl enable xrdp
+Mar  9 12:26:12 Client03 sudo: pam_unix(sudo:session): session opened for user root by akep(uid=0)
+Mar  9 12:26:13 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:26:28 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/sbin/service xrdp restart
+Mar  9 12:26:28 Client03 sudo: pam_unix(sudo:session): session opened for user root by akep(uid=0)
+Mar  9 12:26:29 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:27:42 Client03 xrdp-sesman[26556]: pam_unix(xrdp-sesman:session): session opened for user akep by (uid=0)
+Mar  9 12:27:42 Client03 systemd-logind[1289]: New session c1 of user akep.
+Mar  9 12:28:31 Client03 sudo:     akep : TTY=pts/1 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt-get update
+Mar  9 12:28:31 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 12:28:33 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:28:54 Client03 sudo:     akep : TTY=pts/1 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt install firefox
+Mar  9 12:28:54 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 12:29:23 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:29:40 Client03 sudo:     akep : TTY=pts/1 ; PWD=/home/akep ; USER=root ; COMMAND=/bin/nano /etc/hosts
+Mar  9 12:29:40 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 12:30:05 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:33:54 Client03 sudo:     akep : TTY=pts/2 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt install systemtap-sdt-dev
+Mar  9 12:33:54 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 12:33:58 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:47:03 Client03 sudo:     akep : TTY=pts/2 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt install auditd
+Mar  9 12:47:03 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 12:50:13 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:50:15 Client03 sudo:     akep : TTY=pts/2 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt install auditd
+Mar  9 12:50:15 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 12:50:21 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 12:51:57 Client03 sshd[1867]: pam_unix(sshd:session): session closed for user akep
+Mar  9 12:51:57 Client03 xrdp-sesman[26556]: pam_unix(xrdp-sesman:session): session closed for user akep
+Mar  9 20:19:20 Client03 systemd-logind[1420]: New seat seat0.
+Mar  9 20:19:20 Client03 systemd-logind[1420]: Watching system buttons on /dev/input/event0 (Power Button)
+Mar  9 20:19:20 Client03 systemd-logind[1420]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+Mar  9 20:19:20 Client03 systemd-logind[1420]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Mar  9 20:19:21 Client03 sshd[1612]: Server listening on 0.0.0.0 port 22.
+Mar  9 20:19:21 Client03 sshd[1612]: Server listening on :: port 22.
+Mar  9 20:21:25 Client03 xrdp-sesman[2086]: pam_unix(xrdp-sesman:session): session opened for user akep by (uid=0)
+Mar  9 20:21:25 Client03 systemd-logind[1420]: New session c1 of user akep.
+Mar  9 20:21:25 Client03 systemd: pam_unix(systemd-user:session): session opened for user akep by (uid=0)
+Mar  9 20:26:15 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/bin/systemctl start auditd
+Mar  9 20:26:15 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 20:26:15 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 20:26:34 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/bin/systemctl enable auditd
+Mar  9 20:26:35 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 20:26:35 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 20:27:27 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/sbin/auditctl -l
+Mar  9 20:27:27 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 20:27:27 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 20:28:04 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/bin/nano /etc/audit/rules.d/audit.rules
+Mar  9 20:28:04 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 20:36:26 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 20:37:10 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/bin/systemctl restart auditd
+Mar  9 20:37:10 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 20:37:10 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 20:39:04 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/sbin/auditctl -l
+Mar  9 20:39:04 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 20:39:04 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 21:33:19 Client03 systemd-logind[1286]: New seat seat0.
+Mar  9 21:33:19 Client03 systemd-logind[1286]: Watching system buttons on /dev/input/event0 (Power Button)
+Mar  9 21:33:19 Client03 systemd-logind[1286]: Watching system buttons on /dev/input/event3 (AT Translated Set 2 keyboard)
+Mar  9 21:33:19 Client03 systemd-logind[1286]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Mar  9 21:33:19 Client03 sshd[1401]: Server listening on 0.0.0.0 port 22.
+Mar  9 21:33:19 Client03 sshd[1401]: Server listening on :: port 22.
+Mar  9 21:54:18 Client03 xrdp-sesman[3005]: pam_unix(xrdp-sesman:session): session opened for user akep by (uid=0)
+Mar  9 21:54:18 Client03 systemd-logind[1286]: New session c1 of user akep.
+Mar  9 21:54:18 Client03 systemd: pam_unix(systemd-user:session): session opened for user akep by (uid=0)
+Mar  9 21:56:33 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt install filezilla
+Mar  9 21:56:33 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar  9 21:57:09 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar  9 22:17:01 Client03 CRON[5200]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  9 22:17:01 Client03 CRON[5200]: pam_unix(cron:session): session closed for user root
+Mar 11 08:35:07 Client03 systemd-logind[1319]: New seat seat0.
+Mar 11 08:35:07 Client03 systemd-logind[1319]: Watching system buttons on /dev/input/event0 (Power Button)
+Mar 11 08:35:07 Client03 systemd-logind[1319]: Watching system buttons on /dev/input/event3 (AT Translated Set 2 keyboard)
+Mar 11 08:35:07 Client03 systemd-logind[1319]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Mar 11 08:35:09 Client03 sshd[1543]: Server listening on 0.0.0.0 port 22.
+Mar 11 08:35:09 Client03 sshd[1543]: Server listening on :: port 22.
+Mar 11 08:39:08 Client03 sshd[1543]: Received signal 15; terminating.
+Mar 14 10:38:14 Client03 systemd-logind[1315]: New seat seat0.
+Mar 14 10:38:14 Client03 systemd-logind[1315]: Watching system buttons on /dev/input/event0 (Power Button)
+Mar 14 10:38:14 Client03 systemd-logind[1315]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+Mar 14 10:38:14 Client03 systemd-logind[1315]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Mar 14 10:38:15 Client03 sshd[1472]: Server listening on 0.0.0.0 port 22.
+Mar 14 10:38:15 Client03 sshd[1472]: Server listening on :: port 22.
+Mar 14 10:44:26 Client03 systemd-logind[1193]: New seat seat0.
+Mar 14 10:44:26 Client03 systemd-logind[1193]: Watching system buttons on /dev/input/event0 (Power Button)
+Mar 14 10:44:26 Client03 systemd-logind[1193]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+Mar 14 10:44:26 Client03 systemd-logind[1193]: Watching system buttons on /dev/input/event1 (AT Translated Set 2 keyboard)
+Mar 14 10:44:26 Client03 sshd[1220]: Server listening on 0.0.0.0 port 22.
+Mar 14 10:44:26 Client03 sshd[1220]: Server listening on :: port 22.
+Mar 14 10:45:19 Client03 xrdp-sesman[1218]: pam_unix(xrdp-sesman:auth): authentication failure; logname= uid=0 euid=0 tty=xrdp-sesman ruser= rhost=  user=akep
+Mar 14 10:45:31 Client03 xrdp-sesman[1830]: pam_unix(xrdp-sesman:session): session opened for user akep by (uid=0)
+Mar 14 10:45:31 Client03 systemd-logind[1193]: New session c1 of user akep.
+Mar 14 10:45:31 Client03 systemd: pam_unix(systemd-user:session): session opened for user akep by (uid=0)
+Mar 14 10:47:22 Client03 sshd[2181]: Received disconnect from 58.210.180.180 port 53625:11: Bye Bye [preauth]
+Mar 14 10:47:22 Client03 sshd[2181]: Disconnected from 58.210.180.180 port 53625 [preauth]
+Mar 14 10:51:33 Client03 sudo:     akep : TTY=pts/0 ; PWD=/home/akep ; USER=root ; COMMAND=/bin/systemctl status auditd
+Mar 14 10:51:33 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar 14 10:51:48 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar 14 11:01:42 Client03 sudo:     akep : TTY=pts/1 ; PWD=/home/akep ; USER=root ; COMMAND=/usr/bin/apt install filezilla
+Mar 14 11:01:42 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar 14 11:01:43 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar 14 11:17:01 Client03 CRON[4232]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 14 11:17:01 Client03 CRON[4232]: pam_unix(cron:session): session closed for user root
+Mar 14 12:08:27 Client03 sshd[7171]: Connection reset by 196.52.43.52 port 47858 [preauth]
+Mar 14 12:17:01 Client03 CRON[7660]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 14 12:17:01 Client03 CRON[7660]: pam_unix(cron:session): session closed for user root
+Mar 14 13:17:01 Client03 CRON[11024]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 14 13:17:01 Client03 CRON[11024]: pam_unix(cron:session): session closed for user root
+Mar 14 13:45:27 Client03 sshd[12608]: Did not receive identification string from 162.243.128.185 port 34218
+Mar 14 14:17:01 Client03 CRON[14453]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 14 14:17:01 Client03 CRON[14453]: pam_unix(cron:session): session closed for user root
+Mar 14 14:47:26 Client03 sshd[16155]: Received disconnect from 167.172.156.81 port 39242:11: Bye Bye [preauth]
+Mar 14 14:47:26 Client03 sshd[16155]: Disconnected from 167.172.156.81 port 39242 [preauth]
+Mar 14 15:17:01 Client03 CRON[17845]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 14 15:17:01 Client03 CRON[17845]: pam_unix(cron:session): session closed for user root
+Mar 14 15:33:28 Client03 sshd[18766]: Did not receive identification string from 67.245.202.208 port 37772
+Mar 14 15:35:59 Client03 sshd[18934]: Connection closed by 67.245.202.208 port 38581 [preauth]
+Mar 14 15:50:29 Client03 sshd[19985]: Connection closed by 67.245.202.208 port 39851 [preauth]
+Mar 14 15:51:29 Client03 sudo:     akep : TTY=pts/3 ; PWD=/home/akep/Downloads ; USER=root ; COMMAND=/usr/bin/apt get install wget
+Mar 14 15:51:29 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar 14 15:51:29 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar 14 15:51:42 Client03 sudo:     akep : TTY=pts/3 ; PWD=/home/akep/Downloads ; USER=root ; COMMAND=/usr/bin/apt install wget
+Mar 14 15:51:42 Client03 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Mar 14 15:51:43 Client03 sudo: pam_unix(sudo:session): session closed for user root
+Mar 14 15:55:53 Client03 sshd[20346]: Connection closed by 67.245.202.208 port 40553 [preauth]
+Mar 14 16:01:08 Client03 sshd[20668]: Connection closed by 67.245.202.208 port 41246 [preauth]
+Mar 14 16:06:30 Client03 sshd[20994]: Connection closed by 67.245.202.208 port 41955 [preauth]
+Mar 14 16:11:53 Client03 sshd[21288]: Connection closed by 67.245.202.208 port 42654 [preauth]
+Mar 14 16:12:56 Client03 sshd[21365]: Did not receive identification string from 45.33.70.146 port 56352
+Mar 14 16:17:01 Client03 CRON[21600]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar 14 16:17:01 Client03 CRON[21600]: pam_unix(cron:session): session closed for user root
+Mar 14 16:17:16 Client03 sshd[21607]: Connection closed by 67.245.202.208 port 43352 [preauth]

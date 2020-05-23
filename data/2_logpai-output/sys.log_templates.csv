@@ -1,0 +1,1259 @@
+EventId,EventTemplate,Occurrences
+2204a9d7,cannot open file /<*>,16
+e1db1317,Starting Flush Journal to Persistent Storage...,16
+2ac0e54c,Started udev Coldplug all Devices.,15
+a7fe3d48,Started Create Static Device Nodes in /<*>,14
+22110ed5,Starting udev Kernel Device Manager...,14
+e2d09e15,Inserted module <*>,35
+7a4412e1,Started Flush Journal to Persistent Storage.,16
+f95692bb,Started <*> Kernel <*>,31
+40de610b,Mounting <*> <*> File System...,30
+96c375ea,Starting Apply Kernel Variables...,15
+737d7ce7,Mounted <*> <*> File System.,31
+0180b609,Started <*> <*> daemon.,16
+0964e582,Started udev Kernel Device Manager.,16
+92499399,"Started Monitoring of LVM2 mirrors, snapshots etc. using dmeventd or progress polling.",15
+07b8c44b,Found device <*>,32
+b4c65ba8,"link_config: autonegotiation is unset or enabled, the speed and duplex are not writable.",32
+293cf4f7,Listening on Load/<*> RF Kill Switch Status /<*> Watch.,16
+af718609,Started Hyper-V <*> Protocol Daemon.,32
+5c47e00b,KVP starting; pid is:<*>,16
+ab48c2c2,KVP LIC Version: <*>.<*>,16
+046d6255,Started Set the console keyboard layout.,16
+2e7c532c,Started Dispatch Password Requests to Console Directory Watch.,16
+34b1ff8d,Reached target Local <*> <*>,17
+46c291bc,Reached target <*> File Systems (Pre).,32
+aba829c1,Found device Virtual_Disk <*>,29
+cc864f0b,Mounting /<*>,17
+53d23e31,Mounted /<*>,17
+0ef14e86,Starting Tell Plymouth To Write Out Runtime Data...,31
+cf714a33,Starting ebtables ruleset management...,16
+46a50284,Starting Commit a transient machine-id on disk...,3
+5be8af45,Starting Set console font and keymap...,16
+c28ff93c,Starting AppArmor initialization...,16
+553b6ace,Starting Create Volatile Files and Directories...,16
+789c1938,Started Set console font and keymap.,16
+6c9f2ba4,Started Tell Plymouth To Write Out Runtime Data.,31
+e752b074,Started Commit a transient machine-id on disk.,3
+0dce4002,Started Create Volatile Files and Directories.,16
+efe6c9f1,Starting Network <*> <*>,32
+37528435,Starting Update UTMP about System Boot/<*>,16
+556c2007,Started ebtables ruleset management.,16
+82f7e520,Started Update UTMP about System Boot/<*>,16
+5ec4b9d4,* Starting AppArmor profiles,16
+19632b36,Started Network <*> <*>,32
+f1929b07,Reached target System Time Synchronized.,15
+8a13912a,Skipping profile in /<*>: <*>,27
+5917eca7,...done.,48
+0996564c,Started AppArmor initialization.,16
+e78729f5,Starting Initial cloud-init job (pre-networking)...,16
+3d40c3c5,+ [ -e /<*> ],16
+c5c10621,+ exit <*>,16
+06949766,Internet Systems Consortium DHCP Client <*>.<*>.<*>,30
+bc90b480,Copyright <*>-<*> Internet Systems Consortium.,30
+1efc109b,All rights reserved.,30
+fd4654d5,"For info, please visit https:<*>",30
+bc8025b4,Listening on <*>,30
+bbadc51a,Sending on <*>,60
+959474a6,DHCPDISCOVER on eth0 to <*> port <*> interval <*> (xid=<*>),38
+f8f69ec0,DHCPREQUEST of <*> on eth0 to <*> port <*> (xid=<*>),30
+82041fd7,DHCPOFFER of <*> from <*>,30
+151a0778,DHCPACK of <*> from <*>,30
+032e2c6f,bound to <*> -- renewal in <*> seconds.,30
+9719122c,Cloud-init v. <*>.<*>-<*>-gbb4131a2-0ubuntu1~<*>.<*>.<*> running <*> at <*> <*> Mar <*> <*>:<*>:<*> <*>. Up <*>.<*> seconds.,64
+4d107eed,Started Initial cloud-init job (pre-networking).,16
+3f508636,Reached target <*> <*>,142
+2e322db0,Starting <*> Service...,56
+d7e5ae8a,Enumeration completed,16
+251593e6,Started <*> Service.,56
+f4377478,eth0: Link <*>,76
+85e5c000,eth0: Gained <*>,67
+1968e964,eth0: Lost carrier,32
+d4606850,"Network configuration changed, trying to establish connection.",52
+9ee30012,"eth0: Removing non-existent address: fe80::<*>:<*>:<*>:<*><*> (valid forever), ignoring",27
+29a897b8,Starting Wait for Network to be Configured...,16
+16786b5a,ignoring: lo,54
+48f48d37,eth0: IPv6 successfully enabled,16
+fda80c60,lo: Link is not managed by us,16
+7fab82ac,message repeated <*> times: [ ignoring: lo],4
+9d5e0649,Positive Trust Anchors:,16
+52252e0a,. IN DS <*> <*> <*> 49aac11d7b6f6446702e54a1607371607a1a41855200fd2ce1cdde32f24e8fb<*>,16
+feb133fd,. IN DS <*> <*> <*> e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d,16
+be94182a,[ <*>.<*>] Linux version <*>.<*>.<*>-<*>-azure (buildd@lcy01-amd64-<*>) (gcc version <*>.<*>.<*> (Ubuntu <*>.<*>.<*>-1ubuntu1~<*>.<*>.<*>)) #<*>-Ubuntu SMP Mon Feb <*> <*>:<*>:<*> UTC <*> (Ubuntu <*>.<*>.<*>-<*>.<*>-azure <*>.<*>.<*>),16
+5fbfbc32,[ <*>.<*>] Command line: BOOT_IMAGE=<*><*>.<*>.<*>-<*>-azure root=<*>=<*> ro console=<*> console=<*> earlyprintk=<*> rootdelay=<*>,16
+965b1ec6,[ <*>.<*>] KERNEL supported cpus:,16
+02923d72,Negative trust anchors: <*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa <*>.<*>.in-addr.arpa d.f.ip6.arpa corp home internal intranet lan local private test,16
+95016386,Using system hostname <*>,16
+50ef944c,Reached target Host and Network Name Lookups.,16
+1482f31a,Reached target <*>,122
+0de29e31,eth0: DHCPv4 address <*>/<*> via <*>,17
+97681fc7,eth0: Configured,17
+02a30c10,managing: eth<*>,16
+4969deb1,Started Wait for Network to be Configured.,16
+cdc459be,Starting Initial cloud-init job (metadata service crawler)...,16
+14b27b51,ci-info: ++++++++++++++++++++++++++++++++++++Net device <*>,16
+08a08cfa,ci-info: <*>,144
+547d2eda,ci-info: | <*> | <*> | <*> | <*> | <*> | <*> |,160
+d12607e6,ci-info: ++++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++++,16
+936b8562,[ <*>.<*>] <*> <*>,479
+18f76c70,ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++,16
+f9acf2a5,ci-info: | <*> | <*> | <*> | <*> | <*> |,64
+9eb84f4a,Version <*>.<*>.<*> integrated FUSE <*>,15
+206e2e98,"Mounted /<*> (Read-Only, label ""Temporary Storage"", NTFS <*>.<*>)",15
+a04e25eb,Cmdline options: ro,15
+d1cc88b6,"Mount options: ro,allow_other,nonempty,relatime,fsname=<*>,blkdev,blksize=<*>",15
+3167901f,"Ownership and permissions disabled, configuration type <*>",15
+64e69a5b,Unmounting /<*> (Temporary Storage),15
+c39f5440,Reloading.,83
+30c50e8b,Generating public/<*> <*> key pair.,12
+470960ae,Your identification has been saved in /<*>,12
+250f32cb,Your public key has been saved in /<*>,12
+e330a02d,The key fingerprint is:,12
+c784e62e,<*> root@Client<*>,12
+890114fb,The key's randomart image is:,12
+05a160dc,+---[RSA <*>]----+,3
+1f5411c5,| <*> <*> |,10
+9e2d93ad,|+.+ +. |,1
+20903e7b,|<*> oo |,1
+901d1654,|= o o E |,1
+ac86d0b7,|<*> <*> . <*> <*> . |,2
+75291344,|<*> = o o .. o |,1
+cc79f8c7,|<*> o=*=<*> . . |,1
+0367e66d,| <*> <*> .. |,2
+adc32fbf,+----[<*>]-----+,12
+dd21cfec,+---[DSA <*>]----+,3
+4a43f9b2,| =<*> oo+*+ o.|,1
+4624c061,| ..*o..o .Bo++oE.|,1
+1e4dfb01,| o <*>,2
+b1efce1f,| . oo= ++ .o|,1
+fa594d1d,| <*> <*> .|,2
+1a87b914,| <*> <*> . <*> |,6
+200498e3,| <*> |,8
+98d28617,+---[ECDSA <*>]---+,3
+24f17471,|+=+ ooo |,1
+14b0be3e,|+o.+ o |,1
+2ff5e442,| .. <*> <*> |,2
+2d55fa95,|<*> .o o |,1
+dbd4a20d,|<*>+. o S |,1
+7283b5f5,|<*>++=<*>= * o |,1
+4bab95c7,|<*>*oB * o o |,1
+359fe051,|<*>+oo.= o . |,1
+bb5e01dd,|<*>=*E o . |,1
+2044903c,+--[ED25519 <*>]--+,3
+5d67291d,| .+ .+ +.**o. |,1
+d3f46817,| + <*> <*> <*> |,2
+f2ae0bb4,| <*> <*> <*> . |,5
+7c647ef1,Started Initial cloud-init job (metadata service crawler).,16
+18485d6f,Reached target Network is Online.,16
+fdfb28e9,Reached target <*> File Systems.,31
+53251afc,Starting Availability of block devices...,16
+29d363e3,Started ACPI Events Check.,16
+b362abbb,Listening on <*> <*> <*> socket.,32
+d39a60d5,Listening on D-Bus <*> Message Bus Socket.,27
+8694f3ec,Starting Socket activation for snappy daemon.,16
+d3980a7a,Started Daily Cleanup of Temporary Directories.,16
+4c52e87a,Starting LXD - <*> <*>,32
+43d542ce,Started Daily apt download activities.,24
+be35dfa1,Started Daily apt upgrade and clean activities.,22
+81d45750,Listening on <*> <*> Socket.,32
+f19f71b6,Started Discard unused blocks once a week.,16
+345a768e,Started Message of the Day.,28
+92b30dcd,Started Availability of block devices.,16
+fa48fe96,Listening on Socket activation for snappy daemon.,16
+b68084b7,Started FUSE filesystem for LXC.,16
+9c2aca04,Starting Pollinate to seed the pseudo random number generator...,3
+75ebfe87,Starting LSB: Record successful boot for GRUB...,16
+ed3143cc,Starting Dispatcher daemon for systemd-networkd...,16
+36e71184,Started Deferred execution scheduler.,16
+0b755803,Started Regular background program processing daemon.,16
+d939bebe,Started Azure Linux Agent.,16
+c1c8232e,Starting LSB: automatic crash report generation...,16
+5946521f,Started <*> daemon.,48
+f538b97b,Started D-Bus <*> Message Bus.,27
+f2ba3844,VSS starting; pid is:<*>,16
+c5381bd5,VSS: kernel module version: <*>,16
+0dfcd344,(CRON) INFO (pidfile fd = <*>),16
+a91f3deb,mount namespace: <*>,16
+0590ae93,hierarchies:,16
+dbc81913,<*> fd: <*>: <*>,208
+f1eab20a,client sent challenge to [https:<*>],3
+f73113ee,(CRON) INFO (Running @reboot jobs),16
+78c40491,[<*>] AppArmor D-Bus mediation is enabled,16
+179d2b81,Started Hyper-V File Copy Protocol Daemon.,16
+62b65d58,Starting <*> <*> Service...,36
+fce63473,Starting Permit User Sessions...,16
+b46a9c57,starting; pid is:<*>,16
+d8df2a6f,open /<*> failed; error: <*> No such file or directory,16
+42329515,Starting <*> daemon...,33
+a52131cd,"hv-fcopy-daemon.service: Main process exited, code=<*>, status=<*>/<*>",16
+0206d3ec,hv-fcopy-daemon.service: Failed with result 'exit-code'.,16
+d6957a01,Started Permit User Sessions.,16
+28163593,"[<*>] Activating via systemd: service <*> <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> "" label=""unconfined"")",35
+695db85f,* Recording successful boot for GRUB,16
+81a51bcf,Starting <*> Manager...,32
+d7beaac3,* Starting automatic crash report generation: apport,16
+d55ac2ff,Started Unattended Upgrades Shutdown.,16
+74c403bb,Starting Hold until boot process finishes up...,16
+2e4b9e91,Starting Terminate Plymouth Boot Screen...,15
+c7e62b9e,Started LSB: automatic crash report generation.,16
+496c75dc,Started Hold until boot process finishes up.,16
+0151ab30,Started Terminate Plymouth Boot Screen.,15
+6d9af0fb,Starting Set console scheme...,16
+b2e22f90,Started Serial Getty on ttyS0.,16
+442d64d2,Started Set console scheme.,16
+d50e6330,Created slice system-getty.slice.,16
+74fc2902,Started Getty on tty1.,15
+b0b3e1bf,Started LSB: Record successful boot for GRUB.,16
+197eb60b,started daemon version <*>.<*> using authority implementation `local' version `<*>.<*>',16
+1cb09ff1,[<*>] Successfully activated service <*>,53
+1e4ccd56,Started <*> Manager.,32
+3d3aa139,started daemon version <*>.<*>.<*>,16
+f673f85d,No valid path found for <*>,30
+d943e338,Started Dispatcher daemon for systemd-networkd.,16
+88b3c0a3,Started <*> <*> Service.,35
+890670fe,imuxsock: Acquired UNIX socket '/<*>' (fd <*>) from systemd. [v8.<*>.<*>],16
+65151288,rsyslogd's <*> changed to <*>,32
+cd65d4fe,"[origin software=""rsyslogd"" swVersion=""<*>.<*>.<*>"" x-pid=""<*>"" x-info=""http:<*>""] start",16
+18f54aba,[ <*>.<*>] x86/<*>: Supporting XSAVE feature 0x001: 'x87 floating point registers',16
+d4f09af2,[ <*>.<*>] x86/<*>: Supporting XSAVE feature <*> <*> <*>,44
+2260ae38,"[ <*>.<*>] x86/<*>: xstate_offset[<*>]: <*>, xstate_sizes[<*>]: <*>",31
+a3a72cf2,"[ <*>.<*>] x86/<*>: Enabled xstate features <*> context size is <*> bytes, using <*> format.",16
+679f5927,[ <*>.<*>] BIOS-provided physical RAM map:,16
+d4d60197,[ <*>.<*>] BIOS-e820: [mem <*> <*>,80
+976560cf,[ <*>.<*>] BIOS-e820: [mem <*> ACPI <*>,32
+8f72dbf6,[ <*>.<*>] <*> <*> <*> enabled,65
+a2cd9fdb,[ <*>.<*>] NX (Execute Disable) protection: active,16
+271e8bd5,[ <*>.<*>] SMBIOS <*>.<*> present.,16
+22803ace,"[ <*>.<*>] DMI: Microsoft Corporation Virtual Machine/<*> Machine, BIOS <*> <*>/<*>/<*>",16
+91ab13e8,[ <*>.<*>] Hypervisor detected: Microsoft Hyper-V,16
+9d9bfdd0,"[ <*>.<*>] Hyper-V: features 0x2e7f, hints 0x44c2c",16
+e41e7a65,[ <*>.<*>] Hyper-V Host Build:<*>-<*>.<*>-<*>-<*>.<*>,16
+14bf15a5,[ <*>.<*>] Hyper-V: LAPIC Timer Frequency: 0xc<*>,16
+eaf7708b,[ <*>.<*>] tsc: Marking TSC unstable due to running on Hyper-V,16
+db4f6103,[ <*>.<*>] Hyper-V: Using hypercall for remote TLB flush,16
+835ab552,[ <*>.<*>] tsc: Detected <*>.<*> MHz processor,16
+7f8f754f,[ <*>.<*>] e820: update [mem <*> usable ==> reserved,32
+1f70e9aa,[ <*>.<*>] e820: remove [mem 0x000a0000-0x000fffff] usable,16
+893b62e4,[ <*>.<*>] last_pfn = <*> max_arch_pfn = 0x<*>,32
+1dbe8e7a,[ <*>.<*>] MTRR <*> <*> <*>,48
+d1b7c0bc,[ <*>.<*>] <*> base <*> mask <*> write-back,32
+8b14c552,[ <*>.<*>] x86/<*>: Configuration [<*>-<*>]: WB WC UC- UC WB WP UC- WT,16
+849f346f,[ <*>.<*>] found SMP MP-table at [mem 0x000ff780-0x000ff78f],16
+5b3d4674,[ <*>.<*>] check: Scanning <*> areas for low memory corruption,16
+f6c22858,[ <*>.<*>] Using GB pages for direct mapping,16
+bd206d38,[ <*>.<*>] BRK <*> <*> PGTABLE,78
+1c598435,[ <*>.<*>] <*> [mem <*>,64
+5e4615b4,[ <*>.<*>] ACPI: Early table checksum verification disabled,16
+ef90a7c4,[ <*>.<*>] ACPI: RSDP 0x00000000000F5BF0 <*> (v00 ACPIAM),16
+99b568dc,[ <*>.<*>] ACPI: <*> <*> <*> <*> VRTUAL MICROSFT <*> MSFT <*>),128
+55f70f8e,[ <*>.<*>] ACPI: DSDT 0x000000003FFF1D24 003CBE (v01 MSFTVM MSFTVM02 <*> INTL <*>),16
+384a7d61,[ <*>.<*>] ACPI: <*> <*> <*>,96
+33c2304b,[ <*>.<*>] ACPI: Local APIC address 0xfee<*>,32
+3a0052b7,[ <*>.<*>] SRAT: PXM <*> -> APIC <*> -> Node <*>,32
+59806dab,[ <*>.<*>] ACPI: SRAT: Node <*> PXM <*> [mem <*> hotplug,96
+2149b3b0,[ <*>.<*>] NUMA: Node <*> [mem 0x00000000-0x3fffffff] + [mem 0x100000000-0x2bfffffff] -> [mem 0x00000000-0x2bfffffff],16
+b6667f9b,[ <*>.<*>] <*> <*> [mem <*>,64
+64c52242,[ <*>.<*>] Movable zone start for each node,16
+a091d2c8,[ <*>.<*>] Early memory node ranges,16
+466785ab,[ <*>.<*>] Zeroed struct page in unavailable ranges: <*> pages,16
+9b9613f5,[ <*>.<*>] Initmem setup node <*> [mem 0x0000000000001000-0x00000002bfffffff],16
+6d7e682c,[ <*>.<*>] On node <*> totalpages: <*>,16
+8f605fdb,[ <*>.<*>] <*> zone: <*> pages used for memmap,48
+4f135b04,[ <*>.<*>] DMA zone: <*> pages reserved,16
+c61c09e1,"[ <*>.<*>] <*> zone: <*> pages, LIFO batch:<*>",48
+b78b9daf,[ <*>.<*>] ACPI: PM-Timer IO Port: 0x<*>,16
+13961bc3,[ <*>.<*>] ACPI: LAPIC_NMI (acpi_id[<*>] dfl dfl lint[<*>]),16
+a7e15138,"[ <*>.<*>] IOAPIC[<*>]: apic_id <*>, version <*>, address 0xfec00000, GSI <*>-<*>",16
+14e2150c,[ <*>.<*>] ACPI: INT_SRC_OVR (bus <*> bus_irq <*> global_irq <*> <*> <*>,32
+908df579,[ <*>.<*>] ACPI: <*> used by override.,32
+2d06faa7,[ <*>.<*>] Using ACPI (MADT) for SMP configuration information,16
+9b8c143d,"[ <*>.<*>] smpboot: Allowing <*> CPUs, <*> hotplug CPUs",16
+adb3b7e0,[ <*>.<*>] PM: Registered nosave memory: [mem <*>,112
+3f07a14b,[ <*>.<*>] [mem 0x40000000-0xffffffff] available for PCI devices,16
+8d50c11c,[ <*>.<*>] Booting paravirtualized kernel on bare hardware,16
+86aa80c1,[ <*>.<*>] clocksource: <*> mask: <*> max_cycles: <*> max_idle_ns: <*> ns,64
+c9cb530d,[ <*>.<*>] random: get_random_bytes called from start_kernel+0x93/<*> with crng_init=<*>,16
+179bb8e8,[ <*>.<*>] setup_percpu: NR_CPUS:<*> nr_cpumask_bits:<*> nr_cpu_ids:<*> nr_node_ids:<*>,16
+67f68724,[ <*>.<*>] percpu: Embedded <*> pages/<*> s147456 r8192 d28672 u<*>,16
+9389e3c2,[ <*>.<*>] pcpu-alloc: s147456 r8192 d28672 u262144 alloc=<*>*<*>,16
+30022ec8,[ <*>.<*>] pcpu-alloc: [<*>] <*> <*> <*> <*> <*> <*> <*> <*>,256
+e2564448,"[ <*>.<*>] <*> <*> hash table entries: <*> <*> <*>, <*> bytes)",80
+6111a56b,"[ <*>.<*>] Built <*> zonelists, mobility grouping on. Total pages: <*>",16
+fea59dea,[ <*>.<*>] Policy zone: Normal,16
+a8d8a196,[ <*>.<*>] Kernel command line: BOOT_IMAGE=<*><*>.<*>.<*>-<*>-azure root=<*>=<*> ro console=<*> console=<*> earlyprintk=<*> rootdelay=<*>,16
+4bf266f9,[ <*>.<*>] printk: log_buf_len individual max cpu contribution: <*> bytes,16
+eb09db24,[ <*>.<*>] printk: log_buf_len total cpu_extra contributions: <*> bytes,16
+87a236f5,[ <*>.<*>] printk: log_buf_len min size: <*> bytes,16
+ae7520bd,[ <*>.<*>] printk: <*> <*> <*>,32
+3836433f,[ <*>.<*>] printk: early log buf free: <*>(<*>%),16
+0ab61629,[ <*>.<*>] Calgary: detecting Calgary via BIOS EBDA area,16
+610ef30a,[ <*>.<*>] Calgary: Unable to locate Rio Grande table in EBDA - bailing!,16
+cebb4727,"[ <*>.<*>] Memory: <*> available (12292K kernel code, 2233K rwdata, 3944K rodata, 2360K init, 5524K bss, <*> reserved, 0K cma-reserved)",16
+0650e733,"[ <*>.<*>] SLUB: HWalign=<*>, Order=<*>-<*>, MinObjects=<*>, CPUs=<*>, Nodes=<*>",16
+4df8bf85,[ <*>.<*>] Kernel/<*> page tables isolation: enabled,16
+bff63748,[ <*>.<*>] ftrace: allocating <*> entries in <*> pages,16
+a4a8ef32,[ <*>.<*>] rcu: Hierarchical <*> implementation.,32
+b21b8830,[ <*>.<*>] rcu: RCU restricting CPUs from NR_CPUS=<*> to nr_cpu_ids=<*>.,16
+0b9385e9,[ <*>.<*>] Tasks RCU enabled.,16
+47b028da,[ <*>.<*>] rcu: RCU calculated value of scheduler-enlistment delay is <*> jiffies.,16
+b2110681,"[ <*>.<*>] rcu: Adjusting geometry for rcu_fanout_leaf=<*>, nr_cpu_ids=<*>",16
+448ffa05,"[ <*>.<*>] NR_IRQS: <*>, nr_irqs: <*>, preallocated irqs: <*>",16
+ba5a5b44,[ <*>.<*>] Console: colour VGA+ 80x<*>,16
+dd380af9,[ <*>.<*>] APIC: Switch to symmetric I/<*> mode setup,16
+e5c5d87b,[ <*>.<*>] Switched APIC routing to physical flat.,16
+cc148139,[ <*>.<*>] Hyper-V: Using IPI hypercalls,16
+ce2a1825,[ <*>.<*>] Hyper-V: Using enlightened APIC (xapic mode),16
+21d515eb,"[ <*>.<*>] Calibrating delay loop (skipped), value calculated using timer frequency.. <*>.<*> BogoMIPS (lpj=<*>)",16
+f518058d,[ <*>.<*>] pid_max: default: <*> minimum: <*>,16
+4a44d82f,[ <*>.<*>] LSM: Security Framework initializing,16
+2824e23c,[ <*>.<*>] Yama: becoming mindful.,16
+39dbb8e6,[ <*>.<*>] <*> <*> initialized,32
+6a78c96c,"[ <*>.<*>] <*> hash table entries: <*> (order: <*>, <*> bytes)",112
+fd5fafaf,"[ <*>.<*>] Last level iTLB entries: 4KB <*>, 2MB <*>, 4MB <*>",16
+7e4285f0,"[ <*>.<*>] Last level dTLB entries: 4KB <*>, 2MB <*>, 4MB <*>, 1GB <*>",16
+d606f323,[ <*>.<*>] Spectre V1 : Mitigation: usercopy/<*> barriers and __user pointer sanitization,16
+2b81bf58,[ <*>.<*>] Spectre V2 : Mitigation: Full generic retpoline,16
+0b47a21f,[ <*>.<*>] Spectre V2 : Spectre v2 / SpectreRSB mitigation: Filling RSB on context switch,16
+e996fac8,[ <*>.<*>] Speculative Store Bypass: Vulnerable,16
+c336bf06,[ <*>.<*>] <*> Mitigation: Clear CPU buffers,9
+b69059a5,[ <*>.<*>] Freeing <*> <*> memory: <*>,32
+91c6cedc,"[ <*>.<*>] smpboot: CPU0: Intel(R) Xeon(R) <*> <*> <*> @ <*> (family: 0x6, model: <*> stepping: <*>",16
+af43d4d4,"[ <*>.<*>] Performance Events: unsupported p6 CPU model <*> no PMU driver, software events only.",16
+dcaf4674,[ <*>.<*>] random: crng done (trusting CPU's manufacturer),16
+5fbc9904,[ <*>.<*>] NMI watchdog: Perf NMI watchdog permanently disabled,16
+b2081125,[ <*>.<*>] smp: Bringing up secondary CPUs ...,16
+0a1ec610,[ <*>.<*>] x86: Booting SMP configuration:,16
+3388cb84,"[ <*>.<*>] .... node #<*>, CPUs: #<*>",16
+420a1d53,"[ <*>.<*>] <*> CPU bug present and SMT on, data leak possible. See https:<*> for more details.",29
+84ff81ae,"[ <*>.<*>] smp: Brought up <*> node, <*> CPUs",16
+bb2b44d1,[ <*>.<*>] smpboot: Max logical packages: <*>,16
+674ff42a,[ <*>.<*>] smpboot: Total of <*> processors activated (<*>.<*> BogoMIPS),16
+a25fb1d2,[ <*>.<*>] x86/<*>: Memory block size: 128MB,16
+5360d077,[ <*>.<*>] PM: Registering ACPI NVS region [mem 0x3ffff000-0x3fffffff] (<*> bytes),16
+09628428,[ <*>.<*>] pinctrl core: initialized pinctrl subsystem,16
+0b45c280,"[ <*>.<*>] RTC time: <*>:<*>:<*>, date: <*>-<*>-<*>",16
+87d471e6,[ <*>.<*>] NET: Registered protocol family <*>,96
+4b0e5b36,[ <*>.<*>] audit: initializing netlink subsys (disabled),16
+c826a988,[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): state=<*> audit_enabled=<*> res=<*>,16
+cd3fa45b,[ <*>.<*>] EISA bus registered,16
+ebf1d118,[ <*>.<*>] cpuidle: using governor <*>,32
+35356d63,[ <*>.<*>] ACPI: bus type PCI registered,16
+572a6a6a,[ <*>.<*>] <*> <*> Hot Plug PCI Controller Driver version: <*>.<*>,32
+4e0fd40b,[ <*>.<*>] PCI: Using configuration type <*> for base access,16
+ed0c38b8,"[ <*>.<*>] HugeTLB registered <*>.<*> <*> page size, pre-allocated <*> pages",32
+382e1fc9,[ <*>.<*>] ACPI: Added <*> <*> <*>,32
+c1870ad0,[ <*>.<*>] ACPI: <*> <*>,64
+bfc45663,[ <*>.<*>] ACPI: <*> ACPI AML tables successfully acquired and loaded,16
+a19890d6,[ <*>.<*>] <*> Using <*> for <*> routing,32
+fb3a099c,"[ <*>.<*>] PCI: Using host bridge windows from ACPI; if necessary, use ""pci=<*>"" and report a bug",16
+dd22b4d7,[ <*>.<*>] ACPI: Enabled <*> GPEs in block <*> to 0F,16
+2843f42b,[ <*>.<*>] ACPI: PCI Root Bridge [<*>] (domain <*> [bus <*>-ff]),16
+6a4e7cff,[ <*>.<*>] acpi PNP0A03:<*>: _OSC: OS supports [ASPM ClockPM Segments MSI],16
+cfb932ab,"[ <*>.<*>] acpi PNP0A03:<*>: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.",16
+7c45b630,[ <*>.<*>] PCI host bridge to bus <*>:<*>,16
+6124e846,[ <*>.<*>] pci_bus <*>:<*>: root bus resource <*> <*> window],80
+5a1ebdfa,[ <*>.<*>] pci_bus <*>:<*>: root bus resource [bus <*>-ff],16
+8d015fe4,[ <*>.<*>] pci <*>:<*>:<*>.<*>: [<*>:<*>] type <*> class 0x<*>,80
+32a4060e,[ <*>.<*>] pci <*>:<*>:<*>.<*>: <*> <*> <*> <*>,71
+181635a5,[ <*>.<*>] pci <*>:<*>:<*>.<*>: legacy IDE quirk: reg <*> [io <*>,64
+8a2b7de3,"[ <*>.<*>] * Found PM-Timer Bug on the chipset. Due to workarounds for a bug,",16
+62865f1f,[ <*>.<*>] * this clock source is slow. Consider trying other clock sources,16
+41ab7ff6,[ <*>.<*>] pci <*>:<*>:<*>.<*>: quirk: [io 0x0400-0x043f] claimed by PIIX4 ACPI,16
+0cad2058,[ <*>.<*>] ACPI: PCI Interrupt Link [<*>] (IRQs <*> <*> <*> <*> <*> <*> *<*> <*> <*> <*>),16
+b80282f1,"[ <*>.<*>] ACPI: PCI Interrupt Link [<*>] (IRQs <*> <*> <*> <*> <*> <*> <*> <*> <*> <*>) *<*>, disabled.",48
+1c5da341,[ <*>.<*>] libata version <*>.<*> loaded.,16
+624c855c,[ <*>.<*>] pci <*>:<*>:<*>.<*>: vgaarb: setting as boot VGA device,16
+4b744587,"[ <*>.<*>] pci <*>:<*>:<*>.<*>: vgaarb: VGA device added: decodes=<*>+mem,owns=<*>+mem,locks=<*>",16
+47dded99,[ <*>.<*>] pps_core: LinuxPPS API ver. <*> registered,16
+5062e8d4,[ <*>.<*>] pps_core: Software ver. <*>.<*>.<*> - Copyright <*>-<*> Rodolfo Giometti <giometti@linux.it>,16
+dbd17d1c,[ <*>.<*>] <*> <*> <*> registered,112
+d9a4db27,[ <*>.<*>] <*> <*> <*> <*>.<*>.<*>,32
+b4f56b29,[ <*>.<*>] hv_vmbus: Vmbus version:<*>.<*>,16
+a5db758e,[ <*>.<*>] PCI: pci_cache_line_size set to <*> bytes,16
+4790cbc8,[ <*>.<*>] e820: reserve RAM buffer [mem <*>,32
+47e096b1,[ <*>.<*>] NetLabel: domain hash size = <*>,16
+e79f8145,[ <*>.<*>] NetLabel: protocols = UNLABELED CIPSOv4 CALIPSO,16
+68b4478a,[ <*>.<*>] NetLabel: unlabeled traffic allowed by default,16
+1f32fb91,[ <*>.<*>] clocksource: Switched to clocksource hyperv_clocksource_tsc_page,16
+33812074,[ <*>.<*>] VFS: Disk quotas dquot_<*>.<*>.<*>,16
+83ce5f94,[ <*>.<*>] AppArmor: AppArmor Filesystem Enabled,16
+1faaa63f,[ <*>.<*>] pnp: PnP ACPI init,16
+bddfdc42,"[ <*>.<*>] <*> <*>:<*>: Plug and Play ACPI device, IDs <*> (active)",112
+3f6b66d2,"[ <*>.<*>] pnp <*>:<*>: Plug and Play ACPI device, IDs <*> <*> (active)",32
+d7764389,[ <*>.<*>] pnp <*>:<*>: [dma <*> disabled],32
+0c328929,[ <*>.<*>] pnp <*>:<*>: [dma <*>],16
+d9819c5a,[ <*>.<*>] system <*>:<*>: <*> <*> has been reserved,192
+e270d668,[ <*>.<*>] system <*>:<*>: [mem <*> could not be reserved,80
+f89824e6,[ <*>.<*>] pnp: PnP ACPI: found <*> devices,16
+b390ddbe,[ <*>.<*>] pci_bus <*>:<*>: resource <*> <*> <*> window],80
+a9c6a646,[ <*>.<*>] TCP: Hash tables configured (established <*> bind <*>),16
+6f240111,[ <*>.<*>] pci <*>:<*>:<*>.<*>: Video device with shadowed ROM at [mem 0x000c0000-0x000dffff],16
+4158f22b,"[ <*>.<*>] PCI: CLS <*> bytes, default <*>",16
+76917a1e,[ <*>.<*>] Freeing initrd memory: <*>,16
+e5f603b3,[ <*>.<*>] PCI-DMA: Using software bounce buffering for IO (SWIOTLB),16
+f8156a21,[ <*>.<*>] software IO TLB: mapped [mem 0x3bff0000-0x3fff0000] (64MB),16
+44ef95da,[ <*>.<*>] check: Scanning for low memory corruption every <*> seconds,16
+21a70e82,[ <*>.<*>] Initialise system trusted keyrings,16
+f1c1ebff,[ <*>.<*>] workingset: timestamp_bits=<*> max_order=<*> bucket_order=<*>,16
+f4b6394d,[ <*>.<*>] squashfs: version <*>.<*> (<*>/<*>/<*>) Phillip Lougher,16
+2d9471a3,[ <*>.<*>] fuse init (API version <*>.<*>),16
+3ecc6026,[ <*>.<*>] Asymmetric key parser 'x509' registered,16
+669e3ce3,[ <*>.<*>] Block layer SCSI generic (bsg) driver version <*>.<*> loaded (major <*>),16
+4b4d22f6,[ <*>.<*>] intel_idle: Please enable MWAIT in BIOS SETUP,16
+cde96609,[ <*>.<*>] input: Power Button as /<*>:<*>/<*>:<*>/<*><*>,16
+ea64f415,"[ <*>.<*>] Serial: <*>/<*> driver, <*> ports, IRQ sharing enabled",16
+992fc334,"[ <*>.<*>] <*>:<*>: <*> at I/<*> <*> (irq = <*>, base_baud = <*>) is a 16550A",32
+2614401b,[ <*>.<*>] Linux agpgart interface v0.<*>,16
+0ae41d87,[ <*>.<*>] loop: module loaded,16
+12bef385,[ <*>.<*>] hv_vmbus: registering driver <*>,112
+48f9cb4d,[ <*>.<*>] <*> <*> version <*>,32
+26b1b5d7,"[ <*>.<*>] ata_piix <*>:<*>:<*>.<*>: Hyper-V Virtual Machine detected, ATA device ignore set",16
+9ebf0a1a,[ <*>.<*>] scsi <*> <*>,96
+fa004d8c,[ <*>.<*>] <*> PATA max UDMA/<*> cmd <*> ctl <*> bmdma <*> irq <*>,32
+4920f446,[ <*>.<*>] scsi <*>:<*>:<*>:<*>: <*> Msft Virtual <*> <*>.<*> PQ: <*> ANSI: <*>,35
+557f1a34,[ <*>.<*>] libphy: Fixed MDIO Bus: probed,16
+7fc4e243,[ <*>.<*>] <*> <*>:<*>:<*>:<*>: Attached scsi generic <*> type <*>,35
+c4228b1a,"[ <*>.<*>] tun: Universal TUN/<*> device driver, <*>.<*>",16
+dd6b14b6,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] <*> <*>-byte logical blocks: (<*>.<*> GB/<*>.<*> GiB),32
+0946490e,[ <*>.<*>] PPP generic driver version <*>.<*>.<*>,16
+edea71f6,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] <*> <*> <*>,64
+649ca0e7,"[ <*>.<*>] i8042: PNP: PS/<*> Controller [PNP0303:<*>,PNP0f03:<*>] at 0x60,0x64 irq <*>,<*>",16
+df4e5c67,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] Write Protect is off,32
+82ad81cc,"[ <*>.<*>] serio: i8042 <*> port at 0x60,0x64 irq <*>",32
+b8ee8148,[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] Mode Sense: 0f <*> <*> <*>,32
+21a4ddfa,"[ <*>.<*>] sd <*>:<*>:<*>:<*>: [<*>] Write cache: <*> read cache: enabled, supports DPO and FUA",32
+dbaeb175,[ <*>.<*>] mousedev: PS/<*> mouse device common for all mice,16
+516bbbf1,[ <*>.<*>] rtc_cmos <*>:<*>: RTC can wake from S<*>,16
+fcfaf745,[ <*>.<*>] rtc_cmos <*>:<*>: registered as rtc<*>,16
+139c403f,"[ <*>.<*>] rtc_cmos <*>:<*>: alarms up to one month, <*> bytes nvram",16
+5bb267ad,[ <*>.<*>] device-mapper: ioctl: <*>.<*>.<*>-ioctl (<*>-<*>-<*>) initialised: dm-devel@redhat.com,16
+2de64ea0,[ <*>.<*>] platform eisa.<*>: <*> <*> <*> <*>,32
+5d79e4a3,[ <*>.<*>] GPT:<*> header thinks Alt. header is not at the end of the disk.,3
+8a328cfc,[ <*>.<*>] GPT:<*> != <*>,6
+51762e4e,[ <*>.<*>] GPT:<*> GPT header not at the end of the disk.,3
+dd89679f,[ <*>.<*>] GPT: Use GNU Parted to correct GPT errors.,3
+909da0e6,[ <*>.<*>] sda: sda1 sda14 sda<*>,16
+be358a3d,[ <*>.<*>] platform eisa.<*>: EISA: Cannot allocate resource for mainboard,16
+0ad8dabf,[ <*>.<*>] platform eisa.<*>: Cannot allocate resource for EISA slot <*>,128
+26c4f486,[ <*>.<*>] Segment Routing with IPv<*>,16
+48176c35,[ <*>.<*>] mce: Using <*> MCE banks,16
+d15b796b,[ <*>.<*>] input: AT Translated Set <*> keyboard as <*>,32
+329258f5,[ <*>.<*>] RAS: Correctable Errors collector initialized.,16
+eaf7c3db,"[ <*>.<*>] ata1.<*>: host indicates ignore ATA devices, ignored",32
+9a257afa,[ <*>.<*>] Loading compiled-in X.<*> certificates,16
+e0570adb,[ <*>.<*>] Loaded X.<*> cert 'Build time autogenerated kernel key: 9c13c25bb46bb08aadac8fd6055952f30e111a90',16
+bd410c1e,[ <*>.<*>] zswap: loaded using pool lzo/<*>,16
+31169089,[ <*>.<*>] ata2.<*>: NODEV after polling detection,3
+32444bcd,"[ <*>.<*>] ata2.<*>: ATAPI: Virtual CD, , max MWDMA<*>",3
+87f8c292,[ <*>.<*>] scsi: waiting for bus probes to complete ...,2
+c9165bad,[ <*>.<*>] AppArmor: AppArmor sha1 policy hashing enabled,16
+d7543f09,"[ <*>.<*>] ima: No TPM chip found, activating TPM-bypass!",16
+7adc29a9,[ <*>.<*>] ima: Allocated hash algorithm: sha<*>,16
+98199832,[ <*>.<*>] No architecture policies found,16
+d0626d7a,[ <*>.<*>] evm: Initialising EVM extended attributes:,16
+b86827a7,[ <*>.<*>] evm: HMAC attrs: 0x<*>,16
+42876bc1,[ <*>.<*>] sr <*>:<*>:<*>:<*>: [<*>] scsi3-mmc drive: 0x/<*> tray,3
+7eec6703,[ <*>.<*>] Magic number: <*>:<*>:<*>,16
+3c032de4,[ <*>.<*>] cdrom: Uniform CD-ROM driver Revision: <*>.<*>,3
+9f29b756,[ <*>.<*>] <*> <*> hash matches,12
+74c6e44a,[ <*>.<*>] sr <*>:<*>:<*>:<*>: Attached scsi CD-ROM sr<*>,3
+841f29af,[ <*>.<*>] rtc_cmos <*>:<*>: setting system clock to <*> UTC (<*>),16
+efffaa04,"[ <*>.<*>] Unstable clock detected, switching default tracing clock to ""global""",16
+50e8f7c1,"[ <*>.<*>] If you want to keep using the local clock, then add:",16
+180acf55,"[ <*>.<*>] ""trace_clock=<*>""",16
+486444a8,[ <*>.<*>] on the kernel command line,16
+8cde047a,[ <*>.<*>] Freeing unused kernel image memory: <*>,48
+19fad870,[ <*>.<*>] Write protecting the kernel read-only data: 18432k,16
+cf642a1a,"[ <*>.<*>] x86/<*>: Checked W+X mappings: passed, no W+X pages found.",32
+86492a29,[ <*>.<*>] x86/<*>: Checking user space page tables,16
+a9655090,[ <*>.<*>] Run /<*> as init process,16
+e4ecf407,"[ <*>.<*>] hyperv_fb: Screen resolution: 1152x864, Color depth: <*>",16
+68ea4992,[ <*>.<*>] Console: switching to colour frame buffer device 144x<*>,16
+f3d3b6f6,[ <*>.<*>] hv_utils: Registering HyperV Utility Driver,16
+46912ed2,[ <*>.<*>] hv_utils: <*> IC version <*>.<*>,80
+0b48689c,[ <*>.<*>] hidraw: raw HID events driver (C) Jiri Kosina,16
+f82969d4,[ <*>.<*>] input: Microsoft Vmbus HID-compliant Mouse as /<*><*>:<*>:<*>.<*>/<*><*>,16
+cb036f4c,[ <*>.<*>] hid <*>:<*>:<*>.<*>: input: <UNKNOWN> HID v0.<*> Mouse [Microsoft Vmbus HID-compliant Mouse] on,16
+b55ab964,[ <*>.<*>] cryptd: max_cpu_qlen set to <*>,16
+ec915500,[ <*>.<*>] AVX2 version of gcm_enc/<*> engaged.,16
+5efd1941,[ <*>.<*>] AES CTR mode by8 optimization enabled,16
+50f876a5,[ <*>.<*>] raid6: <*> <*> <*> MB/<*>,210
+304ae203,[ <*>.<*>] raid6: using algorithm <*> gen() <*> MB/<*>,16
+60d52ba3,"[ <*>.<*>] raid6: .... xor() <*> MB/<*>, rmw enabled",16
+3f61b053,[ <*>.<*>] raid6: using <*> recovery algorithm,16
+0e3aa785,[ <*>.<*>] xor: automatically using best checksumming function avx,16
+e521e594,[ <*>.<*>] async_tx: api initialized (async),16
+813241d1,"[ <*>.<*>] Btrfs loaded, crc32c=<*>",16
+4bb5e149,[ <*>.<*>] EXT4-fs <*> mounted filesystem with ordered data mode. Opts: (null),32
+7977fac6,[ <*>.<*>] systemd[<*>]: systemd <*> running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD -IDN2 +IDN -PCRE2 default-hierarchy=<*>),16
+3526d60e,[ <*>.<*>] systemd[<*>]: <*> <*> <*>,44
+3d0daf6c,[ <*>.<*>] systemd[<*>]: Set hostname to <*>,16
+f3b24724,[ <*>.<*>] systemd[<*>]: Initializing machine ID from random generator.,3
+1d176cae,[ <*>.<*>] systemd[<*>]: Installed transient /<*> file.,3
+1f65be94,[ <*>.<*>] systemd[<*>]: Set up automount Arbitrary Executable File Formats File System Automount Point.,9
+458a5a28,[ <*>.<*>] systemd[<*>]: Created slice User and Session Slice.,10
+758439b5,[ <*>.<*>] systemd[<*>]: Started Forward Password Requests to Wall Directory Watch.,11
+59424490,[ <*>.<*>] systemd[<*>]: Reached target User and Group Name Lookups.,12
+ad8c625e,[ <*>.<*>] EXT4-fs (sda1): re-mounted. Opts: discard,16
+03df5b97,[ <*>.<*>] Loading iSCSI transport class v2.<*>-<*>.,16
+138077ab,[ <*>.<*>] systemd-journald[<*>]: Received request to flush runtime journal from PID <*>,16
+f5095d7f,[ <*>.<*>] iscsi: registered transport <*>,32
+68cfcc88,[ <*>.<*>] hv_balloon: Using Dynamic Memory protocol version <*>.<*>,16
+d32a19a0,[ <*>.<*>] KVM: vmx: using Hyper-V Enlightened VMCS,16
+d4a7c861,"[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): apparmor=""STATUS"" operation=""profile_load"" profile=""unconfined"" <*> pid=<*> comm=""apparmor_parser""",64
+2c9bf7f3,"[ <*>.<*>] UDF-fs: INFO Mounting volume 'UDF Volume', timestamp <*>/<*>/<*> <*>:<*> (<*>)",3
+66187c03,[ <*>.<*>] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready,16
+17369e2c,[ <*>.<*>] hv_balloon: Max. dynamic memory size: <*> MB,16
+cf01d4a6,[ <*>.<*>] EXT4-fs (sda1): resizing filesystem from <*> to <*> blocks,3
+3a31a68c,[ <*>.<*>] EXT4-fs (sda1): resized filesystem to <*>,3
+48338300,[ <*>.<*>] hv_utils: VSS: userspace daemon ver. <*> connected,16
+e95b0292,"[ <*>.<*>] new mount options do not match the existing superblock, will be ignored",16
+ddbe9295,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon <*> <*> <*> <*>,67
+a5e07ed2,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon <*> <*> <*>,26
+6d407701,2020/<*>/<*> <*>:<*>:<*>.<*> INFO <*> <*> <*>,60
+3c08c535,2020/<*>/<*> <*>:<*>:<*>.<*> INFO <*> CGroups Status: The cgroup filesystem is ready to use,19
+3fc7dcc2,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon WireServer endpoint is not found. Rerun dhcp handler,3
+f443d7ca,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Test for route to <*>,3
+c39af840,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Fabric preferred wire protocol version:<*>-<*>-<*>,3
+94e16801,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon ssh host key found at: /<*>,3
+d541f8e8,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Thumbprint obtained from : /<*>,3
+f68290a6,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon RDMA capabilities are not enabled, skipping",16
+d56fdd20,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon <*> Agent WALinuxAgent-<*>.<*>.<*> <*> <*> <*> <*> agent,19
+87725a79,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Agent WALinuxAgent-<*>.<*>.<*> is running as the goal state agent,3
+dd0da35d,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Distro info: ubuntu <*>.<*>, osutil class being used: Ubuntu18OSUtil, agent service name: walinuxagent",3
+7aa85246,2020/<*>/<*> <*>:<*>:<*>.<*> INFO <*> Wire server endpoint:<*>,11
+461a5e5d,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Start env monitor service.,3
+55918bbd,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler <*>,6
+820f6d00,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Hostname record does not exist, creating [/<*>] with hostname [<*>]",3
+342e8210,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler WALinuxAgent-<*>.<*>.<*> running as process <*>,3
+13c19fbb,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Started tracking new cgroup: walinuxagent.service, path: /<*>",6
+477a8bfb,[ <*>.<*>] bpfilter: Loaded bpfilter_umh pid <*>,16
+da2b330e,Created slice Slice for <*> <*>,17
+f2cc8e2a,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Created slice for walinuxagent extensions system-walinuxagent.extensions.slice,3
+31978809,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Route table: [{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0003"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0001"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0007"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0007"", ""Metric"": ""<*>""}]",3
+9044befb,"2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Initial NIC state: [{ ""name"": ""lo"", ""link"": ""<LOOPBACK,UP,LOWER_UP> mtu <*> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <*>\ link/<*> <*>:<*>:<*>:<*>:<*>:<*> brd <*>:<*>:<*>:<*>:<*>:<*>"" }, { ""name"": ""eth0"", ""link"": ""<BROADCAST,MULTICAST,UP,LOWER_UP> mtu <*> qdisc mq state UP mode DEFAULT group default qlen <*>\ link/<*> <*>:<*>:<*>:<*>:<*>:<*> brd ff:<*>:<*>:<*>:<*>:<*>"" }]",3
+33030b14,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Successfully added Azure fabric firewall rules,3
+14a9d1ee,"Chain <*> (policy ACCEPT <*> packets, <*> bytes)",57
+a44d892b,pkts bytes target prot opt in out source destination,57
+c68c5454,<*> <*> ACCEPT tcp -- * * <*>/<*> <*> owner UID match <*>,19
+2ec9101a,"0 <*> DROP tcp -- * * <*>/<*> <*> ctstate INVALID,NEW",19
+fa6a14e9,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Set block dev timeout: <*> with timeout: <*>,6
+9b4076a5,2020/<*>/<*> <*>:<*>:<*>.<*> INFO ExtHandler Agent WALinuxAgent-<*>.<*>.<*> discovered update WALinuxAgent-<*>.<*>.<*> -- exiting,3
+2dd27e8c,AppArmor status: apparmor is enabled and all features are available,17
+1c07c042,client verified challenge/<*> with [https:<*>],3
+d976432b,client hashed response from [https:<*>],3
+82ed3b43,client successfully seeded [/<*>],3
+88c3d6df,Started Pollinate to seed the pseudo random number generator.,3
+d3100102,Starting OpenBSD Secure Shell server...,19
+e5862279,Started OpenBSD Secure Shell server.,19
+afdc6247,daemon.go:<*>: started <*> (series <*>; classic) ubuntu/<*>.<*> (amd64) linux/<*>.<*>.<*>-<*>-azure.,16
+c32dbefb,daemon.go:<*>: adjusting startup timeout by <*> (pessimistic estimate of 30s plus 5s per snap),16
+ac0adfc6,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Agent WALinuxAgent-<*>.<*>.<*> launched with command 'python3 -u <*> -run-exthandlers' is successfully running,15
+230df6e9,<*> INFO ExtHandler Agent WALinuxAgent-<*>.<*>.<*> is running as the goal state agent,16
+e6c89b45,"<*> INFO ExtHandler Distro info: ubuntu <*>.<*>, osutil class being used: Ubuntu18OSUtil, agent service name: walinuxagent",16
+0a1f56b2,<*> INFO ExtHandler WireServer endpoint <*> read from file,67
+cbaa09b6,<*> INFO ExtHandler Wire <*> <*>,93
+7ab2a9ed,<*> INFO ExtHandler Start env monitor service.,16
+db5cf4ab,<*> INFO ExtHandler Configure routes,16
+a240f3b0,<*> INFO ExtHandler <*>,32
+e93f3aff,<*> INFO ExtHandler WALinuxAgent-<*>.<*>.<*> running as process <*>,16
+c968888e,<*> INFO ExtHandler CGroups Status: The cgroup filesystem is ready to use,16
+a7362d20,<*> INFO ExtHandler Started tracking new cgroup: <*> path: <*>,42
+e6316713,"<*> INFO ExtHandler Route table: [{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0003"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0001"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0007"", ""Metric"": ""<*>""},{""Iface"": ""eth0"", ""Destination"": ""<*>"", ""Gateway"": ""<*>"", ""Mask"": ""<*>"", ""Flags"": ""0x0007"", ""Metric"": ""<*>""}]",16
+e54bb5b8,Started LXD - container startup/<*>,16
+37047c7b,"<*> INFO ExtHandler Initial NIC state: [{ ""name"": ""lo"", ""link"": ""<LOOPBACK,UP,LOWER_UP> mtu <*> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <*>\ link/<*> <*>:<*>:<*>:<*>:<*>:<*> brd <*>:<*>:<*>:<*>:<*>:<*>"" }, { ""name"": ""eth0"", ""link"": ""<BROADCAST,MULTICAST,UP,LOWER_UP> mtu <*> qdisc mq state UP mode DEFAULT group default qlen <*>\ link/<*> <*>:<*>:<*>:<*>:<*>:<*> brd ff:<*>:<*>:<*>:<*>:<*>"" }]",16
+860b1bfd,<*> INFO ExtHandler Successfully added Azure fabric firewall rules,16
+0eebed22,<*> INFO ExtHandler Firewall rules:,16
+9d9f7ea0,helpers.go:<*>: error trying to compare the snap system key: system-key missing on disk,3
+245e6809,Starting Wait until snapd is fully seeded...,16
+448a341d,<*> INFO ExtHandler Created slice for walinuxagent extensions system-walinuxagent.extensions.slice,16
+0fe03be8,<*> INFO ExtHandler ProcessGoalState completed [incarnation <*>; <*> ms],17
+1b53365a,Started Wait until snapd is fully seeded.,16
+95581589,Starting Apply the settings specified in cloud-config...,16
+2af85575,Stopping OpenBSD Secure Shell server...,7
+e721f659,Stopped OpenBSD Secure Shell server.,3
+ee7619c4,daemon.go:<*>: <*> waiting for running hooks,30
+fd1bf301,daemon stop requested to wait for socket activation,15
+8e99a18f,"Server returned error NXDOMAIN, mitigating potential DNS violation DVE-<*>-<*>, retrying transaction with reduced feature level UDP.",54
+3035b695,"message repeated <*> times: [ Server returned error NXDOMAIN, mitigating potential DNS violation DVE-<*>-<*>, retrying transaction with reduced feature level UDP.]",6
+d48b7433,Started Apply the settings specified in cloud-config.,16
+12493f0c,Starting Write warning to Azure ephemeral disk...,16
+d5c705ed,Added ephemeral disk warning to /<*>,15
+3dc2c4b7,Started Write warning to Azure ephemeral disk.,16
+31b32990,Starting Execute cloud user/<*> scripts...,16
+8e456186,Starting Update UTMP about System Runlevel Changes...,16
+dc652287,Started Update UTMP about System Runlevel Changes.,16
+21394369,#############################################################,6
+48d1f90d,-----BEGIN SSH HOST KEY FINGERPRINTS-----,3
+12305ae2,<*> SHA256:<*> root@Client03 <*>,2
+98203b87,256 <*> root@Client03 <*>,2
+132107e0,-----END SSH HOST KEY FINGERPRINTS-----,3
+62d7009f,ci-info: no authorized SSH keys fingerprints found for user <*>,3
+61a51dda,Cloud-init v. <*>.<*>-<*>-gbb4131a2-0ubuntu1~<*>.<*>.<*> finished at <*> <*> Mar <*> <*>:<*>:<*> <*>. Datasource DataSourceAzure [seed=<*>]. Up <*>.<*> seconds,16
+c187fe3d,Started Execute cloud user/<*> scripts.,16
+9fb3797c,Startup finished in <*> (kernel) + <*> <*> (userspace) = <*> <*>,8
+075790be,Timed out waiting for reply from <*> (ntp.ubuntu.com).,1
+fcf987af,Synchronized to time server <*> (ntp.ubuntu.com).,18
+038a758d,Starting Cleanup of Temporary Directories...,13
+20447797,Started Cleanup of Temporary Directories.,13
+fed60bb0,[ <*>.<*>] hv_utils: Shutdown request received - graceful shutdown initiated,13
+990f29b7,Stopped target <*> <*>,35
+7c92d15c,Stopped Execute cloud user/<*> scripts.,9
+cdd32468,Unmounting /<*>,8
+e5432bfb,Stopping LSB: Record successful boot for GRUB...,4
+60eafebc,2020/<*>/<*> <*>:<*>:<*>.<*> INFO Daemon Agent WALinuxAgent-<*>.<*>.<*> forwarding signal <*> to WALinuxAgent-<*>.<*>.<*>,4
+ccd65f81,Stopping Azure Linux Agent...,3
+44aa85e3,Stopping <*> Service...,9
+4ba2a6b8,Stopping Getty on tty1...,2
+bb850b38,Stopping <*> Manager...,13
+2f579c3c,Stopping Availability of block devices...,8
+6b3c4980,Stopped target <*>,18
+6578c4e4,Stopped Message of the Day.,5
+ffbc4cc7,Stopping LXD - container startup/<*>,4
+80f3c511,Stopping Unattended Upgrades Shutdown...,2
+268cbe38,Closed Load/<*> RF Kill Switch Status /<*> Watch.,8
+a7f3ac59,Stopping <*> daemon...,7
+3cc3fc9f,Stopped target Host and Network Name Lookups.,6
+01b25ed8,Stopping FUSE filesystem for LXC...,4
+bcc51a2b,Stopping LSB: automatic crash report generation...,3
+471731bd,Stopping Serial Getty on ttyS0...,3
+603cf896,Stopping Hyper-V VSS Protocol Daemon...,5
+46160522,Stopping Deferred execution scheduler...,5
+5c9b0447,Started Remount Root and Kernel File Systems.,2
+9dd390d7,Started Create list of required static device nodes for the current kernel.,1
+440eb43f,Mounted POSIX Message Queue File System.,1
+e9cddce5,Started Uncomplicated firewall.,1
+2b7c62ce,Starting Create Static Device Nodes in /<*>,2
+9d0d59c6,Starting Load/<*> Random Seed...,2
+63b9abf7,Started Load/<*> Random Seed.,6
+1d8dc2ea,Could not set WakeOnLan of eth0 to off: Operation not supported,13
+8be10702,Starting File System Check on /<*>,25
+f57935a5,"fsck.ntfs doesn't exist, not checking file system on /<*>",24
+1f3bde23,Started File System Check on /<*>,25
+3e39fcb9,+ echo cleaning persistent cloud-init object,13
+54734564,cleaning persistent cloud-init object,13
+b90f7849,+ rm /<*>,13
+042a95d5,Stopped File System Check on /<*>,12
+10e7127e,[ <*>.<*>] systemd[<*>]: Created slice System Slice.,15
+d14165d4,[ <*>.<*>] systemd[<*>]: Listening on <*> <*> <*>,10
+bd719c49,[ <*>.<*>] systemd[<*>]: Listening on fsck to fsckd communication Socket.,1
+efacbb2f,<*> INFO ExtHandler Detect protocol endpoints,13
+1545f29b,<*> INFO ExtHandler Clean protocol and wireserver endpoint,13
+edf6e59d,<*> INFO ExtHandler WireServer endpoint is not found. Rerun dhcp handler,13
+ef8e5c57,<*> INFO ExtHandler Test for route to <*>,13
+46dee939,<*> INFO ExtHandler Route to <*> exists,13
+67358bb5,<*> INFO ExtHandler Fabric preferred wire protocol version:<*>-<*>-<*>,13
+dd6d9ee4,<*> INFO ExtHandler Server preferred version:<*>-<*>-<*>,13
+caf05f0e,patch.go:<*>: Patching system state level <*> to sublevel <*>...,6
+51ba57c8,<*> INFO ExtHandler Set block dev timeout: <*> with timeout: <*>,26
+445bb66c,Startup finished in <*> (kernel) + <*> (userspace) = <*>,7
+4ecb915b,Created slice User Slice of <*>,14
+c0177403,Starting User Manager for UID <*>...,14
+88de019e,Started Session <*> of user <*>,18
+11f62f72,Listening on GnuPG network certificate management daemon.,14
+e952c116,Listening on GnuPG cryptographic agent and passphrase cache.,14
+c28f6ce1,Listening on GnuPG cryptographic agent (ssh-agent emulation).,14
+dfe24560,Listening on GnuPG cryptographic agent and passphrase cache (restricted).,14
+4c6577c1,Listening on REST API socket for snapd user session agent.,14
+0e44be6e,Listening on GnuPG cryptographic agent and passphrase cache (access for web browsers).,14
+360bc5b1,Startup finished in <*>,14
+bce4e9d6,Started User Manager for UID <*>.,14
+19d4b0cd,(root) CMD ( cd / && run-parts --report /<*>),30
+26126b81,[<*>] Reloaded configuration,21
+11167ea2,message repeated <*> times: [ [<*>] Reloaded configuration],3
+bd9620bb,Specified user 'usbmux' unknown,3
+343d7cfd,Unknown username <*> in message bus configuration file,6
+4ee561be,Reloading D-Bus System Message Bus.,3
+8aef910c,method return time=<*>.<*> sender=<*> -> destination=:<*>.<*> serial=<*> reply_serial=<*>,3
+3dfd5e13,Reloaded D-Bus System Message Bus.,3
+ca273894,message repeated <*> times: [ Reloading.],18
+96c24eaa,udisks daemon version <*>.<*>.<*> <*>,17
+b880baec,failed to load module mdraid: libbd_mdraid.so.<*>: cannot open shared object file: No such file or directory,14
+70abe7be,Failed to load the 'mdraid' libblockdev plugin,14
+39ae2c0b,Acquired the name org.freedesktop.UDisks2 on the system message bus,14
+c090d417,"[ <*>.<*>] SGI XFS with ACLs, security attributes, realtime, no debug enabled",3
+a55f3c71,debug: running /<*> on /<*><*>,3
+2c6738e6,debug: /<*> type not recognised; skipping,3
+f9c26eca,debug: os detected by /<*>,3
+65689158,debug: running /<*> on mounted /<*><*>,72
+199dbc88,debug: Not on UEFI platform,6
+fef99ba6,debug: /<*> is a FAT32 partition,9
+084e41cd,debug: /<*> is not <*> <*> partition: exiting,27
+80183258,Starting xrdp session manager...,17
+7b144b8b,(<*>)(<*>)[<*>] libscp initialized,17
+5652cab2,(<*>)(<*>)[<*>] Testing if <*> can listen on <*> port <*>.,34
+376fa48c,(<*>)(<*>)[INFO ] starting <*> with pid <*>,34
+dc443f0f,(<*>)(<*>)[<*>] Closed socket <*> (AF_INET6 <*> port <*>),593
+10c3deda,(<*>)(<*>)[INFO ] listening to port <*> on <*>,34
+82e94d41,Started xrdp session manager.,17
+cf932bb0,xrdp.service: Can't open PID file /<*> (yet?) after start: No such file or directory,17
+4ebfb0b4,Starting Message of the Day...,12
+7fc62c9b,"* Latest Kubernetes <*>.<*> beta is now available for your laptop, NUC, cloud",12
+1fcbbd97,"instance or Raspberry Pi, with automatic updates to the final GA release.",12
+40dc91f5,sudo snap install microk8s --channel=<*>.<*>/<*> --classic,12
+d511cc34,* Multipass <*>.<*> adds proxy support for developers behind enterprise,12
+3fda4710,firewalls. Rapid prototyping for cloud operations just got easier.,12
+3f794f25,https:<*>,12
+772fc7c9,Stopped xrdp daemon.,4
+be8da61f,Stopping xrdp session manager...,4
+6864f900,(<*>)(<*>)[INFO ] shutting down sesman <*>,11
+483fc1a7,"xrdp-sesman.service: Control process exited, code=<*> status=<*>",4
+e3a5c07a,xrdp-sesman.service: Failed with result 'exit-code'.,4
+773c3945,Stopped xrdp session manager.,4
+b86f0db1,(<*>)(<*>)[INFO ] Socket <*>: AF_INET6 connection received from ::<*>:<*> port <*>,154
+ddbc35a9,(<*>)(<*>)[INFO ] Using default X.<*> certificate: /<*>,154
+37e6831b,(<*>)(<*>)[INFO ] Using default X.<*> key file: /<*>,154
+9e7e8169,(<*>)(<*>)[<*>] Cannot read private key file /<*>: Permission denied,154
+298a9a78,(<*>)(<*>)[<*>] <*> enabled,462
+223d1f33,"(<*>)(<*>)[<*>] Security layer: requested <*>, selected <*>",132
+53090dd3,(<*>)(<*>)[INFO ] connected client computer name: <*>,21
+295da9b7,(<*>)(<*>)[INFO ] Non-TLS connection established from ::<*>:<*> port <*>: encrypted with standard RDP security,21
+c3a332ba,(<*>)(<*>)[<*>] <*>,36
+34c53d14,(<*>)(<*>)[INFO ] Loading keymap file /<*><*>.ini,21
+e0a1579b,"(<*>)(<*>)[WARN ] local keymap file for <*> found and doesn't match built in keymap, using local keymap file",21
+cd39010b,(<*>)(<*>)[<*>] xrdp_wm_log_msg: connecting to sesman ip <*> port <*>,21
+0ed64fa0,(<*>)(<*>)[INFO ] A connection received from ::<*> port <*>,21
+3cf1d529,(<*>)(<*>)[INFO ] xrdp_wm_log_msg: sesman connect ok,21
+34d45735,"(<*>)(<*>)[<*>] xrdp_wm_log_msg: sending login info to session manager, please wait...",21
+b975037c,(<*>)(<*>)[<*>] return value from xrdp_mm_connect <*>,21
+21a577b2,(<*>)(<*>)[INFO ] ++ created session (access granted): username <*> ip ::<*>:<*> - socket: <*>,11
+642fa595,(<*>)(<*>)[INFO ] starting Xorg session...,11
+9c5026a2,(<*>)(<*>)[INFO ] xrdp_wm_log_msg: login <*> for display <*>,21
+9ec9a9af,(<*>)(<*>)[INFO ] calling auth_start_session from pid <*>,11
+009d0f45,(<*>)(<*>)[<*>] xrdp_wm_log_msg: <*> <*>,36
+b5901751,(<*>)(<*>)[INFO ] /<*> :<*> -auth .Xauthority -config xrdp/<*> -noreset -nolisten tcp -logfile .xorgxrdp.%s.log,11
+8ac8ee2b,(<*>)(<*>)[CORE ] waiting for window manager (pid <*>) to exit,11
+31ced4e3,(<*>)(<*>)[INFO ] lib_mod_log_peer: xrdp_pid=<*> connected to X11rdp_pid=<*> X11rdp_uid=<*> X11rdp_gid=<*> client_ip=::<*>:<*> client_port=<*>,18
+0a6c60d3,(<*>)(<*>)[<*>] xrdp_mm_connect_chansrv: chansrv connect successful,18
+03eb0dc2,[session uid=<*> pid=<*>] AppArmor D-Bus mediation is enabled,17
+5d128491,"[session uid=<*> pid=<*>] Activating service <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> <*> <*> label=""unconfined"")",16
+67d59674,[session uid=<*> pid=<*>] Activated service 'org.freedesktop.systemd1' failed: Process org.freedesktop.systemd1 exited with status <*>,9
+9ca21165,(<*>)(<*>)[INFO ] The following channel is allowed: <*> (<*>),72
+af17a281,(<*>)(<*>)[<*>] The allow channel list now initialized for this session,18
+4a42177f,"[session uid=<*> pid=<*>] Activating service <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> "" label=""unconfined"")",54
+399f293b,[session uid=<*> pid=<*>] Successfully activated service <*>,121
+3130b9ca,Started GnuPG cryptographic agent and passphrase cache.,10
+c647a2f9,gpg-agent (GnuPG) <*>.<*>.<*> starting in supervised mode.,10
+20b10b6c,using fd <*> for <*> socket (/<*><*>/<*>),40
+54a37b86,listening on: std=<*> extra=<*> browser=<*> ssh=<*>,10
+a6afff43,Starting Daemon for power management...,11
+518d8ca6,Started Daemon for power management.,11
+31c0f27b,"[<*>] Activating via systemd: service name='org.freedesktop.RealtimeKit1' unit='rtkit-daemon.service' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""/<*> --start --log-target=<*> "" label=""unconfined"")",10
+951d628c,Starting RealtimeKit Scheduling Policy Service...,11
+95421767,Started RealtimeKit Scheduling Policy Service.,11
+88d5c36d,Successfully called <*>,12
+007c470b,Successfully dropped privileges.,11
+a6390a73,Successfully limited resources.,11
+dbc87ec8,Running.,11
+e23b1677,Watchdog thread running.,11
+ea081b3c,Canary thread running.,11
+46c92b9f,Registered thumbailer /<*> -s %s %u %o,34
+364d11da,[<*>] authkey.c: Failed to <*> <*> <*> '/<*>': No such file or directory,12
+86a00688,"[session uid=<*> pid=<*>] Activating service name='org.a11y.Bus' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""exo-open --launch <*> "" label=""unconfined"")",3
+f82e65d7,"dbus-daemon[<*>]: Activating service name='org.a11y.atspi.Registry' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""exo-open --launch <*> "" label=""unconfined"")",9
+2a3ce7d6,dbus-daemon[<*>]: Successfully activated service 'org.a11y.atspi.Registry',12
+2fdc53d4,SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry,12
+0f51c41e,Supervising <*> threads of <*> processes of <*> users.,33
+2c1c73c3,message repeated <*> times: [ Supervising <*> threads of <*> processes of <*> users.],15
+53f856aa,Started dispatcher: /<*> pid: <*>,18
+0bf58d5e,"No plugins found, exiting",18
+5b81dd29,auditd.service: <*> <*> timed out. <*>,2
+f3406f87,auditd.service: Killing process <*> (auditd) with signal SIGKILL.,2
+5e3bc36c,"auditd.service: Control process exited, code=<*> status=<*>",1
+13ccb0cc,auditd.service: Failed with result 'timeout'.,1
+c65d46c4,Failed to start Security Auditing Service.,1
+1dc1bdd9,"Init complete, auditd <*>.<*>.<*> listening for events (startup state enable)",17
+9ecca45c,dispatcher <*> reaped,17
+dd23ebe3,/<*>: No change,14
+cc63a5ac,No rules,17
+669adf99,enabled <*>,51
+769dc921,failure <*>,51
+dce780ab,pid <*>,51
+df89639b,rate_limit <*>,51
+972148e8,backlog_limit <*>,51
+f03cbe60,lost <*>,51
+058f6143,backlog <*>,51
+26a2e0f6,backlog_wait_time <*>,51
+cf4b3a36,Stopping RealtimeKit Scheduling Policy Service...,5
+e2d83938,Stopping Daemon for power management...,4
+497d7fa4,A connection to the bus can't be made,1
+124c54ab,(<*>)(<*>)[<*>] Closed socket <*> (AF_UNIX),22
+2449c013,Stopping Session <*> of user <*>,9
+938d1c42,(<*>)(<*>)[WARN ] receiving SIGHUP <*>,4
+417f62b7,"(<*>)(<*>)[CORE ] window manager (pid <*>) did exit, cleaning up session",2
+fc551061,Stopped Discard unused blocks once a week.,5
+24c6eb57,Stopped Daily apt upgrade and clean activities.,5
+484dc364,(<*>)(<*>)[INFO ] calling auth_stop_session and auth_end from pid <*>,2
+cda267b8,Stopped Daily apt download activities.,5
+6328188f,Stopped target System Time Synchronized.,4
+4c3b472a,Stopped Daily Cleanup of Temporary Directories.,5
+f7b4ee4f,Stopping User Manager for UID <*>...,7
+2fb9b74e,SIGTERM received - shutting down ...,2
+04b56fe9,Stopping GnuPG cryptographic agent and passphrase cache...,2
+4ac826c0,Stopping Dispatcher daemon for systemd-networkd...,3
+7da47a20,Stopped Write warning to Azure ephemeral disk.,3
+e65e5dbd,Stopped Apply the settings specified in cloud-config.,3
+4eee359e,gpg-agent (GnuPG) <*>.<*>.<*> stopped,1
+3233ab26,"[ <*>.<*>] <*> Vulnerable: Clear CPU buffers attempted, no microcode",20
+b06f0da5,Starting D-Bus User Message Bus Socket.,11
+08c9d9c4,"[session uid=<*> pid=<*>] Activating via systemd: service <*> <*> requested by ':<*>.<*>' (uid=<*> pid=<*> <*> "" label=""unconfined"")",44
+4c1a9a74,Starting <*> <*> service...,14
+8ce571ec,Started <*> <*> service.,14
+86344ca0,Starting Virtual filesystem service - <*> <*> monitor...,9
+fbe2440f,Started Virtual filesystem service - <*> <*> monitor.,9
+7b7604ae,Starting Virtual filesystem metadata service...,8
+accf02b5,Started Virtual filesystem metadata service.,8
+8ff60b3c,"[session uid=<*> pid=<*>] Activating via systemd: service name='org.a11y.Bus' unit='at-spi-dbus-bus.service' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""exo-open --launch TerminalEmulator "" label=""unconfined"")",6
+3d2726ca,Starting Accessibility services bus...,9
+144e50cd,Started Accessibility services bus.,9
+8e3092d9,Starting <*> <*> Server...,9
+82bee054,Started GNOME <*> <*>,9
+b37fee6f,Starting Daily apt download activities...,8
+0d04d382,Stopping <*> <*> Service...,4
+2e87be9e,The audit daemon is exiting.,3
+bc851626,Stopped Security Auditing Service.,3
+e5dc5808,[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): <*> old=<*> auid=<*> ses=<*> res=<*>,6
+8e9ed447,"[ <*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): pid=<*> uid=<*> auid=<*> ses=<*> msg='unit=<*> comm=""systemd"" exe=""/<*>"" hostname=? addr=? terminal=? res=<*>'",6
+fa7ab593,Stopping Accessibility services bus...,3
+58de6dd7,"dbus-daemon[<*>]: Activating service name='org.a11y.atspi.Registry' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""xfce4-appfinder "" label=""unconfined"")",1
+bb6e830a,Stopping D-Bus <*> Message Bus...,5
+76b18ae2,Starting Daily apt upgrade and clean activities...,6
+035d5eb7,Stopping Regular background program processing daemon...,2
+0988eeda,xrdp-sesman.service: Unit not needed anymore. Stopping.,1
+7fb5b6e7,Stopped Wait until snapd is fully seeded.,1
+60bc125e,xrdp.service: Start operation timed out. Terminating.,1
+133a6c35,xrdp.service: Failed with result 'timeout'.,1
+f8c8d0b4,eth0: DHCP lease lost,1
+abae7b1f,<*> INFO <*> Target handler state: enabled,4
+6c851e33,<*> INFO <*> [<*>] current handler state is: <*>,4
+7edfa89c,<*> INFO [Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux-<*>] <*> extension package: <*>,2
+ed752ab4,2020-<*>-14T10:<*>:<*>.878808Z INFO [Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux-<*>] Initializing extension Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux-<*>,1
+07e6032c,2020-<*>-14T10:<*>:<*>.058554Z INFO ExtHandler Created slice for system-walinuxagent.extensions-Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux_<*>.slice,1
+27026b9d,<*> INFO <*> Update settings file: <*>.settings,4
+2fd5a1f8,<*> INFO [Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux-<*>] <*> extension [./<*> <*>,4
+729f0a84,<*> INFO ExtHandler Started extension using scope <*>,5
+5f28eeef,Started /<*><*>/<*> <*>,4
+3f1369a7,<*> INFO ExtHandler Stopped tracking cgroup: <*> path: <*>,6
+9b65b4f9,Stopping /<*><*>/<*> enable.,2
+acd131b7,Deactivating block devices:,1
+8821ee3b,Started File System Check Daemon to report status.,1
+fdfb82ad,"/<*>: clean, <*>/<*> files, <*>/<*> blocks",1
+e6606746,g_udev_device_has_property: assertion 'G_UDEV_IS_DEVICE (device)' failed,30
+504550ad,"(<*>)(<*>)[INFO ] ++ reconnected session: username <*> display :<*>.<*>, session_pid <*>, ip ::<*>:<*> - socket: <*>",7
+5cffdb36,message repeated <*> times: [ g_udev_device_has_property: assertion 'G_UDEV_IS_DEVICE (device)' failed],5
+184e0fc4,| . <*> <*> |,3
+d4d2a870,| <*> <*> o |,3
+9900485a,| <*>,8
+c276fe8c,| ...=<*> =|,1
+7f0fb0a7,| S = =<*>|,1
+b843cbac,|* o..+. .... |,1
+25fb7d27,|<*> = == oo..o |,1
+57b30ce4,|<*> + *+=+o .o . |,1
+f1eae329,|<*> . =<*>+ + oo.+ |,1
+817dd825,| . <*> <*> <*> |,4
+b1db98d8,| o <*> <*> <*> |,3
+c0ed4bf7,| . @ . o .|,1
+93cc29d3,| . ..+ o o|,1
+6e105162,| o.+ +*... B|,1
+6368c3fb,[ <*>.<*>] x86/<*>: Supporting XSAVE feature 0x008: 'MPX bounds registers',3
+e713074b,[ <*>.<*>] systemd[<*>]: Listening on Syslog Socket.,2
+4bf1bccf,1024 <*> <*> (DSA),2
+570510cb,256 <*> root@Client02 <*>,2
+7d296023,2048 <*> <*> (RSA),2
+b71c58f9,Startup finished in <*>.530s (kernel) + <*>.265s (userspace) = 1min <*>.795s.,1
+05092031,[ <*>.<*>] systemd[<*>]: Listening on <*> <*> <*> <*>,7
+b4b6e001,"[origin software=""rsyslogd"" swVersion=""<*>.<*>.<*>"" x-pid=""<*>"" x-info=""http:<*>""] rsyslogd was HUPed",2
+4994b3db,Job <*> terminated,3
+6e5dbedf,Job <*> started,2
+9a1114e7,Updated timestamp for job <*> to <*>-<*>-<*>,2
+a4e1edf1,Normal exit (<*> <*> run),9
+c56374aa,Started Run anacron jobs.,8
+a411189a,Anacron <*>.<*> started on <*>-<*>-<*>,8
+73f564e0,Starting Clean php session files...,16
+f429e815,(root) CMD ( [ -x /<*> ] && if [ ! -d /<*> ]; then /<*>; fi),15
+6d8806bb,Started Clean php session files.,16
+77057d76,Stopping ACPI event daemon...,1
+b34d9d24,WARNING: Lost name on bus: org.gnome.SessionManager,1
+ab6c9ed8,gnome-session-binary[<*>]: WARNING: Lost name on bus: org.gnome.SessionManager,1
+35f6490a,"gnome-session-binary[<*>]: CRITICAL: We failed, but the fail whale is dead. Sorry....",1
+230a32b4,Stopping Evolution <*> <*>,2
+dde01ef5,"CRITICAL: We failed, but the fail whale is dead. Sorry....",1
+44cfa83c,Stopping Evolution address book service...,1
+ecfc528e,Stopping Virtual filesystem service - <*> <*> <*> monitor...,3
+3e8d2473,Stopping Virtual filesystem service - <*> <*> monitor...,2
+a5027086,Stopping GNOME <*> <*>,2
+92bc8043,Stopping sandboxed app permission store...,2
+197ae733,Stopping <*> <*> service...,2
+39552eb9,Removed slice system-getty.slice.,1
+b0cc873b,Owner of volume monitor <*> disconnected from the bus; removing drives/<*>,5
+5db5c99d,Error releasing name org.freedesktop.portal.IBus: The connection is closed,1
+a0df826e,Stopped sandboxed app permission store.,2
+5678e0c3,Stopped Virtual filesystem service - <*> <*> <*> monitor.,3
+7da76490,Stopped Virtual filesystem service - <*> <*> monitor.,2
+ad11fb61,g_object_notify: object class <*> has no property named 'g-name-owner',3
+97678628,Stopping PackageKit Daemon...,1
+62368ab6,"Stopping Manage, Install and Generate Color Profiles...",1
+8fd364c5,(**) Option <*> <*>,23
+08a1f5f9,(II) event3 - Microsoft Vmbus HID-compliant Mouse: device removed,2
+f18e26c4,(II) event0 - Power Button: device removed,2
+ea108826,(II) <*> - AT Translated Set <*> keyboard: device removed,4
+401d81e4,Stopping vsftpd FTP server...,1
+7dd66087,(II) UnloadModule: <*>,3
+2758b416,(II) systemd-logind: releasing fd for <*>:<*>,1
+dbdfd833,Stopped Sound Service.,1
+e0b4a858,"xdg-permission-store.service: Main process exited, code=<*>, status=<*>/<*>",1
+6db65356,xdg-permission-store.service: Failed with result 'exit-code'.,1
+331a04d5,Stopped D-Bus User Message Bus.,4
+a229b9dc,Stopping MySQL Community Server...,1
+bf176dbe,Stopping The Apache HTTP Server...,1
+a48f7573,Stopped Evolution <*> <*>,2
+e8f3f924,Stopped Evolution address book service.,1
+1757d236,Stopped GNOME Terminal Server.,1
+c3655409,Stopped Virtual filesystem service.,1
+472fd622,Stopping Make remote CUPS printers available locally...,2
+13fc357c,Mounting Mount unit for <*> revision <*>...,3
+06fa2137,Mounted Mount unit for <*> revision <*>.,3
+d66498f7,Starting Enable support for additional executable binary formats...,1
+d24c1c5f,Starting Clean up any mess left by 0dns-up...,1
+b5a67892,"proc-sys-fs-binfmt_misc.automount: Got automount request for /<*>, triggered by <*> (update-binfmts)",1
+067f1e50,Mounting Arbitrary Executable File Formats File System...,1
+1301a05b,Mounted Arbitrary Executable File Formats File System.,1
+4ba2f73d,Started Enable support for additional executable binary formats.,1
+3d64ecab,Started Clean up any mess left by 0dns-up.,1
+d8ec269d,Starting Raise network interfaces...,1
+ae7b359f,Started Raise network interfaces.,1
+317d1295,Listening on <*> <*>,5
+7082df57,Started Trigger anacron every hour.,1
+87fbc3eb,Listening on Avahi mDNS/<*> Stack Activation Socket.,1
+cea3056c,Started Clean PHP session files every <*> mins.,1
+11847e22,Started CUPS Scheduler.,4
+63a1f397,Starting Avahi mDNS/<*> Stack...,1
+9fcc2a6d,Started ntp-systemd-netif.service.,1
+3af89302,Starting Restore /<*> if the system crashed before the ppp link was shut down...,1
+dfec115d,starting up with netlink and the input layer,1
+d133e78b,Starting Detect the available GPUs and deal with any system changes...,1
+fcb83a28,8 rules loaded,1
+cbcbed96,waiting for events: event logging is off,1
+51254a0e,Error: can't open /<*><*>.<*>.<*>-<*>-azure/<*>,2
+b9adfc22,Will run job `cron.daily' in <*> min.,1
+6cfe88d0,Jobs will be executed sequentially,1
+a9c2062a,Found user 'avahi' (UID <*>) and group 'avahi' (GID <*>).,1
+0a88c350,Successfully dropped <*> <*>,2
+e4007d4b,avahi-daemon <*>.<*> starting up.,1
+3560fdc6,[ <*>.<*>] systemd[<*>]: Started ntp-systemd-netif.path.,1
+d3875ee0,[ <*>.<*>] lp: driver loaded but no devices found,1
+3fadc048,[ <*>.<*>] ppdev: user-space parallel port driver,1
+d42cf199,<info> ModemManager (version <*>.<*>.<*>) starting in system bus...,1
+258b42b4,Starting WPA supplicant...,1
+3236e41d,No service file found in /<*>,1
+2b8470f5,Joining mDNS multicast group on interface <*> with address <*>,4
+dbc8d0a9,New relevant interface <*> for mDNS.,4
+feef7a9b,Network interface enumeration completed.,1
+314acc1e,Registering new address record for <*> on <*>,4
+ed2e69ae,"[<*>] Activating via systemd: service <*> <*> requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""/<*> <*> "" label=""unconfined"")",8
+47e403b6,Started Restore /<*> if the system crashed before the ppp link was shut down.,1
+5859690d,Started Detect the available GPUs and deal with any system changes.,1
+64756601,Started Avahi mDNS/<*> Stack.,1
+649c1249,Started Make remote CUPS printers available locally.,2
+1c1ca13a,Server startup complete. Host name is UbuntuApp.local. Local service cookie is <*>.,1
+d8adbb5b,Started WPA supplicant.,1
+0953a42c,Successfully initialized wpa_supplicant,1
+656031ce,<info> [<*>.<*>] NetworkManager (version <*>.<*>.<*>) is starting... (for the first time),1
+efb3eab6,"<info> [<*>.<*>] Read config: /<*> (lib: <*>-dns-resolved.conf, <*>-globally-managed-devices.conf, <*>-connectivity-ubuntu.conf, no-mac-addr-change.conf) (run: netplan.conf) (etc: default-wifi-powersave-on.conf)",1
+0967387d,<info> [<*>.<*>] manager[<*>]: monitoring kernel firmware directory '/<*>'.,1
+05e8fe99,<info> [<*>.<*>] monitoring ifupdown state file '/<*>'.,1
+7f5782cf,<info> [<*>.<*>] hostname: hostname: using hostnamed,1
+3488e62f,"<info> [<*>.<*>] hostname: hostname changed from (none) to ""UbuntuApp""",1
+ca698422,"<info> [<*>.<*>] dns-mgr[<*>]: init: dns=<*>, rc-manager=<*>, plugin=<*>",1
+3513bab1,<info> [<*>.<*>] manager[<*>]: rfkill: <*> hardware radio set enabled,2
+d0305d4c,Starting Network Manager Wait Online...,1
+848957c5,Starting vsftpd FTP server...,1
+cf670cc6,Starting Network Manager Script Dispatcher Service...,1
+9f2d524b,Started vsftpd FTP server.,1
+16a3ed3f,Started Network Manager Script Dispatcher Service.,1
+b3da47fb,<info> [<*>.<*>] init!,1
+df72f514,<info> [<*>.<*>] interface-parser: parsing file /<*>,1
+0507c4bc,<info> [<*>.<*>] interface-parser: finished parsing file /<*>,1
+4ac07c2a,<info> [<*>.<*>] management mode: unmanaged,1
+1b6efe44,<info> [<*>.<*>] devices added (path: <*> iface: <*>,2
+a8859a39,<info> [<*>.<*>] device added (path: <*> iface: <*> no ifupdown configuration found.,2
+4cef3aa7,<info> [<*>.<*>] end _init.,1
+26c339d1,<info> [<*>.<*>] settings: loaded plugin ifupdown: (C) <*> Canonical Ltd. To report bugs please use the NetworkManager mailing list. (/<*><*>-linux-gnu/<*>),1
+6b7899da,"<info> [<*>.<*>] settings: loaded plugin keyfile: (c) <*> - <*> Red Hat, Inc. To report bugs please use the NetworkManager mailing list.",1
+7da0c448,<info> [<*>.<*>] (<*>) ... get_connections.,1
+d4030f8b,<info> [<*>.<*>] (<*>) ... get_connections (managed=<*>): return empty list.,1
+aa41dd7d,<info> [<*>.<*>] get unmanaged devices count: <*>,1
+052b40ca,<info> [<*>.<*>] manager: rfkill: <*> enabled by radio killswitch; enabled by state file,2
+edd4c557,<info> [<*>.<*>] manager: Networking is enabled by state file,1
+1ea12ae0,<info> [<*>.<*>] dhcp-init: Using DHCP client 'dhclient',1
+ea74d065,req:<*> 'hostname': new request (<*> scripts),1
+07adb6b1,req:<*> 'hostname': start running ordered scripts...,1
+7dd27630,<info> [<*>.<*>] Loaded device plugin: <*> <*>,18
+65b3d684,<info> [<*>.<*>] device <*> carrier: link connected,2
+187aa109,<info> [<*>.<*>] manager: <*> new <*> device (/<*><*>),2
+79fd0a78,<info> [<*>.<*>] modem-manager: ModemManager available,1
+65ec4919,<info> [<*>.<*>] manager: startup complete,1
+1fec568f,Started Network Manager Wait Online.,1
+53eac9ad,Starting The Apache HTTP Server...,1
+69e5a2ce,Starting LSB: Speech Dispatcher...,1
+c6670f62,Starting Tool to automatically collect and submit kernel crash signatures...,1
+fcd075ae,Started crash report submission daemon.,1
+61b726b2,Starting GNOME Display Manager...,1
+2a09e4b9,* speech-dispatcher disabled; edit /<*>,1
+92ba5df8,Started LSB: Speech Dispatcher.,1
+1eff1f15,kerneloops.service: Found left-over process <*> (kerneloops) in control group while starting unit. Ignoring.,1
+6f3e3aa9,"This usually indicates unclean termination of a previous run, or service implementation deficiencies.",1
+51820fb1,Started Tool to automatically collect and submit kernel crash signatures.,1
+1b01c3a6,[<*>:<*>:<*>] Using lock path: /<*>,1
+fecb7de9,[<*>:<*>:<*>] offline,1
+c4bb626f,"AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using <*>. Set the 'ServerName' directive globally to suppress this message",2
+3f9bb152,Started The Apache HTTP Server.,1
+8f8abc26,Started Pending report trigger for Ubuntu Report.,4
+25b4ca75,<*> INFO ExtHandler Found private key matching thumbprint 2DE51B8FFFD9DAD7888C396B86718FC433BB35CD,3
+83b3395b,Started MySQL Community Server.,1
+a65517b5,"storehelpers.go:<*>: cannot refresh: snap has no updates available: ""cmake"", ""core18"", ""snapd""",2
+572eb239,autorefresh.go:<*>: auto-refresh: all snaps are up-to-date,2
+19de5a18,Failed to create backend: Could not find a primary drm kms device,2
+28fa8993,Unrecoverable failure in required component org.gnome.Shell.desktop,2
+4cd04a04,WARNING: App <*> exited with code <*>,4
+be528ead,gnome-session-binary[<*>]: WARNING: App <*> exited with code <*>,4
+87ea07d9,Child process <*> was already dead.,4
+4fd7418b,Unable to kill session worker process,2
+9c8cb872,Stopped Pending report trigger for Ubuntu Report.,2
+c3c5861a,Closed GnuPG cryptographic agent and passphrase cache.,2
+30af9ce0,Closed GnuPG cryptographic agent (ssh-agent emulation).,2
+f3df8bd4,Closed REST API socket for snapd user session agent.,2
+d1ee7a34,Closed GnuPG cryptographic agent and passphrase cache (restricted).,2
+29251c31,Closed GnuPG network certificate management daemon.,2
+fdf3b490,Closed GnuPG cryptographic agent and passphrase cache (access for web browsers).,2
+611a3f4c,Closed Sound System.,2
+ac974b29,Closed D-Bus User Message Bus Socket.,2
+fe23ad32,Starting Exit the Session...,2
+ec9e5423,Received SIGRTMIN+<*> from PID <*> <*>,2
+2ad62ff0,Stopped User Manager for UID <*>.,2
+3cfd0095,Removed slice User Slice of gdm.,2
+09db75ff,GdmDisplay: display lasted <*>.<*> seconds,1
+65c8e769,Started Exit the Session.,1
+74d76783,"(--) Log file renamed from ""/<*><*>.log"" to ""/<*><*>.log""",1
+49707341,X.Org X Server <*>.<*>.<*>,1
+b589c38b,Release Date: <*>-<*>-<*>,1
+c2ce0ee8,"X Protocol Version <*>, Revision <*>",1
+39942694,Build Operating System: Linux <*>.<*>.<*>-<*>-generic x86_<*> Ubuntu,1
+7a1efee6,Current Operating System: Linux UbuntuApp <*>.<*>.<*>-<*>-azure #<*>-Ubuntu SMP Mon Feb <*> <*>:<*>:<*> UTC <*> x86_<*>,1
+962fa944,Kernel command line: BOOT_IMAGE=<*><*>.<*>.<*>-<*>-azure root=<*>=<*> ro console=<*> console=<*> earlyprintk=<*> rootdelay=<*>,1
+9cfdc42f,Build Date: <*> November <*> <*>:<*>:<*>,1
+007fa42f,xorg-server <*>:<*>.<*>.<*>-1ubuntu4.<*> (For technical support please see http:<*>),1
+af53f13b,Current version of pixman: <*>.<*>.<*>,1
+0fdd3bc8,"#011Before reporting problems, check http:<*>",1
+bd17fae0,#011to make sure that you have the latest version.,1
+ffdf70e6,"Markers: (--) probed, (**) from config file, (==) default setting,",1
+e8812727,"#<*>(++) from command line, (!!) notice, (II) informational,",1
+f1e25bb7,"#<*>(WW) warning, (EE) error, (NI) not implemented, (??) unknown.",1
+e1f31df4,"(==) Log file: ""/<*><*>.log"", Time: Sat Mar <*> <*>:<*>:<*> <*>",1
+34d0c059,"(==) Using system config directory ""/<*>""",1
+b53e8018,(==) No Layout section. Using the first Screen section.,1
+76c01dfc,(==) No screen section available. Using defaults.,1
+d3b33bd0,"(**) |<*>>Screen ""Default Screen Section"" (<*>)",1
+c0644cc7,"(**) | |<*>>Monitor ""<default monitor>""",1
+50617c7e,"(==) No monitor specified for screen ""Default Screen Section"".",1
+7d3fcaa5,#011Using a default monitor configuration.,1
+d18fa85d,(==) Automatically <*> devices,2
+2687a62f,(==) Automatically <*> GPU devices,2
+4b8b7ac8,"(==) Max clients allowed: <*>, resource mask: 0x1fffff",1
+66843cca,"(WW) The directory ""/<*>"" does not exist.",5
+9f24d95a,#011Entry deleted from font path.,5
+8742b431,(==) FontPath set to:,1
+65671d90,"#<*>/<*>,",2
+9836bbc7,#011built-ins,1
+632650a7,"(==) ModulePath set to ""/<*>""",1
+4401fc4b,(II) The server relies on udev to provide the list of input devices.,1
+3c6627d9,"#011If no devices become available, reconfigure udev or disable AutoAddDevices.",1
+cf6060af,(II) Loader magic: 0x55965c5b<*>,1
+9b327e65,(II) Module ABI versions:,1
+e09bc21d,#011X.Org ANSI C Emulation: <*>.<*>,1
+eee1c5e1,#011X.Org Video Driver: <*>.<*>,1
+3f0d2ec0,#011X.Org <*> <*> : <*>.<*>,2
+04d6b332,(++) using VT number <*>,1
+e1afb0de,(II) systemd-logind: took control of session /<*><*>,1
+32aa228d,"(--) PCI:*(<*>:<*>:<*>:<*>) <*>:<*>:<*>:<*> rev <*>, Mem @ 0xf8000000/<*>, BIOS @ 0x????????/<*>",1
+f37640d7,(II) LoadModule: <*>,8
+f4b5bafb,(II) Loading /<*>,8
+dbcc63ef,"(II) Module <*> vendor=""X.Org Foundation""",8
+97030482,"#011compiled for <*>.<*>.<*>, module version = <*>.<*>.<*>",8
+4d041a54,#011ABI class: X.Org <*> <*> version <*>.<*>,6
+b0554835,(==) Matched <*> as autoconfigured driver <*>,3
+dd758d59,(==) Assigned the driver to the xf86ConfigLayout,1
+035e202b,#011Module class: X.Org <*> Driver,4
+b5b0effc,(II) modesetting: Driver for Modesetting Kernel Drivers: kms,1
+dc14e46b,(II) FBDEV: driver for framebuffer: fbdev,1
+cbab972a,(II) VESA: driver for VESA chipsets: vesa,1
+df38b167,(EE) open /<*>: No such file or directory,2
+9af39f1d,(WW) Falling back to old probe method for <*>,2
+a25ae1e4,(II) Loading sub module <*>,3
+8f9f96db,(**) FBDEV(<*>): claimed PCI slot <*>@<*>:<*>:<*>,1
+d01e772d,(II) FBDEV(<*>): using default device,1
+d62a8530,(EE) Screen <*> deleted because of no matching config section.,1
+5365890a,(II) FBDEV(<*>): Creating default Display subsection in Screen section,1
+d8b72d9e,"#<*>""Default Screen Section"" for depth/<*> <*>/<*>",1
+9026dfff,"(==) FBDEV(<*>): Depth <*>, (==) framebuffer bpp <*>",1
+1bb72bfd,(==) FBDEV(<*>): RGB weight <*>,1
+0b897f6b,(==) FBDEV(<*>): Default visual is TrueColor,1
+0dbcc517,"(==) FBDEV(<*>): Using gamma correction (<*>.<*>, <*>.<*>, <*>.<*>)",1
+4ae27101,(II) FBDEV(<*>): hardware: hyperv_fb (video memory: 8192kB),1
+d0c939bf,(II) FBDEV(<*>): checking modes against framebuffer device...,1
+9d8abb57,(II) FBDEV(<*>): checking modes against monitor...,1
+9f00c79e,(--) FBDEV(<*>): Virtual size is 1152x864 (pitch <*>),1
+58af4d83,"(**) FBDEV(<*>): Built-in mode ""current""",1
+777ae258,"(==) FBDEV(<*>): DPI set to (<*>, <*>)",1
+62a0bb94,"#011ABI class: X.Org ANSI C Emulation, version <*>.<*>",2
+be5112c9,(**) FBDEV(<*>): using shadow framebuffer,1
+72a152a1,(II) Unloading vesa,1
+147f2f44,(==) Depth <*> pixmap format is <*> bpp,1
+3ab9aea6,(==) FBDEV(<*>): Backing store enabled,1
+8e803207,(==) FBDEV(<*>): DPMS enabled,1
+84cb5b82,(==) RandR enabled,1
+3f554ccf,(II) SELinux: Disabled on system,1
+f4aa4cd5,(II) AIGLX: Screen <*> is not DRI2 capable,1
+ad47d0bb,(EE) AIGLX: reverting to software rendering,1
+5481c1e6,(II) IGLX: enabled GLX_MESA_copy_sub_buffer,1
+f62b10ba,(II) IGLX: Loaded and initialized swrast,1
+ed2b87e3,(II) GLX: Initialized DRISWRAST GL provider for screen <*>,1
+85b3020e,(II) config/<*>: Adding input device Microsoft Vmbus HID-compliant Mouse (/<*>),3
+7f15e8e8,"(**) Microsoft Vmbus HID-compliant Mouse: Applying InputClass ""libinput pointer catchall""",1
+c6cbb685,(II) Using input driver 'libinput' for 'Microsoft Vmbus HID-compliant Mouse',1
+5ad5a8f9,(II) systemd-logind: got fd for /<*> <*>:<*> fd <*> paused <*>,4
+1de33e32,(**) Microsoft Vmbus HID-compliant Mouse: <*> <*> <*> <*>,4
+31021e72,(II) event3 - Microsoft Vmbus HID-compliant Mouse: is tagged by udev as: Mouse,2
+d437e260,(II) event3 - Microsoft Vmbus HID-compliant Mouse: device is a pointer,2
+2a8d6312,"(II) XINPUT: Adding extended input device ""Microsoft Vmbus HID-compliant Mouse"" (type: MOUSE, id <*>)",1
+1fd0f898,"(II) No input driver specified, ignoring this device.",2
+b2a916dc,(II) This device may have been added with another device file.,2
+7c75117d,(II) config/<*>: Adding input device Power Button (/<*>),1
+d515daa2,"(**) Power Button: Applying InputClass ""libinput keyboard catchall""",1
+6497dec7,(II) Using input driver 'libinput' for 'Power Button',1
+a70ab994,(**) Power Button: always reports core events,1
+ce202dc9,(II) event0 - Power Button: is tagged by udev as: Keyboard,2
+f2f88b28,(II) event0 - Power Button: device is a keyboard,2
+c5b8140c,"(II) XINPUT: Adding extended input device ""Power Button"" (type: KEYBOARD, id <*>)",1
+04ecc44f,(II) config/<*>: Adding input device AT Translated Set <*> keyboard (/<*>),2
+94b8f3ad,"(**) AT Translated Set <*> keyboard: Applying InputClass ""libinput keyboard catchall""",2
+97a18e50,(II) Using input driver 'libinput' for 'AT Translated Set <*> keyboard',2
+cfdbc53f,(**) AT Translated Set <*> keyboard: always reports core events,2
+7d1e8320,(II) <*> - AT Translated Set <*> keyboard: is tagged by udev as: Keyboard,4
+58228c6c,(II) <*> - AT Translated Set <*> keyboard: device is a keyboard,4
+fd0a2258,"(II) XINPUT: Adding extended input device ""AT Translated Set <*> keyboard"" (type: KEYBOARD, id <*>)",2
+fe53fc91,"[session uid=<*> pid=<*>] Activating via systemd: service <*> <*> requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""/<*>"" label=""unconfined"")",4
+95c3843f,"dbus-daemon[<*>]: Activating service name='org.a11y.atspi.Registry' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""/<*>"" label=""unconfined"")",2
+3dfd03ab,gnome-session-check-accelerated: <*> Helper exited with code <*>,2
+b2421105,libEGL warning: DRI2: failed to authenticate,1
+983095b5,"[session uid=<*> pid=<*>] Activating service name='org.freedesktop.portal.IBus' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""ibus-daemon --xim --panel disable "" label=""unconfined"")",2
+41e464b9,Starting sandboxed app permission store...,2
+4349574a,Started sandboxed app permission store.,2
+2eb7fa1b,2020-<*>-14T10:<*>:<*>.300632Z INFO [Microsoft.OSTCExtensions.VMAccessForLinux-<*>.<*>.<*>] Enable extension [extension_shim.sh -c ./<*> -e],1
+d59a3cce,Started /<*><*>.<*>.<*>/<*> -c ./<*> -e.,1
+b3cb10d9,Starting PackageKit Daemon...,1
+ae506aa4,Cannot access vdagent virtio channel /<*><*>,2
+f99bc71e,bolt <*>.<*> starting up.,1
+0262d0ab,daemon start,1
+28ad4e16,config: loading user config,1
+1a6fd3e7,bouncer: initializing polkit,1
+dd28837c,udev: initializing udev,1
+6c08e4ce,store: loading devices,1
+01776c49,power: force power support: no,1
+4676c2b7,udev: enumerating devices,1
+c7b73736,Started PackageKit Daemon.,1
+dd8dbb87,"Starting Manage, Install and Generate Color Profiles...",1
+81c318dc,"Started Manage, Install and Generate Color Profiles.",1
+3e229952,Entering running state,2
+5088a2ef,openConnection: connect: No such file or directory,1
+b24b57e0,cannot connect to braille devices daemon brltty at :<*>,1
+fd6c2fc1,failed to get edid: unable to get EDID for output,2
+1871071f,Error looking up permission: GDBus.Error:<*>: No entry for geolocation,2
+239a4d5f,unable to get EDID for xrandr-default: unable to get EDID for output,1
+207a901f,JS WARNING: [resource:<*> <*>]: reference to undefined property <*>,5
+7b6a9805,E: Sub-process nm-online returned an error code (<*>),1
+73b0007e,no dictionary update necessary.,1
+d7be613d,Reloading The Apache HTTP Server.,1
+bfae94f5,Reloaded The Apache HTTP Server.,1
+953eab6e,Stopped Make remote CUPS printers available locally.,1
+3018b51a,Stopping CUPS <*>,3
+4309b8cb,Stopped CUPS Scheduler.,2
+559faec1,Closed CUPS Scheduler.,1
+1316f7d1,couldn't access control socket: /<*><*>/<*>: No such file or directory,3
+4c5e0c9f,SSH_AUTH_SOCK=<*><*>/<*>,1
+3695938d,Starting Evolution source registry...,1
+a9d4ad84,"Telepathy is not available, chat integration will be disabled.",1
+12d4cded,Starting Virtual filesystem service - <*> <*> <*> monitor...,3
+58232991,Started Evolution source registry.,1
+8cbae5d8,goa-daemon version <*>.<*>.<*> starting,1
+f5dad9f6,Started Virtual filesystem service - <*> <*> <*> monitor.,3
+64625868,Volume monitor alive,1
+088ee428,[ <*>.<*>] rfkill: input handler disabled,1
+ab3353f3,Failed to StopUnit service: GDBus.Error:<*>: Unit <*> not loaded.,3
+a4896c6e,Could not get current seat: No data available,2
+c43351c8,Unable to inhibit keypresses: GDBus.Error:<*>: Permission denied,1
+f8c04e36,st_label_set_text: assertion 'text != NULL' failed,1
+55d7bd17,"[session uid=<*> pid=<*>] Activating service name='ca.desrt.dconf' requested by ':<*>.<*>' (uid=<*> pid=<*> comm=""/<*>"" label=""unconfined"")",1
+175e50e3,Starting Evolution address book service...,1
+8d08b59d,Started Evolution address book service.,1
+16f805f3,GNOME Shell started at Sat Mar <*> <*> <*>:<*>:<*> GMT+<*> (CET),1
+b661a729,failed to create device: failed to obtain org.freedesktop.color-manager.create-device auth,1
+d58ca65e,g_key_file_load_from_file: assertion 'file != NULL' failed,4
+846e11c8,"Could not establish a connection to Tracker: Failed to load SPARQL backend: Key file does not have group ""DomainOntology""",4
+e4e2d0fb,g_queue_pop_head: assertion 'queue != NULL' failed,17
+b0d84619,g_queue_foreach: assertion 'queue != NULL' failed,17
+4a258a6a,g_queue_free: assertion 'queue != NULL' failed,17
+d7391f8a,plugin appstream took <*>.<*> seconds to do setup,1
+b2576fb8,"enabled plugins: os-release, packagekit, packagekit-url-to-app, desktop-categories, systemd-updates, packagekit-refine-repos, fwupd, packagekit-local, packagekit-refresh, shell-extensions, ubuntuone, packagekit-offline, packagekit-proxy, packagekit-upgrade, appstream, steam, hardcoded-blacklist, hardcoded-popular, modalias, rewrite-resource, generic-updates, desktop-menu-path, hardcoded-featured, odrs, packagekit-refine, packagekit-history, provenance, snap, provenance-license, icons, key-colors, key-colors-metadata",1
+e4140c0a,"disabled plugins: dpkg, repos, dummy, epiphany",1
+cc5e21ad,Starting Firmware update daemon...,1
+75eea003,resolve transaction <*> from uid <*> finished with <*> after <*>,4
+cdb8705e,get-updates transaction <*> from uid <*> finished with success after <*>,2
+55dd13b6,"Only <*> apps for recent list, hiding",1
+c2e33029,search-file transaction <*> from uid <*> finished with success after <*>,9
+7d90f82d,"Failed to find one package for byobu.desktop, /<*>, [<*>]",1
+aec78080,get-details transaction /<*>_ebccdede from uid <*> finished with success after 272ms,1
+f09eb3fe,Failed to load snap icon: local snap has no icon,1
+b392a796,Unable to acquire bus name 'org.gnome.Software',1
+7d736e44,Error executing command as another user: Not authorized,1
+1026f198,This incident has been reported.,1
+05df6bda,failed to call gs_plugin_refine_app on snap: Failed to write to snapd: Operation was cancelled,3
+8353275c,message repeated <*> times: [ failed to call gs_plugin_refine_app on snap: Failed to write to snapd: Operation was cancelled],3
+1e0a12ec,"internal error: failed, but no error code: cancelled",2
+370f383d,"Object St.Bin (0x5576534fec60), has been already finalized. Impossible to set any property to it.",14
+dcb1b465,== Stack trace for context 0x557650578340 ==,28
+78f64dd3,#<*> <*> <*> resource:<*>:<*> <*> @ <*>),98
+76076e9e,#<*> <*> <*> self-hosted:<*> (0x7f0f545f12b8 @ <*>),28
+9e1f9083,"Object St.Bin (0x5576534fec60), has been already deallocated - impossible to access it. This might be caused by the object having been destroyed from C code using something such as destroy(), dispose(), or remove() vfuncs",14
+551b6fa6,clutter_actor_set_size: assertion 'CLUTTER_IS_ACTOR (self)' failed,7
+2014a945,clutter_actor_show: assertion 'CLUTTER_IS_ACTOR (self)' failed,7
+543a8838,Source ID <*> was not found when attempting to remove it,1
+94160472,"Failed to load module ""canberra-gtk-module""",1
+a3f0b3a5,invalid source position for vertical gradient,6
+1e713dd6,message repeated <*> times: [ invalid source position for vertical gradient],6
+8372fae0,could not find device: property match 'XRANDR_name'='rdp0' does not exist,3
+ffa9d534,"Called ""net usershare info"" but it failed: 'net usershare' returned error <*>: mkdir failed on directory /<*>: Permission denied#012net usershare: cannot open usershare directory /<*> Error No such file or directory#012Please ask your system administrator to enable user sharing.",2
+ee2c53a3,[<*>-<*>-14T15:<*>:<*> ERROR audio_thread_priority::<*>] setrlimit64: <*>,1
+1a9ab13f,"# Option ""-x"" is deprecated and might be removed in a later version of gnome-terminal.",3
+38508887,"# Use ""-- "" to terminate the options and put the command line to execute after it.",3
+b6d2245c,"Window manager warning: Window 0x2a02d5a (Target fil) sets an MWM hint indicating it isn't resizable, but sets min size <*> x <*> and max size <*> x <*>; this doesn't make much sense.",1
+9f03dbf5,"message repeated <*> times: [ Window manager warning: Window 0x2a02d5a (Target fil) sets an MWM hint indicating it isn't resizable, but sets min size <*> x <*> and max size <*> x <*>; this doesn't make much sense.]",1
+f203d405,| <*> <*> <*> . . |,2
+dde83105,| ...+ + = = .|,1
+a6ded2b1,| .. S* + * =<*>|,1
+55c4dc16,| .o. O = =<*>|,1
+4aea1f6e,| .E.o. B = o|,1
+d3ef4983,| o o.. * = o |,1
+9512083e,| . o = = = |,1
+7a775429,| . . S X + |,1
+922657f1,| . . O B . o |,1
+2de85fd8,| + o ooo|,1
+52bb2854,| <*> <*> . |,2
+8452fdab,|<*>+Bo+ |,1
+b3a14582,| * . + |,1
+8959c6c0,| o . S o ...|,1
+5447ae3d,| . + o . . .o+|,1
+de1fd825,|<*> * o + . .oE|,1
+ce58d668,|<*>+oB + . o o ..|,1
+2e007d3c,| o**= o.. + .|,1
+344cdedf,256 <*> root@Client01 <*>,2

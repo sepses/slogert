@@ -1,0 +1,54 @@
+EventId,EventTemplate,Occurrences
+22953556,op=<*> ver=<*>.<*>.<*> format=<*> kernel=<*>.<*>.<*>-<*>-azure auid=<*> pid=<*> uid=<*> ses=<*> subj=<*> res=<*>,22
+943a7bd2,audit_backlog_limit=<*> old=<*> auid=<*> ses=<*> <*>,27
+4f0a1bc9,audit_failure=<*> old=<*> auid=<*> ses=<*> <*>,27
+ff4db8d1,audit_backlog_wait_time=<*> old=<*> auid=<*> ses=<*> <*>,27
+fcadb7a7,"pid=<*> uid=<*> auid=<*> ses=<*> <*> <*> exe=""/<*>"" <*> <*> <*> res=<*>'",2954
+d6613173,table=<*> family=<*> entries=<*>,138
+8dd6e66b,op=<*> auid=<*> pid=<*> <*> <*>,23
+77b98999,"apparmor=""STATUS"" operation=""profile_load"" profile=""unconfined"" <*> pid=<*> comm=""apparmor_parser""",337
+d21913cd,"pid=<*> uid=<*> auid=<*> ses=<*> <*> <*> <*> exe=""/<*>"" <*> addr=? <*> res=<*>'",15
+5690cd83,pid=<*> uid=<*> old-auid=<*> auid=<*> tty=(none) old-ses=<*> ses=<*> res=<*>,42
+207b4bde,pid=<*> uid=<*> auid=<*> ses=<*> <*> <*> terminal=<*><*> res=<*>',65
+213fffd6,auid=<*> ses=<*> op=<*> <*> list=<*> <*>,32
+20ec3c3d,arch=<*> syscall=<*> success=<*> exit=<*> a0=<*> a1=<*> a2=<*> a3=<*> items=<*> ppid=<*> pid=<*> auid=<*> uid=<*> gid=<*> euid=<*> suid=<*> fsuid=<*> egid=<*> sgid=<*> fsgid=<*> <*> ses=<*> <*> <*> <*>,14826
+eccba8c9,"cwd=""/<*>""",14979
+dcb5d4ba,item=<*> <*> inode=<*> dev=<*>:<*> mode=<*> ouid=<*> ogid=<*> rdev=<*>:<*> nametype=<*> cap_fp=<*> cap_fi=<*> cap_fe=<*> cap_fver=<*>,30435
+d4c9bd80,proctitle=<*>,202
+e43720b1,proctitle=<*><*>,739
+e558b054,"proctitle=""bash""",13
+6cfd83c2,"name=""iptable_security""",12
+56f67276,"proctitle=""/<*>""",13614
+731a5293,saddr=<*><*>,8
+7a12ca58,"proctitle=""xfce4-session""",44
+6f6281d0,"proctitle=""/<*><*>-linux-gnu/<*>""",92
+e070f1af,"proctitle=""xfwm4""",28
+8e1e0274,"cwd=""/""",38
+67a52f9b,"proctitle=""xfce4-panel""",28
+db320942,"proctitle=""xfdesktop""",28
+cfe89943,"proctitle=""xfce4-appfinder""",7
+a3042561,"proctitle=""filezilla""",457
+51c01610,item=<*> <*> nametype=<*> cap_fp=<*> cap_fi=<*> cap_fe=<*> cap_fver=<*>,9
+e4a6a9dd,"name=""iptable_filter""",7
+fd3767e5,"name=""ip6table_filter""",7
+d94a7eb6,"pid=<*> uid=<*> auid=<*> ses=<*> msg='op=<*> group to /<*> id=<*> exe=""/<*>"" hostname=<*> addr=? terminal=<*><*> res=<*>'",2
+e3d3c298,"pid=<*> uid=<*> auid=<*> ses=<*> msg='op=<*> max age id=<*> exe=""/<*>"" hostname=<*> addr=? terminal=<*><*> res=<*>'",1
+a22842e3,"apparmor=""DENIED"" operation=""open"" profile=""/<*>"" name=""/<*>"" pid=<*> comm=""ntpd"" requested_mask=""r"" denied_mask=""r"" fsuid=<*> ouid=<*>",1
+be556318,"auid=<*> uid=<*> gid=<*> ses=<*> pid=<*> comm=""NetworkWatcherA"" exe=""/<*><*>/<*>"" sig=<*> res=<*>",1
+2e86292b,audit_pid=<*> old=<*> auid=<*> ses=<*> res=<*>,1
+aedb1ca3,"pid=<*> uid=<*> auid=<*> ses=<*> msg='op=<*>:<*> acct=""sepses"" <*> <*> <*> <*> res=<*>'",9
+e8a42f09,"op=<*> ver=<*>.<*>.<*> format=<*> kernel=<*>.<*>.<*>-<*>-azure auid=<*> pid=<*> uid=<*> ses=<*> subj=<*> res=<*>AUID=""unset"" UID=""root""",5
+a7f3a92f,"pid=<*> uid=<*> auid=<*> ses=<*> <*> <*> exe=""/<*>"" <*> addr=? <*> <*> <*>",1219
+7b6e55e9,"arch=<*> syscall=<*> success=<*> exit=<*> a0=<*> a1=<*> a2=<*> a3=<*> items=<*> ppid=<*> pid=<*> auid=<*> uid=<*> gid=<*> euid=<*> suid=<*> fsuid=<*> egid=<*> sgid=<*> fsgid=<*> <*> ses=<*> <*> exe=""/<*>"" <*> SYSCALL=<*> <*> <*> <*> <*> <*> <*> <*> <*> <*>",426
+2cc76c48,item=<*> <*> inode=<*> dev=<*>:<*> mode=<*> ouid=<*> ogid=<*> rdev=<*>:<*> nametype=<*> cap_fp=<*> cap_fi=<*> cap_fe=<*> <*> <*>,337
+4893e786,"pid=<*> uid=<*> auid=<*> ses=<*> msg='cwd=""/<*>"" <*> terminal=<*><*> res=<*>'UID=""sepses"" AUID=""sepses""",50
+8f45cbf9,"pid=<*> uid=<*> old-auid=<*> auid=<*> tty=(none) old-ses=<*> ses=<*> res=<*>UID=""root"" OLD-AUID=""unset"" <*>",38
+07abae08,"pid=<*> uid=<*> auid=<*> ses=<*> <*> <*> exe=""/<*>"" <*> <*> <*> res=<*>'UID=""root"" <*>",1169
+3a1b60b8,"pid=<*> uid=<*> auid=<*> ses=<*> msg='op=<*> group to /<*> id=<*> exe=""/<*>"" hostname=<*> addr=? terminal=<*><*> res=<*>'UID=""root"" AUID=""sepses"" <*>",10
+113cb1b5,"pid=<*> uid=<*> auid=<*> ses=<*> <*> id=<*> exe=""/<*>"" hostname=<*> <*> terminal=<*><*> res=<*>'UID=""root"" AUID=""sepses"" <*>",6
+ae93812a,"pid=<*> uid=<*> auid=<*> ses=<*> <*> <*> <*> exe=""/<*>"" <*> addr=? terminal=<*><*> res=<*>'UID=""root"" AUID=""sepses"" <*>",10
+6fb3e2ef,"auid=<*> uid=<*> gid=<*> ses=<*> pid=<*> comm=""NetworkWatcherA"" exe=""/<*><*>/<*>"" sig=<*> res=<*>AUID=""unset"" UID=""root"" GID=""root""",3
+8b439a31,"pid=<*> uid=<*> auid=<*> ses=<*> <*> <*> <*> exe=""/<*>"" <*> addr=? <*> res=<*>'UID=""root"" <*>",4
+deb64ca5,"pid=<*> uid=<*> auid=<*> ses=<*> msg='uid=<*> exe=""/<*>"" hostname=? addr=? terminal=? res=<*>'UID=""root"" AUID=""unset"" UID=""sepses""",15
+ab904561,"pid=<*> uid=<*> auid=<*> ses=<*> msg='op=<*> home directory id=<*> exe=""/<*>"" hostname=<*> addr=? terminal=<*><*> res=<*>'UID=""root"" AUID=""sepses"" ID=""ftp_jdoe""",1
+d39d4ac6,"argc=<*> a0=""/<*>"" a1=""./<*><*>.sh""",1

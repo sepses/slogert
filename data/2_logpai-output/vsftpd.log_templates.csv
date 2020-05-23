@@ -1,0 +1,6 @@
+EventId,EventTemplate,Occurrences
+be5b43b9,"CONNECT: Client ""::<*>:<*>""",89
+5801b431,"[<*>] <*> LOGIN: Client ""::<*>:<*>""",57
+3e1394dc,"[<*>] OK <*> Client ""::<*>:<*>"", <*>",2
+c81a77ad,"[<*>] FAIL DOWNLOAD: Client ""::<*>:<*>"", <*> <*>.00Kbyte/<*>",19
+205b3f4d,"[<*>] OK <*> Client ""::<*>:<*>"", <*> <*> bytes, <*>",23

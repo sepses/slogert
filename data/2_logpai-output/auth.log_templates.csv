@@ -1,0 +1,93 @@
+EventId,EventTemplate,Occurrences
+53ce8466,"new group: name=<*>, GID=<*>",24
+24794b0b,"new user: name=<*>, UID=<*>, GID=<*>, home=<*>, shell=<*>",21
+1c77074f,add <*> to group <*>,33
+655b65ef,add <*> to shadow group <*>,33
+f2bb95c7,New seat seat0.,20
+38eb6b50,Watching system buttons on /<*> (Power Button),20
+13f0bdd8,Watching system buttons on /<*> (AT Translated Set <*> keyboard),40
+8938d159,Server listening on <*> port <*>.,46
+903531a0,Received signal <*>; terminating.,10
+09a810c1,Accepted password for <*> from <*> port <*> ssh<*>,4
+d43c100f,pam_unix(sshd:<*>): session opened for user <*> by (uid=<*>),4
+4e6a7bf7,New session <*> of user <*>,32
+d29cd75b,pam_unix(systemd-user:<*>): session opened for user <*> by (uid=<*>),28
+8bedf12a,akep : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*>,6
+fb571468,pam_unix(sudo:<*>): session opened for user root by <*>,146
+8c48b733,pam_unix(sudo:<*>): session closed for user root,145
+0d35f575,akep : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*>,15
+4ba90d53,pam_unix(cron:<*>): session opened for user root by (uid=<*>),58
+77d7fb18,pam_unix(cron:<*>): session closed for user root,58
+c03bd4fe,"group added to /<*>: name=<*>, GID=<*>",21
+a4d94e58,group added to /<*>: name=<*>,21
+c1056d3a,change user <*> password,10
+82466679,changed password expiry for <*>,13
+5bd4dea5,changed user <*> information,14
+f7e3b1ce,user pulse added by root to group audio,3
+599109be,akep : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> install <*>,2
+e5d4702f,pam_unix(xrdp-sesman:<*>): session opened for user <*> by (uid=<*>),13
+0d36b27c,pam_unix(sshd:<*>): session closed for user <*>,2
+2beb576d,pam_unix(xrdp-sesman:<*>): session closed for user <*>,2
+ee00cb79,pam_unix(xrdp-sesman:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser= rhost= user=<*>,4
+c0a756ec,Received disconnect from <*> port <*>:<*>: <*> <*> <*>,35
+38c7e093,Disconnected from <*> port <*> [<*>],39
+beddb6d1,Connection <*> by <*> port <*> [<*>],24
+cf94a865,Did not receive identification string from <*> port <*>,49
+1a9af73f,jhalley : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*>,9
+e38fa437,jhalley : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*>,12
+b53658c8,jhalley : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> -y install xrdp,1
+38dda80a,Invalid user <*> from <*> port <*>,243
+e9db1187,pam_unix(sshd:<*>): check pass; user unknown,243
+297e4557,pam_unix(sshd:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser= rhost=<*>,243
+f0ba90fe,Failed password for invalid user <*> from <*> port <*> ssh<*>,242
+d3f91c6c,Connection closed by <*> user <*> <*> port <*> [<*>],10
+bed3838d,pam_unix(sshd:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser= rhost=<*> user=<*>,84
+ada372e1,Failed password for <*> from <*> port <*> ssh<*>,87
+215a0c2d,Received disconnect from <*> port <*>:<*>: [<*>],30
+7cedbae5,Disconnected from <*> user <*> <*> port <*> [<*>],313
+c7adec7d,"Received disconnect from <*> port <*>:<*>: Normal Shutdown, Thank you for playing [<*>]",272
+b542638e,message repeated <*> times: [ Failed password for root from <*> port <*> ssh2],26
+1dc5d48d,PAM <*> more authentication failures; logname= uid=<*> euid=<*> tty=<*> ruser= rhost=<*> user=<*>,26
+487439a9,pam_unix(sudo:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*><*> ruser=<*> rhost= user=<*>,5
+f0d88756,pam_unix(sudo:<*>): conversation failed,1
+4b4664ce,pam_unix(sudo:<*>): auth could not identify password for [<*>],1
+d9884838,sepses : <*> incorrect password attempt ; TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> install auditd -z,1
+3baea246,sepses : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*> <*>,8
+c4a3eb76,sepses : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*>,27
+22634e8a,sepses : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*>,40
+b3302dd0,sepses : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*>,2
+330e4e00,root : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> audit.conf,1
+799a4b0a,error: maximum authentication attempts exceeded for root from <*> port <*> ssh2 [<*>],7
+ba8f4b02,Disconnecting authenticating user root <*> port <*>: Too many authentication failures [<*>],7
+2f2318e5,PAM service(sshd) ignoring max retries; <*> > <*>,7
+8000eb53,pam_unix(gdm-launch-environment:<*>): session opened for user gdm by (uid=<*>),15
+32dada41,pam_unix(gdm-launch-environment:<*>): session closed for user gdm,10
+c9cfd6b2,Removed session <*>,11
+dd695922,"Registered Authentication Agent for unix-session:<*> (system bus name :<*>.<*> [/<*>], object path /<*>, locale C.UTF-<*>)",8
+08036142,[<*>] Failed to activate service 'org.bluez': timed out (service_start_timeout=<*>),5
+1316f7d1,couldn't access control socket: /<*><*>/<*>: No such file or directory,8
+5ae6a3c3,Operator of unix-session:<*> FAILED to authenticate to gain authorization for action org.freedesktop.color-manager.create-device for system-bus-name::<*>.<*> [/<*>] (owned by unix-user:<*>),3
+640dd3b4,uid <*> is trying to obtain org.freedesktop.packagekit.package-install auth (only_trusted:<*>),2
+7bb3798a,Operator of unix-session:<*> FAILED to authenticate to gain authorization for action org.freedesktop.packagekit.package-install for system-bus-name::<*>.<*> [/<*> --gapplication-service] (owned by unix-user:<*>),1
+16530b4e,uid <*> failed to obtain auth,1
+1bf9e374,pam_unix(polkit-<*>:<*>): authentication failure; logname= uid=<*> euid=<*> tty= ruser=<*> rhost= user=<*>,1
+910ec23a,Operator of unix-session:<*> successfully authenticated as unix-user:<*> to gain ONE-SHOT authorization for action org.freedesktop.packagekit.package-install for system-bus-name::<*>.<*> [/<*> --gapplication-service] (owned by unix-user:<*>),1
+d8086e80,uid <*> obtained auth for org.freedesktop.packagekit.package-install,1
+cba0c267,pam_unix(passwd:<*>): password changed for <*>,6
+8d5f78a4,gkr-pam: couldn't update the login keyring password: no old password was entered,6
+bf848d84,"Unable to negotiate with <*> port <*>: no matching key exchange method found. Their offer: diffie-hellman-group-exchange-sha1,diffie-hellman-group1-sha1 [<*>]",1
+c718b000,error: Received disconnect from <*> port <*>:<*>: com.jcraft.jsch.JSchException: Auth fail [<*>],16
+3df2fb27,pam_unix(xrdp-sesman:<*>): check pass; user unknown,1
+3a122410,pam_unix(xrdp-sesman:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser= rhost=,1
+f29171e2,sepses: Error executing command as another user: Not authorized [USER=<*>] [TTY=<*>] [CWD=<*>] [COMMAND=<*>],1
+3592027d,pam_unix(gdm-password:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser= rhost= user=<*>,12
+8e74fae5,pam_unix(vsftpd:<*>): check pass; user unknown,2
+6779e653,pam_unix(vsftpd:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser=<*> rhost=::<*>:<*>,2
+8d1663fd,pam_unix(vsftpd:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser=<*> rhost=::<*>:<*> user=<*>,3
+6e02e9e8,message repeated <*> times: [ <*> authentication failure; logname= uid=<*> euid=<*> tty=<*> <*> <*> user=<*>],2
+7ced9d6f,sepses : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> -d /<*> -m <*>,3
+a4cd9d08,change user 'ftp_jdoe' home from '/<*>' to '/<*>',1
+3a6d94bc,Disconnected from user sepses <*> port <*>,1
+893a989f,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*> <*>,3
+3397f45b,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*>,7
+12c452f8,jdoe : TTY=<*><*> ; PWD=<*> ; USER=<*> ; COMMAND=<*> <*> <*>,10

@@ -1,0 +1,8 @@
+EventId,EventTemplate,Occurrences
+90fb026d,"-"" <*> - ""-"" ""-",6
+3e9eb8e7,"GET / HTTP/<*>.<*>"" <*> <*> ""-"" ""Mozilla/<*>.<*> (Windows NT <*>.<*>; WOW64) AppleWebKit/<*>.<*> (KHTML, like Gecko) Chrome<*> Safari/<*>.<*>",3
+a0a6be44,"\xba\xabd\xa1EZC\xdbM\x87\xee^\xfd\xbf\x159 X\xd4>\x12\x98\xc4<\xe0\x13\xcf"" <*> <*> ""-"" ""-",1
+bd809b83,"GET / HTTP/<*>.<*>"" <*> <*> ""-"" ""Mozilla/<*>.<*> (Macintosh; Intel Mac OS X <*>_<*>_<*>) AppleWebKit/<*>.<*>.<*> (KHTML, like Gecko) Version/<*>.<*>.<*> Safari/<*>.<*>.<*>",1
+c81e0bf1,"GET / HTTP/<*>.<*>"" <*> <*> ""-"" ""-",1
+e94fa805,"GET <*> HTTP/<*>.<*>"" <*> <*> ""-"" ""Mozilla/<*>.<*> (Windows NT <*>.<*>; Win64; x64) AppleWebKit/<*>.<*> (KHTML, like Gecko) Chrome<*> Safari/<*>.<*>",113
+e37b4680,"HEAD /<*> HTTP/<*>.<*>"" <*> - ""-"" ""-",1
