@@ -63,7 +63,7 @@ nerParameters:
   - id: ip
     pattern: ([{word:/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/}])
     action: Annotate($0, ner, "ip")
-    function: object log:Address
+    function: object log:IPv4
     ottrTemplate:
       uri: lxid:OttrTemplate_ip
       parameters: 
@@ -71,9 +71,9 @@ nerParameters:
         - ottr:IRI ?ip
         - xsd:string ?ipString
       functions: 
-        - ottr:Triple(?id,log:hasAddress,?ip)
-        - ottr:Triple(?ip,rdf:type,log:Address)
-        - ottr:Triple(?ip,log:address.ipv4,?ipString)
+        - ottr:Triple(?id,log:hasIPv4,?ip)
+        - ottr:Triple(?ip,rdf:type,log:IPv4)
+        - ottr:Triple(?ip,log:ipv4,?ipString)
   - id: port
     pattern: ([{word:/port/}] + ([{word:/(\d{1,5})/}]))
     action: Annotate($1, ner, "port")
@@ -82,18 +82,18 @@ nerParameters:
       uri: lxid:OttrTemplate_port
       parameters: 
         - ottr:IRI ?id
-        - ottr:IRI ?address # lid:Address_8080
-        - ottr:IRI ?portUri # port:Port_8080
+        - ottr:IRI ?port # lid:Address_8080
+        - ottr:IRI ?linkedPort # port:Port_8080
         - xsd:integer ?portInt # 8080
       functions: 
-        - ottr:Triple(?id,log:hasAddress,?address)
-        - ottr:Triple(?address,rdf:type,log:Address)
-        - ottr:Triple(?address,log:address.port,?portInt)
-        - ottr:Triple(?address,log:linkedPort,?portUri)
+        - ottr:Triple(?id,log:hasPort,?port)
+        - ottr:Triple(?port,rdf:type,log:Port)
+        - ottr:Triple(?port,log:port,?portInt)
+        - ottr:Triple(?port,log:linkedPortService,?linkedPort)
   - id: host
     pattern: ([{word:/hostname/}] + [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
     action: Annotate($1, ner, "host")
-    function: object log:Address
+    function: object log:Host
     ottrTemplate:
       uri: lxid:OttrTemplate_host
       parameters: 
@@ -101,9 +101,9 @@ nerParameters:
         - ottr:IRI ?obj
         - xsd:string ?objString
       functions: 
-        - ottr:Triple(?id,log:hasAddress,?obj)
-        - ottr:Triple(?obj,rdf:type,log:Address)
-        - ottr:Triple(?obj,log:address.host,?objString)
+        - ottr:Triple(?id,log:hasHost,?obj)
+        - ottr:Triple(?obj,rdf:type,log:Host)
+        - ottr:Triple(?obj,log:host,?objString)
   - id: domain
     pattern: ([{word:/((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}/}])
     action: Annotate($0, ner, "domain")
@@ -203,9 +203,9 @@ nonNerParameters:
         - ottr:IRI ?ip
         - xsd:string ?ipString
       functions: 
-        - ottr:Triple(?id,log:hasAddress,?ip)
-        - ottr:Triple(?ip,rdf:type,log:Address)
-        - ottr:Triple(?ip,log:address.ipv4,?ipString)
+        - ottr:Triple(?id,log:hasIPv4,?ip)
+        - ottr:Triple(?ip,rdf:type,log:IPv4)
+        - ottr:Triple(?ip,log:ipv4,?ipString)
   - id: ftpUser
     pattern: "^\\[([a-zA-Z0-9_\\.+]+)\\]"
     action: 
@@ -256,7 +256,7 @@ nonNerParameters:
   - id: ipv6
     pattern: "((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:)))(%.+)?"
     action: 
-    function: object log:Address
+    function: object log:IPv6
     ottrTemplate:
       uri: lxid:OttrTemplate_ipv6
       parameters: 
@@ -264,9 +264,9 @@ nonNerParameters:
         - ottr:IRI ?ip
         - xsd:string ?ipString
       functions: 
-        - ottr:Triple(?id,log:hasAddress,?ip)
-        - ottr:Triple(?ip,rdf:type,log:Address)
-        - ottr:Triple(?ip,log:address.ipv6,?ipString)
+        - ottr:Triple(?id,log:hasIPv6,?ip)
+        - ottr:Triple(?ip,rdf:type,log:IPv6)
+        - ottr:Triple(?ip,log:ipv6,?ipString)
   - id: exe
     pattern: "exe\\=\"[a-zA-Z0-9-_\\./]+"
     action: 
@@ -292,9 +292,9 @@ ottrTemplates:
       - ottr:IRI ?logSource
     functions: 
       - ottr:Triple(?id,rdf:type,log:Event)
-      - ottr:Triple(?id,log:hasEventSourceAddress,?hostUrl)
-      - ottr:Triple(?hostUrl,rdf:type,log:Address)
-      - ottr:Triple(?hostUrl,log:address.host,?hostString)
+      - ottr:Triple(?id,log:hasSourceHost,?hostUrl)
+      - ottr:Triple(?hostUrl,rdf:type,log:Host)
+      - ottr:Triple(?hostUrl,log:host,?hostString)
       - ottr:Triple(?id,log:time,?timestamp)
       - ottr:Triple(?id,log:msg,?message)      
       - ottr:Triple(?template,logex:isLogEventTemplateOf,?id)
@@ -357,9 +357,9 @@ ottrTemplates:
       - xsd:string ?ipString
     functions: 
       - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
-      - ottr:Triple(?id,log:hasAddress,?ip)
-      - ottr:Triple(?ip,rdf:type,log:Address)
-      - ottr:Triple(?ip,log:address.ipv4,?ipString)
+      - ottr:Triple(?id,log:hasIPv4,?ip)
+      - ottr:Triple(?ip,rdf:type,log:IPv4)
+      - ottr:Triple(?ip,log:ipv4,?ipString)
 
   - uri: lxid:OttrTemplate_unknown
     parameters: 
