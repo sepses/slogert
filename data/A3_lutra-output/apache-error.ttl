@@ -1,0 +1,102 @@
+@prefix logex: <https://w3id.org/sepses/ns/logex#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix log:   <https://w3id.org/sepses/ns/log#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://w3id.org/sepses/id/logex/LogEventTemplate_0f8c391c70f7ea492da7e3bf18121589db24616ce5b81824edf51e6a6e7de261>
+        logex:isLogEventTemplateOf  <https://w3id.org/sepses/id/log/Event_3280febb-8a13-4367-b509-075840a4b1e3> .
+
+<https://w3id.org/sepses/id/log/SourceType_apache-error>
+        a              log:SourceType ;
+        rdfs:label     "apache-error" ;
+        log:hasFormat  <https://w3id.org/sepses/id/log/Format_ftp> .
+
+<https://w3id.org/sepses/id/log/Event_69eee7ed-8e08-4517-971d-6f5bd66dca3c>
+        a                  log:Event ;
+        log:contain        "usr/sbin/sendmail" , "93.243.136.158:35462" , "1" ;
+        log:hasFile        <https://w3id.org/sepses/id/log/File_var_www_html_index.php> ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_apache-error.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Server> ;
+        log:msg            "[client 93.243.136.158:35462] script '/var/www/html/index.php' not found or unable to stat sh: 1: /usr/sbin/sendmail: not found" ;
+        log:pid            "pidNumber" ;
+        log:time           "2020-03-14T15:51:06" .
+
+<https://w3id.org/sepses/id/log/Event_3280febb-8a13-4367-b509-075840a4b1e3>
+        a                  log:Event ;
+        log:hasIPv4        <https://w3id.org/sepses/id/log/IPv4_10.0.0.7> ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_apache-error.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Server> ;
+        log:msg            "AH00171: Graceful restart requested, doing restart AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.0.0.7. Set the 'ServerName' directive globally to suppress this message" ;
+        log:pid            "pidNumber" ;
+        log:time           "2020-03-14T11:42:56" .
+
+<https://w3id.org/sepses/id/log/Event_1e6a2f4a-3dab-4773-899b-e12985a00e40>
+        a                  log:Event ;
+        log:contain        "2" , "4.29" ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_apache-error.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Server> ;
+        log:msg            "AH00163: Apache/2.4.29 (Ubuntu) configured -- resuming normal operations" ;
+        log:pid            "pidNumber" ;
+        log:time           "2020-03-14T11:38:01" .
+
+<https://w3id.org/sepses/id/logex/LogEventTemplate_82cbd0156a95d2350ef20a0a773ecc4fe616741dd9cf03003654b6bbe3920d6d>
+        logex:isLogEventTemplateOf  <https://w3id.org/sepses/id/log/Event_c318f1fd-7321-4813-9474-bc8fe6c32008> .
+
+<https://w3id.org/sepses/id/logex/LogEventTemplate_d14948f605f67bc38ae9d4238e1bf16ca0745f65ba650bb795383343b85c9c5f>
+        logex:isLogEventTemplateOf  <https://w3id.org/sepses/id/log/Event_69eee7ed-8e08-4517-971d-6f5bd66dca3c> .
+
+<https://w3id.org/sepses/id/log/File_var_www_html_index.php>
+        a              log:File ;
+        log:file.name  "index.php" ;
+        log:file.path  "var/www/html/index.php" .
+
+<https://w3id.org/sepses/id/log/Event_8bc447b4-46e6-44a9-90bc-27be88cc10ed>
+        a                  log:Event ;
+        log:contain        "4.29" , "2" ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_apache-error.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Server> ;
+        log:msg            "AH00163: Apache/2.4.29 (Ubuntu) configured -- resuming normal operations" ;
+        log:pid            "pidNumber" ;
+        log:time           "2020-03-14T11:42:56" .
+
+<https://w3id.org/sepses/id/log/IPv4_10.0.0.7>
+        a         log:IPv4 ;
+        log:ipv4  "10.0.0.7" .
+
+<https://w3id.org/sepses/id/log/Event_6360c317-d6bb-4fd2-b19d-e032cc75ee9d>
+        a                  log:Event ;
+        log:contain        "usr/sbin/apache2" ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_apache-error.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Server> ;
+        log:msg            "AH00094: Command line: '/usr/sbin/apache2'" ;
+        log:pid            "pidNumber" ;
+        log:time           "2020-03-14T11:38:01" .
+
+<https://w3id.org/sepses/id/logex/LogEventTemplate_20c5f96a6dad92f7b63c5deaa7725481a5ed3af544218913e1d972cb4af72825>
+        logex:isLogEventTemplateOf  <https://w3id.org/sepses/id/log/Event_6360c317-d6bb-4fd2-b19d-e032cc75ee9d> .
+
+<https://w3id.org/sepses/id/logex/LogEventTemplate_4953bbe2c9cea39b9b6aa00b364b003736f322f1a2cd7c1d25b57514b85b78b0>
+        logex:isLogEventTemplateOf  <https://w3id.org/sepses/id/log/Event_8bc447b4-46e6-44a9-90bc-27be88cc10ed> , <https://w3id.org/sepses/id/log/Event_1e6a2f4a-3dab-4773-899b-e12985a00e40> .
+
+<https://w3id.org/sepses/id/log/Host_Server>
+        a         log:Host ;
+        log:host  "Server" .
+
+<https://w3id.org/sepses/id/log/Event_c318f1fd-7321-4813-9474-bc8fe6c32008>
+        a                  log:Event ;
+        log:contain        "usr/sbin/sendmail" , "1" , "usr/sbin/apache2" ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_apache-error.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Server> ;
+        log:msg            "AH00094: Command line: '/usr/sbin/apache2' sh: 1: /usr/sbin/sendmail: not found" ;
+        log:pid            "pidNumber" ;
+        log:time           "2020-03-14T11:42:56" .
+
+<https://w3id.org/sepses/id/log/Source_scenario_input_apache-error.log>
+        a                  log:Source ;
+        rdfs:label         "scenario/input/apache-error.log" ;
+        log:hasSourceType  <https://w3id.org/sepses/id/log/SourceType_apache-error> .
+
+<https://w3id.org/sepses/id/log/Format_ftp>
+        a           log:Format ;
+        rdfs:label  "ftp" .
+
