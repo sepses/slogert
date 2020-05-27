@@ -123,7 +123,9 @@ In this step, we integrated all knowledge graphs and ontologies into a single re
 - `data/A4_background-KG/ns-slogert.ttls`: OTTR instances    
 - `data/port-service-list/port-service.ttl`: port-service-list    
 
-**Output**:       `https://128.131.169.162:7200/repositories/sepses-transformed`: SPARQL endpoint
+**Output**:       
+- `https://128.131.169.162:7200/repositories/sepses-transformed`: SPARQL endpoint     
+- `https://128.131.169.162:7200/`: GraphDB UI for SPARQL endpoint (repo: sepses-transformed)
 
  
 
