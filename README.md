@@ -18,10 +18,10 @@
 
 ## General Introduction 
 
-SLOGERT aims to automatically extract and enrich low-level log data into an RDF Knowledge Graph that conform to our [LOG Ontology](https://w3id.org/sepses/ns/log#). It integrates
+SLOGERT aims to automatically extract and enrich low-level log data into an RDF Knowledge Graph that conforms to our [LOG Ontology](https://w3id.org/sepses/ns/log#). It integrates
 
  - [LOGPAI](https://github.com/logpai/logparser) for *event pattern* detection and *parameter* extractions from log lines
- - [Standord NLP](https://stanfordnlp.github.io/CoreNLP/) for *parameter type* detection and *keyword* extraction, and 
+ - [Stanford NLP](https://stanfordnlp.github.io/CoreNLP/) for *parameter type* detection and *keyword* extraction, and 
  - [OTTR Engine](https://ottr.xyz/#Lutra) for RDF generation. 
  - [Apache Jena](https://jena.apache.org) for RDF data manipulation.
 
@@ -33,7 +33,6 @@ Currently, we have tested our approach on text-based logs produced by Unix OSs, 
   - Auth, and 
   - FTP logs.
 
-
 ## What does SLOGERT do?
 
 The main steps are shown in Figure 1 below.
@@ -42,7 +41,6 @@ The main steps are shown in Figure 1 below.
 <p align="center">**Figure 1**. SLOGERT workflow overview.</p>
 
 Note that the seamless integration of *LogPai*, *SLOGERT*, and the *OTTR Engine* is still work in progress. Currently, using SLOGERT still involves several steps described below. Furthermore, a little bit of log pre-processing is necessary to make sure that we can capture the information about the log source. We will explain the steps in the following.
-
 
 ### A0. Log data pre-processing
 
@@ -73,7 +71,7 @@ LOGPAI will produce two types of results: ```<filename>\_structured.csv```, whic
 ### A2. SLOGERT execution (\*.csv to \*.ottr)
 
 In this step, we start the main process of templates and parameters annotation.
-To this end, we need the output from A1 plus several configuration files, one (`data/config.yaml`) that contains mapping of log data the OTTR template and the LOG/LOGEX ontologies and another one (`data/config-io.yaml`) to describe all inputs and outputs of the SLOGERT execution. 
+To this end, we need the output from A1 plus several configuration files, one (`data/config.yaml`) that contains the mapping of log data the OTTR template and the LOG/LOGEX ontologies and another one (`data/config-io.yaml`) to describe all inputs and outputs of the SLOGERT execution. 
 
 **Input**:     
 
@@ -106,7 +104,7 @@ Here, we utilise the LUTRA jar file (v0.6.3) to transform the OTTR instances int
 
 We manually build a background knowledge graph for our evaluation purpose. The idea is that later on, we should be able to automatically generate such background knowledge based on network topology and other information that we can gather from domain experts. 
 
-The knowledge should contains additional *context* information about the observed log data, e.g., temporal relations between persons, users and devices represented in log data. For now, however, we just provided examples using RDF star representation. 
+The knowledge should contain additional *context* information about the observed log data, e.g., temporal relations between persons, users and devices represented in log data. For now, however, we just provided examples using RDF star representation. 
 
 **Output**:  `data/A4_background-KG/ns-slogert.ttls`: OTTR instances     
 
@@ -127,21 +125,19 @@ In this step, we integrated all knowledge graphs and ontologies into a single re
 - `https://128.131.169.162:7200/repositories/sepses-transformed`: SPARQL endpoint     
 - `https://128.131.169.162:7200/`: GraphDB UI for SPARQL endpoint (repo: sepses-transformed)
 
- 
 
-       
 ## Scenario execution 
 
-In case you wanted to try it out yourself or apply the framework to your own logfiles, use the following steps: 
+In case you want to try it out yourself or apply the framework to your own logfiles, use the following steps: 
 
 * Run LogPai to generate `<logname>_structured.csv` and `<logname>_templates.csv`. Examples of such files (already enhanced with additional column for hostname) are available on the `scenario/input` folder.  
 *  Compile this project (`mvn clean install`)
 *  You can set properties for extraction in the config file (e.g., number of loglines produced per file). Examples of config and template files are available on the `src/test/resources` folder (e.g., `auth-config.yaml`for auth log data). 
-*  Transform the CSVs into OTTR format using config file. By default, the following script should work to work on the example file. (```java -jar target/slogert-0.8.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
+*  Transform the CSVs into OTTR format using the config file. By default, the following script should work on the example file. (```java -jar target/slogert-0.8.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
 *  After the transformation finished, it will provide you with the command to execute lutra, such as the following: (``` java -jar exe/lutra.jar --library scenario/output/auth-base.ottr --libraryFormat stottr --inputFormat stottr scenario/output/auth.ottr --mode expand --fetchMissing > scenario/output/auth.ttl```) 
 *  Execute the transformation of the OTTR files into RDF graph using the command above from command line. 
 
-A script for executing transformation data for scenario has been created in the scenario folder `scenario/scenario.sh`. To run it, after you compile the project (`mvn clean install`), run `./scenario/scenario.sh` from project folder.
+A script for executing transformation data for scenario has been created in the scenario folder `scenario/scenario.sh`. To run it, compile the project (`mvn clean install`) and run `./scenario/scenario.sh` from the project folder.
 
            
 <!--## References
