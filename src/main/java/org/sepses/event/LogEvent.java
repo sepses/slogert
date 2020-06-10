@@ -49,7 +49,7 @@ public class LogEvent {
         contentParameters = setParameters(record.get(LOGPAI_PARAMETER_LIST));
         templateParameters = new ArrayList<>();
         config.logFormatInstance.parameters.forEach(p -> {
-            templateParameters.add(p.column);
+            templateParameters.add(record.get(p.column));
         });
         config.logFormatInstance.functions.forEach(function -> executeFunction(function, record));
     }
