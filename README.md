@@ -12,6 +12,7 @@
     + [A4. Background Knowledge Building](#a4-background-knowledge-building)
     + [A5. Knowledge Graph Integration](#a5-knowledge-graph-integration)
  * [Scenario execution](#scenario-execution)
+ * [Detailed depiction of SLOGERT processes](#detailed-depiction-of-slogert-processes-a1-a3)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -142,7 +143,7 @@ A script for executing transformation data for scenario has been created in the 
 ## Detailed depiction of SLOGERT processes (A1-A3)
 
 The main processes of SLOGERT (A1-A3) can be separated into two parts: (i) Event Template Extraction, and (ii) Event KG Generation. 
-We show these in Figure 2. Furthermore, we provide an example process on how input log data is being processed to generate both Event Template (i) and Event KG (ii) in Figure 3.
+We show these in Figure 2. Furthermore, we provide an example process on how input log data is being processed to generate both Event Template (i) and Event KG (ii) in Figure 3. Note that all links to files listed in the figure (e.g., `A1_logpai-input/auth.log`)  are available in the `data` folder within this repository.
 
 ![ ](https://raw.githubusercontent.com/sepses/slogert/master/figures/slogert-example.jpg)
 <p align="center">**Figure 2**. Two parts of SLOGERT main processes.</p>
