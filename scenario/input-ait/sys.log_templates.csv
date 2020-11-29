@@ -1,0 +1,78 @@
+EventId,EventTemplate,Occurrences
+209639ee,"imap-login: Login: <*> method=<*>, rip=<*>, lip=<*>, mpid=<*>, secured, <*>",2662
+c9f3df73,"[<*>] Login success for <*> <*> <*> <*> [pid <*> on line <*> of ""/<*>""]",80
+5d65de77,imap(karri): Logged out in=<*> out=<*>,85
+e34a048f,"imap(karri): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(karri) egid=<*>(karri) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",68
+e99ec507,"imap(kelsey): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(kelsey) egid=<*>(kelsey) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",55
+63b0258d,imap(kelsey): Logged out in=<*> out=<*>,64
+0cea3cb6,"imap(della): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(della) egid=<*>(della) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",177
+0244090c,imap(della): Logged out in=<*> out=<*>,197
+c5582a83,"imap(portia): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(portia) egid=<*>(portia) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",193
+0c875741,imap(portia): Logged out in=<*> out=<*>,217
+c7a9a5e4,"[<*>] PHP ERROR: Declaration of Horde_Form_Type_country::<*>($prompt = NULL) should be compatible with Horde_Form_Type_enum::<*>($values, $prompt = NULL) [pid <*> on line <*> of ""/<*>""]",769
+0c2ce181,"[<*>] PHP ERROR: Declaration of Nag_Form_Task::<*>() should be compatible with Horde_Form::<*>($renderer = NULL, $vars = NULL, $action = '', $method = 'get', $enctype = NULL, $focus = true) [pid <*> on line <*> of ""/<*>""]",600
+3cdd7a4b,"[<*>] PHP ERROR: Declaration of Turba_Form_AddContact::<*>() should be compatible with Horde_Form::<*>($vars = NULL, $canAutoFill = false) [pid <*> on line <*> of ""/<*>""]",92
+a33acd0c,"[<*>] PHP ERROR: Declaration of Horde_Form_Action_updatefield::<*>(&$form, &$renderer, $varname) should be compatible with Horde_Form_Action::<*>($form, $renderer, $varname) [pid <*> on line <*> of ""/<*>""]",169
+09cc6741,"[<*>] PHP ERROR: Declaration of Horde_Form_Action_updatefield::<*>(&$vars, $sourceVal, $arrayVal = false) should be compatible with Horde_Form_Action::<*>(&$vars, $sourceVal, $index = NULL, $arrayVal = false) [pid <*> on line <*> of ""/<*>""]",169
+02e23f8a,"[<*>] PHP ERROR: Declaration of Turba_Form_EditContact::<*>($renderer, $vars, $action, $method) should be compatible with Horde_Form::<*>($renderer = NULL, $vars = NULL, $action = '', $method = 'get', $enctype = NULL, $focus = true) [pid <*> on line <*> of ""/<*>""]",77
+ee395858,"[<*>] Message sent to <*> <*> <*> <*> from <*> (<*>) [pid <*> on line <*> of ""/<*>""]",8
+b6f5e68b,"[<*>] Message sent to <*> from <*> (<*>) [pid <*> on line <*> of ""/<*>""]",61
+2fc5a013,"[<*>] User <*> logged out of Horde (<*>) [pid <*> on line <*> of ""/<*>""]",36
+8f8ad23c,"[<*>] Message sent to <*> <*> from <*> (<*>) [pid <*> on line <*> of ""/<*>""]",39
+f429e815,(root) CMD ( [ -x /<*> ] && if [ ! -d /<*> ]; then /<*>; fi),25
+73f564e0,Starting Clean php session files...,25
+6d8806bb,Started Clean php session files.,25
+19d4b0cd,(root) CMD ( cd / && run-parts --report /<*>),13
+8dbb2c05,DHCPREQUEST of <*> on eth0 to <*> port <*>,3
+151a0778,DHCPACK of <*> from <*>,3
+032e2c6f,bound to <*> -- renewal in <*> seconds.,3
+76b18ae2,Starting Daily apt upgrade and clean activities...,1
+be35dfa1,Started Daily apt upgrade and clean activities.,1
+640a7d30,apt-daily-upgrade.timer: Adding <*> <*> random time.,2
+b287254d,imap(georgie): Logged out in=<*> out=<*>,201
+52ef514c,"imap(georgie): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(georgie) egid=<*>(georgie) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",198
+8c7413fe,(root) CMD (test -x /<*> || ( cd / && run-parts --report /<*> )),1
+28ab1ad5,"[<*>] Message sent to <*> <*> <*> from <*> (<*>) [pid <*> on line <*> of ""/<*>""]",14
+36724d5f,imap(page): Logged out in=<*> out=<*>,171
+56ffcd44,"imap(page): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(page) egid=<*>(page) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",147
+a784922c,imap(danette): Logged out in=<*> out=<*>,143
+a08b2437,"imap(danette): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(danette) egid=<*>(danette) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",127
+e77f2b75,imap(marcelina): Logged out in=<*> out=<*>,285
+2d23bb88,"imap(marcelina): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(marcelina) egid=<*>(marcelina) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",262
+4086fa06,"[<*>] [<*>] Authentication failed. [pid <*> on line <*> of ""/<*>""]",2
+5431e37d,"[<*>] FAILED LOGIN for <*> <*> <*> <*> [pid <*> on line <*> of ""/<*>""]",4
+a1f9f2dc,"imap-login: Disconnected (auth failed, <*> attempts in <*> secs): <*> method=<*>, rip=<*>, lip=<*>, secured, <*>",2
+91ae1219,imap(maile): Logged out in=<*> out=<*>,287
+0aa1642d,"imap(maile): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(maile) egid=<*>(maile) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",259
+4c635d32,imap(sunni): Logged out in=<*> out=<*>,125
+c5fea1ed,"imap(sunni): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(sunni) egid=<*>(sunni) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",109
+612f3c14,[<*>.<*>] INFO: rcu_sched detected stalls on CPUs/<*>:,1
+e85505e7,"[<*>.<*>] (detected by <*>, t=<*> jiffies, g=<*>, c=<*>, q=<*>)",1
+6543d7bd,"[<*>.<*>] All QSes seen, last rcu_sched kthread activity <*> (<*>-<*>), jiffies_till_next_fqs=<*>, root ->qsmask 0x<*>",1
+483352c7,[<*>.<*>] kworker/<*>:<*> R running task <*> <*> <*> 0x<*>,1
+5c739974,[<*>.<*>] Workqueue: events cache_reap,1
+f3053c62,[<*>.<*>] ffffffff9344fd80 ffffffff928a953b ffff9e73ffc196c0 ffffffff9344fd<*>,1
+3d52b17c,[<*>.<*>] ffffffff928e5312 <*> ffff9e7350d21040 000000000004e<*>,1
+c12e95af,[<*>.<*>] <*> <*> ffffffff00000000 ffffffff928acf3d,1
+43b8b3ea,[<*>.<*>] Call Trace:,2
+5989b943,[<*>.<*>] <*>,2
+ff79df34,[<*>.<*>] <*> ? <*>,32
+8327fc50,[<*>.<*>] rcu_sched kthread starved for <*> jiffies! g320262 c320261 f0x2 RCU_GP_WAIT_FQS(<*>) ->state=<*><*>,1
+5a7a4bbd,[<*>.<*>] rcu_sched W <*> <*> <*> 0x<*>,1
+c37a6051,[<*>.<*>] <*> ffff9e7350f21800 <*> ffff9e73fa4fe<*>,1
+7d9d8680,[<*>.<*>] ffff9e73ffc18980 ffffffff93411500 ffffad3b4065fdb0 ffffffff92e<*>,1
+5a963cfb,[<*>.<*>] ffffad3b4065fde0 0000000100b4a5ee ffff9e73ffc18980 <*>,1
+36648ccb,imap(irwin): Logged out in=<*> out=<*>,307
+ef9bd461,"imap(irwin): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(irwin) egid=<*>(irwin) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",258
+25435735,imap(tiny): Logged out in=<*> out=<*>,81
+99ed1872,"imap(tiny): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(tiny) egid=<*>(tiny) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",77
+faa15253,"[<*>] Message sent to Danette <danette@mail.cup.com>, Sunni <sunni@mail.cup.com>, bertie@mail.cup.com from irwin (<*>) [pid <*> on line <*> of ""/<*>""]",1
+6dfaa66e,imap(trula): Logged out in=<*> out=<*>,227
+949605ac,"imap(trula): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(trula) egid=<*>(trula) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",200
+d9238e2d,imap(bertie): Logged out in=<*> out=<*>,187
+ea170db5,"imap(bertie): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(bertie) egid=<*>(bertie) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",189
+2f6b85c3,imap(daryl): Logged out in=<*> out=<*>,15
+6be6297c,"imap(daryl): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(daryl) egid=<*>(daryl) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",14
+1ac78d05,imap-login: Error: anvil: Anvil queries timed out after <*> secs - aborting queries,1
+b25d7ee2,imap(latrice): Logged out in=<*> out=<*>,69
+4d492cec,"imap(latrice): Error: file_dotlock_create(/<*>) failed: Permission denied (euid=<*>(latrice) egid=<*>(latrice) missing +w perm: /<*>, we're not in group <*>(mail), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)",69

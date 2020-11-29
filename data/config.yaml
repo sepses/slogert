@@ -64,6 +64,7 @@ nerParameters:
     pattern: ([{word:/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/}])
     action: Annotate($0, ner, "ip")
     function: object log:IPv4
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_ip
       parameters: 
@@ -78,6 +79,7 @@ nerParameters:
     pattern: ([{word:/port/}] + ([{word:/(\d{1,5})/}]))
     action: Annotate($1, ner, "port")
     function: portCreation
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_port
       parameters: 
@@ -94,6 +96,7 @@ nerParameters:
     pattern: ([{word:/hostname/}] + [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
     action: Annotate($1, ner, "host")
     function: object log:Host
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_host
       parameters: 
@@ -108,6 +111,7 @@ nerParameters:
     pattern: ([{word:/((?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}/}])
     action: Annotate($0, ner, "domain")
     function: literal
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_domain
       parameters: 
@@ -119,6 +123,7 @@ nerParameters:
     pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
     action: Annotate($1, ner, "user")
     function: object log:User
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_user
       parameters: 
@@ -133,6 +138,7 @@ nerParameters:
     pattern: ([{word:/password/}] [{word:/for/}] ([{word:/(\w+)/}]))
     action: Annotate($1, ner, "userPassword")
     function: object log:User
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_userPassword
       parameters: 
@@ -150,6 +156,7 @@ nonNerParameters:
     pattern: "[a-zA-Z0-9-_\\+&@#%~]+/[a-zA-Z0-9-_\\+&@#%~]+"
     action: 
     function: object log:File
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_path
       parameters: 
@@ -164,6 +171,7 @@ nonNerParameters:
     pattern: "[a-zA-Z0-9-_\\+&@#%~/]+\\.[a-zA-Z]{3,4}+"
     action: 
     function: filePathSplit
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_filePath
       parameters: 
@@ -180,6 +188,7 @@ nonNerParameters:
     pattern: "((https? | ftp | file):)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/[a-zA-Z0-9-_\\+&@#%~/\\./]+)?\\?[a-zA-Z]+\\=[a-zA-Z1-9&=\\+]+"
     action: 
     function: splitUrlParameter
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_urlWithParameters
       parameters: 
@@ -196,6 +205,7 @@ nonNerParameters:
     pattern: "[a-f]{4}\\:(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})"
     action: 
     function: ipWithPrefix
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_ipWithPrefix
       parameters: 
@@ -210,6 +220,7 @@ nonNerParameters:
     pattern: "^\\[([a-zA-Z0-9_\\.+]+)\\]"
     action: 
     function: object log:User
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_ftpUser
       parameters: 
@@ -224,6 +235,7 @@ nonNerParameters:
     pattern: "group: name\\=([a-zA-Z0-9_\\.]+)"
     action: 
     function: literal
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_group
       parameters: 
@@ -235,6 +247,7 @@ nonNerParameters:
     pattern: "([A-Fa-f0-9]{2}:){5}[A-Fa-f0-9]{2}"
     action: 
     function: literal
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_mac
       parameters: 
@@ -246,6 +259,7 @@ nonNerParameters:
     pattern: "([A-Fa-f0-9]{4}\\.){2}[A-Fa-f0-9]{4}"
     action: 
     function: literal
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_ciscoMac
       parameters: 
@@ -257,6 +271,7 @@ nonNerParameters:
     pattern: "((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)(\\.(25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)){3}))|:)))(%.+)?"
     action: 
     function: object log:IPv6
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_ipv6
       parameters: 
@@ -271,6 +286,7 @@ nonNerParameters:
     pattern: "exe\\=\"[a-zA-Z0-9-_\\./]+"
     action: 
     function: literal
+    weight: 0 # integer
     ottrTemplate:
       uri: lxid:OttrTemplate_exe
       parameters: 

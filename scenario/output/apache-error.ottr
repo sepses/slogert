@@ -1,0 +1,23 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix ottr: <http://ns.ottr.xyz/0.4/> . 
+@prefix log: <https://w3id.org/sepses/ns/log#> . 
+@prefix logex: <https://w3id.org/sepses/ns/logex#> . 
+@prefix lid: <https://w3id.org/sepses/id/log/> . 
+@prefix lxid: <https://w3id.org/sepses/id/logex/> . 
+@prefix svid: <https://w3id.org/sepses/id/service/> . 
+
+### ottr metadata 
+
+lxid:OttrTemplate_Source(lid:Source_scenario_input_apache-error.log,"scenario/input/apache-error.log",lid:SourceType_apache-error,"apache-error",lid:Format_ftp,"ftp"). 
+
+### ottr instances 
+
+lxid:LogEventTemplate_4953bbe2c9cea39b9b6aa00b364b003736f322f1a2cd7c1d25b57514b85b78b0(lid:Event_1803b1c2-b49a-469d-ab6c-17a2f9d9cdb8,lid:Host_Server,"Server","2020-03-14T23:38:01","AH00163: Apache/2.4.29 (Ubuntu) configured -- resuming normal operations",lxid:LogEventTemplate_4953bbe2c9cea39b9b6aa00b364b003736f322f1a2cd7c1d25b57514b85b78b0,lid:Source_scenario_input_apache-error.log,"2004","2","4.29"). 
+lxid:LogEventTemplate_20c5f96a6dad92f7b63c5deaa7725481a5ed3af544218913e1d972cb4af72825(lid:Event_33ff07d3-8126-4618-940a-b6c9bbef1af3,lid:Host_Server,"Server","2020-03-14T23:38:01","AH00094: Command line: '/usr/sbin/apache2'",lxid:LogEventTemplate_20c5f96a6dad92f7b63c5deaa7725481a5ed3af544218913e1d972cb4af72825,lid:Source_scenario_input_apache-error.log,"2004","usr/sbin/apache2"). 
+lxid:LogEventTemplate_0f8c391c70f7ea492da7e3bf18121589db24616ce5b81824edf51e6a6e7de261(lid:Event_e14b8a4d-43d3-45c4-9d64-5296a88e5cb7,lid:Host_Server,"Server","2020-03-14T23:42:56","AH00171: Graceful restart requested, doing restart AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 10.0.0.7. Set the 'ServerName' directive globally to suppress this message",lxid:LogEventTemplate_0f8c391c70f7ea492da7e3bf18121589db24616ce5b81824edf51e6a6e7de261,lid:Source_scenario_input_apache-error.log,"2004",lid:IPv4_10.0.0.7,"10.0.0.7"). 
+lxid:LogEventTemplate_4953bbe2c9cea39b9b6aa00b364b003736f322f1a2cd7c1d25b57514b85b78b0(lid:Event_50427a8f-8b0c-4763-9878-f3252ab1cfb1,lid:Host_Server,"Server","2020-03-14T23:42:56","AH00163: Apache/2.4.29 (Ubuntu) configured -- resuming normal operations",lxid:LogEventTemplate_4953bbe2c9cea39b9b6aa00b364b003736f322f1a2cd7c1d25b57514b85b78b0,lid:Source_scenario_input_apache-error.log,"2004","2","4.29"). 
+lxid:LogEventTemplate_82cbd0156a95d2350ef20a0a773ecc4fe616741dd9cf03003654b6bbe3920d6d(lid:Event_d1bc5faf-f225-48cd-8141-0d716a373328,lid:Host_Server,"Server","2020-03-14T23:42:56","AH00094: Command line: '/usr/sbin/apache2' sh: 1: /usr/sbin/sendmail: not found",lxid:LogEventTemplate_82cbd0156a95d2350ef20a0a773ecc4fe616741dd9cf03003654b6bbe3920d6d,lid:Source_scenario_input_apache-error.log,"2004","usr/sbin/apache2","1","usr/sbin/sendmail"). 
+lxid:LogEventTemplate_d14948f605f67bc38ae9d4238e1bf16ca0745f65ba650bb795383343b85c9c5f(lid:Event_4f7bfbd2-81e3-4b1b-97fa-ec0a1970c11e,lid:Host_Server,"Server","2020-03-15T03:51:06","[client 93.243.136.158:35462] script '/var/www/html/index.php' not found or unable to stat sh: 1: /usr/sbin/sendmail: not found",lxid:LogEventTemplate_d14948f605f67bc38ae9d4238e1bf16ca0745f65ba650bb795383343b85c9c5f,lid:Source_scenario_input_apache-error.log,"5227","93.243.136.158:35462",lid:File_var_www_html_index.php,"var/www/html/index.php","index.php","1","usr/sbin/sendmail"). 

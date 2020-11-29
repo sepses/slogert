@@ -62,7 +62,7 @@ public class MainParser {
         config = yaml.load(is);
         extractExtraConfig(config); // done
         log.info("*** YAML files configuration is being loaded");
-        log.info("*** Processing of "+config.source+ " file is now started!");
+        log.info("*** Processing of " + config.source + " file is now started!");
 
         try {
             StringBuilder timerSB = new StringBuilder();
@@ -266,8 +266,9 @@ public class MainParser {
                 LogEventTemplate let;
                 if (!config.logEventTemplates.containsKey(hashCandidate)) {
                     let = new LogEventTemplate();
-                    EntityRecognition er =
-                            EntityRecognition.getInstanceConfig(config.targetStanfordNer, config.nonNerParameters);
+                    EntityRecognition er = EntityRecognition
+                            .getInstanceConfig(config.targetStanfordNer, config.nonNerParameters,
+                                    config.nerParameters);
 
                     let.label = hashCandidate;
                     let.keywords = er.extractKeywords(eventTemplate);

@@ -8,5 +8,6 @@ public class Parameter {
     public String pattern;
     public String action;
     public String function;
+    public Integer weight;
     public OttrTemplate ottrTemplate;
 }

@@ -1,0 +1,22 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+source: scenario/input-ait/apache-error.log
+sourceLogpai: scenario/input-ait/apache-error.log_structured.csv
+sourceLogpaiTemplate: scenario/input-ait/apache-error.log_templates.csv
+
+logFormat: ftp
+logSourceType: apache-error
+
+isOverrideExisting: false
+paramExtractAttempt: 3
+logEventsPerExtraction: 25000
+
+targetOttr: scenario/output/ait/apache-error.ottr
+targetOttrTurtle: scenario/output/ait/apache-error.ttl
+targetOttrBase: scenario/output/ait/apache-error-base.ottr
+
+targetStanfordNer: scenario/config-ner.rules
+targetConfigTurtle: scenario/ait-apache-error-config-turtle.ttl
+targetConfigTimer: scenario/ait-apache-error-config-timer.csv

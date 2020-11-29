@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+@prefix ottr: <http://ns.ottr.xyz/0.4/> . 
+@prefix log: <https://w3id.org/sepses/ns/log#> . 
+@prefix logex: <https://w3id.org/sepses/ns/logex#> . 
+@prefix lid: <https://w3id.org/sepses/id/log/> . 
+@prefix lxid: <https://w3id.org/sepses/id/logex/> . 
+@prefix svid: <https://w3id.org/sepses/id/service/> . 
+
+### ottr metadata 
+
+lxid:OttrTemplate_Source(lid:Source_scenario_input_audit.log,"scenario/input/audit.log",lid:SourceType_audit,"audit",lid:Format_audit,"audit"). 
+
+### ottr instances 
+

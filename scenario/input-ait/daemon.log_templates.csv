@@ -1,0 +1,36 @@
+EventId,EventTemplate,Occurrences
+73f564e0,Starting Clean php session files...,298
+6d8806bb,Started Clean php session files.,298
+8dbb2c05,DHCPREQUEST of <*> on eth0 to <*> port <*>,31
+151a0778,DHCPACK of <*> from <*>,31
+032e2c6f,bound to <*> -- renewal in <*> seconds.,31
+76b18ae2,Starting Daily apt upgrade and clean activities...,6
+be35dfa1,Started Daily apt upgrade and clean activities.,6
+640a7d30,apt-daily-upgrade.timer: Adding <*> <*> random time.,12
+b37fee6f,Starting Daily apt download activities...,12
+43d542ce,Started Daily apt download activities.,12
+8cabb1a7,apt-daily.timer: Adding <*> <*> <*> random time.,23
+038a758d,Starting Cleanup of Temporary Directories...,6
+20447797,Started Cleanup of Temporary Directories.,6
+d7be613d,Reloading The Apache HTTP Server.,5
+bfae94f5,Reloaded The Apache HTTP Server.,5
+2e87be9e,The audit daemon is exiting.,5
+ba7787c1,Stopping Security Auditing Service...,5
+bc851626,Stopped Security Auditing Service.,5
+53f856aa,Started dispatcher: /<*> pid: <*>,5
+dd23ebe3,/<*>: No change,5
+6be8674a,Starting Security Auditing Service...,5
+1dc1bdd9,"Init complete, auditd <*>.<*>.<*> listening for events (startup state enable)",5
+cc63a5ac,No rules,5
+669adf99,enabled <*>,10
+769dc921,failure <*>,10
+dce780ab,pid <*>,10
+df89639b,rate_limit <*>,10
+972148e8,backlog_limit <*>,10
+f03cbe60,lost <*>,10
+058f6143,backlog <*>,10
+26a2e0f6,backlog_wait_time <*>,10
+18e1df3f,Started Security Auditing Service.,5
+d7af9dc8,apt-daily.timer: Adding 11h <*>.753829s random time.,1
+fd82c615,dispatch err (pipe full) event lost,20
+45bfe7f4,dispatch error reporting limit reached - ending report notification.,2

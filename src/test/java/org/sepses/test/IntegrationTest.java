@@ -16,7 +16,6 @@ public class IntegrationTest {
 
     @BeforeClass public static void setup() {
         classLoader = IntegrationTest.class.getClassLoader();
-
     }
 
     @Test public void testApacheParser() throws IOException, ParseException {

@@ -1,0 +1,244 @@
+**** A1 ****
+
+**** A1: INPUT ****
+
+A1_logpai-input/auth.log 
+--
+[line 259,260]
+Client02 Mar  9 12:10:50 Client02 sshd[2124]: Accepted password for jhalley from 185.81.215.145 port 52410 ssh2
+Client02 Mar  9 12:10:50 Client02 sshd[2124]: pam_unix(sshd:session): session opened for user jhalley by (uid=0)
+[line 2932,2933]
+Client01 Mar  9 10:51:37 Client01 sshd[2415]: Accepted password for jdoe from 185.81.215.145 port 51031 ssh2
+Client01 Mar  9 10:51:37 Client01 sshd[2415]: pam_unix(sshd:session): session opened for user jdoe by (uid=0)
+
+**** A1: OUTPUT ****
+
+A1_logpai-output/auth.log_structured.csv
+--
+[header]
+LineId,Device,Month,Date,Time,Type,Component,Content,EventId,EventTemplate,ParameterList
+[line 259,260]
+259,Client02,Mar,9,12:10:50,Client02,sshd[2124],Accepted password for jhalley from 185.81.215.145 port 52410 ssh2,09a810c1,Accepted password for <*> from <*> port <*> ssh<*>,"['jhalley', '185.81.215.145', '52410', '2']"
+260,Client02,Mar,9,12:10:50,Client02,sshd[2124],pam_unix(sshd:session): session opened for user jhalley by (uid=0),d43c100f,pam_unix(sshd:<*>): session opened for user <*> by (uid=<*>),"['session', 'jhalley', '0']"
+[line 2932,2933]
+2932,Client01,Mar,9,10:51:37,Client01,sshd[2415],Accepted password for jdoe from 185.81.215.145 port 51031 ssh2,09a810c1,Accepted password for <*> from <*> port <*> ssh<*>,"['jdoe', '185.81.215.145', '51031', '2']"
+2933,Client01,Mar,9,10:51:37,Client01,sshd[2415],pam_unix(sshd:session): session opened for user jdoe by (uid=0),d43c100f,pam_unix(sshd:<*>): session opened for user <*> by (uid=<*>),"['session', 'jdoe', '0']"
+
+A1_logpai-output/auth.log_templates.csv
+--
+[header]
+EventId,EventTemplate,Occurrences
+[line 11,12]
+09a810c1,Accepted password for <*> from <*> port <*> ssh<*>,4
+d43c100f,pam_unix(sshd:<*>): session opened for user <*> by (uid=<*>),4
+
+**** A2 ****
+
+**** A2: INPUT ****
+
+(config.yaml)
+
+[line 63-94]
+  - id: ip
+    pattern: ([{word:/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/}])
+    action: Annotate($0, ner, "ip")
+    function: object log:IPv4
+    weight: 0 # integer
+    ottrTemplate:
+      uri: lxid:OttrTemplate_ip
+      parameters: 
+        - ottr:IRI ?id
+        - ottr:IRI ?ip
+        - xsd:string ?ipString
+      functions: 
+        - ottr:Triple(?id,log:hasIPv4,?ip)
+        - ottr:Triple(?ip,rdf:type,log:IPv4)
+        - ottr:Triple(?ip,log:ipv4,?ipString)
+  - id: port
+    pattern: ([{word:/port/}] + ([{word:/(\d{1,5})/}]))
+    action: Annotate($1, ner, "port")
+    function: portCreation
+    weight: 0 # integer
+    ottrTemplate:
+      uri: lxid:OttrTemplate_port
+      parameters: 
+        - ottr:IRI ?id
+        - ottr:IRI ?port # lid:Address_8080
+        - ottr:IRI ?linkedPort # port:Port_8080
+        - xsd:integer ?portInt # 8080
+      functions: 
+        - ottr:Triple(?id,log:hasPort,?port)
+        - ottr:Triple(?port,rdf:type,log:Port)
+        - ottr:Triple(?port,log:port,?portInt)
+        - ottr:Triple(?port,log:linkedPortService,?linkedPort)
+
+[line 122-151]
+  - id: user
+    pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
+    action: Annotate($1, ner, "user")
+    function: object log:User
+    weight: 0 # integer
+    ottrTemplate:
+      uri: lxid:OttrTemplate_user
+      parameters: 
+        - ottr:IRI ?id
+        - ottr:IRI ?obj
+        - xsd:string ?objString
+      functions: 
+        - ottr:Triple(?id,log:hasUser,?obj)
+        - ottr:Triple(?obj,rdf:type,log:User)
+        - ottr:Triple(?obj,log:user.name,?objString)
+  - id: userPassword
+    pattern: ([{word:/password/}] [{word:/for/}] ([{word:/(\w+)/}]))
+    action: Annotate($1, ner, "userPassword")
+    function: object log:User
+    weight: 0 # integer
+    ottrTemplate:
+      uri: lxid:OttrTemplate_userPassword
+      parameters: 
+        - ottr:IRI ?id
+        - ottr:IRI ?obj
+        - xsd:string ?objString
+      functions: 
+        - ottr:Triple(?id,log:hasUser,?obj)
+        - ottr:Triple(?obj,rdf:type,log:User)
+        - ottr:Triple(?obj,log:user.name,?objString)
+
+**** A2: INTERMEDIARY RESULT ****
+
+(config-turtle.ttl)
+
+[line 3054-3061]
+lxid:LogEventTemplate_548dbe55965c52699b719dc1f14bc8ee38372913d80cc494014d333b1c4ad51d
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "548dbe55965c52699b719dc1f14bc8ee38372913d80cc494014d333b1c4ad51d" ;
+        logex:associatedLogSourceType  lid:SourceType_auth ;
+        logex:example                  "Accepted password for akep from 185.81.215.145 port 62609 ssh2" ;
+        logex:hasParameterList         ( "userPassword" "ip" "port" "unknown" ) ;
+        logex:keyword                  "accepted password" , "port" , "ssh" ;
+        logex:pattern                  "Accepted password for <*> from <*> port <*> ssh<*>" .
+
+[line 2493-2500]
+lxid:LogEventTemplate_40ce22c8e47f1a075fc5d0ab4df7cc58fec48376ca46703ab4ca11f6c69c7c48
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "40ce22c8e47f1a075fc5d0ab4df7cc58fec48376ca46703ab4ca11f6c69c7c48" ;
+        logex:associatedLogSourceType  lid:SourceType_auth ;
+        logex:example                  "pam_unix(sshd:session): session opened for user akep by (uid=0)" ;
+        logex:hasParameterList         ( "unknown" "user" "unknown" ) ;
+        logex:keyword                  "sshd" , "session open" , "pam" , "user" ;
+        logex:pattern                  "pam_unix(sshd:<*>): session opened for user <*> by (uid=<*>)" .
+
+**** A2: OUTPUT ****
+
+(auth-base.ottr)
+
+[line 3345-3356]
+lxid:LogEventTemplate_548dbe55965c52699b719dc1f14bc8ee38372913d80cc494014d333b1c4ad51d[ottr:IRI ?id, ?hostUrl0, ?hostString1, ?timestamp2, ?message3, ?template4, ?logSource5, ?pname6, ?pid7, ?obj9, ?objString10, ?ip11, ?ipString12, ?port13, ?linkedPort14, LogEventTemplate_40ce22c8e47f1a075fc5d0ab4df7cc58fec48376ca46703ab4ca11f6c69c7c48?portInt15, ?unknown16] :: { 
+    lxid:OttrTemplate_unix(?id,?hostUrl0,?hostString1,?timestamp2,?message3,?template4,?logSource5,?pname6,?pid7), 
+    lxid:OttrTemplate_userPassword(?id,?obj9,?objString10), 
+    lxid:OttrTemplate_ip(?id,?ip11,?ipString12), 
+    lxid:OttrTemplate_port(?id,?port13,?linkedPort14,?portInt15), 
+    lxid:OttrTemplate_unknown(?id,?unknown16)
+} . 
+
+[line 8213-8218]
+lxid:LogEventTemplate_40ce22c8e47f1a075fc5d0ab4df7cc58fec48376ca46703ab4ca11f6c69c7c48[ottr:IRI ?id, ?hostUrl0, ?hostString1, ?timestamp2, ?message3, ?template4, ?logSource5, ?pname6, ?pid7, ?unknown9, ?obj10, ?objString11, ?unknown12] :: { 
+    lxid:OttrTemplate_unix(?id,?hostUrl0,?hostString1,?timestamp2,?message3,?template4,?logSource5,?pname6,?pid7), 
+    lxid:OttrTemplate_unknown(?id,?unknown9), 
+    lxid:OttrTemplate_user(?id,?obj10,?objString11), 
+    lxid:OttrTemplate_unknown(?id,?unknown12)
+} . 
+
+(auth.ottr)
+
+[line 276-277]
+lxid:LogEventTemplate_548dbe55965c52699b719dc1f14bc8ee38372913d80cc494014d333b1c4ad51d(lid:Event_bb2474c5-cc6e-464c-81f9-2bb37c9931f5,lid:Host_Client02,"Client02","2020-03-10T00:10:50","Accepted password for jhalley from 185.81.215.145 port 52410 ssh2",lxid:LogEventTemplate_548dbe55965c52699b719dc1f14bc8ee38372913d80cc494014d333b1c4ad51d,lid:Source_scenario_input_auth.log,"sshd","2124",lid:User_jhalley,"jhalley",lid:IPv4_185.81.215.145,"185.81.215.145",lid:Port_52410,svid:Port_52410,52410,"2"). 
+lxid:LogEventTemplate_40ce22c8e47f1a075fc5d0ab4df7cc58fec48376ca46703ab4ca11f6c69c7c48(lid:Event_449a284b-8d84-4fda-b750-39f6f7ce9b8e,lid:Host_Client02,"Client02","2020-03-10T00:10:50","pam_unix(sshd:session): session opened for user jhalley by (uid=0)",lxid:LogEventTemplate_40ce22c8e47f1a075fc5d0ab4df7cc58fec48376ca46703ab4ca11f6c69c7c48,lid:Source_scenario_input_auth.log,"sshd","2124","session",lid:User_jhalley,"jhalley","0"). 
+
+[line 2949-2950]
+lxid:LogEventTemplate_548dbe55965c52699b719dc1f14bc8ee38372913d80cc494014d333b1c4ad51d(lid:Event_15206b52-f309-4e0c-834f-917d2adb357f,lid:Host_Client01,"Client01","2020-03-09T22:51:37","Accepted password for jdoe from 185.81.215.145 port 51031 ssh2",lxid:LogEventTemplate_548dbe55965c52699b719dc1f14bc8ee38372913d80cc494014d333b1c4ad51d,lid:Source_scenario_input_auth.log,"sshd","2415",lid:User_jdoe,"jdoe",lid:IPv4_185.81.215.145,"185.81.215.145",lid:Port_51031,svid:Port_51031,51031,"2"). 
+lxid:LogEventTemplate_40ce22c8e47f1a075fc5d0ab4df7cc58fec48376ca46703ab4ca11f6c69c7c48(lid:Event_1254bffd-c376-4f2d-9761-3e9db4f65072,lid:Host_Client01,"Client01","2020-03-09T22:51:37","pam_unix(sshd:session): session opened for user jdoe by (uid=0)",lxid:LogEventTemplate_40ce22c8e47f1a075fc5d0ab4df7cc58fec48376ca46703ab4ca11f6c69c7c48,lid:Source_scenario_input_auth.log,"sshd","2415","session",lid:User_jdoe,"jdoe","0"). 
+
+**** A3 ****
+
+**** A3: INPUT ****
+
+**** A3: OUTPUT ****
+
+(auth.ttl)
+
+[line 28419-28441]
+<https://w3id.org/sepses/id/log/Event_74543024-ffd8-4cb7-b987-b8cef253bad6>
+        a                  log:Event ;
+        log:contain        "0" , "session" ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_auth.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Client02> ;
+        log:hasUser        <https://w3id.org/sepses/id/log/User_jhalley> ;
+        log:msg            "pam_unix(sshd:session): session opened for user jhalley by (uid=0)" ;
+        log:pid            "2124" ;
+        log:pname          "sshd" ;
+        log:time           "2020-03-09T12:10:50" .
+
+<https://w3id.org/sepses/id/log/Event_f01f4082-6300-4e80-ae3e-503121d7f6d1>
+        a                  log:Event ;
+        log:contain        "2" ;
+        log:hasIPv4        <https://w3id.org/sepses/id/log/IPv4_185.81.215.145> ;
+        log:hasPort        <https://w3id.org/sepses/id/log/Port_52410> ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_auth.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Client02> ;
+        log:hasUser        <https://w3id.org/sepses/id/log/User_jhalley> ;
+        log:msg            "Accepted password for jhalley from 185.81.215.145 port 52410 ssh2" ;
+        log:pid            "2124" ;
+        log:pname          "sshd" ;
+        log:time           "2020-03-09T12:10:50" .
+
+[line 6382-6393]
+<https://w3id.org/sepses/id/log/Event_a7d5854e-2d4e-42c1-9ad6-0b281c258f4b>
+        a                  log:Event ;
+        log:contain        "2" ;
+        log:hasIPv4        <https://w3id.org/sepses/id/log/IPv4_185.81.215.145> ;
+        log:hasPort        <https://w3id.org/sepses/id/log/Port_51031> ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_auth.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Client01> ;
+        log:hasUser        <https://w3id.org/sepses/id/log/User_jdoe> ;
+        log:msg            "Accepted password for jdoe from 185.81.215.145 port 51031 ssh2" ;
+        log:pid            "2415" ;
+        log:pname          "sshd" ;
+        log:time           "2020-03-09T10:51:37" .
+
+[line 37484-37493]
+<https://w3id.org/sepses/id/log/Event_7a1fe7b4-40dc-4a01-a6b8-ea4ce0a3f367>
+        a                  log:Event ;
+        log:contain        "0" , "session" ;
+        log:hasSource      <https://w3id.org/sepses/id/log/Source_scenario_input_auth.log> ;
+        log:hasSourceHost  <https://w3id.org/sepses/id/log/Host_Client01> ;
+        log:hasUser        <https://w3id.org/sepses/id/log/User_jdoe> ;
+        log:msg            "pam_unix(sshd:session): session opened for user jdoe by (uid=0)" ;
+        log:pid            "2415" ;
+        log:pname          "sshd" ;
+        log:time           "2020-03-09T10:51:37" .
+
+**** A4 ****
+
+**** A4: INPUT ****
+
+[Line 298-304]
+###  https://w3id.org/sepses/id/log/Person_JaneHalley
+<https://w3id.org/sepses/id/log/Person_JaneHalley> rdf:type owl:NamedIndividual ,
+                                                                foaf:Person ;
+                                                       :assignedHost <https://w3id.org/sepses/id/log/Host_Client02> ,
+                                                                     <https://w3id.org/sepses/id/log/Host_Client04> ;
+                                                       :hasDevice <https://w3id.org/sepses/id/log/Device_Client02> ;
+                                                       log:user.name "Jane Halley" .
+
+[line 374-379]
+###  https://w3id.org/sepses/id/log/User_jhalley
+<https://w3id.org/sepses/id/log/User_jhalley> rdf:type owl:NamedIndividual ,
+                                                           :User ;
+                                                  :onDevice <https://w3id.org/sepses/id/log/Device_Client02> ;
+                                                  :ownedBy <https://w3id.org/sepses/id/log/Person_JaneHalley> ;
+                                                  log:user.name "jhalley" .
+
+**** A4: OUTPUT ****
+
+

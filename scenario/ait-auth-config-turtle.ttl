@@ -1,0 +1,37 @@
+@prefix logex: <https://w3id.org/sepses/ns/logex#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix log:   <https://w3id.org/sepses/ns/log#> .
+@prefix lxid:  <https://w3id.org/sepses/id/logex/> .
+@prefix lid:   <https://w3id.org/sepses/id/log/> .
+@prefix ottr:  <http://ns.ottr.xyz/0.4/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix svid:  <https://w3id.org/sepses/id/service/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+lxid:LogEventTemplate_21c50891813ddce332525b0ab9ce8a4515f704d9ae793b2d64ff21aa1b80f654
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "21c50891813ddce332525b0ab9ce8a4515f704d9ae793b2d64ff21aa1b80f654" ;
+        logex:associatedLogSourceType  lid:SourceType_auth ;
+        logex:example                  "pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=sunni rhost=127.0.0.1  user=sunni" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "user" "ip" "user" ) ;
+        logex:keyword                  "pam" , "dovecot" , "authentication failure" ;
+        logex:pattern                  "pam_unix(dovecot:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser=<*> rhost=<*> user=<*>" .
+
+lxid:LogEventTemplate_8e9a2a723379d59f23257fbc139bc1a57d5173a1e772c656e5ce77929d7f2065
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "8e9a2a723379d59f23257fbc139bc1a57d5173a1e772c656e5ce77929d7f2065" ;
+        logex:associatedLogSourceType  lid:SourceType_auth ;
+        logex:example                  "pam_unix(cron:session): session closed for user root" ;
+        logex:hasParameterList         ( "unknown" ) ;
+        logex:keyword                  "pam" , "cron" , "user root" , "session close" ;
+        logex:pattern                  "pam_unix(cron:<*>): session closed for user root" .
+
+lxid:LogEventTemplate_9c4c3ce33781693cf2dde108224addc25ef31d2bfc709d3ba4c2ff6784007488
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "9c4c3ce33781693cf2dde108224addc25ef31d2bfc709d3ba4c2ff6784007488" ;
+        logex:associatedLogSourceType  lid:SourceType_auth ;
+        logex:example                  "pam_unix(cron:session): session opened for user root by (uid=0)" ;
+        logex:hasParameterList         ( "unknown" "unknown" ) ;
+        logex:keyword                  "user root" , "session open" , "pam" , "cron" ;
+        logex:pattern                  "pam_unix(cron:<*>): session opened for user root by (uid=<*>)" .

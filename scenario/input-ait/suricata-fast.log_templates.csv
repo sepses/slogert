@@ -1,0 +1,6 @@
+EventId,EventTemplate,Occurrences
+7668c4a7,[**] [<*>:<*>:<*>] ET POLICY Http Client Body contains pass= in cleartext [**] [Classification: Potential Corporate Privacy Violation] [Priority: <*>] {TCP} <*> -> <*>,375
+9fcb20a0,[**] [<*>:<*>:<*>] SURICATA HTTP METHOD terminated by non-compliant character [**] [Classification: Generic Protocol Command Decode] [Priority: <*>] {TCP} <*> -> <*>,6294
+d28c8ee8,[**] [<*>:<*>:<*>] SURICATA HTTP Host header invalid [**] [Classification: Generic Protocol Command Decode] [Priority: <*>] {TCP} <*> -> <*>,1
+0100cca4,[**] [<*>:<*>:<*>] ET WEB_SERVER ColdFusion <*> access [**] [Classification: Web Application Attack] [Priority: <*>] {TCP} <*> -> <*>,6
+4047a895,[**] [<*>:<*>:<*>] GPL ATTACK_RESPONSE id check returned root [**] [Classification: Potentially Bad Traffic] [Priority: <*>] {TCP} <*> -> <*>,2

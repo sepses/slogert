@@ -1,0 +1,12 @@
+EventId,EventTemplate,Occurrences
+269ae090,"[client <*>] PHP Warning: Declaration of Horde_Form_Type_pgp::<*>($gpg, $temp_dir = NULL, $rows = NULL, $cols = NULL) should be compatible with Horde_Form_Type_longtext::<*>($rows = <*>, $cols = <*>, $helper = Array) in /<*> on line <*>, referer: http:<*>",5
+4081e9c4,"[client <*>] PHP Warning: Declaration of <*> <*> should be compatible with Horde_Form_Type::<*>() in /<*> on line <*>, referer: http:<*>",15
+cd0a6635,"[client <*>] PHP Warning: Declaration of <*> should be compatible with Horde_Form_Type::<*>() in /<*> on line <*>, referer: http:<*>",15
+61fcd1a1,"[client <*>] PHP Warning: Declaration of <*> <*> = <*> <*> = <*> <*> = false) should be compatible with Horde_Form_Type::<*>() in /<*> on line <*>, referer: http:<*>",10
+f3c8fd47,"[client <*>] PHP Warning: Declaration of <*> <*> = <*> should be compatible with Horde_Form_Type::<*>() in /<*> on line <*>, referer: http:<*>",15
+9ca3154a,"[client <*>] PHP Warning: Declaration of Horde_Form_Type_sorter::<*>($values, $size = <*>, $header = '') should be compatible with Horde_Form_Type::<*>() in /<*> on line <*>, referer: http:<*>",5
+edc670a2,"[client <*>] PHP Warning: Declaration of Horde_Form_Type_assign::<*>($leftValues, $rightValues, $leftHeader = '', $rightHeader = '', $size = <*>, $width = '200px') should be compatible with Horde_Form_Type::<*>() in /<*> on line <*>, referer: http:<*>",5
+aaae994d,"[client <*>] PHP Warning: Declaration of Horde_Form_Type_dblookup::<*>($db, $sql, $prompt = NULL) should be compatible with Horde_Form_Type_enum::<*>($values, $prompt = NULL) in /<*> on line <*>, referer: http:<*>",5
+216aaf20,"[client <*>] PHP Deprecated: Methods with the same name as their class will not be constructors in a future version of PHP; <*> has a deprecated constructor in /<*> on line <*>, referer: http:<*>",15
+4fe85c83,[client <*>] PHP Notice: Undefined index: cmd in /<*> on line <*>,1
+3eae7757,[client <*>] PHP Warning: system(): Cannot execute a blank command in /<*> on line <*>,1

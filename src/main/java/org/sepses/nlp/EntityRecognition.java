@@ -20,11 +20,12 @@ import java.util.regex.Pattern;
 public class EntityRecognition {
 
     private static String RULE_FILE;
-    private static HashMap<String, String> dicCodeToIndex = new LinkedHashMap<>();
+    private static HashMap<String, Parameter> dicCodeToIndex = new LinkedHashMap<>();
+    private static HashMap<String, Parameter> nerCodeToIndex = new LinkedHashMap<>();
 
     private static EntityRecognition singleton = null;
-    private StanfordCoreNLP pipeline = null;
-    private CoreMapExpressionExtractor extractor = null;
+    private StanfordCoreNLP pipeline;
+    private CoreMapExpressionExtractor extractor;
 
     private EntityRecognition() {
 
@@ -59,18 +60,67 @@ public class EntityRecognition {
      * @param ruleFile
      * @return
      */
-    public static EntityRecognition getInstanceConfig(String ruleFile, List<Parameter> parameters) {
+    public static EntityRecognition getInstanceConfig(String ruleFile, List<Parameter> nonNers,
+            List<Parameter> ners) {
         if (singleton == null || !RULE_FILE.equals(ruleFile)) {
             RULE_FILE = ruleFile;
+
             // add non-ner pattern to be checked.
-            parameters.stream().forEach(item -> {
-                dicCodeToIndex.put(item.id, item.pattern);
-            });
+            nonNers.stream().forEach(item -> dicCodeToIndex.put(item.id, item));
+
+            // add ner pattern for checking parameter weight.
+            ners.stream().forEach(item -> nerCodeToIndex.put(item.id, item));
 
             singleton = new EntityRecognition();
         }
 
         return singleton;
+    }
+
+    /**
+     * The parameter recognition function; given a parameter and the full message, derive type of @{@link LogEvent}
+     *
+     * @param logEvent
+     * @param param
+     * @return String paramType
+     */
+    public static String getParamType(LogEvent logEvent, String param, ExtractionConfig config) {
+        EntityRecognition er = EntityRecognition
+                .getInstanceConfig(config.targetStanfordNer, config.nonNerParameters, config.nerParameters);
+        LevenshteinDistance distance = new LevenshteinDistance();
+        HashMap<String, String> matchedExpressions = er.annotateSentence(logEvent.content);
+        String paramType = LogEvent.UNKNOWN_PARAMETER;
+
+        // ** first clean it before detection
+        param = Utility.cleanParameter(param);
+
+        if (matchedExpressions.containsKey(param)) {
+            paramType = matchedExpressions.get(param);
+        } else {
+            // * fuzzy distance for  unexpected parameters
+            double minDistance = 1;
+            String minDistanceKey = "";
+            for (Map.Entry<String, String> entry : matchedExpressions.entrySet()) {
+                if (entry.getKey() != null) {
+                    String key = entry.getKey();
+                    double dist = distance.apply(key, param);
+                    double maxLength = ((param.length() > key.length()) ? param.length() : key.length());
+                    double relativeDistance = dist / maxLength;
+
+                    if (relativeDistance < minDistance) {
+                        minDistance = relativeDistance;
+                        minDistanceKey = key;
+                    }
+                }
+            }
+
+            // ** Relative distance accepted for cases like http://test.com vs //test.com
+            if (minDistance < 0.25) {
+                paramType = matchedExpressions.get(minDistanceKey);
+            }
+        }
+
+        return paramType;
     }
 
     /**
@@ -99,7 +149,7 @@ public class EntityRecognition {
 
         // Parse sentence without word tokens - in case they dont split well, like with paths
         for (String regexKey : dicCodeToIndex.keySet()) {
-            Pattern pattern = Pattern.compile(dicCodeToIndex.get(regexKey));
+            Pattern pattern = Pattern.compile(dicCodeToIndex.get(regexKey).pattern);
             Matcher matcher = pattern.matcher(inputSentence);
 
             while (matcher.find()) {
@@ -193,50 +243,5 @@ public class EntityRecognition {
         String itemStr = item.toLowerCase().trim();
         if (itemStr.length() > 1)
             keywords.add(itemStr);
-    }
-
-    /**
-     * The parameter recognition function; given a parameter and the full message, derive type of @{@link LogEvent}
-     *
-     * @param logEvent
-     * @param param
-     * @return String paramType
-     */
-    public static String getParamType(LogEvent logEvent, String param, ExtractionConfig config) {
-        EntityRecognition er = EntityRecognition.getInstanceConfig(config.targetStanfordNer, config.nonNerParameters);
-        LevenshteinDistance distance = new LevenshteinDistance();
-        HashMap<String, String> matchedExpressions = er.annotateSentence(logEvent.content);
-        String paramType = LogEvent.UNKNOWN_PARAMETER;
-
-        // ** first clean it before detection
-        param = Utility.cleanParameter(param);
-
-        if (matchedExpressions.containsKey(param)) {
-            paramType = matchedExpressions.get(param);
-        } else {
-            // * fuzzy distance for  unexpected parameters
-            double minDistance = 1;
-            String minDistanceKey = "";
-            for (Map.Entry<String, String> entry : matchedExpressions.entrySet()) {
-                if (entry.getKey() != null) {
-                    String key = entry.getKey();
-                    double dist = distance.apply(key, param);
-                    double maxLength = ((param.length() > key.length()) ? param.length() : key.length());
-                    double relativeDistance = dist / maxLength;
-
-                    if (relativeDistance < minDistance) {
-                        minDistance = relativeDistance;
-                        minDistanceKey = key;
-                    }
-                }
-            }
-
-            // ** Relative distance accepted for cases like http://test.com vs //test.com
-            if (minDistance < 0.25) {
-                paramType = matchedExpressions.get(minDistanceKey);
-            }
-        }
-
-        return paramType;
     }
 }

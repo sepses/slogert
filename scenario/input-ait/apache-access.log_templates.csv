@@ -1,0 +1,7 @@
+EventId,EventTemplate,Occurrences
+20f25e8a,"GET <*> HTTP/<*>.<*>"" <*> <*> <*> ""Mozilla/<*>.<*> (X11; Ubuntu; Linux x86_<*>; rv:<*>.<*>) Gecko/<*> Firefox/<*>.<*>",4198
+6180869c,"POST <*> HTTP/<*>.<*>"" <*> <*> <*> ""Mozilla/<*>.<*> (X11; Linux x86_<*>) AppleWebKit/<*>.<*> (KHTML, like Gecko) Ubuntu Chromium<*> HeadlessChrome<*> Safari/<*>.<*>",1403
+e2aa1865,"POST <*> HTTP/<*>.<*>"" <*> <*> <*> ""Mozilla/<*>.<*> (X11; Ubuntu; Linux x86_<*>; rv:<*>.<*>) Gecko/<*> Firefox/<*>.<*>",1843
+0d124007,"OPTIONS * HTTP/<*>.<*>"" <*> <*> ""-"" ""Apache/<*>.<*>.<*> (Debian) OpenSSL/<*>.<*>.2u (internal dummy connection)",581
+d0122ce9,"GET <*> HTTP/<*>.<*>"" <*> <*> <*> ""Mozilla/<*>.<*> (X11; Linux x86_<*>) AppleWebKit/<*>.<*> (KHTML, like Gecko) Ubuntu Chromium<*> HeadlessChrome<*> Safari/<*>.<*>",1973
+b0ccbcc6,"-"" <*> <*> ""-"" ""-",2
