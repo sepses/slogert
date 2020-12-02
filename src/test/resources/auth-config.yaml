@@ -2,9 +2,14 @@
 # -- SLOGERT Configuration File --
 ##
 
-source: scenario/input/auth.log
-sourceLogpai: scenario/input/auth.log_structured.csv
-sourceLogpaiTemplate: scenario/input/auth.log_templates.csv
+source: auth.log
+format: "<Device> <Month> <Date> <Time> <Type> <Component>: <Content>"
+rawFolder: scenario/input/
+initializedFolder: scenario/input-initialized
+preprocessedFolder: scenario/input-preprocessed
+
+sourceLogpai: scenario/input-preprocessed/auth.log_structured.csv
+sourceLogpaiTemplate: scenario/input-preprocessed/auth.log_templates.csv
 
 logFormat: unix
 logSourceType: auth
@@ -18,5 +23,5 @@ targetOttrTurtle: scenario/output/auth.ttl
 targetOttrBase: scenario/output/auth-base.ottr
 
 targetStanfordNer: scenario/config-ner.rules
-targetConfigTurtle: scenario/config-turtle.ttl
+targetConfigTurtle: scenario/config-auth.ttl
 targetConfigTimer: scenario/config-timer.csv

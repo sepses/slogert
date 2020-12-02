@@ -2,7 +2,7 @@ package org.sepses.test.function;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.sepses.config.ExtractionConfig;
+import org.sepses.slogert.config.ExtractionConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;

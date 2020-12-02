@@ -1,9 +1,0 @@
-EventId,EventTemplate,Occurrences
-6d14a143,item=<*> <*> inode=<*> dev=<*>:<*> mode=<*> ouid=<*> ogid=<*> rdev=<*>:<*> nametype<*> cap_fp=<*> cap_fi=<*> cap_fe=<*> cap_fver=<*>,160
-5ea41cea,"proctitle<*>""",54
-83a6f4d4,arch<*> syscall=<*> success<*> exit=<*> <*> <*> <*> <*> items=<*> ppid=<*> pid=<*> auid=<*> uid=<*> gid=<*> euid=<*> suid=<*> fsuid=<*> egid=<*> sgid=<*> fsgid=<*> <*> ses=<*> <*> <*> <*>,73
-569c5378,"cwd<*>""",72
-849acd71,proctitle<*>,2
-225d195d,proctitle<*><*>,18
-ef7a74b8,table<*> family=<*> entries=<*>,1
-396ed331,"pid=<*> uid=<*> auid=<*> ses=<*> msg='cwd<*>"" cmd<*><*>.sh"" terminal<*><*> res<*>'",1

@@ -2,9 +2,14 @@
 # -- SLOGERT Configuration File --
 ##
 
-source: scenario/input/sys.log
-sourceLogpai: scenario/input/sys.log_structured.csv
-sourceLogpaiTemplate: scenario/input/sys.log_templates.csv
+source: sys.log
+format: "<Device> <Month> <Date> <Time> <Type> <Component>: <Content>"
+rawFolder: scenario/input/
+initializedFolder: scenario/input-initialized
+preprocessedFolder: scenario/input-preprocessed
+
+sourceLogpai: scenario/input-preprocessed/sys.log_structured.csv
+sourceLogpaiTemplate: scenario/input-preprocessed/sys.log_templates.csv
 
 logFormat: unix
 logSourceType: syslog
@@ -18,5 +23,5 @@ targetOttrTurtle: scenario/output/sys.ttl
 targetOttrBase: scenario/output/sys-base.ottr
 
 targetStanfordNer: scenario/config-ner.rules
-targetConfigTurtle: scenario/config-turtle.ttl
+targetConfigTurtle: scenario/config-sys.ttl
 targetConfigTimer: scenario/config-timer.csv

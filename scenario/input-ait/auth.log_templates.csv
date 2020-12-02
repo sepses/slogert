@@ -1,4 +1,0 @@
-EventId,EventTemplate,Occurrences
-4ba90d53,pam_unix(cron:<*>): session opened for user root by (uid=<*>),455
-77d7fb18,pam_unix(cron:<*>): session closed for user root,455
-58c5527c,pam_unix(dovecot:<*>): authentication failure; logname= uid=<*> euid=<*> tty=<*> ruser=<*> rhost=<*> user=<*>,314

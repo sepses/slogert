@@ -288,7 +288,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - ottr:IRI ?template
+      - xsd:string ?template
       - ottr:IRI ?logSource
     functions: 
       - ottr:Triple(?id,rdf:type,log:Event)
@@ -297,7 +297,7 @@ ottrTemplates:
       - ottr:Triple(?hostUrl,log:host,?hostString)
       - ottr:Triple(?id,log:time,?timestamp)
       - ottr:Triple(?id,log:msg,?message)      
-      - ottr:Triple(?template,logex:isLogEventTemplateOf,?id)
+      - ottr:Triple(?id,logex:template,?template)
       - ottr:Triple(?id,log:hasSource,?logSource)
 
   - uri: lxid:OttrTemplate_unix
@@ -307,7 +307,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - ottr:IRI ?template
+      - xsd:string ?template
       - ottr:IRI ?logSource
       - xsd:string ?pname        
       - xsd:string ?pid
@@ -323,7 +323,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - ottr:IRI ?template
+      - xsd:string ?template
       - ottr:IRI ?logSource
       - xsd:string ?pid
     functions: 
@@ -337,7 +337,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - ottr:IRI ?template
+      - xsd:string ?template
       - ottr:IRI ?logSource
       - xsd:string ?cmd
     functions: 
@@ -351,7 +351,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - ottr:IRI ?template
+      - xsd:string ?template
       - ottr:IRI ?logSource
       - ottr:IRI ?ip
       - xsd:string ?ipString
