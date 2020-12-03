@@ -80,7 +80,7 @@ public class OttrUtility {
             File outputFile = new File(config.targetOttrTurtle);
             File outputError = new File(config.targetOttrTurtle + ".log");
 
-            ProcessBuilder pb = new ProcessBuilder("java", "-jar", "exe/lutra.jar", "--library", config.targetOttrBase,
+            ProcessBuilder pb = new ProcessBuilder("java", "-jar", "executable/lutra.jar", "--library", config.targetOttrBase,
                     "--libraryFormat", "stottr", "--inputFormat", "stottr", config.targetOttr, "--mode", "expand",
                     "--fetchMissing");
             pb.redirectOutput(ProcessBuilder.Redirect.to(outputFile));

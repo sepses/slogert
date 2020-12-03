@@ -24,4 +24,4 @@ targetOttrTurtle: output/auth.log/4-ttl
 
 targetStanfordNer: output/auth.log/ner.rules
 targetConfigTimer: output/auth.log/timer.csv
-targetConfigTurtle: output/auth.log/auth-template.ttl
+targetConfigTurtle: output/auth.log/auth.log-template.ttl

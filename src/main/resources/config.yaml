@@ -57,6 +57,13 @@ logFormats:
     functions:
       - columns: IP
         function: getIp
+  - id: suricata
+    ottrBaseTemplate: lxid:OttrTemplate_suricata
+    header: LineId,Device,day,month,year,Time,ms,Content
+    host: Device
+    content: Content
+    time: day,month,year,Time,ms
+    functions:
 
 
 nerParameters:

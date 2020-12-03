@@ -63,6 +63,33 @@ public class IntegrationTest {
         }
     }
 
+    @Test public void testDaemonParser() throws IOException, ParseException {
+        File configFile = new File(classLoader.getResource("daemon-config.yaml").getFile());
+
+        if (configFile.isFile()) {
+            String[] params = { "-c " + configFile.getAbsolutePath() };
+            MainParser.main(params);
+        }
+    }
+
+    @Test public void testMessagesParser() throws IOException, ParseException {
+        File configFile = new File(classLoader.getResource("messages-config.yaml").getFile());
+
+        if (configFile.isFile()) {
+            String[] params = { "-c " + configFile.getAbsolutePath() };
+            MainParser.main(params);
+        }
+    }
+
+    @Test public void testMailParser() throws IOException, ParseException {
+        File configFile = new File(classLoader.getResource("mail-config.yaml").getFile());
+
+        if (configFile.isFile()) {
+            String[] params = { "-c " + configFile.getAbsolutePath() };
+            MainParser.main(params);
+        }
+    }
+
 //    @Test public void testFtpParser() throws IOException, ParseException {
 //        File configFile = new File(classLoader.getResource("ftp-config.yaml").getFile());
 //

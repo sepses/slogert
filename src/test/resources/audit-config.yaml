@@ -24,7 +24,7 @@ targetOttrTurtle: output/audit.log/4-ttl
 
 targetStanfordNer: output/audit.log/ner.rules
 targetConfigTimer: output/audit.log/timer.csv
-targetConfigTurtle: output/audit.log/audit-template.ttl
+targetConfigTurtle: output/audit.log/audit.log-template.ttl
 
 #source: scenario/input/audit.log
 #sourceLogpai: scenario/input/audit.log_structured.csv

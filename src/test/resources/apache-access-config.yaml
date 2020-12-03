@@ -24,7 +24,7 @@ targetOttrTurtle: output/access.log/4-ttl
 
 targetStanfordNer: output/access.log/ner.rules
 targetConfigTimer: output/access.log/timer.csv
-targetConfigTurtle: output/access.log/audit-template.ttl
+targetConfigTurtle: output/access.log/access.log-template.ttl
 #
 #source: scenario/input/apache-access.log
 #sourceLogpai: scenario/input/apache-access.log_structured.csv
