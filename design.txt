@@ -1,21 +1,10 @@
-head -1000 *.log > folder/*.log
-
-Constant
-  data/init
-  data/logpai
-  data/ottr
-  data/ttl
-
 Flow
--- separated
 
   init - collect all files with name <source>, write it into a single file 
     device identification - add device info as the first keyword in the logline
     preprocess - slice log files with more than <linePerBatch> into several files
 
   param detection - process each file through LogPai to detect parameters and log templates
-
--- jumbling
 
   templates building
     if (template is not recognized)
@@ -27,7 +16,6 @@ Flow
   ottr building
     ottr instance - conversion of log line
   
--- separated
   ttl conversion - running lutra engine to convert ottr instances
 
 
