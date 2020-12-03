@@ -1,11 +1,9 @@
 package org.sepses;
 
 import com.google.common.base.Stopwatch;
-import com.google.common.collect.Lists;
 import org.apache.commons.cli.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
@@ -28,6 +26,7 @@ import org.yaml.snakeyaml.constructor.Constructor;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.Instant;
@@ -86,20 +85,55 @@ public class MainParser {
             logSB.append("*** Standford NER rules are generated in " + timer.stop()).append(System.lineSeparator());
             timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
 
-            timer = Stopwatch.createStarted();
-            extractLogEventTemplates(config); // done
-            logSB.append("*** LogEvent templates are generated in " + timer.stop()).append(System.lineSeparator());
-            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+            int iteration = 0;
 
-            timer = Stopwatch.createStarted();
-            extractOttrBase(config); // done
-            logSB.append("*** OTTR templates are generated in " + timer.stop()).append(System.lineSeparator());
-            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+            String oriSource = config.source;
+            String oriTargetOttr = config.targetOttr;
+            String oriTargetOttrTurtle = config.targetOttrTurtle;
+            String oriTargetOttrBase = config.targetOttrBase;
 
-            timer = Stopwatch.createStarted();
-            extractLogEvents(config); // done
-            logSB.append("*** OTTR instances are generated in " + timer.stop()).append(System.lineSeparator());
-            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
+            while (iteration != -1) {
+
+                config.source = oriSource + "." + iteration;
+                config.sourceLogpai = config.preprocessedFolder + "/" + config.source + "_structured.csv";
+                config.sourceLogpaiTemplate = config.preprocessedFolder + "/" + config.source + "_templates.csv";
+                config.targetOttr = oriTargetOttr + "/" + config.source + ".ottr";
+                config.targetOttrBase = oriTargetOttrBase + "/" + oriSource + ".stottr";
+                config.targetOttrTurtle = oriTargetOttrTurtle + "/" + config.source + ".ttl";
+
+                Path path = Paths.get(config.initializedFolder, config.source);
+
+                if (Files.exists(path)) {
+
+                    timer = Stopwatch.createStarted();
+                    extractLogEventTemplates(config); // done
+                    logSB.append("*** LogEvent templates are generated in " + timer.stop())
+                            .append(System.lineSeparator());
+                    timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
+                    timer = Stopwatch.createStarted();
+                    extractOttrBase(config); // done
+                    logSB.append("*** OTTR templates are generated in " + timer.stop())
+                            .append(System.lineSeparator());
+                    timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
+                    timer = Stopwatch.createStarted();
+                    extractLogEvents(config); // done
+                    logSB.append("*** OTTR instances are generated in " + timer.stop())
+                            .append(System.lineSeparator());
+                    timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
+
+                    timer = Stopwatch.createStarted();
+                    OttrUtility.runOttrEngine(config); // done
+                    logSB.append("*** TTL file is generated in " + timer.stop()).append(System.lineSeparator());
+                    timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
+
+                    iteration++;
+
+                } else {
+                    iteration = -1;
+                }
+            }
 
             try {
                 Files.write(Paths.get(config.targetConfigTimer), timerSB.toString().getBytes(),
@@ -107,11 +141,6 @@ public class MainParser {
             } catch (IOException e) {
                 log.error(e.getMessage());
             }
-
-            timer = Stopwatch.createStarted();
-            OttrUtility.runOttrEngine(config); // done
-            logSB.append("*** TTL file is generated in " + timer.stop()).append(System.lineSeparator());
-            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
 
             logSB.append("****** End of log processing \n\n");
 
@@ -175,33 +204,16 @@ public class MainParser {
         StringUtility.writeToFile(sb.toString(), config.targetOttrBase);
     }
 
-    /**
-     * Generation of OTTR instances from log events
-     *
-     * @param config
-     * @param events
-     * @throws IOException
-     */
-    private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
-        Integer maxCount = config.logEventsPerExtraction;
-
-        if (events.size() > maxCount) {
-            String filename = config.targetOttr;
-            String path = FilenameUtils.getPath(filename);
-            String base = FilenameUtils.getBaseName(filename);
-            String extension = FilenameUtils.getExtension(filename);
-
-            List<List<LogEvent>> partitions = Lists.partition(events, maxCount);
-            for (int i = 0; i < partitions.size(); i++) {
-                filename = new StringBuilder(path).append(base).append("-").append(i).append(".").append(extension)
-                        .toString();
-                executeExtract(config, partitions.get(i), filename);
-            }
-
-        } else {
-            executeExtract(config, events, config.targetOttr);
-        }
-    }
+//    /**
+//     * Generation of OTTR instances from log events
+//     *
+//     * @param config
+//     * @param events
+//     * @throws IOException
+//     */
+//    private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
+//        executeExtract(config, events, config.targetOttr);
+//    }
 
     private static void executeExtract(ExtractionConfig config, List<LogEvent> events, String fileName)
             throws IOException {
@@ -239,7 +251,7 @@ public class MainParser {
         List<LogEvent> logEvents = new ArrayList<>();
         records.forEach(record -> logEvents.add(new LogEvent(record, config)));
 
-        extractOttrInstances(config, logEvents);
+        executeExtract(config, logEvents, config.targetOttr);
 
     }
 

@@ -72,6 +72,11 @@ public class OttrUtility {
         Path path = Paths.get(config.targetOttr);
         if(Files.exists(path)) {
 
+            Path targetTurtle = Paths.get(config.targetOttrTurtle);
+            if (targetTurtle != null && !Files.exists(targetTurtle)) {
+                targetTurtle.toFile().getParentFile().mkdirs();
+            }
+
             File outputFile = new File(config.targetOttrTurtle);
             File outputError = new File(config.targetOttrTurtle + ".log");
 

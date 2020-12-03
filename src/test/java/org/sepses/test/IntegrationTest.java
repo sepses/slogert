@@ -35,15 +35,15 @@ public class IntegrationTest {
             MainParser.main(params);
         }
     }
-
-    @Test public void testApacheHostParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("apache-host-config.yaml").getFile());
-
-        if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
-            MainParser.main(params);
-        }
-    }
+//
+//    @Test public void testApacheHostParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("apache-host-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
 
     @Test public void testAuthParser() throws IOException, ParseException {
         File configFile = new File(classLoader.getResource("auth-config.yaml").getFile());
@@ -63,23 +63,23 @@ public class IntegrationTest {
         }
     }
 
-    @Test public void testFtpParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("ftp-config.yaml").getFile());
+//    @Test public void testFtpParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("ftp-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
 
-        if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
-            MainParser.main(params);
-        }
-    }
-
-    @Test public void testKernParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("kern-config.yaml").getFile());
-
-        if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
-            MainParser.main(params);
-        }
-    }
+//    @Test public void testKernParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("kern-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
 
     @Test public void testSysParser() throws IOException, ParseException {
         File configFile = new File(classLoader.getResource("sys-config.yaml").getFile());

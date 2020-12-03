@@ -2,26 +2,26 @@
 # -- SLOGERT Configuration File --
 ##
 
-source: sys.log
+source: syslog
 format: "<Device> <Month> <Date> <Time> <Type> <Component>: <Content>"
-rawFolder: scenario/input/
-initializedFolder: scenario/input-initialized
-preprocessedFolder: scenario/input-preprocessed
+rawFolder: input/
+initializedFolder: output/syslog/1-init
+preprocessedFolder: output/syslog/2-logpai
 
-sourceLogpai: scenario/input-preprocessed/sys.log_structured.csv
-sourceLogpaiTemplate: scenario/input-preprocessed/sys.log_templates.csv
+sourceLogpai: output/syslog/2-logpai/syslog_structured.csv
+sourceLogpaiTemplate: output/syslog/2-logpai/syslog_templates.csv
 
 logFormat: unix
 logSourceType: syslog
 
 isOverrideExisting: false
 paramExtractAttempt: 3
-logEventsPerExtraction: 25000
+logEventsPerExtraction: 5000
 
-targetOttr: scenario/output/sys.ottr
-targetOttrTurtle: scenario/output/sys.ttl
-targetOttrBase: scenario/output/sys-base.ottr
+targetOttr: output/syslog/3-ottr
+targetOttrBase: output/syslog/3-ottr
+targetOttrTurtle: output/syslog/4-ttl
 
-targetStanfordNer: scenario/config-ner.rules
-targetConfigTurtle: scenario/config-sys.ttl
-targetConfigTimer: scenario/config-timer.csv
+targetStanfordNer: output/syslog/ner.rules
+targetConfigTimer: output/syslog/timer.csv
+targetConfigTurtle: output/syslog/syslog-template.ttl
