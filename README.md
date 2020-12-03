@@ -2,6 +2,7 @@
 
 -- **S**emantic **LOG E**xt**R**action **T**emplating (SLOGERT) --
 
+DEPRECATED!!!!
 
  * [General Introduction](#general-introduction)
  * [What does SLOGERT do?](#what-does-slogert-do-)

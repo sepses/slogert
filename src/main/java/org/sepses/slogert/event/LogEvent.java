@@ -53,7 +53,8 @@ public class LogEvent {
         config.logFormatInstance.parameters.forEach(p -> {
             templateParameters.add(record.get(p.column));
         });
-        config.logFormatInstance.functions.forEach(function -> executeFunction(function, record));
+        if (config.logFormatInstance.functions != null)
+            config.logFormatInstance.functions.forEach(function -> executeFunction(function, record));
     }
 
     /**
@@ -100,7 +101,9 @@ public class LogEvent {
         ottr.parameters.add("\"" + hostString + "\"");
         ottr.parameters.add("\"" + timestamp + "\"");
         ottr.parameters.add("\"" + StringUtility.cleanContent(content) + "\"");
-        ottr.parameters.add("\"" + templateHash + "\"");
+        //        ottr.parameters.add("\"" + templateHash + "\"");
+        ottr.parameters
+                .add(JenaUtility.getPrefixedName(LOGEX.LogEventTemplate, LOGEX.NS_INSTANCE_PREFIX, templateHash));
         ottr.parameters.add(JenaUtility
                 .getPrefixedName(LOG.Source, LOG.NS_INSTANCE_PREFIX, StringUtility.cleanUriContent(config.source)));
 
@@ -253,7 +256,7 @@ public class LogEvent {
     /**
      * handle heterogeneous date creation based on different {@link LogFormat}.
      * <p>
-     * TODO: rework this later
+     * TODO: rework this later - currently hardcode
      *
      * @param record
      * @param format
@@ -264,8 +267,8 @@ public class LogEvent {
 
         if (format.id.equals("ftp")) {
             String[] vars = format.time.split(",");
-            result = DateUtility.getDate(record.get(vars[0]), record.get(vars[1]), record.get(vars[2]),
-                    record.get(vars[3]));
+            result = DateUtility
+                    .getDate(record.get(vars[0]), record.get(vars[1]), record.get(vars[2]), record.get(vars[3]));
         } else if (format.id.equals("unix")) {
             String[] vars = format.time.split(",");
             result = DateUtility.getDate(record.get(vars[0]), record.get(vars[1]), record.get(vars[2]));
@@ -274,6 +277,10 @@ public class LogEvent {
             result = DateUtility.getDate(record.get(vars[0]), record.get(vars[1]));
         } else if (format.id.equals("audit")) {
             result = DateUtility.getDate(record.get(format.time));
+        } else if (format.id.equals("exim") || format.id.equals("suricata")) {
+            String[] vars = format.time.split(",");
+            result = DateUtility
+                    .getAppDate(record.get(vars[0]), record.get(vars[1]), record.get(vars[2]), record.get(vars[3]));
         } else {
             log.error("*** Unknown Log Format!! ***");
         }

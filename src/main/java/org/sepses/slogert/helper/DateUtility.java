@@ -13,6 +13,7 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.TemporalUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -87,6 +88,30 @@ public class DateUtility {
             log.error(e.getMessage());
         }
         cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(day));
+        cal.set(Calendar.HOUR, localTime.getHour());
+        cal.set(Calendar.MINUTE, localTime.getMinute());
+        cal.set(Calendar.SECOND, localTime.getSecond());
+        cal.set(Calendar.YEAR, Integer.parseInt(year));
+
+        Date dateRepresentation = cal.getTime();
+
+        SimpleDateFormat xmlDateFormatter = new SimpleDateFormat(XSD_DATETIME);
+        String dateString;
+
+        dateString = xmlDateFormatter.format(dateRepresentation);
+
+        return dateString;
+    }
+
+    // day,month,year,Time,ms
+    public static String getAppDate(String day, String month, String year, String time) {
+
+        LocalTime localTime = LocalTime.parse(time);
+
+        Calendar cal = Calendar.getInstance();
+
+        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(day));
+        cal.set(Calendar.MONTH, Integer.parseInt(month));
         cal.set(Calendar.HOUR, localTime.getHour());
         cal.set(Calendar.MINUTE, localTime.getMinute());
         cal.set(Calendar.SECOND, localTime.getSecond());

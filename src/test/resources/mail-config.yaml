@@ -23,7 +23,7 @@ targetOttrBase: output/mail.log/3-ottr
 targetOttrTurtle: output/mail.log/4-ttl
 
 targetStanfordNer: output/mail.log/ner.rules
-targetConfigTimer: output/mail.log/timer.csv
+targetConfigTimer: output/timer.csv
 targetConfigTurtle: output/mail.log/mail.log-template.ttl
 
 #source: scenario/input/kern.log

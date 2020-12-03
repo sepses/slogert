@@ -23,5 +23,5 @@ targetOttrBase: output/syslog/3-ottr
 targetOttrTurtle: output/syslog/4-ttl
 
 targetStanfordNer: output/syslog/ner.rules
-targetConfigTimer: output/syslog/timer.csv
+targetConfigTimer: output/timer.csv
 targetConfigTurtle: output/syslog/syslog-template.ttl

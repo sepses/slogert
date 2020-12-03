@@ -58,11 +58,18 @@ logFormats:
       - columns: IP
         function: getIp
   - id: suricata
-    ottrBaseTemplate: lxid:OttrTemplate_suricata
-    header: LineId,Device,day,month,year,Time,ms,Content
+    ottrBaseTemplate: lxid:OttrTemplate_event
+    header: LineId,Device,day,month,year,Time,ms,Content,EventId,EventTemplate,ParameterList
     host: Device
     content: Content
     time: day,month,year,Time,ms
+    functions:
+  - id: exim
+    ottrBaseTemplate: lxid:OttrTemplate_event
+    header: LineId,Device,year,month,day,Time,Content,EventId,EventTemplate,ParameterList
+    host: Device
+    content: Content
+    time: day,month,year,Time
     functions:
 
 
@@ -295,7 +302,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - xsd:string ?template
+      - ottr:IRI ?template
       - ottr:IRI ?logSource
     functions: 
       - ottr:Triple(?id,rdf:type,log:Event)
@@ -314,7 +321,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - xsd:string ?template
+      - ottr:IRI ?template
       - ottr:IRI ?logSource
       - xsd:string ?pname        
       - xsd:string ?pid
@@ -330,7 +337,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - xsd:string ?template
+      - ottr:IRI ?template
       - ottr:IRI ?logSource
       - xsd:string ?pid
     functions: 
@@ -344,7 +351,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - xsd:string ?template
+      - ottr:IRI ?template
       - ottr:IRI ?logSource
       - xsd:string ?cmd
     functions: 
@@ -358,7 +365,7 @@ ottrTemplates:
       - xsd:string ?hostString
       - xsd:dateTime ?timestamp
       - xsd:string ?message
-      - xsd:string ?template
+      - ottr:IRI ?template
       - ottr:IRI ?logSource
       - ottr:IRI ?ip
       - xsd:string ?ipString
@@ -392,9 +399,6 @@ ottrTemplates:
       - ottr:Triple(?sourceType,log:hasFormat,?logFormat)
       - ottr:Triple(?logFormat,rdf:type,log:Format)
       - ottr:Triple(?logFormat,rdfs:label,?logFormatString)
-
-
-
 
 
 

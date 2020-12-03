@@ -2,26 +2,26 @@
 # -- SLOGERT Configuration File --
 ##
 
-source: suricata-fast.log
+source: fast.log
 format: "<Device> <day>/<month>/<year>-<Time>\\\\.<ms> <Content>"
 rawFolder: input/
-initializedFolder: output/suricata-fast.log/1-init
-preprocessedFolder: output/suricata-fast.log/2-logpai
+initializedFolder: output/fast.log/1-init
+preprocessedFolder: output/fast.log/2-logpai
 
-sourceLogpai: output/suricata-fast.log/2-logpai/suricata-fast.log_structured.csv
-sourceLogpaiTemplate: output/suricata-fast.log/2-logpai/suricata-fast.log_templates.csv
+sourceLogpai: output/fast.log/2-logpai/fast.log_structured.csv
+sourceLogpaiTemplate: output/fast.log/2-logpai/fast.log_templates.csv
 
 logFormat: suricata
-logSourceType: suricata-fast.log
+logSourceType: fast.log
 
 isOverrideExisting: false
 paramExtractAttempt: 3
 logEventsPerExtraction: 5000
 
-targetOttr: output/suricata-fast.log/3-ottr
-targetOttrBase: output/suricata-fast.log/3-ottr
-targetOttrTurtle: output/suricata-fast.log/4-ttl
+targetOttr: output/fast.log/3-ottr
+targetOttrBase: output/fast.log/3-ottr
+targetOttrTurtle: output/fast.log/4-ttl
 
-targetStanfordNer: output/suricata-fast.log/ner.rules
-targetConfigTimer: output/suricata-fast.log/timer.csv
-targetConfigTurtle: output/suricata-fast.log/suricata-fast.log-template.ttl
+targetStanfordNer: output/fast.log/ner.rules
+targetConfigTimer: output/timer.csv
+targetConfigTurtle: output/fast.log/fast.log-template.ttl

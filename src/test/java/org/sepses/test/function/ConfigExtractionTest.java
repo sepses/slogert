@@ -23,6 +23,6 @@ public class ConfigExtractionTest {
         Yaml yaml = new Yaml(new Constructor(ExtractionConfig.class));
         ExtractionConfig extractionConfig = yaml.load(is);
 
-        Assert.assertEquals(extractionConfig.targetStanfordNer, "scenario/config-ner.rules");
+        Assert.assertEquals(extractionConfig.targetStanfordNer, "output/auth.log/ner.rules");
     }
 }

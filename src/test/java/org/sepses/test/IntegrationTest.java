@@ -116,4 +116,22 @@ public class IntegrationTest {
             MainParser.main(params);
         }
     }
+
+    @Test public void testSuricataParser() throws IOException, ParseException {
+        File configFile = new File(classLoader.getResource("suricata-config.yaml").getFile());
+
+        if (configFile.isFile()) {
+            String[] params = { "-c " + configFile.getAbsolutePath() };
+            MainParser.main(params);
+        }
+    }
+
+    @Test public void testEximParser() throws IOException, ParseException {
+        File configFile = new File(classLoader.getResource("exim-config.yaml").getFile());
+
+        if (configFile.isFile()) {
+            String[] params = { "-c " + configFile.getAbsolutePath() };
+            MainParser.main(params);
+        }
+    }
 }

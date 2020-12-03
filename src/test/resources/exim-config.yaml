@@ -1,0 +1,27 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+source: mainlog
+format: "<Device> <year>-<month>-<day> <Time> <Content>"
+rawFolder: input/
+initializedFolder: output/mainlog/1-init
+preprocessedFolder: output/mainlog/2-logpai
+
+sourceLogpai: output/mainlog/2-logpai/mainlog_structured.csv
+sourceLogpaiTemplate: output/mainlog/2-logpai/mainlog_templates.csv
+
+logFormat: exim
+logSourceType: mainlog
+
+isOverrideExisting: false
+paramExtractAttempt: 3
+logEventsPerExtraction: 5000
+
+targetOttr: output/mainlog/3-ottr
+targetOttrBase: output/mainlog/3-ottr
+targetOttrTurtle: output/mainlog/4-ttl
+
+targetStanfordNer: output/mainlog/ner.rules
+targetConfigTimer: output/timer.csv
+targetConfigTurtle: output/mainlog/mainlog-template.ttl

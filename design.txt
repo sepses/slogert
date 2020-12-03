@@ -56,7 +56,6 @@ executable
 output
   <source>
     1-init
-      <source>
       <source>.[i]
     2-logpai
       <source>.[i]_structured.csv
@@ -71,7 +70,7 @@ output
     <source>.ner.rules
     <source>.templates.ttl
 
-    ttl-5
+  timer.csv
 src
   main
     java

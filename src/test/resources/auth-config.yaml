@@ -16,12 +16,12 @@ logSourceType: auth
 
 isOverrideExisting: false
 paramExtractAttempt: 3
-logEventsPerExtraction: 5000
+logEventsPerExtraction: 2000
 
 targetOttr: output/auth.log/3-ottr
 targetOttrBase: output/auth.log/3-ottr
 targetOttrTurtle: output/auth.log/4-ttl
 
 targetStanfordNer: output/auth.log/ner.rules
-targetConfigTimer: output/auth.log/timer.csv
+targetConfigTimer: output/timer.csv
 targetConfigTurtle: output/auth.log/auth.log-template.ttl

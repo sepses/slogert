@@ -23,7 +23,7 @@ targetOttrBase: output/daemon.log/3-ottr
 targetOttrTurtle: output/daemon.log/4-ttl
 
 targetStanfordNer: output/daemon.log/ner.rules
-targetConfigTimer: output/daemon.log/timer.csv
+targetConfigTimer: output/timer.csv
 targetConfigTurtle: output/daemon.log/daemon.log-template.ttl
 
 #source: scenario/input/kern.log

@@ -23,7 +23,7 @@ targetOttrBase: output/error.log/3-ottr
 targetOttrTurtle: output/error.log/4-ttl
 
 targetStanfordNer: output/error.log/ner.rules
-targetConfigTimer: output/error.log/timer.csv
+targetConfigTimer: output/timer.csv
 targetConfigTurtle: output/error.log/error.log-template.ttl
 
 #

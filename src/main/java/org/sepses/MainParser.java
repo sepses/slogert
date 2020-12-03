@@ -67,6 +67,8 @@ public class MainParser {
         log.info("*** Processing of " + config.source + " file is now started!");
 
         try {
+            StringBuilder outputTimerSB = new StringBuilder();
+
             StringBuilder timerSB = new StringBuilder();
 
             StringBuilder logSB = new StringBuilder();
@@ -105,29 +107,33 @@ public class MainParser {
 
                 if (Files.exists(path)) {
 
+                    StringBuilder iterationSB = new StringBuilder();
+                    iterationSB.append(timerSB);
+
                     timer = Stopwatch.createStarted();
                     extractLogEventTemplates(config); // done
                     logSB.append("*** LogEvent templates are generated in " + timer.stop())
                             .append(System.lineSeparator());
-                    timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+                    iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
 
                     timer = Stopwatch.createStarted();
                     extractOttrBase(config); // done
                     logSB.append("*** OTTR templates are generated in " + timer.stop())
                             .append(System.lineSeparator());
-                    timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+                    iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
 
                     timer = Stopwatch.createStarted();
                     extractLogEvents(config); // done
                     logSB.append("*** OTTR instances are generated in " + timer.stop())
                             .append(System.lineSeparator());
-                    timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
+                    iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
 
                     timer = Stopwatch.createStarted();
                     OttrUtility.runOttrEngine(config); // done
                     logSB.append("*** TTL file is generated in " + timer.stop()).append(System.lineSeparator());
-                    timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
+                    iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
 
+                    outputTimerSB.append(iterationSB);
                     iteration++;
 
                 } else {
@@ -136,7 +142,7 @@ public class MainParser {
             }
 
             try {
-                Files.write(Paths.get(config.targetConfigTimer), timerSB.toString().getBytes(),
+                Files.write(Paths.get(config.targetConfigTimer), outputTimerSB.toString().getBytes(),
                         StandardOpenOption.APPEND);
             } catch (IOException e) {
                 log.error(e.getMessage());
@@ -204,16 +210,16 @@ public class MainParser {
         StringUtility.writeToFile(sb.toString(), config.targetOttrBase);
     }
 
-//    /**
-//     * Generation of OTTR instances from log events
-//     *
-//     * @param config
-//     * @param events
-//     * @throws IOException
-//     */
-//    private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
-//        executeExtract(config, events, config.targetOttr);
-//    }
+    //    /**
+    //     * Generation of OTTR instances from log events
+    //     *
+    //     * @param config
+    //     * @param events
+    //     * @throws IOException
+    //     */
+    //    private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
+    //        executeExtract(config, events, config.targetOttr);
+    //    }
 
     private static void executeExtract(ExtractionConfig config, List<LogEvent> events, String fileName)
             throws IOException {
@@ -281,22 +287,23 @@ public class MainParser {
             log.info("LogEventTemplate creation started");
             // * initiate templates with keywords and log source type
             for (CSVRecord templateCandidate : inputTemplates) {
-                String eventTemplate = templateCandidate.get(LogEvent.LOGPAI_EVENT_ID);
+                String eventId = templateCandidate.get(LogEvent.LOGPAI_EVENT_ID);
+                String eventTemplate = templateCandidate.get(LogEvent.LOGPAI_EVENT_TEMPLATE);
 
                 LogEventTemplate let;
-                if (!config.logEventTemplates.containsKey(eventTemplate)) {
+                if (!config.logEventTemplates.containsKey(eventId)) {
                     let = new LogEventTemplate();
                     EntityRecognition er = EntityRecognition
                             .getInstanceConfig(config.targetStanfordNer, config.nonNerParameters,
                                     config.nerParameters);
 
-                    let.label = eventTemplate;
+                    let.label = eventId;
                     let.keywords = er.extractKeywords(eventTemplate);
-                    let.pattern = templateCandidate.get(LogEvent.LOGPAI_EVENT_ID);
+                    let.pattern = eventTemplate;
 
-                    config.logEventTemplates.put(eventTemplate, let);
+                    config.logEventTemplates.put(eventId, let);
                 } else {
-                    let = config.logEventTemplates.get(eventTemplate);
+                    let = config.logEventTemplates.get(eventId);
                 }
                 let.logSourceTypes.add(config.logSourceType);
 
