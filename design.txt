@@ -1,0 +1,83 @@
+head -1000 *.log > folder/*.log
+
+Constant
+  data/init
+  data/logpai
+  data/ottr
+  data/ttl
+
+Flow
+-- separated
+
+  init - collect all files with name <source>, write it into a single file 
+    device identification - add device info as the first keyword in the logline
+    preprocess - slice log files with more than <linePerBatch> into several files
+
+  param detection - process each file through LogPai to detect parameters and log templates
+
+-- jumbling
+
+  templates building
+    if (template is not recognized)
+      param identification - attemps to recognize parameters produced by logpai with stanford NLP and regex
+        NER rules building - read config and create rules for Stanford NLP
+      template KG building - represent the log templates in turtle and (manually) add meaning to 
+      ottr template - represent the log templates as OTTR
+  
+  ottr building
+    ottr instance - conversion of log line
+  
+-- separated
+  ttl conversion - running lutra engine to convert ottr instances
+
+
+
+Config
+
+  # general
+  sourceFolder: root folder where we want to search for source files
+  source: file that we want to process e.g., sys.log
+  linePerBatch: number of lines that we want to process per batch (bigger files will be splitted)
+  isOverride: true if we should remove existing data
+
+  # logpai
+  logpaiFormat: # e.g., "<Device> <Month> <Date> <Time> <Type> <Component>: <Content>"
+
+  # template building
+  paramExtractAttempt: # how many log events will used as sample for identify parameter type
+
+
+Logpai
+  logFormat: 
+
+================
+
+executable
+output
+  <source>
+    1-init
+      <source>
+      <source>.[i]
+    2-logpai
+      <source>.[i]_structured.csv
+      <source>.[i]_templates.csv
+      <source>.error
+    3-ottr
+      <source>.stottr
+      <source>.[i].ottr
+    4-turtle
+      <source>.error
+      <source>.instances.ttl
+    <source>.ner.rules
+    <source>.templates.ttl
+
+    ttl-5
+src
+  main
+    java
+    resources
+
+
+
+
+
