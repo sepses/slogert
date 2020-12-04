@@ -23,6 +23,16 @@ In our latest evaluation, we are testing our approach with the [AIT log dataset]
 
 ## Workflow
 
+Prerequisites for running SLOGERT
+
+- `Java 11` (for Lutra)
+- `Apache Maven`
+- `Python 2` (for LogPai)
+    - the default setting is to use `python` command to invoke Python 2
+    - if this is not the case, modification on the `LogIntializer.java` is needed.
+    
+     
+
 SLOGERT works in the following flow, notes that the result from each step will be structured accordingly.
 
   - **1-init**: collect all files with name `<source>`, write it into a single file    
