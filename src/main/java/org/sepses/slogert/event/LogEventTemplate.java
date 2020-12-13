@@ -1,25 +1,33 @@
 package org.sepses.slogert.event;
 
 import org.apache.jena.rdf.model.*;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.vocabulary.SKOS;
 import org.sepses.slogert.config.ExtractionConfig;
+import org.sepses.slogert.config.Parameter;
 import org.sepses.slogert.helper.JenaUtility;
 import org.sepses.slogert.ottr.OttrTemplate;
-import org.sepses.slogert.config.Parameter;
 import org.sepses.slogert.rdf.LOG;
 import org.sepses.slogert.rdf.LOGEX;
 
+import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Stream;
 
 public class LogEventTemplate {
+
+    public static String CEE_FILE = "cee-taxonomy.ttl";
+    public static Model CEE_MODEL = ModelFactory.createDefaultModel();
 
     public String label;
     public String pattern;
     public String example;
     public List<String> logSourceTypes;
     public List<String> keywords;
+    public List<String> ceeAnnotations;
     public List<String> parameters;
     public Integer extractionCount;
 
@@ -27,6 +35,7 @@ public class LogEventTemplate {
         logSourceTypes = new ArrayList<>();
         keywords = new ArrayList<>();
         parameters = new ArrayList<>();
+        ceeAnnotations = new ArrayList<>();
     }
 
     public static Map<String, LogEventTemplate> fromModel(Model model, ExtractionConfig config) {
@@ -111,6 +120,7 @@ public class LogEventTemplate {
 
         keywords.forEach(keyword -> {
             model.add(resource, LOGEX.keyword, keyword);
+            annotateWithCEE(model, resource, keyword);
         });
 
         logSourceTypes.forEach(lst -> {
@@ -119,5 +129,22 @@ public class LogEventTemplate {
         });
 
         return model;
+    }
+
+    public void annotateWithCEE(Model model, Resource resource, String keyword) {
+        if (CEE_MODEL.isEmpty()) { // load cee model
+            InputStream is = LogEventTemplate.class.getClassLoader().getResourceAsStream(CEE_FILE);
+            RDFDataMgr.read(CEE_MODEL, is, Lang.TURTLE);
+        }
+
+        ResIterator skosConcepts = CEE_MODEL.listSubjectsWithProperty(RDF.type, SKOS.Concept);
+        List<Resource> concepts = new ArrayList<>();
+        skosConcepts.forEachRemaining(concept -> {
+            String label = concept.getProperty(RDFS.label).getObject().toString();
+            if(keyword.contains(label)){
+                model.add(resource, LOGEX.hasAnnotation, concept);
+            }
+        });
+
     }
 }

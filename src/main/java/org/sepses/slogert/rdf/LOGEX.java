@@ -27,6 +27,8 @@ public class LOGEX {
     public static final Property pattern = M_MODEL.createProperty("https://w3id.org/sepses/ns/logex#pattern");
     public static final Property example = M_MODEL.createProperty("https://w3id.org/sepses/ns/logex#example");
     public static final Property keyword = M_MODEL.createProperty("https://w3id.org/sepses/ns/logex#keyword");
+    public static final Property hasAnnotation =
+            M_MODEL.createProperty("https://w3id.org/sepses/ns/logex#hasAnnotation");
     public static final Property isLogEventTemplateOf =
             M_MODEL.createProperty("https://w3id.org/sepses/ns/logex#isLogEventTemplateOf");
     public static final Property hasParameterList =

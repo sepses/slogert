@@ -19,6 +19,8 @@ namespaces:
     uri: https://w3id.org/sepses/id/logex/
   - prefix: svid
     uri: https://w3id.org/sepses/id/service/
+  - prefix: cee
+    uri: https://w3id.org/sepses/cee#
 
 logFormats:
   - id: ftp
