@@ -116,6 +116,7 @@ public class MainParser {
                             .append(System.lineSeparator());
                     iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
 
+
                     timer = Stopwatch.createStarted();
                     extractOttrBase(config); // done
                     logSB.append("*** OTTR templates are generated in " + timer.stop())

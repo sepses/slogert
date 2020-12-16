@@ -131,8 +131,8 @@ nerParameters:
         - xsd:string ?objString
       functions: 
         - ottr:Triple(?id,log:domainName,?objString)
-  - id: user
-    pattern: ([{word:/user/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
+  - id: user # ESWC - [uU]
+    pattern: ([{word:/[uU]ser/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
     action: Annotate($1, ner, "user")
     function: object log:User
     ottrTemplate:
@@ -145,6 +145,18 @@ nerParameters:
         - ottr:Triple(?id,log:hasUser,?obj)
         - ottr:Triple(?obj,rdf:type,log:User)
         - ottr:Triple(?obj,log:user.name,?objString)
+  - id: pid # ESWC - added pid detection
+    pattern: ([{word:/pid/}]+ [{word:/:|-|=|\s/}] ([{word:/(\d+)/}]))
+    action: Annotate($1, ner, "pid")
+    function: literal
+    ottrTemplate:
+      uri: lxid:OttrTemplate_pid
+      parameters:
+        - ottr:IRI ?id
+        - xsd:integer ?pid
+      functions:
+        - ottr:Triple(?id,log:pid,?pid)
+
   - id: userPassword
     pattern: ([{word:/password/}] [{word:/for/}] ([{word:/(\w+)/}]))
     action: Annotate($1, ner, "userPassword")
@@ -159,6 +171,17 @@ nerParameters:
         - ottr:Triple(?id,log:hasUser,?obj)
         - ottr:Triple(?obj,rdf:type,log:User)
         - ottr:Triple(?obj,log:user.name,?objString)
+  - id: email # ESWC - add implementation
+    pattern: ([{word:/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/}])
+    action: Annotate($0, ner, "email")
+    function: literal
+    ottrTemplate:
+      uri: lxid:OttrTemplate_email
+      parameters:
+        - ottr:IRI ?id
+        - xsd:string ?email
+      functions:
+        - ottr:Triple(?id, log:email, ?email)
 
 
 nonNerParameters:
@@ -177,7 +200,7 @@ nonNerParameters:
         - ottr:Triple(?path,rdf:type,log:File)
         - ottr:Triple(?path,log:file.path,?pathString)
   - id: filePath
-    pattern: "[a-zA-Z0-9-_\\+&@#%~/]+\\.[a-zA-Z]{3,4}+"
+    pattern: "^[a-zA-Z0-9-_\\+&#%~/\\.]+\\.[a-zA-Z]{3,4}+$" # ESWC - add dot; remove @; add start and end
     action: 
     function: filePathSplit
     ottrTemplate:
@@ -222,8 +245,29 @@ nonNerParameters:
         - ottr:Triple(?id,log:hasIPv4,?ip)
         - ottr:Triple(?ip,rdf:type,log:IPv4)
         - ottr:Triple(?ip,log:ipv4,?ipString)
+  - id: ipWithPort # added for ESWC
+    pattern: "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\:(\\d{1,5})"
+    action:
+    function: ipWithPort
+    ottrTemplate:
+      uri: lxid:OttrTemplate_ipWithPort
+      parameters:
+        - ottr:IRI ?id
+        - ottr:IRI ?ip
+        - xsd:string ?ipString
+        - ottr:IRI ?port # lid:Address_8080
+        - ottr:IRI ?linkedPort # port:Port_8080
+        - xsd:integer ?portInt # 8080
+      functions:
+        - ottr:Triple(?id,log:hasIPv4,?ip)
+        - ottr:Triple(?ip,rdf:type,log:IPv4)
+        - ottr:Triple(?ip,log:ipv4,?ipString)
+        - ottr:Triple(?id,log:hasPort,?port)
+        - ottr:Triple(?port,rdf:type,log:Port)
+        - ottr:Triple(?port,log:port,?portInt)
+        - ottr:Triple(?port,log:linkedPortService,?linkedPort)
   - id: ftpUser
-    pattern: "^\\[([a-zA-Z0-9_\\.+]+)\\]"
+    pattern: "^\\[([a-zA-Z][a-zA-Z0-9_\\.+]+)\\]"
     action: 
     function: object log:User
     ottrTemplate:
