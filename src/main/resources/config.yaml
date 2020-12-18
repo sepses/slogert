@@ -132,16 +132,16 @@ nerParameters:
       functions: 
         - ottr:Triple(?id,log:domainName,?objString)
   - id: user # ESWC - [uU]
-    pattern: ([{word:/[uU]ser/}]+ [{word:/:|-|=|\s/}]? ([{word:/(\w+)/}]))
+    pattern: ([{word:/r?[uU]ser/}]+ [{word:/:|-|=|\s/}]? ([{word:/\<?(\w+)\>?/}]))
     action: Annotate($1, ner, "user")
     function: object log:User
     ottrTemplate:
       uri: lxid:OttrTemplate_user
-      parameters: 
+      parameters:
         - ottr:IRI ?id
         - ottr:IRI ?obj
         - xsd:string ?objString
-      functions: 
+      functions:
         - ottr:Triple(?id,log:hasUser,?obj)
         - ottr:Triple(?obj,rdf:type,log:User)
         - ottr:Triple(?obj,log:user.name,?objString)
@@ -163,16 +163,16 @@ nerParameters:
     function: object log:User
     ottrTemplate:
       uri: lxid:OttrTemplate_userPassword
-      parameters: 
+      parameters:
         - ottr:IRI ?id
         - ottr:IRI ?obj
         - xsd:string ?objString
-      functions: 
+      functions:
         - ottr:Triple(?id,log:hasUser,?obj)
         - ottr:Triple(?obj,rdf:type,log:User)
         - ottr:Triple(?obj,log:user.name,?objString)
   - id: email # ESWC - add implementation
-    pattern: ([{word:/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/}])
+    pattern: ([{word:/^<?[a-zA-Z0-9.!#$%&'*+\/?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*>?$/}])
     action: Annotate($0, ner, "email")
     function: literal
     ottrTemplate:
@@ -186,37 +186,37 @@ nerParameters:
 
 nonNerParameters:
   - id: path
-    pattern: "[a-zA-Z0-9-_\\+&@#%~]+/[a-zA-Z0-9-_\\+&@#%~]+"
-    action: 
+    pattern: "[a-zA-Z0-9-_\\+&@#%~]+/[a-zA-Z0-9-_\\+&#%~]+"
+    action:
     function: object log:File
     ottrTemplate:
       uri: lxid:OttrTemplate_path
-      parameters: 
+      parameters:
         - ottr:IRI ?id
         - ottr:IRI ?path
         - xsd:string ?pathString
-      functions: 
+      functions:
         - ottr:Triple(?id,log:hasFile,?path)
         - ottr:Triple(?path,rdf:type,log:File)
         - ottr:Triple(?path,log:file.path,?pathString)
   - id: filePath
     pattern: "^[a-zA-Z0-9-_\\+&#%~/\\.]+\\.[a-zA-Z]{3,4}+$" # ESWC - add dot; remove @; add start and end
-    action: 
+    action:
     function: filePathSplit
     ottrTemplate:
       uri: lxid:OttrTemplate_filePath
-      parameters: 
+      parameters:
         - ottr:IRI ?id
         - ottr:IRI ?path
         - xsd:string ?pathString
         - xsd:string ?fileString
-      functions: 
+      functions:
         - ottr:Triple(?id,log:hasFile,?path)
         - ottr:Triple(?path,rdf:type,log:File)
         - ottr:Triple(?path,log:file.path,?pathString)
         - ottr:Triple(?path,log:file.name,?fileString)
   - id: urlWithParameters
-    pattern: "((https? | ftp | file):)?[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/[a-zA-Z0-9-_\\+&@#%~/\\./]+)?\\?[a-zA-Z]+\\=[a-zA-Z1-9&=\\+]+"
+    pattern: "(https? | ftp | file):[a-zA-Z0-9-_/\\.\\\\]+\\.[a-zA-Z]{3,4}(/[a-zA-Z0-9-_\\+&@#%~/\\./]+)?\\?[a-zA-Z]+\\=[a-zA-Z1-9&=\\+]+"
     action: 
     function: splitUrlParameter
     ottrTemplate:

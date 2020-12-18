@@ -10,7 +10,12 @@ regex      = [
     r'(/|)([0-9]+\.){3}[0-9]+(:[0-9]+|)(:|)', # IP
     r'(?<=[^A-Za-z0-9])(\-?\+?\d+)(?=[^A-Za-z0-9])|[0-9]+$', # Numbers
     r'(?<=()[\/:|=])([A-Za-z0-9._\/-]+)', # \w+[/:|=]\w+
-    r'(?<=\[)\w+?(?=\])' # inside of a square bracket (e.g., username)
+    r'(?<=()[\/:|=\<])([A-Za-z0-9._\/-]+(?=\>))', # \w+[/:|=]\w+
+    r'(?<=()[\/:|=\(])([A-Za-z0-9._\/-]+(?=\)))', # \w+[/:|=]\w+
+    r'(?<=\[)\w+?(?=\])', # inside of a square bracket (e.g., username)
+    r'(?<=\<)\w+?(?=\>)', # inside of a square bracket (e.g., username)
+    r'(?<=\()\w+?(?=\))', # inside of a square bracket (e.g., username)
+    r'(?<=()for user )([A-Za-z0-9._\/-]+)', # username specific for auth
 ]
 st         = 0.5  # Similarity threshold
 depth      = 4  # Depth of all leaf nodes
