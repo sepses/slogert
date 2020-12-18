@@ -7,6 +7,7 @@ from logparser import Drain
 # Regular expression list for optional preprocessing (default: [])
 regex      = [
     r'blk_(|-)[0-9]+' , # block id
+    r'(https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b[-a-zA-Z0-9()@:%_\+.~#?&\/\/=]*)', # http/s
     r'(/|)([0-9]+\.){3}[0-9]+(:[0-9]+|)(:|)', # IP
     r'(?<=[^A-Za-z0-9])(\-?\+?\d+)(?=[^A-Za-z0-9])|[0-9]+$', # Numbers
     r'(?<=()[\/:|=])([A-Za-z0-9._\/-]+)', # \w+[/:|=]\w+
