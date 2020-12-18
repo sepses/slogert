@@ -145,6 +145,20 @@ nerParameters:
         - ottr:Triple(?id,log:hasUser,?obj)
         - ottr:Triple(?obj,rdf:type,log:User)
         - ottr:Triple(?obj,log:user.name,?objString)
+#  - id: user_login # ESWC
+#    pattern: "Login success for (\\w+)"
+#    action:
+#    function: object log:User
+#    ottrTemplate:
+#      uri: lxid:OttrTemplate_user
+#      parameters:
+#        - ottr:IRI ?id
+#        - ottr:IRI ?obj
+#        - xsd:string ?objString
+#      functions:
+#        - ottr:Triple(?id,log:hasUser,?obj)
+#        - ottr:Triple(?obj,rdf:type,log:User)
+#        - ottr:Triple(?obj,log:user.name,?objString)
   - id: pid # ESWC - added pid detection
     pattern: ([{word:/pid/}]+ [{word:/:|-|=|\s/}] ([{word:/(\d+)/}]))
     action: Annotate($1, ner, "pid")
@@ -302,6 +316,34 @@ nonNerParameters:
         - ottr:IRI ?obj
         - xsd:string ?objString
       functions: 
+        - ottr:Triple(?id,log:hasUser,?obj)
+        - ottr:Triple(?obj,rdf:type,log:User)
+        - ottr:Triple(?obj,log:user.name,?objString)
+  - id: userLogin # ESWC
+    pattern: "Login success for ([a-zA-Z0-9]+)"
+    action:
+    function: object log:User
+    ottrTemplate:
+      uri: lxid:OttrTemplate_userLogin
+      parameters:
+        - ottr:IRI ?id
+        - ottr:IRI ?obj
+        - xsd:string ?objString
+      functions:
+        - ottr:Triple(?id,log:hasUser,?obj)
+        - ottr:Triple(?obj,rdf:type,log:User)
+        - ottr:Triple(?obj,log:user.name,?objString)
+  - id: userImap # ESWC
+    pattern: "imap\\(([a-zA-Z0-9]+)\\)"
+    action:
+    function: object log:User
+    ottrTemplate:
+      uri: lxid:OttrTemplate_userImap
+      parameters:
+        - ottr:IRI ?id
+        - ottr:IRI ?obj
+        - xsd:string ?objString
+      functions:
         - ottr:Triple(?id,log:hasUser,?obj)
         - ottr:Triple(?obj,rdf:type,log:User)
         - ottr:Triple(?obj,log:user.name,?objString)
