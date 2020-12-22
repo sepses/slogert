@@ -1,0 +1,27 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+source: fast.log
+format: "<Device> <day>/<month>/<year>-<Time>\\\\.<ms> <Content>"
+rawFolder: input/
+initializedFolder: output/fast.log/1-init
+preprocessedFolder: output/fast.log/2-logpai
+
+sourceLogpai: output/fast.log/2-logpai/fast.log_structured.csv
+sourceLogpaiTemplate: output/fast.log/2-logpai/fast.log_templates.csv
+
+logFormat: suricata
+logSourceType: fast.log
+
+isOverrideExisting: false
+paramExtractAttempt: 3
+logEventsPerExtraction: 5000
+
+targetOttr: output/fast.log/3-ottr
+targetOttrBase: output/fast.log/3-ottr
+targetOttrTurtle: output/fast.log/4-ttl
+
+targetStanfordNer: output/fast.log/ner.rules
+targetConfigTimer: output/timer.csv
+targetConfigTurtle: output/fast.log/fast.log-template.ttl

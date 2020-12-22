@@ -1,22 +1,23 @@
 package org.sepses;
 
 import com.google.common.base.Stopwatch;
-import com.google.common.collect.Lists;
 import org.apache.commons.cli.*;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
-import org.sepses.config.ExtractionConfig;
-import org.sepses.config.Parameter;
-import org.sepses.event.LogEvent;
-import org.sepses.event.LogEventTemplate;
-import org.sepses.helper.Utility;
-import org.sepses.nlp.EntityRecognition;
-import org.sepses.ottr.OttrInstance;
+import org.sepses.parser.LogInitializer;
+import org.sepses.slogert.config.ExtractionConfig;
+import org.sepses.slogert.config.Parameter;
+import org.sepses.slogert.event.LogEvent;
+import org.sepses.slogert.event.LogEventTemplate;
+import org.sepses.slogert.helper.JenaUtility;
+import org.sepses.slogert.helper.OttrUtility;
+import org.sepses.slogert.helper.StringUtility;
+import org.sepses.slogert.nlp.EntityRecognition;
+import org.sepses.slogert.ottr.OttrInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
@@ -25,6 +26,7 @@ import org.yaml.snakeyaml.constructor.Constructor;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.Instant;
@@ -34,7 +36,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
-import static org.sepses.helper.Utility.getLogEventTemplateMap;
+import static org.sepses.slogert.helper.JenaUtility.getLogEventTemplateMap;
 
 public class MainParser {
 
@@ -62,9 +64,11 @@ public class MainParser {
         config = yaml.load(is);
         extractExtraConfig(config); // done
         log.info("*** YAML files configuration is being loaded");
-        log.info("*** Processing of "+config.source+ " file is now started!");
+        log.info("*** Processing of " + config.source + " file is now started!");
 
         try {
+            StringBuilder outputTimerSB = new StringBuilder();
+
             StringBuilder timerSB = new StringBuilder();
 
             StringBuilder logSB = new StringBuilder();
@@ -74,37 +78,78 @@ public class MainParser {
             timerSB.append(config.source).append(";");
 
             Stopwatch timer = Stopwatch.createStarted();
+            LogInitializer.initialize(config); // done
+            logSB.append("*** Raw log files initialized in " + timer.stop()).append(System.lineSeparator());
+            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
+            timer = Stopwatch.createStarted();
             extractNerRules(config); // done
             logSB.append("*** Standford NER rules are generated in " + timer.stop()).append(System.lineSeparator());
             timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
 
-            timer = Stopwatch.createStarted();
-            extractLogEventTemplates(config); // done
-            logSB.append("*** LogEvent templates are generated in " + timer.stop()).append(System.lineSeparator());
-            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+            int iteration = 0;
 
-            timer = Stopwatch.createStarted();
-            extractOttrBase(config); // done
-            logSB.append("*** OTTR templates are generated in " + timer.stop()).append(System.lineSeparator());
-            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+            String oriSource = config.source;
+            String oriTargetOttr = config.targetOttr;
+            String oriTargetOttrTurtle = config.targetOttrTurtle;
+            String oriTargetOttrBase = config.targetOttrBase;
 
-            timer = Stopwatch.createStarted();
-            extractLogEvents(config); // done
-            logSB.append("*** OTTR instances are generated in " + timer.stop()).append(System.lineSeparator());
-            timerSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
+            while (iteration != -1) {
+
+                config.source = oriSource + "." + iteration;
+                config.sourceLogpai = config.preprocessedFolder + "/" + config.source + "_structured.csv";
+                config.sourceLogpaiTemplate = config.preprocessedFolder + "/" + config.source + "_templates.csv";
+                config.targetOttr = oriTargetOttr + "/" + config.source + ".ottr";
+                config.targetOttrBase = oriTargetOttrBase + "/" + oriSource + ".stottr";
+                config.targetOttrTurtle = oriTargetOttrTurtle + "/" + config.source + ".ttl";
+
+                Path path = Paths.get(config.initializedFolder, config.source);
+
+                if (Files.exists(path)) {
+
+                    StringBuilder iterationSB = new StringBuilder();
+                    iterationSB.append(timerSB);
+
+                    timer = Stopwatch.createStarted();
+                    extractLogEventTemplates(config); // done
+                    logSB.append("*** LogEvent templates are generated in " + timer.stop())
+                            .append(System.lineSeparator());
+                    iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
+
+                    timer = Stopwatch.createStarted();
+                    extractOttrBase(config); // done
+                    logSB.append("*** OTTR templates are generated in " + timer.stop())
+                            .append(System.lineSeparator());
+                    iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
+                    timer = Stopwatch.createStarted();
+                    extractLogEvents(config); // done
+                    logSB.append("*** OTTR instances are generated in " + timer.stop())
+                            .append(System.lineSeparator());
+                    iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
+
+                    timer = Stopwatch.createStarted();
+                    OttrUtility.runOttrEngine(config); // done
+                    logSB.append("*** TTL file is generated in " + timer.stop()).append(System.lineSeparator());
+                    iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append("\n");
+
+                    outputTimerSB.append(iterationSB);
+                    iteration++;
+
+                } else {
+                    iteration = -1;
+                }
+            }
 
             try {
-                Files.write(Paths.get(config.targetConfigTimer), timerSB.toString().getBytes(),
+                Files.write(Paths.get(config.targetConfigTimer), outputTimerSB.toString().getBytes(),
                         StandardOpenOption.APPEND);
             } catch (IOException e) {
                 log.error(e.getMessage());
             }
 
             logSB.append("****** End of log processing \n\n");
-            logSB.append("Lutra execution command: ");
-            logSB.append("time java -jar exe/lutra.jar --library ").append(config.targetOttrBase)
-                    .append(" --libraryFormat stottr --inputFormat stottr ").append(config.targetOttr)
-                    .append(" --mode expand --fetchMissing > ").append(config.targetOttrTurtle);
 
             log.info(logSB.toString());
 
@@ -149,50 +194,33 @@ public class MainParser {
 
         sb.append("\n### Basic OTTR templates \n\n");
         config.ottrTemplates.forEach(ot -> {
-            sb.append(Utility.buildOttrString(ot));
+            sb.append(OttrUtility.buildOttrString(ot));
         });
 
         sb.append("\n### Parameter OTTR templates \n\n");
         Stream<Parameter> ps = Stream.concat(config.nerParameters.stream(), config.nonNerParameters.stream());
         ps.forEach(parameter -> {
-            sb.append(Utility.buildOttrString(parameter.ottrTemplate));
+            sb.append(OttrUtility.buildOttrString(parameter.ottrTemplate));
         });
 
         sb.append("\n### LogEventTemplate OTTR templates \n\n");
         config.logEventTemplates.values().stream().forEach(let -> {
-            sb.append(Utility.buildOttrString(let.generateOttrTemplate(config)));
+            sb.append(OttrUtility.buildOttrString(let.generateOttrTemplate(config)));
         });
 
-        Utility.writeToFile(sb.toString(), config.targetOttrBase);
+        StringUtility.writeToFile(sb.toString(), config.targetOttrBase);
     }
 
-    /**
-     * Generation of OTTR instances from log events
-     *
-     * @param config
-     * @param events
-     * @throws IOException
-     */
-    private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
-        Integer maxCount = config.logEventsPerExtraction;
-
-        if (events.size() > maxCount) {
-            String filename = config.targetOttr;
-            String path = FilenameUtils.getPath(filename);
-            String base = FilenameUtils.getBaseName(filename);
-            String extension = FilenameUtils.getExtension(filename);
-
-            List<List<LogEvent>> partitions = Lists.partition(events, maxCount);
-            for (int i = 0; i < partitions.size(); i++) {
-                filename = new StringBuilder(path).append(base).append("-").append(i).append(".").append(extension)
-                        .toString();
-                executeExtract(config, partitions.get(i), filename);
-            }
-
-        } else {
-            executeExtract(config, events, config.targetOttr);
-        }
-    }
+    //    /**
+    //     * Generation of OTTR instances from log events
+    //     *
+    //     * @param config
+    //     * @param events
+    //     * @throws IOException
+    //     */
+    //    private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
+    //        executeExtract(config, events, config.targetOttr);
+    //    }
 
     private static void executeExtract(ExtractionConfig config, List<LogEvent> events, String fileName)
             throws IOException {
@@ -203,7 +231,7 @@ public class MainParser {
 
         // add metadata on log sources
         sb.append("\n### ottr metadata \n\n");
-        OttrInstance ottr = Utility.createOttrMetadata(config);
+        OttrInstance ottr = OttrUtility.createOttrMetadata(config);
         sb.append(ottr.toString());
 
         // add instances
@@ -212,7 +240,7 @@ public class MainParser {
             OttrInstance ot = event.toOttrInstance(config);
             sb.append(ot.toString());
         });
-        Utility.writeToFile(sb.toString(), fileName);
+        StringUtility.writeToFile(sb.toString(), fileName);
     }
 
     /**
@@ -230,7 +258,7 @@ public class MainParser {
         List<LogEvent> logEvents = new ArrayList<>();
         records.forEach(record -> logEvents.add(new LogEvent(record, config)));
 
-        extractOttrInstances(config, logEvents);
+        executeExtract(config, logEvents, config.targetOttr);
 
     }
 
@@ -260,22 +288,23 @@ public class MainParser {
             log.info("LogEventTemplate creation started");
             // * initiate templates with keywords and log source type
             for (CSVRecord templateCandidate : inputTemplates) {
+                String eventId = templateCandidate.get(LogEvent.LOGPAI_EVENT_ID);
                 String eventTemplate = templateCandidate.get(LogEvent.LOGPAI_EVENT_TEMPLATE);
-                String hashCandidate = Utility.createHash(eventTemplate);
 
                 LogEventTemplate let;
-                if (!config.logEventTemplates.containsKey(hashCandidate)) {
+                if (!config.logEventTemplates.containsKey(eventId)) {
                     let = new LogEventTemplate();
-                    EntityRecognition er =
-                            EntityRecognition.getInstanceConfig(config.targetStanfordNer, config.nonNerParameters);
+                    EntityRecognition er = EntityRecognition
+                            .getInstanceConfig(config.targetStanfordNer, config.nonNerParameters,
+                                    config.nerParameters);
 
-                    let.label = hashCandidate;
+                    let.label = eventId;
                     let.keywords = er.extractKeywords(eventTemplate);
-                    let.pattern = templateCandidate.get(LogEvent.LOGPAI_EVENT_TEMPLATE);
+                    let.pattern = eventTemplate;
 
-                    config.logEventTemplates.put(hashCandidate, let);
+                    config.logEventTemplates.put(eventId, let);
                 } else {
-                    let = config.logEventTemplates.get(hashCandidate);
+                    let = config.logEventTemplates.get(eventId);
                 }
                 let.logSourceTypes.add(config.logSourceType);
 
@@ -321,7 +350,7 @@ public class MainParser {
             log.debug("End of LogEventTemplate parameter information extractions");
 
             // *** write templates
-            Model model = Utility.createModel(config);
+            Model model = JenaUtility.createModel(config);
             config.logEventTemplates.values().stream().forEach(item -> model.add(item.toModel()));
             log.info("LogEventTemplates are committed");
 
@@ -357,7 +386,7 @@ public class MainParser {
             sb.append(System.lineSeparator());
         });
 
-        Utility.writeToFile(sb.toString(), config.targetStanfordNer);
+        StringUtility.writeToFile(sb.toString(), config.targetStanfordNer);
 
     }
 

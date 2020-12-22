@@ -2,7 +2,7 @@ package org.sepses.test.function;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.sepses.config.ExtractionConfig;
+import org.sepses.slogert.config.ExtractionConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
@@ -23,6 +23,6 @@ public class ConfigExtractionTest {
         Yaml yaml = new Yaml(new Constructor(ExtractionConfig.class));
         ExtractionConfig extractionConfig = yaml.load(is);
 
-        Assert.assertEquals(extractionConfig.targetStanfordNer, "scenario/config-ner.rules");
+        Assert.assertEquals(extractionConfig.targetStanfordNer, "output/auth.log/ner.rules");
     }
 }

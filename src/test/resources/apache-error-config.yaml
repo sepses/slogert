@@ -2,21 +2,46 @@
 # -- SLOGERT Configuration File --
 ##
 
-source: scenario/input/apache-error.log
-sourceLogpai: scenario/input/apache-error.log_structured.csv
-sourceLogpaiTemplate: scenario/input/apache-error.log_templates.csv
+source: error.log
+format: "<Device> \\\\[<dayOfWeek> <month> <day> <time> <year>\\\\] \\\\[<type>\\\\] \\\\[<pid> <pidNumber>\\\\] <Content>"
+rawFolder: input/
+initializedFolder: output/error.log/1-init
+preprocessedFolder: output/error.log/2-logpai
+
+sourceLogpai: output/error.log/2-logpai/error.log_structured.csv
+sourceLogpaiTemplate: output/error.log/2-logpai/error.log_templates.csv
 
 logFormat: ftp
 logSourceType: apache-error
 
 isOverrideExisting: false
 paramExtractAttempt: 3
-logEventsPerExtraction: 25000
+logEventsPerExtraction: 5000
 
-targetOttr: scenario/output/apache-error.ottr
-targetOttrTurtle: scenario/output/apache-error.ttl
-targetOttrBase: scenario/output/apache-error-base.ottr
+targetOttr: output/error.log/3-ottr
+targetOttrBase: output/error.log/3-ottr
+targetOttrTurtle: output/error.log/4-ttl
 
-targetStanfordNer: scenario/config-ner.rules
-targetConfigTurtle: scenario/config-turtle.ttl
-targetConfigTimer: scenario/config-timer.csv
+targetStanfordNer: output/error.log/ner.rules
+targetConfigTimer: output/timer.csv
+targetConfigTurtle: output/error.log/error.log-template.ttl
+
+#
+#source: scenario/input/apache-error.log
+#sourceLogpai: scenario/input/apache-error.log_structured.csv
+#sourceLogpaiTemplate: scenario/input/apache-error.log_templates.csv
+#
+#logFormat: ftp
+#logSourceType: apache-error
+#
+#isOverrideExisting: false
+#paramExtractAttempt: 3
+#logEventsPerExtraction: 25000
+#
+#targetOttr: scenario/output/apache-error.ottr
+#targetOttrTurtle: scenario/output/apache-error.ttl
+#targetOttrBase: scenario/output/apache-error-base.ottr
+#
+#targetStanfordNer: scenario/config-ner.rules
+#targetConfigTurtle: scenario/config-turtle.ttl
+#targetConfigTimer: scenario/config-timer.csv

@@ -1,0 +1,46 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+source: daemon.log
+format: "<Device> <Month> <Date> <Time> <Type> <Component>: <Content>"
+rawFolder: input/
+initializedFolder: output/daemon.log/1-init
+preprocessedFolder: output/daemon.log/2-logpai
+
+sourceLogpai: output/daemon.log/2-logpai/daemon.log_structured.csv
+sourceLogpaiTemplate: output/daemon.log/2-logpai/daemon.log_templates.csv
+
+logFormat: unix
+logSourceType: daemon.log
+
+isOverrideExisting: false
+paramExtractAttempt: 3
+logEventsPerExtraction: 5000
+
+targetOttr: output/daemon.log/3-ottr
+targetOttrBase: output/daemon.log/3-ottr
+targetOttrTurtle: output/daemon.log/4-ttl
+
+targetStanfordNer: output/daemon.log/ner.rules
+targetConfigTimer: output/timer.csv
+targetConfigTurtle: output/daemon.log/daemon.log-template.ttl
+
+#source: scenario/input/kern.log
+#sourceLogpai: scenario/input/kern.log_structured.csv
+#sourceLogpaiTemplate: scenario/input/kern.log_templates.csv
+#
+#logFormat: unix
+#logSourceType: kern
+#
+#isOverrideExisting: false
+#paramExtractAttempt: 3
+#logEventsPerExtraction: 25000
+#
+#targetOttr: scenario/output/kern.ottr
+#targetOttrTurtle: scenario/output/kern.ttl
+#targetOttrBase: scenario/output/kern-base.ottr
+#
+#targetStanfordNer: scenario/config-ner.rules
+#targetConfigTurtle: scenario/config-turtle.ttl
+#targetConfigTimer: scenario/config-timer.csv

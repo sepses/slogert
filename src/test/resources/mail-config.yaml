@@ -1,0 +1,46 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+source: mail.log
+format: "<Device> <Month> <Date> <Time> <Type> <Component>: <Content>"
+rawFolder: input/
+initializedFolder: output/mail.log/1-init
+preprocessedFolder: output/mail.log/2-logpai
+
+sourceLogpai: output/mail.log/2-logpai/mail.log_structured.csv
+sourceLogpaiTemplate: output/mail.log/2-logpai/mail.log_templates.csv
+
+logFormat: unix
+logSourceType: mail.log
+
+isOverrideExisting: false
+paramExtractAttempt: 3
+logEventsPerExtraction: 5000
+
+targetOttr: output/mail.log/3-ottr
+targetOttrBase: output/mail.log/3-ottr
+targetOttrTurtle: output/mail.log/4-ttl
+
+targetStanfordNer: output/mail.log/ner.rules
+targetConfigTimer: output/timer.csv
+targetConfigTurtle: output/mail.log/mail.log-template.ttl
+
+#source: scenario/input/kern.log
+#sourceLogpai: scenario/input/kern.log_structured.csv
+#sourceLogpaiTemplate: scenario/input/kern.log_templates.csv
+#
+#logFormat: unix
+#logSourceType: kern
+#
+#isOverrideExisting: false
+#paramExtractAttempt: 3
+#logEventsPerExtraction: 25000
+#
+#targetOttr: scenario/output/kern.ottr
+#targetOttrTurtle: scenario/output/kern.ttl
+#targetOttrBase: scenario/output/kern-base.ottr
+#
+#targetStanfordNer: scenario/config-ner.rules
+#targetConfigTurtle: scenario/config-turtle.ttl
+#targetConfigTimer: scenario/config-timer.csv
