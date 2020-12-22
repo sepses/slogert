@@ -61,7 +61,7 @@
         <commons-csv.version>1.4</commons-csv.version>
         <stanford-nlp.version>3.9.2</stanford-nlp.version>
         <jena.version>3.14.0</jena.version>
-        <junit.version>4.13</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
     <!-- https://mvnrepository.com/artifact/org.topbraid/shacl -->
