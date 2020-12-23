@@ -19,7 +19,7 @@ We have tested our approach on text-based logs produced by Unix OSs, in particul
   - Auth, and 
   - FTP logs.
 
-In our latest evaluation, we are testing our approach with the [AIT log dataset](https://zenodo.org/record/4264796), which contains additional logs from non-standard application, such as [suricata](https://suricata-ids.org/) and [exim4](https://ubuntu.com/server/docs/mail-exim4). 
+In our latest evaluation, we are testing our approach with the [AIT log dataset](https://zenodo.org/record/4264796), which contains additional logs from non-standard application, such as [suricata](https://suricata-ids.org/) and [exim4](https://ubuntu.com/server/docs/mail-exim4). In this repository, we include a small excerpt of the AIT log dataset in the `input` folder as example log sources.
 
 ## Workflow
 
