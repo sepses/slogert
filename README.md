@@ -38,7 +38,7 @@ Currently, we have tested our approach on text-based logs produced by Unix OSs, 
 
 The main steps are shown in Figure 1 below.
 
-![ ](https://raw.githubusercontent.com/sepses/slogert/master/data/slogert.png)
+![ ](https://raw.githubusercontent.com/sepses/slogert/v0.8.0/data/slogert.png)
 <p align="center">**Figure 1**. SLOGERT workflow overview.</p>
 
 Note that the seamless integration of *LogPai*, *SLOGERT*, and the *OTTR Engine* is still work in progress. Currently, using SLOGERT still involves several steps described below. Furthermore, a little bit of log pre-processing is necessary to make sure that we can capture the information about the log source. We will explain the steps in the following.
@@ -145,10 +145,10 @@ A script for executing transformation data for scenario has been created in the 
 The main processes of SLOGERT (A1-A3) can be separated into two parts: (i) Event Template Extraction, and (ii) Event KG Generation. 
 We show these in Figure 2. Furthermore, we provide an example process on how input log data is being processed to generate both Event Template (i) and Event KG (ii) in Figure 3. Note that all links to files listed in the figure (e.g., `A1_logpai-input/auth.log`)  are available in the `data` folder within this repository.
 
-![ ](https://raw.githubusercontent.com/sepses/slogert/master/figures/slogert-example.jpg)
+![ ](https://raw.githubusercontent.com/sepses/slogert/v0.8.0/figures/slogert-example.jpg)
 <p align="center">**Figure 2**. Two parts of SLOGERT main processes.</p>
 
-![ ](https://raw.githubusercontent.com/sepses/slogert/master/figures/slogert-example-combined.jpg)
+![ ](https://raw.githubusercontent.com/sepses/slogert/v0.8.0/figures/slogert-example-combined.jpg)
 <p align="center">**Figure 3**. A detailed example of SLOGERT main processes (A1-A3).</p>
            
 <!--## References
