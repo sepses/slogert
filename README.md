@@ -1,4 +1,4 @@
-# SLOGERT v0.9.0
+# SLOGERT v1.0.0-SNAPSHOT
 
 -- **S**emantic **LOG E**xt**R**action **T**emplating (SLOGERT) --
 
