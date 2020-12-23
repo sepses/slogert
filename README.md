@@ -1,4 +1,4 @@
-# SLOGERT v0.9.0-SNAPSHOT
+# SLOGERT v0.9.0
 
 -- **S**emantic **LOG E**xt**R**action **T**emplating (SLOGERT) --
 
@@ -33,7 +33,7 @@ Prerequisites for running SLOGERT
     
      
 
-SLOGERT works in the following flow, notes that the result from each step will be structured accordingly.
+SLOGERT works in the following flow, notes that the result from each step will be structured accordingly (in the output folder) after the execution is finished.
 
   - **1-init**: collect all files with name `<source>`, write it into a single file    
       * **1.1 device identification**: add device info as the first keyword in the logline    
@@ -56,4 +56,4 @@ SLOGERT works in the following flow, notes that the result from each step will b
 
 *  Compile this project (`mvn clean install`)
 *  You can set properties for extraction in the config file (e.g., number of loglines produced per file). Examples of config and template files are available on the `src/test/resources` folder (e.g., `auth-config.yaml`for auth log data). 
-*  Transform the CSVs into OTTR format using the config file. By default, the following script should work on the example file. (```java -jar target/slogert-0.9.0-SNAPSHOT-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
+*  Transform the CSVs into OTTR format using the config file. By default, the following script should work on the example file. (```java -jar target/slogert-<SLOGERT-VERSION>-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
