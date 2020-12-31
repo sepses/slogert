@@ -197,12 +197,14 @@ public class LogEvent {
 
             } else if (ottrParam.function.equals("ipWithPort")) {
 
-                String ip = value.split(":")[0];
+                String[] values = value.split(":");
+
+                String ip = values[0];
                 String iri = JenaUtility.getPrefixedName(LOG.IPv4, LOG.NS_INSTANCE_PREFIX, ip); // default instance
                 ottr.parameters.add(iri);
                 ottr.parameters.add("\"" + ip + "\"");
 
-                String port = value.split(":")[1];
+                String port = values.length == 2 ? values[1] : "0";
                 String portURI = JenaUtility.getPrefixedName(LOG.Port, LOG.NS_INSTANCE_PREFIX, port);
                 String linkedPortURI = SERVICES_NS_INSTANCE_PREFIX + ":Port_" + value;
                 ottr.parameters.add(portURI);
