@@ -27,7 +27,7 @@ Prerequisites for running SLOGERT
 
 - `Java 11` (for Lutra)
 - `Apache Maven`
-- `Python 2` (for LogPai)
+- `Python 2` with `pandas` and `python-scipy` installed (for LogPai)
     - the default setting is to use `python` command to invoke Python 2
     - if this is not the case, modification on the `LogIntializer.java` is needed.
     
@@ -54,6 +54,9 @@ SLOGERT works in the following flow, notes that the result from each step will b
 
 ## How to run
 
-*  Compile this project (`mvn clean install`)
+We have tried and and tested SLOGERT on Mac OSX and Ubuntu with the following steps:
+
+*  Compile this project (`mvn clean install` or `mvn clean install -DskipTests` if you want to skip the tests)
 *  You can set properties for extraction in the config file (e.g., number of loglines produced per file). Examples of config and template files are available on the `src/test/resources` folder (e.g., `auth-config.yaml`for auth log data). 
 *  Transform the CSVs into OTTR format using the config file. By default, the following script should work on the example file. (```java -jar target/slogert-<SLOGERT-VERSION>-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
+*  The result would be produced in the `output/` folder
