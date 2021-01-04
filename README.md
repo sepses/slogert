@@ -22,18 +22,11 @@ We have tested our approach on text-based logs produced by Unix OSs, in particul
 In our latest evaluation, we are testing our approach with the [AIT log dataset](https://zenodo.org/record/4264796), which contains additional logs from non-standard application, such as [suricata](https://suricata-ids.org/) and [exim4](https://ubuntu.com/server/docs/mail-exim4). In this repository, we include a small excerpt of the AIT log dataset in the `input` folder as example log sources.
 
 ## Workflow
-
-Prerequisites for running SLOGERT
-
-- `Java 11` (for Lutra)
-- `Apache Maven`
-- `Python 2` with `pandas` and `python-scipy` installed (for LogPai)
-    - the default setting is to use `python` command to invoke Python 2
-    - if this is not the case, modification on the `LogIntializer.java` is needed.
     
-     
+![ ](https://raw.githubusercontent.com/sepses/slogert/master/slogert.jpg)
+<p align="center">**Figure 1**. SLOGERT workflow.</p>     
 
-SLOGERT works in the following flow, notes that the result from each step will be structured accordingly (in the output folder) after the execution is finished.
+SLOGERT works in the following flow (cf. Figure 1), notes that the result from each step will be structured accordingly (in the output folder) after the execution is finished.
 
   - **1-init**: collect all files with name `<source>`, write it into a single file    
       * **1.1 device identification**: add device info as the first keyword in the logline    
@@ -53,6 +46,13 @@ SLOGERT works in the following flow, notes that the result from each step will b
   - **4-turtle**: ttl conversion - running lutra engine to convert OTTR instances into RDF graphs
 
 ## How to run
+Prerequisites for running SLOGERT
+
+- `Java 11` (for Lutra)
+- `Apache Maven`
+- `Python 2` with `pandas` and `python-scipy` installed (for LogPai)
+    - the default setting is to use `python` command to invoke Python 2
+    - if this is not the case, modification on the `LogIntializer.java` is needed.
 
 We have tried and and tested SLOGERT on Mac OSX and Ubuntu with the following steps:
 
