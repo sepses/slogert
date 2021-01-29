@@ -2,6 +2,17 @@
 
 -- **S**emantic **LOG E**xt**R**action **T**emplating (SLOGERT) --
 
+* [General Introduction](#general-introduction)
+* [Workflow](#workflow)
+  - [Initialization](#-initialization-)
+  - [A1 - Extraction Template Generation](#-a1---extraction-template-generation-)
+  - [A2 - Template Enrichment](#-a2---template-enrichment-)
+  - [A3 - RDFization](#a3---rdfization)
+* [How to run](#how-to-run)
+* [SLOGERT configurations](#slogert-configurations)
+	+ [Main Configuration](#main-configuration)
+	+ [I/O Configuration](#i-o-configuration)
+
 ## General Introduction 
 
 SLOGERT aims to automatically extract and enrich low-level log data into an RDF Knowledge Graph that conforms to our [LOG Ontology](https://w3id.org/sepses/ns/log#). It integrates
@@ -26,24 +37,73 @@ In our latest evaluation, we are testing our approach with the [AIT log dataset]
 ![ ](https://raw.githubusercontent.com/sepses/slogert/master/slogert.jpg)
 <p align="center">**Figure 1**. SLOGERT workflow.</p>     
 
-SLOGERT works in the following flow (cf. Figure 1), notes that the result from each step will be structured accordingly (in the output folder) after the execution is finished.
+SLOGERT pipeline can be described in several steps, which main parts are shown in Figure 1 above and will be described as the following: 
 
-  - **1-init**: collect all files with name `<source>`, write it into a single file    
-      * **1.1 device identification**: add device info as the first keyword in the logline    
-      * **1.2 preprocess**: slice large log files with more than `<linePerBatch>` lines into several files
+#### Initialization
 
-  - **2-logpai**: param detection - process each file through LogPai to detect parameters and log templates
+* Load `config-io` and `config.yaml`
+* Collect target `log files` from the `input folder` as defined in `config-io`. 
+  We assume that each top-level folder within input folder represent a single log source
+* Aggregate collected log files into single file.
+* Add log-source information to each log lines,
+* If log lines exceed the configuration limit (e.g., 100k), split the aggregated log file into a set of `log-files`.
+	
+*Example results of this step is available in `output/auth.log/1-init/` folder* 
 
-  - **3-ottr**: TURTLE template identification & OTTR instance generation   
-      * **3.1 template generation**
-        * **param identification** - recognizing parameters produced by logpai with stanford NLP and regex    
-        * **NER rules building** - read config and create rules for Stanford NLP    
-        * **template KG building** - represent the log templates in turtle format and add meaning     
-        * **ottr template** - represent the log templates as OTTR      
-      * **3.2 instance generation**
-        * **ottr instance** - conversion of loglines into OTTR intances
-  
-  - **4-turtle**: ttl conversion - running lutra engine to convert OTTR instances into RDF graphs
+#### A1 - Extraction Template Generation
+
+* Initialize `extraction_template_generator` with `config-io` to register extraction patterns
+* For each `log-file` from `log-files`
+	* Generate a list of `<extraction-template, raw-result>` pairs using `extraction_template_generator`
+	
+*NOTE: We use **LogPAI** as `extraction_template_generator`*   
+*Example results of this step is available in `output/auth.log/2-logpai/` folder* 
+
+#### A2 - Template Enrichment
+
+*  Load existing `RDF_templates` list
+*  Load `regex_patterns` from `config` list for parameter recognition
+*  Initialize `NLP_engine` engine 
+*  For each `extraction-template` from the list of `<extraction-template, raw-result>` pairs
+	* Transform `extraction-template` into an `RDF_template_candidate`
+	* if `RDF_templates` does not contain `RDF_template_candidate `
+		* **[A2.1 - RDF template generation]**
+          * For each `parameter` from `RDF_template_candidate`
+              * If `parameter` is `unknown`
+                  * **[A2.2 - Template parameter recognition]**
+                    *  Load `sample-raw-results` from `raw-results`
+                    *  Recognize `parameter` from `sample-raw-results` using `NLP_engine` and `regex_patterns` as `parameter_type`
+                    *  Save `parameter_type` in `RDF_template_candidate`
+                  * **[A2.2 - end]**		
+          * **[A2.3 - Keyword extraction]**
+            * Extract `template_pattern` from `RDF_template_candidate`
+            * Execute `NLP_engine` engine on the `template_pattern` to retrieve `template_keywords`
+            * Add `template_keywords` as keywords in `RDF_template_candidate` 
+          * **[A2.3 - end]**
+          * **[A2.4 - Concept annotation]**
+            * Load `concept_model` containing relevant concept in the domain
+            * For each `keyword` from `template_keywords `
+                * for each `concept` in `concept_model`
+                    * if `keyword` contains `concept`
+                        * Add `concept ` as concept annotation in `RDF_template_candidate` 
+          * **[A2.4 - end]**
+          * add `RDF_template_candidate` to `RDF_templates` list
+		* **[A2.1 - end]**
+
+*NOTE: We use **Stanford NLP** as our `NLP_engine`*  
+*Example results (i.e., `RDF_templates`) of this step is available as `output/auth.log/auth.log-template.ttl`*
+
+#### A3 - RDFization
+
+* Initialize `RDFizer_engine`
+* Generate `RDF_generation_template` from `RDF_templates` list
+* for each `raw_result` from `raw_results` list
+	* Generate `RDF_generation_instances` from `RDF_generation_template` and `raw_result`
+	* Generate `RDF_graph` from `RDF_generation_instances` and `RDF_generation_template` using `RDFizer_engine`
+
+*NOTE: We use **LUTRA** as our `RDFizer_engine`*   
+*Example `RDF_generation_template` and `RDF_generation_instances` are available in the `output/auth.log/3-ottr/` folder.*    
+*Example results of this step is available in the `output/auth.log/4-ttl/` folder* 
 
 ## How to run
 Prerequisites for running SLOGERT
@@ -60,3 +120,29 @@ We have tried and and tested SLOGERT on Mac OSX and Ubuntu with the following st
 *  You can set properties for extraction in the config file (e.g., number of loglines produced per file). Examples of config and template files are available on the `src/test/resources` folder (e.g., `auth-config.yaml`for auth log data). 
 *  Transform the CSVs into OTTR format using the config file. By default, the following script should work on the example file. (```java -jar target/slogert-<SLOGERT-VERSION>-jar-with-dependencies.jar -c src/test/resources/auth-config.yaml```)
 *  The result would be produced in the `output/` folder
+
+
+## SLOGERT configurations
+
+Slogert configuration is divided into two parts: main configuration `config.yaml` and the input parameter `config-io.yaml`
+
+### Main Configuration
+
+There are several configuration that can be adapted in the main configuration file `src/main/resourfces/config.yaml`. We will briefly described the most important configuration options here.
+
+* **logFormats** to describe information that you want to extract from a log source. This is important due to the various existing logline formats and variants. Each logFormat contain references to the *ottrTemplate* to build the `RDF_generation_template` for RDFization step.
+* **nerParameters** to register patterns that will used by StanfordNLP for recognizing log template parameter types. 
+* **nonNerParameters** to register standard regex patterns for template parameter types that can't be easily detected using StanfordNLP. Both *nerParameters* and *nonNerParameters* are contains reference for ottr template generation.
+* **ottrTemplates** to register `RDF_generation_template` building block necessary for the RDFization process.
+
+
+### I/O Configuration
+
+The I/O configuration aim to describe log-source specific information that are not suitable to be added into `config.yaml`. An example of this IO configuration is `src/test/resources/auth-config.yaml` for auth log. We will describe the most important configuration options in the following:
+
+* **source**: the name of source file to be searched for in the input folder.
+* **format**: the basic format of the log file, which will be used by `extraction_template_generator` in process A1.
+* **logFormat**: types of the logfile. this value of this property should be registered in the `logFormats` within `config.yaml` for SLOGERT to work.
+* **isOverrideExisting**: whether SLOGERT should use load `RDF_templates` or to override them.
+* **paramExtractAttempt**: how many log lines should be processed to determine the `parameter_type` of a `RDF_template_candidate`. 
+* **logEventsPerExtraction**: how many log lines should be processed in a single batch of execution. 

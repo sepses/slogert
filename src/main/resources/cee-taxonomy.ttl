@@ -309,7 +309,7 @@ skos:Concept rdf:type owl:Class .
               skos:broader :action ;
               skos:prefLabel "Login Event"^^xsd:string ;
               rdfs:comment "A user or other entity gains access to a system through a successful authentication or login attempt"^^xsd:string ;
-              rdfs:label "login"^^xsd:string .
+              rdfs:label "login"^^xsd:string , "accepted password"^^xsd:string.
 
 
 ###  https://w3id.org/sepses/cee#action_logout
