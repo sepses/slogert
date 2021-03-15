@@ -8,6 +8,7 @@
   - [A1 - Extraction Template Generation](#-a1---extraction-template-generation-)
   - [A2 - Template Enrichment](#-a2---template-enrichment-)
   - [A3 - RDFization](#a3---rdfization)
+* [KG Generation Algorithm](#kg-generation-algorithm)
 * [How to run](#how-to-run)
 * [SLOGERT configurations](#slogert-configurations)
 	+ [Main Configuration](#main-configuration)
@@ -35,7 +36,7 @@ In our latest evaluation, we are testing our approach with the [AIT log dataset]
 ## Workflow
     
 ![ ](https://raw.githubusercontent.com/sepses/slogert/master/slogert.jpg)
-<p align="center">**Figure 1**. SLOGERT workflow.</p>     
+<p align="center">**Figure 1**. SLOGERT KG generation workflow.</p>     
 
 SLOGERT pipeline can be described in several steps, which main parts are shown in Figure 1 above and will be described as the following: 
 
@@ -104,6 +105,16 @@ SLOGERT pipeline can be described in several steps, which main parts are shown i
 *NOTE: We use **LUTRA** as our `RDFizer_engine`*   
 *Example `RDF_generation_template` and `RDF_generation_instances` are available in the `output/auth.log/3-ottr/` folder.*    
 *Example results of this step is available in the `output/auth.log/4-ttl/` folder* 
+
+## KG Generation Algorithm
+    
+<!--![ ](https://raw.githubusercontent.com/sepses/slogert/master/algorithm.png)-->
+<p align="center">
+  <img width="460" src="https://raw.githubusercontent.com/sepses/slogert/master/algorithm.png">
+</p>
+<p align="center"><b>Figure 2</b>. SLOGERT KG generation algorithms.</p>     
+
+We also provided an explanation in a form of Algorithm as shown in Figure 2 above.  
 
 ## How to run
 Prerequisites for running SLOGERT
