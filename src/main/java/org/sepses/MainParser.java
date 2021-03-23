@@ -99,8 +99,8 @@ public class MainParser {
                 config.source = oriSource + "." + iteration;
                 config.sourceLogpai = config.preprocessedFolder + "/" + config.source + "_structured.csv";
                 config.sourceLogpaiTemplate = config.preprocessedFolder + "/" + config.source + "_templates.csv";
-                config.targetOttr = oriTargetOttr + "/" + config.source + ".ottr";
-                config.targetOttrBase = oriTargetOttrBase + "/" + oriSource + ".stottr";
+                config.targetOttr = oriTargetOttr + "/" + config.source + ".stottr";
+                config.targetOttrBase = oriTargetOttrBase + "/" + oriSource + ".ottr";
                 config.targetOttrTurtle = oriTargetOttrTurtle + "/" + config.source + ".ttl";
 
                 Path path = Paths.get(config.initializedFolder, config.source);
