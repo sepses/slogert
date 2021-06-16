@@ -14,27 +14,28 @@ public class IntegrationTest {
     private static final Logger log = LoggerFactory.getLogger(IntegrationTest.class);
     private static ClassLoader classLoader;
 
-    @BeforeClass public static void setup() {
+    @BeforeClass
+    public static void setup() {
         classLoader = IntegrationTest.class.getClassLoader();
     }
 
-    @Test public void testApacheParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("apache-access-config.yaml").getFile());
-
-        if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
-            MainParser.main(params);
-        }
-    }
-
-    @Test public void testApacheErrorParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("apache-error-config.yaml").getFile());
-
-        if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
-            MainParser.main(params);
-        }
-    }
+//    @Test public void testApacheParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("apache-access-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
+//
+//    @Test public void testApacheErrorParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("apache-error-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
 //
 //    @Test public void testApacheHostParser() throws IOException, ParseException {
 //        File configFile = new File(classLoader.getResource("apache-host-config.yaml").getFile());
@@ -45,47 +46,61 @@ public class IntegrationTest {
 //        }
 //    }
 
-    @Test public void testAuthParser() throws IOException, ParseException {
+    @Test
+    public void testMailInfoParser() throws IOException, ParseException {
+        File configFile = new File(classLoader.getResource("mail-info-config.yaml").getFile());
+
+        if (configFile.isFile()) {
+            String[] params = {"-c " + configFile.getAbsolutePath()};
+            MainParser.main(params);
+        }
+    }
+
+    @Test
+    public void testAuthParser() throws IOException, ParseException {
         File configFile = new File(classLoader.getResource("auth-config.yaml").getFile());
 
         if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
+            String[] params = {"-c " + configFile.getAbsolutePath()};
             MainParser.main(params);
         }
     }
 
-    @Test public void testAuditParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("audit-config.yaml").getFile());
-
-        if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
-            MainParser.main(params);
-        }
-    }
-
-    @Test public void testDaemonParser() throws IOException, ParseException {
+    @Test
+    public void testDaemonParser() throws IOException, ParseException {
         File configFile = new File(classLoader.getResource("daemon-config.yaml").getFile());
 
         if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
+            String[] params = {"-c " + configFile.getAbsolutePath()};
             MainParser.main(params);
         }
     }
 
-    @Test public void testMessagesParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("messages-config.yaml").getFile());
-
-        if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
-            MainParser.main(params);
-        }
-    }
-
-    @Test public void testMailParser() throws IOException, ParseException {
+    @Test
+    public void testMailParser() throws IOException, ParseException {
         File configFile = new File(classLoader.getResource("mail-config.yaml").getFile());
 
         if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
+            String[] params = {"-c " + configFile.getAbsolutePath()};
+            MainParser.main(params);
+        }
+    }
+
+//    @Test public void testAuditParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("audit-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
+
+    @Test
+    public void testMessagesParser() throws IOException, ParseException {
+        File configFile = new File(classLoader.getResource("messages-config.yaml").getFile());
+
+        if (configFile.isFile()) {
+            String[] params = {"-c " + configFile.getAbsolutePath()};
             MainParser.main(params);
         }
     }
@@ -108,30 +123,50 @@ public class IntegrationTest {
 //        }
 //    }
 
-    @Test public void testSysParser() throws IOException, ParseException {
+    @Test
+    public void testSysParser() throws IOException, ParseException {
         File configFile = new File(classLoader.getResource("sys-config.yaml").getFile());
 
         if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
+            String[] params = {"-c " + configFile.getAbsolutePath()};
             MainParser.main(params);
         }
     }
 
-    @Test public void testSuricataParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("suricata-config.yaml").getFile());
+    @Test
+    public void testUserParser() throws IOException, ParseException {
+        File configFile = new File(classLoader.getResource("user-config.yaml").getFile());
 
         if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
+            String[] params = {"-c " + configFile.getAbsolutePath()};
             MainParser.main(params);
         }
     }
 
-    @Test public void testEximParser() throws IOException, ParseException {
-        File configFile = new File(classLoader.getResource("exim-config.yaml").getFile());
+//    @Test public void testSuricataParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("suricata-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
+//
+//    @Test public void testEximParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("exim-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
 
-        if (configFile.isFile()) {
-            String[] params = { "-c " + configFile.getAbsolutePath() };
-            MainParser.main(params);
-        }
-    }
+//    @Test public void testAuthOldParser() throws IOException, ParseException {
+//        File configFile = new File(classLoader.getResource("auth-old-config.yaml").getFile());
+//
+//        if (configFile.isFile()) {
+//            String[] params = { "-c " + configFile.getAbsolutePath() };
+//            MainParser.main(params);
+//        }
+//    }
 }
