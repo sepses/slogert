@@ -15,8 +15,8 @@ logFormat: unix
 logSourceType: daemon.log
 
 isOverrideExisting: false
-paramExtractAttempt: 3
-logEventsPerExtraction: 5000
+paramExtractAttempt: 10
+logEventsPerExtraction: 10000
 
 targetOttr: output/daemon.log/3-ottr
 targetOttrBase: output/daemon.log/3-ottr

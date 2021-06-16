@@ -15,8 +15,8 @@ logFormat: unix
 logSourceType: auth
 
 isOverrideExisting: false
-paramExtractAttempt: 3
-logEventsPerExtraction: 2000
+paramExtractAttempt: 10
+logEventsPerExtraction: 10000
 
 targetOttr: output/auth.log/3-ottr
 targetOttrBase: output/auth.log/3-ottr

@@ -1,0 +1,27 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+source: mail.info
+format: "<Device> <Month> <Date> <Time> <Type> <Component>: <Content>"
+rawFolder: input/
+initializedFolder: output/mail.info/1-init
+preprocessedFolder: output/mail.info/2-logpai
+
+sourceLogpai: output/mail.info/2-logpai/mail.info_structured.csv
+sourceLogpaiTemplate: output/mail.info/2-logpai/mail.info_templates.csv
+
+logFormat: unix
+logSourceType: mail.info
+
+isOverrideExisting: false
+paramExtractAttempt: 10
+logEventsPerExtraction: 10000
+
+targetOttr: output/mail.info/3-ottr
+targetOttrBase: output/mail.info/3-ottr
+targetOttrTurtle: output/mail.info/4-ttl
+
+targetStanfordNer: output/mail.info/ner.rules
+targetConfigTimer: output/timer.csv
+targetConfigTurtle: output/mail.info/mail.info-template.ttl

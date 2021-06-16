@@ -15,8 +15,8 @@ logFormat: unix
 logSourceType: syslog
 
 isOverrideExisting: false
-paramExtractAttempt: 3
-logEventsPerExtraction: 5000
+paramExtractAttempt: 10
+logEventsPerExtraction: 10000
 
 targetOttr: output/syslog/3-ottr
 targetOttrBase: output/syslog/3-ottr
