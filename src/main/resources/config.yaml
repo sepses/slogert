@@ -145,20 +145,6 @@ nerParameters:
         - ottr:Triple(?id,log:hasUser,?obj)
         - ottr:Triple(?obj,rdf:type,log:User)
         - ottr:Triple(?obj,log:user.name,?objString)
-#  - id: user_login # ESWC
-#    pattern: "Login success for (\\w+)"
-#    action:
-#    function: object log:User
-#    ottrTemplate:
-#      uri: lxid:OttrTemplate_user
-#      parameters:
-#        - ottr:IRI ?id
-#        - ottr:IRI ?obj
-#        - xsd:string ?objString
-#      functions:
-#        - ottr:Triple(?id,log:hasUser,?obj)
-#        - ottr:Triple(?obj,rdf:type,log:User)
-#        - ottr:Triple(?obj,log:user.name,?objString)
   - id: pid # ESWC - added pid detection
     pattern: ([{word:/pid/}]+ [{word:/:|-|=|\s/}] ([{word:/(\d+)/}]))
     action: Annotate($1, ner, "pid")
@@ -170,18 +156,6 @@ nerParameters:
         - xsd:integer ?pid
       functions:
         - ottr:Triple(?id,log:pid,?pid)
-#  - id: gid # ESWC - added gid detection
-#    pattern: ([{word:/e?gid/}]+ [{word:/:|-|=|\s/}] ([{word:/(\d+)/}]) ([{word:/\((\w+)\)/}]) )
-#    action: Annotate($1, ner, "gid")
-#    function: literal
-#    ottrTemplate:
-#      uri: lxid:OttrTemplate_gid
-#      parameters:
-#        - ottr:IRI ?id
-#        - xsd:integer ?gid
-#      functions:
-#        - ottr:Triple(?id,log:gid,?gid)
-
   - id: userPassword
     pattern: ([{word:/password/}] [{word:/for/}] ([{word:/(\w+)/}]))
     action: Annotate($1, ner, "userPassword")
@@ -208,7 +182,8 @@ nerParameters:
       functions:
         - ottr:Triple(?id, log:email, ?email)
 
-
+## WARNING: id and ottrTemplate must be unique for each nonNerParameter!!!
+## @14.06.2021
 nonNerParameters:
   - id: path
     pattern: "[a-zA-Z0-9-_\\+&@#%~]+/[a-zA-Z0-9-_\\+&#%~/]+"
@@ -225,7 +200,7 @@ nonNerParameters:
         - ottr:Triple(?path,rdf:type,log:File)
         - ottr:Triple(?path,log:file.path,?pathString)
   - id: filePath
-    pattern: "^[a-zA-Z0-9-_\\+&#%~/\\.]+\\.[a-zA-Z]{3,4}+$" # ESWC - add dot; remove @; add start and end
+    pattern: "(^|\\s+)\\[?\\\\?\"?([a-zA-Z0-9-_\\+&#%~/\\.]+\\.[a-zA-Z]{3,4}+)" #  @14.06.2021
     action:
     function: filePathSplit
     ottrTemplate:
@@ -305,26 +280,68 @@ nonNerParameters:
         - ottr:Triple(?port,rdf:type,log:Port)
         - ottr:Triple(?port,log:port,?portInt)
         - ottr:Triple(?port,log:linkedPortService,?linkedPort)
-  - id: ftpUser
-    pattern: "^\\[([a-zA-Z][a-zA-Z0-9_\\.+]+)\\]"
-    action: 
-    function: object log:User
-    ottrTemplate:
-      uri: lxid:OttrTemplate_ftpUser
-      parameters: 
-        - ottr:IRI ?id
-        - ottr:IRI ?obj
-        - xsd:string ?objString
-      functions: 
-        - ottr:Triple(?id,log:hasUser,?obj)
-        - ottr:Triple(?obj,rdf:type,log:User)
-        - ottr:Triple(?obj,log:user.name,?objString)
-  - id: userLogin # ESWC
+#  - id: ftpUser # NOTE: too many false positive @14.06.2021
+#    pattern: "^\\[([a-zA-Z][a-zA-Z0-9_\\.+]+)\\]"
+#    action:
+#    function: object log:User
+#    ottrTemplate:
+#      uri: lxid:OttrTemplate_ftpUser
+#      parameters:
+#        - ottr:IRI ?id
+#        - ottr:IRI ?obj
+#        - xsd:string ?objString
+#      functions:
+#        - ottr:Triple(?id,log:hasUser,?obj)
+#        - ottr:Triple(?obj,rdf:type,log:User)
+#        - ottr:Triple(?obj,log:user.name,?objString)
+  - id: userLogin #  @14.06.2021
     pattern: "Login success for ([a-zA-Z0-9]+)"
     action:
     function: object log:User
     ottrTemplate:
       uri: lxid:OttrTemplate_userLogin
+      parameters:
+        - ottr:IRI ?id
+        - ottr:IRI ?obj
+        - xsd:string ?objString
+      functions:
+        - ottr:Triple(?id,log:hasUser,?obj)
+        - ottr:Triple(?obj,rdf:type,log:User)
+        - ottr:Triple(?obj,log:user.name,?objString)
+  - id: loginForUser #  @14.06.2021
+    pattern: "[Ll][Oo][Gg][Ii][Nn]\\s+[Ff][Oo][Rr]\\s+(\\w+)"
+    action:
+    function: object log:User
+    ottrTemplate:
+      uri: lxid:OttrTemplate_loginForUser
+      parameters:
+        - ottr:IRI ?id
+        - ottr:IRI ?obj
+        - xsd:string ?objString
+      functions:
+        - ottr:Triple(?id,log:hasUser,?obj)
+        - ottr:Triple(?obj,rdf:type,log:User)
+        - ottr:Triple(?obj,log:user.name,?objString)
+  - id: sentToUser #  @14.06.2021
+    pattern: "sent to\\s+(\\w+)"
+    action:
+    function: object log:User
+    ottrTemplate:
+      uri: lxid:OttrTemplate_sentToUser
+      parameters:
+        - ottr:IRI ?id
+        - ottr:IRI ?obj
+        - xsd:string ?objString
+      functions:
+        - ottr:Triple(?id,log:hasUser,?obj)
+        - ottr:Triple(?obj,rdf:type,log:User)
+        - ottr:Triple(?obj,log:user.name,?objString)
+  - id: fromUser #  @14.06.2021
+    pattern: "from\\s+(\\w+)"
+    action:
+    function: object log:User
+    ottrTemplate:
+      uri: lxid:OttrTemplate_fromUser
       parameters:
         - ottr:IRI ?id
         - ottr:IRI ?obj
