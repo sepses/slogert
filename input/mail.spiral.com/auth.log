@@ -1,0 +1,566 @@
+Mar  3 00:09:01 mail CRON[9585]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 00:09:01 mail CRON[9585]: pam_unix(cron:session): session closed for user root
+Mar  3 00:17:01 mail CRON[9688]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 00:17:01 mail CRON[9688]: pam_unix(cron:session): session closed for user root
+Mar  3 00:39:01 mail CRON[10014]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 00:39:01 mail CRON[10014]: pam_unix(cron:session): session closed for user root
+Mar  3 01:09:01 mail CRON[10291]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 01:09:01 mail CRON[10291]: pam_unix(cron:session): session closed for user root
+Mar  3 01:17:01 mail CRON[10411]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 01:17:01 mail CRON[10411]: pam_unix(cron:session): session closed for user root
+Mar  3 01:39:01 mail CRON[10572]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 01:39:01 mail CRON[10572]: pam_unix(cron:session): session closed for user root
+Mar  3 02:09:01 mail CRON[10829]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 02:09:01 mail CRON[10829]: pam_unix(cron:session): session closed for user root
+Mar  3 02:17:01 mail CRON[10968]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 02:17:01 mail CRON[10968]: pam_unix(cron:session): session closed for user root
+Mar  3 02:39:01 mail CRON[11134]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 02:39:01 mail CRON[11134]: pam_unix(cron:session): session closed for user root
+Mar  3 03:09:01 mail CRON[11317]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 03:09:01 mail CRON[11317]: pam_unix(cron:session): session closed for user root
+Mar  3 03:17:01 mail CRON[11404]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 03:17:01 mail CRON[11404]: pam_unix(cron:session): session closed for user root
+Mar  3 03:39:01 mail CRON[11448]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 03:39:01 mail CRON[11448]: pam_unix(cron:session): session closed for user root
+Mar  3 04:09:01 mail CRON[11563]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 04:09:01 mail CRON[11563]: pam_unix(cron:session): session closed for user root
+Mar  3 04:17:01 mail CRON[11647]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 04:17:01 mail CRON[11647]: pam_unix(cron:session): session closed for user root
+Mar  3 04:39:01 mail CRON[11690]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 04:39:01 mail CRON[11690]: pam_unix(cron:session): session closed for user root
+Mar  3 05:09:01 mail CRON[11818]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 05:09:01 mail CRON[11818]: pam_unix(cron:session): session closed for user root
+Mar  3 05:17:01 mail CRON[11905]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 05:17:01 mail CRON[11905]: pam_unix(cron:session): session closed for user root
+Mar  3 05:39:01 mail CRON[11997]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 05:39:01 mail CRON[11997]: pam_unix(cron:session): session closed for user root
+Mar  3 06:09:01 mail CRON[12126]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 06:09:02 mail CRON[12126]: pam_unix(cron:session): session closed for user root
+Mar  3 06:17:02 mail CRON[12209]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 06:17:02 mail CRON[12209]: pam_unix(cron:session): session closed for user root
+Mar  3 06:25:02 mail CRON[12286]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 06:28:01 mail CRON[12286]: pam_unix(cron:session): session closed for user root
+Mar  3 06:39:01 mail CRON[12541]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 06:39:01 mail CRON[12541]: pam_unix(cron:session): session closed for user root
+Mar  3 07:09:01 mail CRON[12747]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 07:09:01 mail CRON[12747]: pam_unix(cron:session): session closed for user root
+Mar  3 07:17:01 mail CRON[12871]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 07:17:01 mail CRON[12871]: pam_unix(cron:session): session closed for user root
+Mar  3 07:39:01 mail CRON[13036]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 07:39:01 mail CRON[13036]: pam_unix(cron:session): session closed for user root
+Mar  3 08:09:01 mail CRON[13426]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 08:09:01 mail CRON[13426]: pam_unix(cron:session): session closed for user root
+Mar  3 08:17:01 mail CRON[13553]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 08:17:01 mail CRON[13553]: pam_unix(cron:session): session closed for user root
+Mar  3 08:39:01 mail CRON[13599]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 08:39:01 mail CRON[13599]: pam_unix(cron:session): session closed for user root
+Mar  3 09:09:01 mail CRON[13808]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 09:09:01 mail CRON[13808]: pam_unix(cron:session): session closed for user root
+Mar  3 09:17:02 mail CRON[13929]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 09:17:02 mail CRON[13929]: pam_unix(cron:session): session closed for user root
+Mar  3 09:39:02 mail CRON[14117]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 09:39:02 mail CRON[14117]: pam_unix(cron:session): session closed for user root
+Mar  3 10:09:01 mail CRON[14425]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 10:09:01 mail CRON[14425]: pam_unix(cron:session): session closed for user root
+Mar  3 10:17:01 mail CRON[14554]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 10:17:01 mail CRON[14554]: pam_unix(cron:session): session closed for user root
+Mar  3 10:39:01 mail CRON[14729]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 10:39:01 mail CRON[14729]: pam_unix(cron:session): session closed for user root
+Mar  3 11:09:01 mail CRON[15177]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 11:09:01 mail CRON[15177]: pam_unix(cron:session): session closed for user root
+Mar  3 11:17:01 mail CRON[15346]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 11:17:01 mail CRON[15346]: pam_unix(cron:session): session closed for user root
+Mar  3 11:39:01 mail CRON[15656]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 11:39:01 mail CRON[15656]: pam_unix(cron:session): session closed for user root
+Mar  3 12:09:01 mail CRON[16199]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 12:09:01 mail CRON[16199]: pam_unix(cron:session): session closed for user root
+Mar  3 12:17:01 mail CRON[16340]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 12:17:01 mail CRON[16340]: pam_unix(cron:session): session closed for user root
+Mar  3 12:39:01 mail CRON[16561]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 12:39:01 mail CRON[16561]: pam_unix(cron:session): session closed for user root
+Mar  3 13:09:01 mail CRON[17321]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 13:09:01 mail CRON[17321]: pam_unix(cron:session): session closed for user root
+Mar  3 13:17:01 mail CRON[17607]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 13:17:01 mail CRON[17607]: pam_unix(cron:session): session closed for user root
+Mar  3 13:39:01 mail CRON[18072]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 13:39:01 mail CRON[18072]: pam_unix(cron:session): session closed for user root
+Mar  3 14:09:01 mail CRON[18406]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 14:09:01 mail CRON[18406]: pam_unix(cron:session): session closed for user root
+Mar  3 14:17:01 mail CRON[18526]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 14:17:01 mail CRON[18526]: pam_unix(cron:session): session closed for user root
+Mar  3 14:39:01 mail CRON[18762]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 14:39:01 mail CRON[18762]: pam_unix(cron:session): session closed for user root
+Mar  3 15:09:01 mail CRON[19041]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 15:09:01 mail CRON[19041]: pam_unix(cron:session): session closed for user root
+Mar  3 15:17:01 mail CRON[19193]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 15:17:01 mail CRON[19193]: pam_unix(cron:session): session closed for user root
+Mar  3 15:39:01 mail CRON[19332]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 15:39:01 mail CRON[19332]: pam_unix(cron:session): session closed for user root
+Mar  3 16:09:01 mail CRON[19484]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 16:09:01 mail CRON[19484]: pam_unix(cron:session): session closed for user root
+Mar  3 16:17:01 mail CRON[19647]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 16:17:01 mail CRON[19647]: pam_unix(cron:session): session closed for user root
+Mar  3 16:39:01 mail CRON[19819]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 16:39:01 mail CRON[19819]: pam_unix(cron:session): session closed for user root
+Mar  3 17:09:01 mail CRON[20216]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 17:09:01 mail CRON[20216]: pam_unix(cron:session): session closed for user root
+Mar  3 17:17:01 mail CRON[20372]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 17:17:01 mail CRON[20372]: pam_unix(cron:session): session closed for user root
+Mar  3 17:39:01 mail CRON[20616]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 17:39:01 mail CRON[20616]: pam_unix(cron:session): session closed for user root
+Mar  3 18:09:01 mail CRON[20952]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 18:09:01 mail CRON[20952]: pam_unix(cron:session): session closed for user root
+Mar  3 18:17:02 mail CRON[21064]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 18:17:02 mail CRON[21064]: pam_unix(cron:session): session closed for user root
+Mar  3 18:39:02 mail CRON[21356]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 18:39:02 mail CRON[21356]: pam_unix(cron:session): session closed for user root
+Mar  3 19:09:01 mail CRON[21984]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 19:09:01 mail CRON[21984]: pam_unix(cron:session): session closed for user root
+Mar  3 19:17:01 mail CRON[22104]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 19:17:01 mail CRON[22104]: pam_unix(cron:session): session closed for user root
+Mar  3 19:39:01 mail CRON[22323]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 19:39:01 mail CRON[22323]: pam_unix(cron:session): session closed for user root
+Mar  3 20:09:01 mail CRON[22775]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 20:09:01 mail CRON[22775]: pam_unix(cron:session): session closed for user root
+Mar  3 20:17:01 mail CRON[22999]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 20:17:01 mail CRON[22999]: pam_unix(cron:session): session closed for user root
+Mar  3 20:39:01 mail CRON[23324]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 20:39:01 mail CRON[23324]: pam_unix(cron:session): session closed for user root
+Mar  3 21:09:01 mail CRON[23884]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 21:09:01 mail CRON[23884]: pam_unix(cron:session): session closed for user root
+Mar  3 21:17:01 mail CRON[24053]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 21:17:01 mail CRON[24053]: pam_unix(cron:session): session closed for user root
+Mar  3 21:39:01 mail CRON[24254]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 21:39:01 mail CRON[24254]: pam_unix(cron:session): session closed for user root
+Mar  3 22:09:01 mail CRON[24745]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 22:09:01 mail CRON[24745]: pam_unix(cron:session): session closed for user root
+Mar  3 22:17:01 mail CRON[24967]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 22:17:01 mail CRON[24967]: pam_unix(cron:session): session closed for user root
+Mar  3 22:39:01 mail CRON[25217]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 22:39:01 mail CRON[25217]: pam_unix(cron:session): session closed for user root
+Mar  3 23:09:01 mail CRON[25679]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 23:09:01 mail CRON[25679]: pam_unix(cron:session): session closed for user root
+Mar  3 23:17:01 mail CRON[25826]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 23:17:01 mail CRON[25826]: pam_unix(cron:session): session closed for user root
+Mar  3 23:39:01 mail CRON[26117]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  3 23:39:01 mail CRON[26117]: pam_unix(cron:session): session closed for user root
+Mar  4 00:09:01 mail CRON[26484]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 00:09:01 mail CRON[26484]: pam_unix(cron:session): session closed for user root
+Mar  4 00:17:01 mail CRON[26638]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 00:17:01 mail CRON[26638]: pam_unix(cron:session): session closed for user root
+Mar  4 00:39:01 mail CRON[26839]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 00:39:01 mail CRON[26839]: pam_unix(cron:session): session closed for user root
+Mar  4 01:09:01 mail CRON[27261]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 01:09:01 mail CRON[27261]: pam_unix(cron:session): session closed for user root
+Mar  4 01:17:01 mail CRON[27405]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 01:17:01 mail CRON[27405]: pam_unix(cron:session): session closed for user root
+Mar  4 01:39:01 mail CRON[27630]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 01:39:01 mail CRON[27630]: pam_unix(cron:session): session closed for user root
+Mar  4 02:09:01 mail CRON[28004]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 02:09:01 mail CRON[28004]: pam_unix(cron:session): session closed for user root
+Mar  4 02:17:01 mail CRON[28093]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 02:17:01 mail CRON[28093]: pam_unix(cron:session): session closed for user root
+Mar  4 02:39:02 mail CRON[28140]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 02:39:02 mail CRON[28140]: pam_unix(cron:session): session closed for user root
+Mar  4 03:09:01 mail CRON[28258]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 03:09:01 mail CRON[28258]: pam_unix(cron:session): session closed for user root
+Mar  4 03:17:01 mail CRON[28334]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 03:17:01 mail CRON[28334]: pam_unix(cron:session): session closed for user root
+Mar  4 03:39:01 mail CRON[28379]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 03:39:01 mail CRON[28379]: pam_unix(cron:session): session closed for user root
+Mar  4 04:09:01 mail CRON[28497]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 04:09:01 mail CRON[28497]: pam_unix(cron:session): session closed for user root
+Mar  4 04:17:01 mail CRON[28588]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 04:17:01 mail CRON[28588]: pam_unix(cron:session): session closed for user root
+Mar  4 04:39:01 mail CRON[28629]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 04:39:01 mail CRON[28629]: pam_unix(cron:session): session closed for user root
+Mar  4 05:09:01 mail CRON[28739]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 05:09:01 mail CRON[28739]: pam_unix(cron:session): session closed for user root
+Mar  4 05:17:01 mail CRON[28819]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 05:17:01 mail CRON[28819]: pam_unix(cron:session): session closed for user root
+Mar  4 05:39:01 mail CRON[28986]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 05:39:01 mail CRON[28986]: pam_unix(cron:session): session closed for user root
+Mar  4 06:09:01 mail CRON[29197]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 06:09:01 mail CRON[29197]: pam_unix(cron:session): session closed for user root
+Mar  4 06:17:01 mail CRON[29276]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 06:17:01 mail CRON[29276]: pam_unix(cron:session): session closed for user root
+Mar  4 06:25:02 mail CRON[29297]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 06:28:14 mail CRON[29297]: pam_unix(cron:session): session closed for user root
+Mar  4 06:39:01 mail CRON[29642]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 06:39:01 mail CRON[29642]: pam_unix(cron:session): session closed for user root
+Mar  4 07:09:01 mail CRON[30103]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 07:09:01 mail CRON[30103]: pam_unix(cron:session): session closed for user root
+Mar  4 07:17:01 mail CRON[30260]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 07:17:01 mail CRON[30260]: pam_unix(cron:session): session closed for user root
+Mar  4 07:39:01 mail CRON[30407]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 07:39:01 mail CRON[30407]: pam_unix(cron:session): session closed for user root
+Mar  4 08:09:01 mail CRON[30529]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 08:09:01 mail CRON[30529]: pam_unix(cron:session): session closed for user root
+Mar  4 08:17:01 mail CRON[30612]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 08:17:01 mail CRON[30612]: pam_unix(cron:session): session closed for user root
+Mar  4 08:39:01 mail CRON[30688]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 08:39:01 mail CRON[30688]: pam_unix(cron:session): session closed for user root
+Mar  4 09:09:01 mail CRON[30953]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 09:09:01 mail CRON[30953]: pam_unix(cron:session): session closed for user root
+Mar  4 09:17:01 mail CRON[31140]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 09:17:01 mail CRON[31140]: pam_unix(cron:session): session closed for user root
+Mar  4 09:39:01 mail CRON[31530]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 09:39:01 mail CRON[31530]: pam_unix(cron:session): session closed for user root
+Mar  4 10:09:01 mail CRON[32136]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 10:09:01 mail CRON[32136]: pam_unix(cron:session): session closed for user root
+Mar  4 10:17:01 mail CRON[32390]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 10:17:01 mail CRON[32390]: pam_unix(cron:session): session closed for user root
+Mar  4 10:39:01 mail CRON[32737]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 10:39:01 mail CRON[32737]: pam_unix(cron:session): session closed for user root
+Mar  4 11:09:01 mail CRON[593]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 11:09:01 mail CRON[593]: pam_unix(cron:session): session closed for user root
+Mar  4 11:17:01 mail CRON[783]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 11:17:01 mail CRON[783]: pam_unix(cron:session): session closed for user root
+Mar  4 11:39:01 mail CRON[1165]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 11:39:01 mail CRON[1165]: pam_unix(cron:session): session closed for user root
+Mar  4 12:09:02 mail CRON[1785]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 12:09:02 mail CRON[1785]: pam_unix(cron:session): session closed for user root
+Mar  4 12:17:02 mail CRON[2003]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 12:17:02 mail CRON[2003]: pam_unix(cron:session): session closed for user root
+Mar  4 12:39:01 mail CRON[2361]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 12:39:01 mail CRON[2361]: pam_unix(cron:session): session closed for user root
+Mar  4 13:09:01 mail CRON[2808]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 13:09:01 mail CRON[2808]: pam_unix(cron:session): session closed for user root
+Mar  4 13:17:01 mail CRON[2940]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 13:17:01 mail CRON[2940]: pam_unix(cron:session): session closed for user root
+Mar  4 13:39:01 mail CRON[3161]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 13:39:01 mail CRON[3161]: pam_unix(cron:session): session closed for user root
+Mar  4 14:09:01 mail CRON[3477]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 14:09:01 mail CRON[3477]: pam_unix(cron:session): session closed for user root
+Mar  4 14:17:01 mail CRON[3586]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 14:17:01 mail CRON[3586]: pam_unix(cron:session): session closed for user root
+Mar  4 14:39:01 mail CRON[3670]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 14:39:01 mail CRON[3670]: pam_unix(cron:session): session closed for user root
+Mar  4 15:09:01 mail CRON[4000]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 15:09:01 mail CRON[4000]: pam_unix(cron:session): session closed for user root
+Mar  4 15:17:01 mail CRON[4136]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 15:17:01 mail CRON[4136]: pam_unix(cron:session): session closed for user root
+Mar  4 15:39:01 mail CRON[4372]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 15:39:01 mail CRON[4372]: pam_unix(cron:session): session closed for user root
+Mar  4 16:09:01 mail CRON[4867]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 16:09:01 mail CRON[4867]: pam_unix(cron:session): session closed for user root
+Mar  4 16:17:01 mail CRON[5096]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 16:17:01 mail CRON[5096]: pam_unix(cron:session): session closed for user root
+Mar  4 16:39:01 mail CRON[5553]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 16:39:01 mail CRON[5553]: pam_unix(cron:session): session closed for user root
+Mar  4 17:09:01 mail CRON[5955]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 17:09:01 mail CRON[5955]: pam_unix(cron:session): session closed for user root
+Mar  4 17:17:01 mail CRON[6076]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 17:17:01 mail CRON[6076]: pam_unix(cron:session): session closed for user root
+Mar  4 17:39:01 mail CRON[6300]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 17:39:01 mail CRON[6300]: pam_unix(cron:session): session closed for user root
+Mar  4 18:09:01 mail CRON[6959]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 18:09:01 mail CRON[6959]: pam_unix(cron:session): session closed for user root
+Mar  4 18:17:01 mail CRON[7281]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 18:17:01 mail CRON[7281]: pam_unix(cron:session): session closed for user root
+Mar  4 18:23:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:50 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:50 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:50 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:50 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:51 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:51 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:51 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:23:53 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:04 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:04 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:04 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:23 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:23 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:23 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:26 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:39 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:44 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:44 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:44 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:51 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:51 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:51 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:52 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:24:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:06 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:23 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:23 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:24 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:24 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:24 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:24 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:24 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:25 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:44 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:44 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:45 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:25:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:02 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:02 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:04 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:04 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:04 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:04 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:04 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:05 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:08 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:08 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:08 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:08 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:08 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:08 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:09 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:09 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:09 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:09 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:09 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:22 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:23 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:23 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:40 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:41 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:41 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:41 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:41 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:41 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:41 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:41 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:42 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:42 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:42 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:42 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:42 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:42 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:42 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:26:59 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:00 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:00 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:00 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:00 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:00 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:00 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:00 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:01 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:03 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:07 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:13 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:13 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:19 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:19 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:20 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:21 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:21 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:27:32 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=giovanni rhost=127.0.0.1  user=giovanni
+Mar  4 18:28:46 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=clay rhost=127.0.0.1  user=clay
+Mar  4 18:28:54 mail auth: pam_unix(dovecot:auth): authentication failure; logname= uid=0 euid=0 tty=dovecot ruser=clay rhost=127.0.0.1  user=clay
+Mar  4 18:39:01 mail CRON[8619]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 18:39:01 mail CRON[8619]: pam_unix(cron:session): session closed for user root
+Mar  4 19:09:01 mail CRON[9243]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 19:09:01 mail CRON[9243]: pam_unix(cron:session): session closed for user root
+Mar  4 19:17:01 mail CRON[9481]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 19:17:01 mail CRON[9481]: pam_unix(cron:session): session closed for user root
+Mar  4 19:39:01 mail CRON[9860]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 19:39:01 mail CRON[9860]: pam_unix(cron:session): session closed for user root
+Mar  4 20:09:01 mail CRON[10318]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 20:09:01 mail CRON[10318]: pam_unix(cron:session): session closed for user root
+Mar  4 20:17:02 mail CRON[10440]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 20:17:02 mail CRON[10440]: pam_unix(cron:session): session closed for user root
+Mar  4 20:39:02 mail CRON[10586]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 20:39:02 mail CRON[10586]: pam_unix(cron:session): session closed for user root
+Mar  4 21:09:01 mail CRON[10941]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 21:09:01 mail CRON[10941]: pam_unix(cron:session): session closed for user root
+Mar  4 21:17:01 mail CRON[11076]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 21:17:01 mail CRON[11076]: pam_unix(cron:session): session closed for user root
+Mar  4 21:39:01 mail CRON[11221]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 21:39:01 mail CRON[11221]: pam_unix(cron:session): session closed for user root
+Mar  4 22:09:01 mail CRON[11593]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 22:09:01 mail CRON[11593]: pam_unix(cron:session): session closed for user root
+Mar  4 22:17:01 mail CRON[11742]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 22:17:01 mail CRON[11742]: pam_unix(cron:session): session closed for user root
+Mar  4 22:39:01 mail CRON[12045]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 22:39:01 mail CRON[12045]: pam_unix(cron:session): session closed for user root
+Mar  4 23:09:01 mail CRON[12329]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 23:09:01 mail CRON[12329]: pam_unix(cron:session): session closed for user root
+Mar  4 23:17:01 mail CRON[12437]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 23:17:01 mail CRON[12437]: pam_unix(cron:session): session closed for user root
+Mar  4 23:39:01 mail CRON[12664]: pam_unix(cron:session): session opened for user root by (uid=0)
+Mar  4 23:39:01 mail CRON[12664]: pam_unix(cron:session): session closed for user root
