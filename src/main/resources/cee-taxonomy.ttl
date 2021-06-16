@@ -1,4 +1,5 @@
 @prefix : <https://w3id.org/sepses/cee#> .
+@prefix cee: <https://w3id.org/sepses/cee#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -7,8 +8,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <https://w3id.org/sepses/cee> .
 
-<https://w3id.org/sepses/cee> rdf:type owl:Ontology ;
-                               owl:versionIRI <https://w3id.org/sepses/cee/v2> .
+<https://w3id.org/sepses/cee> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
@@ -43,782 +43,783 @@ skos:Concept rdf:type owl:Class .
 #################################################################
 
 ###  https://w3id.org/sepses/cee#action
-:action rdf:type owl:NamedIndividual ,
-                 skos:Concept ;
-        skos:broader :cee ;
-        rdfs:comment "The primary type of action that was undertaken as part of the event. The status or result of the action should be detailed in the status field."^^xsd:string ;
-        rdfs:label "action"^^xsd:string .
+cee:action rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader cee:cee ;
+           rdfs:comment "The primary type of action that was undertaken as part of the event. The status or result of the action should be detailed in the status field."^^xsd:string ;
+           rdfs:label "action"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_access
-:action_access rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               skos:prefLabel "Access Event"^^xsd:string ;
-               rdfs:comment "A file, user account, network share, or other object has been accessed. If more is known regarding the access, use a more precise action such as read, write, or execute."^^xsd:string ;
-               rdfs:label "access"^^xsd:string .
+cee:action_access rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  skos:prefLabel "Access Event"^^xsd:string ;
+                  rdfs:comment "A file, user account, network share, or other object has been accessed. If more is known regarding the access, use a more precise action such as read, write, or execute."^^xsd:string ;
+                  rdfs:label "access"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_alert
-:action_alert rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Alert Event"^^xsd:string ;
-              rdfs:label "alert"^^xsd:string .
+cee:action_alert rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Alert Event"^^xsd:string ;
+                 rdfs:label "alert"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_allocate
-:action_allocate rdf:type owl:NamedIndividual ,
-                          skos:Concept ;
-                 skos:broader :action ;
-                 skos:prefLabel "Memory/Space Allocation Event"^^xsd:string ;
-                 rdfs:label "allocate"^^xsd:string .
+cee:action_allocate rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader cee:action ;
+                    skos:prefLabel "Memory/Space Allocation Event"^^xsd:string ;
+                    rdfs:label "allocate"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_allow
-:action_allow rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Allow/Permit Event"^^xsd:string ;
-              rdfs:label "allow"^^xsd:string .
+cee:action_allow rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Allow/Permit Event"^^xsd:string ;
+                 rdfs:label "allow"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_audit
-:action_audit rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Audit Event"^^xsd:string ;
-              rdfs:label "audit"^^xsd:string .
+cee:action_audit rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Audit Event"^^xsd:string ;
+                 rdfs:label "audit"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_backup
-:action_backup rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               skos:prefLabel "Backup Event"^^xsd:string ;
-               rdfs:label "backup"^^xsd:string .
+cee:action_backup rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  skos:prefLabel "Backup Event"^^xsd:string ;
+                  rdfs:label "backup"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_bind
-:action_bind rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             skos:prefLabel "Bind Event"^^xsd:string ;
-             rdfs:label "bind"^^xsd:string .
+cee:action_bind rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                skos:prefLabel "Bind Event"^^xsd:string ;
+                rdfs:label "bind"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_block
-:action_block rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Block Event"^^xsd:string ;
-              rdfs:label "block"^^xsd:string .
+cee:action_block rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Block Event"^^xsd:string ;
+                 rdfs:label "block"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_clean
-:action_clean rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Clean/Scrub Infected Object Event"^^xsd:string ;
-              rdfs:label "clean"^^xsd:string .
+cee:action_clean rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Clean/Scrub Infected Object Event"^^xsd:string ;
+                 rdfs:label "clean"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_close
-:action_close rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Close Event"^^xsd:string ;
-              rdfs:label "close"^^xsd:string .
+cee:action_close rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Close Event"^^xsd:string ;
+                 rdfs:label "close"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_compress
-:action_compress rdf:type owl:NamedIndividual ,
-                          skos:Concept ;
-                 skos:broader :action ;
-                 skos:prefLabel "Compress Event"^^xsd:string ;
-                 rdfs:label "compress"^^xsd:string .
+cee:action_compress rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader cee:action ;
+                    skos:prefLabel "Compress Event"^^xsd:string ;
+                    rdfs:label "compress"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_connect
-:action_connect rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                rdfs:label "connect"^^xsd:string .
+cee:action_connect rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   rdfs:label "connect"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_copy
-:action_copy rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             skos:prefLabel "Copy Event"^^xsd:string ;
-             rdfs:comment "An object was duplicated or copied. Commonly copied objects include files, partitions, and database tables."^^xsd:string ;
-             rdfs:label "copy"^^xsd:string .
+cee:action_copy rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                skos:prefLabel "Copy Event"^^xsd:string ;
+                rdfs:comment "An object was duplicated or copied. Commonly copied objects include files, partitions, and database tables."^^xsd:string ;
+                rdfs:label "copy"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_create
-:action_create rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               skos:prefLabel "Create Event"^^xsd:string ;
-               rdfs:comment "An object was created. Commonly created objects include files, accounts, and roles. If the object is a stream or session, then the action [open] must be used."^^xsd:string ;
-               rdfs:label "create"^^xsd:string .
+cee:action_create rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  skos:prefLabel "Create Event"^^xsd:string ;
+                  rdfs:comment "An object was created. Commonly created objects include files, accounts, and roles. If the object is a stream or session, then the action [open] must be used."^^xsd:string ;
+                  rdfs:label "create"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_decode
-:action_decode rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "decode"^^xsd:string .
+cee:action_decode rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "decode"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_decompress
-:action_decompress rdf:type owl:NamedIndividual ,
-                            skos:Concept ;
-                   skos:broader :action ;
-                   skos:prefLabel "Decompress Event"^^xsd:string ;
-                   rdfs:label "decompress"^^xsd:string .
+cee:action_decompress rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader cee:action ;
+                      skos:prefLabel "Decompress Event"^^xsd:string ;
+                      rdfs:label "decompress"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_decrypt
-:action_decrypt rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                rdfs:label "decrypt"^^xsd:string .
+cee:action_decrypt rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   rdfs:label "decrypt"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_depress
-:action_depress rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                rdfs:label "depress"^^xsd:string .
+cee:action_depress rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   rdfs:label "depress"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_detect
-:action_detect rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               skos:prefLabel "Detect Event"^^xsd:string ;
-               rdfs:comment "Finding evidence of something as it is occurring, usually through the use of sensors or triggers. For example, an attack or exploit can be detected as it is occurring, or evidence of the event can be found through later searches."^^xsd:string ;
-               rdfs:label "detect"^^xsd:string .
+cee:action_detect rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  skos:prefLabel "Detect Event"^^xsd:string ;
+                  rdfs:comment "Finding evidence of something as it is occurring, usually through the use of sensors or triggers. For example, an attack or exploit can be detected as it is occurring, or evidence of the event can be found through later searches."^^xsd:string ;
+                  rdfs:label "detect"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_disconnect
-:action_disconnect rdf:type owl:NamedIndividual ,
-                            skos:Concept ;
-                   skos:broader :action ;
-                   rdfs:label "disconnect"^^xsd:string .
+cee:action_disconnect rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader cee:action ;
+                      rdfs:label "disconnect"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_download
-:action_download rdf:type owl:NamedIndividual ,
-                          skos:Concept ;
-                 skos:broader :action ;
-                 rdfs:label "download"^^xsd:string .
+cee:action_download rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader cee:action ;
+                    rdfs:label "download"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_encode
-:action_encode rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "encode"^^xsd:string .
+cee:action_encode rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "encode"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_encrypt
-:action_encrypt rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                rdfs:label "encrypt"^^xsd:string .
+cee:action_encrypt rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   rdfs:label "encrypt"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_execute
-:action_execute rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                skos:prefLabel "Execute Event"^^xsd:string ;
-                rdfs:comment "An object (usually a file or memory) was run or executed."^^xsd:string ;
-                rdfs:label "execute"^^xsd:string .
+cee:action_execute rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   skos:prefLabel "Execute Event"^^xsd:string ;
+                   rdfs:comment "An object (usually a file or memory) was run or executed."^^xsd:string ;
+                   rdfs:label "execute"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_filter
-:action_filter rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "filter"^^xsd:string .
+cee:action_filter rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "filter"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_find
-:action_find rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             skos:prefLabel "Find Event"^^xsd:string ;
-             rdfs:comment "An object was found, usually as a result of a search or scan, such as an anti-virus product found malware or an IDS found suspicious packets."^^xsd:string ;
-             rdfs:label "find"^^xsd:string .
+cee:action_find rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                skos:prefLabel "Find Event"^^xsd:string ;
+                rdfs:comment "An object was found, usually as a result of a search or scan, such as an anti-virus product found malware or an IDS found suspicious packets."^^xsd:string ;
+                rdfs:label "find"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_free
-:action_free rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             skos:prefLabel "Free Event"^^xsd:string ;
-             rdfs:comment "The deallocation or freeing of memory"^^xsd:string ;
-             rdfs:label "free"^^xsd:string .
+cee:action_free rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                skos:prefLabel "Free Event"^^xsd:string ;
+                rdfs:comment "The deallocation or freeing of memory"^^xsd:string ;
+                rdfs:label "free"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_get
-:action_get rdf:type owl:NamedIndividual ,
-                     skos:Concept ;
-            skos:broader :action ;
-            rdfs:label "get"^^xsd:string .
+cee:action_get rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader cee:action ;
+               rdfs:label "get"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_initialize
-:action_initialize rdf:type owl:NamedIndividual ,
-                            skos:Concept ;
-                   skos:broader :action ;
-                   skos:prefLabel "Initialize Event"^^xsd:string ;
-                   rdfs:comment "Initialize memory or set a buffer or variable to their initial values."^^xsd:string ;
-                   rdfs:label "initialize"^^xsd:string .
+cee:action_initialize rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader cee:action ;
+                      skos:prefLabel "Initialize Event"^^xsd:string ;
+                      rdfs:comment "Initialize memory or set a buffer or variable to their initial values."^^xsd:string ;
+                      rdfs:label "initialize"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_initiate
-:action_initiate rdf:type owl:NamedIndividual ,
-                          skos:Concept ;
-                 skos:broader :action ;
-                 skos:prefLabel "Initiate Event"^^xsd:string ;
-                 rdfs:comment "Initiate an external connection, stream, or other object, usually as part of a hand-shake or other initialization process"^^xsd:string ;
-                 rdfs:label "initiate"^^xsd:string .
+cee:action_initiate rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    skos:broader cee:action ;
+                    skos:prefLabel "Initiate Event"^^xsd:string ;
+                    rdfs:comment "Initiate an external connection, stream, or other object, usually as part of a hand-shake or other initialization process"^^xsd:string ;
+                    rdfs:label "initiate"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_install
-:action_install rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                rdfs:label "install"^^xsd:string .
+cee:action_install rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   rdfs:label "install"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_lock
-:action_lock rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             rdfs:label "lock"^^xsd:string .
+cee:action_lock rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                rdfs:label "lock"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_login
-:action_login rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Login Event"^^xsd:string ;
-              rdfs:comment "A user or other entity gains access to a system through a successful authentication or login attempt"^^xsd:string ;
-              rdfs:label "login"^^xsd:string , "accepted password"^^xsd:string.
+cee:action_login rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Login Event"^^xsd:string ;
+                 rdfs:comment "A user or other entity gains access to a system through a successful authentication or login attempt"^^xsd:string ;
+                 rdfs:label "accepted password"^^xsd:string ,
+                            "login"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_logout
-:action_logout rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               skos:prefLabel "Logout Event"^^xsd:string ;
-               rdfs:comment "An entity that has already gained access to a system or application (through a login action), ends their user account session. Another session can be established to the user account only through another successful logon action."^^xsd:string ;
-               rdfs:label "logout"^^xsd:string .
+cee:action_logout rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  skos:prefLabel "Logout Event"^^xsd:string ;
+                  rdfs:comment "An entity that has already gained access to a system or application (through a login action), ends their user account session. Another session can be established to the user account only through another successful logon action."^^xsd:string ;
+                  rdfs:label "logout"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_modify
-:action_modify rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "modify"^^xsd:string .
+cee:action_modify rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "modify"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_move
-:action_move rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             skos:prefLabel "Move Event"^^xsd:string ;
-             rdfs:comment "An object was moved. Usually 'move' describes the moving of a file between directories. A 'move' may be implemented as a sequence of [copy] and [remove] actions."^^xsd:string ;
-             rdfs:label "move"^^xsd:string .
+cee:action_move rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                skos:prefLabel "Move Event"^^xsd:string ;
+                rdfs:comment "An object was moved. Usually 'move' describes the moving of a file between directories. A 'move' may be implemented as a sequence of [copy] and [remove] actions."^^xsd:string ;
+                rdfs:label "move"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_open
-:action_open rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             rdfs:label "open"^^xsd:string .
+cee:action_open rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                rdfs:label "open"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_quarantine
-:action_quarantine rdf:type owl:NamedIndividual ,
-                            skos:Concept ;
-                   skos:broader :action ;
-                   rdfs:label "quarantine"^^xsd:string .
+cee:action_quarantine rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader cee:action ;
+                      rdfs:label "quarantine"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_read
-:action_read rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             rdfs:label "read"^^xsd:string .
+cee:action_read rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                rdfs:label "read"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_release
-:action_release rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                rdfs:label "release"^^xsd:string .
+cee:action_release rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   rdfs:label "release"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_remove
-:action_remove rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "remove"^^xsd:string .
+cee:action_remove rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "remove"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_replicate
-:action_replicate rdf:type owl:NamedIndividual ,
-                           skos:Concept ;
-                  skos:broader :action ;
-                  rdfs:label "replicate"^^xsd:string .
+cee:action_replicate rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:broader cee:action ;
+                     rdfs:label "replicate"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_resume
-:action_resume rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "resume"^^xsd:string .
+cee:action_resume rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "resume"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_save
-:action_save rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             rdfs:label "save"^^xsd:string .
+cee:action_save rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                rdfs:label "save"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_scan
-:action_scan rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             rdfs:label "scan"^^xsd:string .
+cee:action_scan rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                rdfs:label "scan"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_search
-:action_search rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               skos:prefLabel "Search Event"^^xsd:string ;
-               rdfs:comment "An actor (user or application) searched or queried for something. For 'search' actions, the object should contain the query of what was sought."^^xsd:string ;
-               rdfs:label "search"^^xsd:string .
+cee:action_search rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  skos:prefLabel "Search Event"^^xsd:string ;
+                  rdfs:comment "An actor (user or application) searched or queried for something. For 'search' actions, the object should contain the query of what was sought."^^xsd:string ;
+                  rdfs:label "search"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_start
-:action_start rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Start Event"^^xsd:string ;
-              rdfs:comment "A service, task, scan, or related object activity has begun."^^xsd:string ;
-              rdfs:label "start"^^xsd:string .
+cee:action_start rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Start Event"^^xsd:string ;
+                 rdfs:comment "A service, task, scan, or related object activity has begun."^^xsd:string ;
+                 rdfs:label "start"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_stop
-:action_stop rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :action ;
-             skos:prefLabel "Stop Event"^^xsd:string ;
-             rdfs:comment "A service, task, scan, or related activity was been stopped, usually by another process or user, or due to an error condition."^^xsd:string ;
-             rdfs:label "stop"^^xsd:string .
+cee:action_stop rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:action ;
+                skos:prefLabel "Stop Event"^^xsd:string ;
+                rdfs:comment "A service, task, scan, or related activity was been stopped, usually by another process or user, or due to an error condition."^^xsd:string ;
+                rdfs:label "stop"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_suspend
-:action_suspend rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                rdfs:label "suspend"^^xsd:string .
+cee:action_suspend rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   rdfs:label "suspend"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_uninstall
-:action_uninstall rdf:type owl:NamedIndividual ,
-                           skos:Concept ;
-                  skos:broader :action ;
-                  rdfs:label "uninstall"^^xsd:string .
+cee:action_uninstall rdf:type owl:NamedIndividual ,
+                              skos:Concept ;
+                     skos:broader cee:action ;
+                     rdfs:label "uninstall"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_unlock
-:action_unlock rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "unlock"^^xsd:string .
+cee:action_unlock rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "unlock"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_update
-:action_update rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "update"^^xsd:string .
+cee:action_update rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "update"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_upgrade
-:action_upgrade rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                skos:prefLabel "Upgrade Event"^^xsd:string ;
-                rdfs:comment "A type of [update] that upgrades an entire application, usually involving substantial changes and a change in major version numbers. For example, installing the Microsoft Windows XP Service Pack 2 (SP2) would upgrade a base Windows XP installation."^^xsd:string ;
-                rdfs:label "upgrade"^^xsd:string .
+cee:action_upgrade rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   skos:prefLabel "Upgrade Event"^^xsd:string ;
+                   rdfs:comment "A type of [update] that upgrades an entire application, usually involving substantial changes and a change in major version numbers. For example, installing the Microsoft Windows XP Service Pack 2 (SP2) would upgrade a base Windows XP installation."^^xsd:string ;
+                   rdfs:label "upgrade"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_upload
-:action_upload rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :action ;
-               rdfs:label "upload"^^xsd:string .
+cee:action_upload rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:action ;
+                  rdfs:label "upload"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_violate
-:action_violate rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :action ;
-                skos:prefLabel "Violate Event"^^xsd:string ;
-                rdfs:comment "The infringement or breaking of a policy, rule, or other guideline."^^xsd:string ;
-                rdfs:label "violate"^^xsd:string .
+cee:action_violate rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:action ;
+                   skos:prefLabel "Violate Event"^^xsd:string ;
+                   rdfs:comment "The infringement or breaking of a policy, rule, or other guideline."^^xsd:string ;
+                   rdfs:label "violate"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#action_write
-:action_write rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :action ;
-              skos:prefLabel "Write Event"^^xsd:string ;
-              rdfs:comment "An object (usually a file or memory location) was written to."^^xsd:string ;
-              rdfs:label "write"^^xsd:string .
+cee:action_write rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:action ;
+                 skos:prefLabel "Write Event"^^xsd:string ;
+                 rdfs:comment "An object (usually a file or memory location) was written to."^^xsd:string ;
+                 rdfs:label "write"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#cee
-:cee rdf:type owl:NamedIndividual .
+cee:cee rdf:type owl:NamedIndividual .
 
 
 ###  https://w3id.org/sepses/cee#domain
-:domain rdf:type owl:NamedIndividual ,
-                 skos:Concept ;
-        skos:broader :cee ;
-        rdfs:comment "The environment or domain of the event. Typical event domains include network (net), operating system (os), and application (app)."^^xsd:string ;
-        rdfs:label "domain"^^xsd:string .
+cee:domain rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader cee:cee ;
+           rdfs:comment "The environment or domain of the event. Typical event domains include network (net), operating system (os), and application (app)."^^xsd:string ;
+           rdfs:label "domain"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#domain_app
-:domain_app rdf:type owl:NamedIndividual ,
-                     skos:Concept ;
-            skos:broader :domain ;
-            skos:prefLabel "Application-level Event"^^xsd:string ;
-            rdfs:label "app"^^xsd:string .
+cee:domain_app rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader cee:domain ;
+               skos:prefLabel "Application-level Event"^^xsd:string ;
+               rdfs:label "app"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#domain_device
-:domain_device rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :domain ;
-               skos:prefLabel "Device-level Event"^^xsd:string ;
-               rdfs:label "device"^^xsd:string .
+cee:domain_device rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:domain ;
+                  skos:prefLabel "Device-level Event"^^xsd:string ;
+                  rdfs:label "device"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#domain_net
-:domain_net rdf:type owl:NamedIndividual ,
-                     skos:Concept ;
-            skos:broader :domain ;
-            skos:prefLabel "Network-based Event"^^xsd:string ;
-            rdfs:comment "The event is occurs within or is associated with the network"^^xsd:string ;
-            rdfs:label "net"^^xsd:string .
+cee:domain_net rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader cee:domain ;
+               skos:prefLabel "Network-based Event"^^xsd:string ;
+               rdfs:comment "The event is occurs within or is associated with the network"^^xsd:string ;
+               rdfs:label "net"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#domain_os
-:domain_os rdf:type owl:NamedIndividual ,
-                    skos:Concept ;
-           skos:broader :domain ;
-           skos:prefLabel "Operating System Event"^^xsd:string ;
-           rdfs:label "os"^^xsd:string .
+cee:domain_os rdf:type owl:NamedIndividual ,
+                       skos:Concept ;
+              skos:broader cee:domain ;
+              skos:prefLabel "Operating System Event"^^xsd:string ;
+              rdfs:label "os"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object
-:object rdf:type owl:NamedIndividual ,
-                 skos:Concept ;
-        skos:broader :cee ;
-        rdfs:comment "The type of object that is targeted or otherwise affected by the event"^^xsd:string ;
-        rdfs:label "object"^^xsd:string .
+cee:object rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader cee:cee ;
+           rdfs:comment "The type of object that is targeted or otherwise affected by the event"^^xsd:string ;
+           rdfs:label "object"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_account
-:object_account rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :object ;
-                skos:prefLabel "User Account"^^xsd:string ;
-                rdfs:label "account"^^xsd:string .
+cee:object_account rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:object ;
+                   skos:prefLabel "User Account"^^xsd:string ;
+                   rdfs:label "account"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_app
-:object_app rdf:type owl:NamedIndividual ,
-                     skos:Concept ;
-            skos:broader :object ;
-            skos:prefLabel "Application"^^xsd:string ;
-            rdfs:label "app"^^xsd:string .
+cee:object_app rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader cee:object ;
+               skos:prefLabel "Application"^^xsd:string ;
+               rdfs:label "app"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_bios
-:object_bios rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :object ;
-             skos:prefLabel "System BIOS"^^xsd:string ;
-             rdfs:label "bios"^^xsd:string .
+cee:object_bios rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:object ;
+                skos:prefLabel "System BIOS"^^xsd:string ;
+                rdfs:label "bios"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_connection
-:object_connection rdf:type owl:NamedIndividual ,
-                            skos:Concept ;
-                   skos:broader :object ;
-                   skos:prefLabel "Network Connection"^^xsd:string ;
-                   rdfs:label "connection"^^xsd:string .
+cee:object_connection rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader cee:object ;
+                      skos:prefLabel "Network Connection"^^xsd:string ;
+                      rdfs:label "connection"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_driver
-:object_driver rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :object ;
-               skos:prefLabel "Device Driver"^^xsd:string ;
-               rdfs:label "driver"^^xsd:string .
+cee:object_driver rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:object ;
+                  skos:prefLabel "Device Driver"^^xsd:string ;
+                  rdfs:label "driver"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_email
-:object_email rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :object ;
-              skos:prefLabel "E-mail"^^xsd:string ;
-              rdfs:label "email"^^xsd:string .
+cee:object_email rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:object ;
+                 skos:prefLabel "E-mail"^^xsd:string ;
+                 rdfs:label "email"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_event
-:object_event rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :object ;
-              skos:prefLabel "Audit or Event Record"^^xsd:string ;
-              rdfs:label "event"^^xsd:string .
+cee:object_event rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:object ;
+                 skos:prefLabel "Audit or Event Record"^^xsd:string ;
+                 rdfs:label "event"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_file
-:object_file rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :object ;
-             skos:prefLabel "File"^^xsd:string ;
-             rdfs:label "file"^^xsd:string .
+cee:object_file rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:object ;
+                skos:prefLabel "File"^^xsd:string ;
+                rdfs:label "file"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_flow
-:object_flow rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :object ;
-             skos:prefLabel "Network Flow"^^xsd:string ;
-             rdfs:label "flow"^^xsd:string .
+cee:object_flow rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:object ;
+                skos:prefLabel "Network Flow"^^xsd:string ;
+                rdfs:label "flow"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_memory
-:object_memory rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :object ;
-               rdfs:label "memory"^^xsd:string .
+cee:object_memory rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:object ;
+                  rdfs:label "memory"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_packet
-:object_packet rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :object ;
-               skos:prefLabel "Network Packet"^^xsd:string ;
-               rdfs:label "packet"^^xsd:string .
+cee:object_packet rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:object ;
+                  skos:prefLabel "Network Packet"^^xsd:string ;
+                  rdfs:label "packet"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_process
-:object_process rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :object ;
-                skos:prefLabel "Process"^^xsd:string ;
-                rdfs:label "process"^^xsd:string .
+cee:object_process rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:object ;
+                   skos:prefLabel "Process"^^xsd:string ;
+                   rdfs:label "process"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_rule
-:object_rule rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :object ;
-             skos:prefLabel "Firewall, IDS, Malware, or similar Rule"^^xsd:string ;
-             rdfs:label "rule"^^xsd:string .
+cee:object_rule rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:object ;
+                skos:prefLabel "Firewall, IDS, Malware, or similar Rule"^^xsd:string ;
+                rdfs:label "rule"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_session
-:object_session rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :object ;
-                skos:prefLabel "User Session"^^xsd:string ;
-                rdfs:label "session"^^xsd:string .
+cee:object_session rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:object ;
+                   skos:prefLabel "User Session"^^xsd:string ;
+                   rdfs:label "session"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_system
-:object_system rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :object ;
-               skos:prefLabel "System"^^xsd:string ;
-               rdfs:label "system"^^xsd:string .
+cee:object_system rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:object ;
+                  skos:prefLabel "System"^^xsd:string ;
+                  rdfs:label "system"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_thread
-:object_thread rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :object ;
-               skos:prefLabel "Processing Thread"^^xsd:string ;
-               rdfs:label "thread"^^xsd:string .
+cee:object_thread rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:object ;
+                  skos:prefLabel "Processing Thread"^^xsd:string ;
+                  rdfs:label "thread"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#object_vuln
-:object_vuln rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :object ;
-             skos:prefLabel "Vulnerability"^^xsd:string ;
-             rdfs:label "vuln"^^xsd:string .
+cee:object_vuln rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:object ;
+                skos:prefLabel "Vulnerability"^^xsd:string ;
+                rdfs:label "vuln"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service
-:service rdf:type owl:NamedIndividual ,
-                  skos:Concept ;
-         skos:broader :cee ;
-         rdfs:comment "The service the event involves. The service field value provides context to the event action or more precision to the event domain."^^xsd:string ;
-         rdfs:label "service"^^xsd:string .
+cee:service rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader cee:cee ;
+            rdfs:comment "The service the event involves. The service field value provides context to the event action or more precision to the event domain."^^xsd:string ;
+            rdfs:label "service"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service_audit
-:service_audit rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :service ;
-               skos:prefLabel "Audit Service"^^xsd:string ;
-               rdfs:label "audit"^^xsd:string .
+cee:service_audit rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:service ;
+                  skos:prefLabel "Audit Service"^^xsd:string ;
+                  rdfs:label "audit"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service_auth
-:service_auth rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :service ;
-              skos:prefLabel "Authentication Service"^^xsd:string ;
-              rdfs:label "auth"^^xsd:string .
+cee:service_auth rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:service ;
+                 skos:prefLabel "Authentication Service"^^xsd:string ;
+                 rdfs:label "auth"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service_authorize
-:service_authorize rdf:type owl:NamedIndividual ,
-                            skos:Concept ;
-                   skos:broader :service ;
-                   skos:prefLabel "Authorization Service"^^xsd:string ;
-                   rdfs:label "authorize"^^xsd:string .
+cee:service_authorize rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      skos:broader cee:service ;
+                      skos:prefLabel "Authorization Service"^^xsd:string ;
+                      rdfs:label "authorize"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service_backup
-:service_backup rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :service ;
-                skos:prefLabel "Backup Service"^^xsd:string ;
-                rdfs:label "backup"^^xsd:string .
+cee:service_backup rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:service ;
+                   skos:prefLabel "Backup Service"^^xsd:string ;
+                   rdfs:label "backup"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service_db
-:service_db rdf:type owl:NamedIndividual ,
-                     skos:Concept ;
-            skos:broader :service ;
-            skos:prefLabel "Database Service"^^xsd:string ;
-            rdfs:label "db"^^xsd:string .
+cee:service_db rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader cee:service ;
+               skos:prefLabel "Database Service"^^xsd:string ;
+               rdfs:label "db"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service_email
-:service_email rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :service ;
-               skos:prefLabel "E-mail Service"^^xsd:string ;
-               rdfs:comment "Event involves an e-mail server or service"^^xsd:string ;
-               rdfs:label "email"^^xsd:string .
+cee:service_email rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:service ;
+                  skos:prefLabel "E-mail Service"^^xsd:string ;
+                  rdfs:comment "Event involves an e-mail server or service"^^xsd:string ;
+                  rdfs:label "email"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service_fw
-:service_fw rdf:type owl:NamedIndividual ,
-                     skos:Concept ;
-            skos:broader :service ;
-            skos:prefLabel "Firewall Service"^^xsd:string ;
-            rdfs:label "fw"^^xsd:string .
+cee:service_fw rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:broader cee:service ;
+               skos:prefLabel "Firewall Service"^^xsd:string ;
+               rdfs:label "fw"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#service_web
-:service_web rdf:type owl:NamedIndividual ,
-                      skos:Concept ;
-             skos:broader :service ;
-             skos:prefLabel "Web Service"^^xsd:string ;
-             rdfs:comment "The event involve a web service, such as an HTTP server"^^xsd:string ;
-             rdfs:label "web"^^xsd:string .
+cee:service_web rdf:type owl:NamedIndividual ,
+                         skos:Concept ;
+                skos:broader cee:service ;
+                skos:prefLabel "Web Service"^^xsd:string ;
+                rdfs:comment "The event involve a web service, such as an HTTP server"^^xsd:string ;
+                rdfs:label "web"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#status
-:status rdf:type owl:NamedIndividual ,
-                 skos:Concept ;
-        skos:broader :cee ;
-        rdfs:comment "The end result or status of the event action identified by the action field."^^xsd:string ;
-        rdfs:label "status"^^xsd:string .
+cee:status rdf:type owl:NamedIndividual ,
+                    skos:Concept ;
+           skos:broader cee:cee ;
+           rdfs:comment "The end result or status of the event action identified by the action field."^^xsd:string ;
+           rdfs:label "status"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#status_cancel
-:status_cancel rdf:type owl:NamedIndividual ,
-                        skos:Concept ;
-               skos:broader :status ;
-               skos:prefLabel "Event Canceled"^^xsd:string ;
-               rdfs:comment "The event action was canceled"^^xsd:string ;
-               rdfs:label "cancel"^^xsd:string .
+cee:status_cancel rdf:type owl:NamedIndividual ,
+                           skos:Concept ;
+                  skos:broader cee:status ;
+                  skos:prefLabel "Event Canceled"^^xsd:string ;
+                  rdfs:comment "The event action was canceled"^^xsd:string ;
+                  rdfs:label "cancel"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#status_error
-:status_error rdf:type owl:NamedIndividual ,
-                       skos:Concept ;
-              skos:broader :status ;
-              skos:prefLabel "Event Errored"^^xsd:string ;
-              rdfs:comment "The event action terminated with an error"^^xsd:string ;
-              rdfs:label "error"^^xsd:string .
+cee:status_error rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:broader cee:status ;
+                 skos:prefLabel "Event Errored"^^xsd:string ;
+                 rdfs:comment "The event action terminated with an error"^^xsd:string ;
+                 rdfs:label "error"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#status_failure
-:status_failure rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :status ;
-                skos:prefLabel "Event Failed"^^xsd:string ;
-                rdfs:comment "The event failed due to some unmet condition, such as an incorrect password"^^xsd:string ;
-                rdfs:label "failure"^^xsd:string .
+cee:status_failure rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:status ;
+                   skos:prefLabel "Event Failed"^^xsd:string ;
+                   rdfs:comment "The event failed due to some unmet condition, such as an incorrect password"^^xsd:string ;
+                   rdfs:label "failure"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#status_ongoing
-:status_ongoing rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :status ;
-                skos:prefLabel "Event Ongoing"^^xsd:string ;
-                rdfs:comment "The event has started and has yet to complete. Another event should be sent to notify when the event completed and the final status"^^xsd:string ;
-                rdfs:label "ongoing"^^xsd:string .
+cee:status_ongoing rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:status ;
+                   skos:prefLabel "Event Ongoing"^^xsd:string ;
+                   rdfs:comment "The event has started and has yet to complete. Another event should be sent to notify when the event completed and the final status"^^xsd:string ;
+                   rdfs:label "ongoing"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#status_success
-:status_success rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :status ;
-                skos:prefLabel "Event Success"^^xsd:string ;
-                rdfs:comment "The event completed successfully. For example, a successful user authentication event would be an instance where the authentication activity was successfully completed and the user was fully authenticated."^^xsd:string ;
-                rdfs:label "success"^^xsd:string .
+cee:status_success rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:status ;
+                   skos:prefLabel "Event Success"^^xsd:string ;
+                   rdfs:comment "The event completed successfully. For example, a successful user authentication event would be an instance where the authentication activity was successfully completed and the user was fully authenticated."^^xsd:string ;
+                   rdfs:label "success"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#status_unknown
-:status_unknown rdf:type owl:NamedIndividual ,
-                         skos:Concept ;
-                skos:broader :status ;
-                skos:prefLabel "Event Status Unknown"^^xsd:string ;
-                rdfs:comment "The result state of an event occurrence was unknown. It was not known to the observer of the event whether or not the event successfully completed."^^xsd:string ;
-                rdfs:label "unknown"^^xsd:string .
+cee:status_unknown rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:broader cee:status ;
+                   skos:prefLabel "Event Status Unknown"^^xsd:string ;
+                   rdfs:comment "The result state of an event occurrence was unknown. It was not known to the observer of the event whether or not the event successfully completed."^^xsd:string ;
+                   rdfs:label "unknown"^^xsd:string .
 
 
 ###  https://w3id.org/sepses/cee#subject
-:subject rdf:type owl:NamedIndividual ,
-                  skos:Concept ;
-         skos:broader :cee ;
-         rdfs:comment "The type of object that initiated or started the event action identified by the action field."^^xsd:string ;
-         rdfs:label "subject"^^xsd:string .
+cee:subject rdf:type owl:NamedIndividual ,
+                     skos:Concept ;
+            skos:broader cee:cee ;
+            rdfs:comment "The type of object that initiated or started the event action identified by the action field."^^xsd:string ;
+            rdfs:label "subject"^^xsd:string .
 
 
 ###  Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi
