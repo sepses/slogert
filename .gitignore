@@ -1,4 +1,7 @@
 slogert.iml
 .idea/*
+.internal/*
+.input-old/*
+.input-oldish/*
 target/*
 notes/*
