@@ -35,7 +35,7 @@ In our latest evaluation, we are testing our approach with the [AIT log dataset]
 
 ## Workflow
     
-![ ](https://raw.githubusercontent.com/sepses/slogert/master/slogert.jpg)
+![ ](https://raw.githubusercontent.com/sepses/slogert/master/figures/slogert.jpg)
 <p align="center">**Figure 1**. SLOGERT KG generation workflow.</p>     
 
 SLOGERT pipeline can be described in several steps, which main parts are shown in Figure 1 above and will be described as the following: 
@@ -109,7 +109,7 @@ SLOGERT pipeline can be described in several steps, which main parts are shown i
 ### KG Generation Algorithm
     
 <p align="center">
-  <img width="460" src="https://raw.githubusercontent.com/sepses/slogert/master/algorithm.png">
+  <img width="460" src="https://raw.githubusercontent.com/sepses/slogert/master/figures/algorithm.png">
 </p>
 <p align="center"><b>Figure 2</b>. SLOGERT KG generation algorithms.</p>     
 
@@ -138,7 +138,7 @@ Slogert configuration is divided into two parts: main configuration `config.yaml
 
 ### Main Configuration
 
-There are several configuration that can be adapted in the main configuration file `src/main/resourfces/config.yaml`. We will briefly described the most important configuration options here.
+There are several configuration that can be adapted in the main configuration file `src/main/resources/config.yaml`. We will briefly described the most important configuration options here.
 
 * **logFormats** to describe information that you want to extract from a log source. This is important due to the various existing logline formats and variants. Each logFormat contain references to the *ottrTemplate* to build the `RDF_generation_template` for RDFization step.
 * **nerParameters** to register patterns that will used by StanfordNLP for recognizing log template parameter types. 
