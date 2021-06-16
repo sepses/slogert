@@ -138,13 +138,11 @@ public class LogEventTemplate {
         }
 
         ResIterator skosConcepts = CEE_MODEL.listSubjectsWithProperty(RDF.type, SKOS.Concept);
-        List<Resource> concepts = new ArrayList<>();
         skosConcepts.forEachRemaining(concept -> {
             String label = concept.getProperty(RDFS.label).getObject().toString();
             if(keyword.contains(label)){
                 model.add(resource, LOGEX.hasAnnotation, concept);
             }
         });
-
     }
 }
