@@ -29,9 +29,11 @@ public class LogInitializer {
 
     public static void initialize(ExtractionConfig config) throws IOException {
 
-        log.info("Start conversion from OTTR instances into Turtle file");
+        log.info("start pre-processing (input -> 1-init)");
         initLogFiles(config);
+        log.info("finished pre-processing");
 
+        log.info("start logpai (1-init -> 2-logpai)");
         int counter = 0;
         while (counter != -1) {
             String inputFile = config.source + "." + counter;
@@ -44,7 +46,7 @@ public class LogInitializer {
             }
         }
 
-        log.info("done");
+        log.info("finished logpai");
     }
 
     public static void runLogpai(ExtractionConfig config, String inputFile) throws IOException {
