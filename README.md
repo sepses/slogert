@@ -140,7 +140,9 @@ Slogert configuration is divided into two parts: main configuration `config.yaml
 
 There are several configuration that can be adapted in the main configuration file `src/main/resources/config.yaml`. We will briefly described the most important configuration options here.
 
-* **logFormats** to describe information that you want to extract from a log source. This is important due to the various existing logline formats and variants. Each logFormat contain references to the *ottrTemplate* to build the `RDF_generation_template` for RDFization step.
+* **logFormats** to describe information that you want to extract from a log source. 
+  The logFormat contain references to the *ottrTemplate* to build the `RDF_generation_template` for RDFization step.
+  We created a universal logFormat for *any* log data, which assume that the data already enriched with `Host`, `HostIp`, `LogType` and `DateTime` are special components provided by pre-processor, e.g., Kibana.
 * **nerParameters** to register patterns that will used by StanfordNLP for recognizing log template parameter types. 
 * **nonNerParameters** to register standard regex patterns for template parameter types that can't be easily detected using StanfordNLP. Both *nerParameters* and *nonNerParameters* are contains reference for ottr template generation.
 * **ottrTemplates** to register `RDF_generation_template` building block necessary for the RDFization process.
