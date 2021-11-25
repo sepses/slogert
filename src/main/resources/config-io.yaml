@@ -1,34 +1,27 @@
 ##
-# -- IO Config --
-#
-#   - lid:LogSource_unix
-#   - lid:LogSource_apache
-#   - lid:LogSource_audit
-#   - lid:LogSource_ftp
+# -- SLOGERT Configuration File --
 ##
 
-source: auth.log
-format: "<Device> <Month> <Date> <Time> <Type> <Component>: <Content>"
-rawFolder: input/
-initializedFolder: output/auth.log/1-init
-preprocessedFolder: output/auth.log/2-logpai
+source: universal
+format: "<Host> <HostIp> <LogType> <DateTime> <Content>"
+rawFolder: input/experiment
+initializedFolder: output/1-init
+preprocessedFolder: output/2-logpai
 
-sourceLogpai: output/auth.log/2-logpai/auth.log_structured.csv
-sourceLogpaiTemplate: output/auth.log/2-logpai/auth.log_templates.csv
+sourceLogpai: output/2-logpai/logpai_structured.csv
+sourceLogpaiTemplate: output/2-logpai/logpai_templates.csv
 
-logFormat: unix
-logSourceType: auth
+logFormat: universal
+logSourceType: universal
 
 isOverrideExisting: false
-paramExtractAttempt: 3
-logEventsPerExtraction: 2000
+paramExtractAttempt: 10
+logEventsPerExtraction: 10000
 
-targetOttr: output/auth.log/3-ottr
-targetOttrBase: output/auth.log/3-ottr
-targetOttrTurtle: output/auth.log/4-ttl
+targetOttr: output/3-ottr
+targetOttrBase: output/3-ottr
+targetOttrTurtle: output/4-ttl
 
-targetStanfordNer: output/auth.log/ner.rules
+targetStanfordNer: output/ner.rules
+targetConfigTurtle: output/slogert-template.ttl
 targetConfigTimer: output/timer.csv
-targetConfigTurtle: output/auth.log/auth.log-template.ttl
-
-

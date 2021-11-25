@@ -1,0 +1,19 @@
+EventId,EventTemplate,Occurrences
+e2f489f9,Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Clean php session <*>,192
+d8914b98,Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Daily apt download <*>,8
+52df2902,Mar <*> <*>:<*>:<*> mail systemd[<*>]: apt-daily.timer: Adding <*> <*> <*> random time.,8
+92789e82,Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> The Apache HTTP Server.,4
+76f9ac58,Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Security Auditing <*>,8
+df60780e,Mar <*> <*>:<*>:<*> mail auditd[<*>]: The audit daemon is exiting.,2
+681ae4d7,Mar <*> <*>:<*>:<*> mail auditd[<*>]: Started dispatcher: /<*> pid: <*>,2
+44ded197,Mar <*> <*>:<*>:<*> mail augenrules[<*>]: /<*>: No change,2
+609e13cb,"Mar <*> <*>:<*>:<*> mail auditd[<*>]: Init complete, auditd <*>.<*>.<*> listening for events (startup state enable)",2
+17f865ff,Mar <*> <*>:<*>:<*> mail augenrules[<*>]: <*> <*>,34
+f1e859c8,Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Daily apt upgrade and clean <*>,4
+9563f306,Mar <*> <*>:<*>:<*> mail systemd[<*>]: apt-daily-upgrade.timer: Adding <*> <*> random time.,4
+208e2c19,Mar <*> <*>:<*>:<*> mail dhclient[<*>]: DHCPREQUEST of <*> on eth0 to <*> port <*>,8
+e8c5e314,Mar <*> <*>:<*>:<*> mail dhclient[<*>]: DHCPACK of <*> from <*>,8
+54fd87b3,Mar <*> <*>:<*>:<*> mail dhclient[<*>]: bound to <*> -- renewal in <*> seconds.,8
+1c40a5a5,Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Cleanup of Temporary <*>,4
+89a7a54c,Mar <*> <*>:<*>:<*> mail auditd[<*>]: dispatch err (pipe full) event lost,10
+0f1468bf,Mar <*> <*>:<*>:<*> mail auditd[<*>]: dispatch error reporting limit reached - ending report notification.,1

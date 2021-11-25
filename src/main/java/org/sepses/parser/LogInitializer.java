@@ -16,7 +16,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -66,7 +65,9 @@ public class LogInitializer {
 
         Files.write(path, content.getBytes(charset));
 
-        ProcessBuilder pb = new ProcessBuilder("./" + PYTHON_SCRIPT);
+        ProcessBuilder pb = new ProcessBuilder();
+        pb.command("alias python=\"python2\"");
+        pb.command("./" + PYTHON_SCRIPT);
         pb.redirectError(ProcessBuilder.Redirect.to(outputError));
         Process p = pb.start();
 
@@ -80,41 +81,45 @@ public class LogInitializer {
     public static void initLogFiles(ExtractionConfig config) throws IOException {
 
         FileUtils.deleteDirectory(new File(config.initializedFolder));
-        List<File> files = Arrays.asList(new File(config.rawFolder).listFiles());
+        List<String> paths = new ArrayList<>();
 
+        // prepare iteration counter
         int iteration = 0;
         int counter = 0;
         StringBuilder sb = new StringBuilder();
 
+        // depend on type of input, get all file paths accordingly
+        File rawFolder = new File(config.rawFolder);
+        if (rawFolder.isFile()) {
+            paths.add(rawFolder.getPath());
+        } else if (rawFolder.isDirectory()) {
+            paths = getPaths(rawFolder, config.source);
+        }
+
+        // check output path, create if none
         Path outputPath = createOrRetrieve(config.initializedFolder, config.source + "." + iteration).toPath();
         if (Files.notExists(outputPath))
             Files.createFile(outputPath);
 
-        for (File file : files) {
+        // iterate file paths
+        for (String pathToFile : paths) {
+            try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    counter++;
+                    sb.append(line).append(System.lineSeparator()); // changed
+                    if (counter > config.logEventsPerExtraction) {
+                        // write to file
+                        Files.write(outputPath, sb.toString().getBytes(), StandardOpenOption.CREATE);
+                        sb = new StringBuilder();
+                        log.info("File: '" + outputPath + "' iteration-" + iteration);
 
-            String device = file.getName(); // device name - TODO: make it more general
-            List<String> paths = getPaths(file, config.source); // get all path to the selected source files
-
-            for (String pathToFile : paths) {
-
-                try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
-                    String line;
-                    while ((line = br.readLine()) != null) {
-                        counter++;
-                        sb.append(device).append(" ").append(line).append(System.lineSeparator());
-                        if (counter > config.logEventsPerExtraction) {
-                            // write to file
-                            Files.write(outputPath, sb.toString().getBytes(), StandardOpenOption.CREATE);
-                            sb = new StringBuilder();
-                            log.info("File: '" + outputPath + "' iteration-" + iteration);
-
-                            counter = 0;
-                            iteration++;
-                            outputPath = createOrRetrieve(config.initializedFolder, config.source + "." + iteration)
-                                    .toPath();
-                            if (Files.notExists(outputPath))
-                                Files.createFile(outputPath);
-                        }
+                        counter = 0;
+                        iteration++;
+                        outputPath = createOrRetrieve(config.initializedFolder, config.source + "." + iteration)
+                                .toPath();
+                        if (Files.notExists(outputPath))
+                            Files.createFile(outputPath);
                     }
                 }
             }

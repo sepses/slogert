@@ -8,9 +8,10 @@ import java.io.IOException;
 
 public class MainTest {
 
-    String[] parameters = { "-c src/main/resources/config-io.yaml" };
+    String[] parameters = {"-c src/test/resources/universal-config.yaml"};
 
-    @Test public void TestMainParser() throws IOException, ParseException {
+    @Test
+    public void TestMainParser() throws IOException, ParseException {
         MainParser.main(parameters);
     }
 }
