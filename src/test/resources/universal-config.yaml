@@ -1,0 +1,27 @@
+##
+# -- SLOGERT Configuration File --
+##
+
+source: universal
+format: "<Host> <HostIp> <LogType> <DateTime> <Content>"
+rawFolder: input/experiment/daemon.log
+initializedFolder: output/1-init
+preprocessedFolder: output/2-logpai
+
+sourceLogpai: output/2-logpai/logpai_structured.csv
+sourceLogpaiTemplate: output/2-logpai/logpai_templates.csv
+
+logFormat: universal
+logSourceType: universal
+
+isOverrideExisting: false
+paramExtractAttempt: 10
+logEventsPerExtraction: 10000
+
+targetOttr: output/3-ottr
+targetOttrBase: output/3-ottr
+targetOttrTurtle: output/4-ttl
+
+targetStanfordNer: output/ner.rules
+targetConfigTurtle: output/slogert-template.ttl
+targetConfigTimer: output/timer.csv

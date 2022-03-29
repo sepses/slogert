@@ -1,0 +1,7 @@
+
+pandas
+wheel
+
+regex
+numpy
+scipy

@@ -15,7 +15,8 @@ public class ConfigExtractionTest {
 
     private static final Logger log = LoggerFactory.getLogger(ConfigExtractionTest.class);
 
-    @Test public void TestLogFormatLoader() {
+    @Test
+    public void TestLogFormatLoader() {
         InputStream config = ConfigExtractionTest.class.getClassLoader().getResourceAsStream("config.yaml");
         InputStream io = ConfigExtractionTest.class.getClassLoader().getResourceAsStream("config-io.yaml");
         InputStream is = new SequenceInputStream(config, io);
@@ -23,6 +24,6 @@ public class ConfigExtractionTest {
         Yaml yaml = new Yaml(new Constructor(ExtractionConfig.class));
         ExtractionConfig extractionConfig = yaml.load(is);
 
-        Assert.assertEquals(extractionConfig.targetStanfordNer, "output/auth.log/ner.rules");
+        Assert.assertEquals(extractionConfig.targetStanfordNer, "output/ner.rules");
     }
 }

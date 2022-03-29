@@ -132,6 +132,27 @@ We have tried and and tested SLOGERT on Mac OSX and Ubuntu with the following st
 *  The result would be produced in the `output/` folder
 
 
+## How to run in Docker
+Prerequisites for running SLOGERT inside Docker container:
+- Docker installed
+
+There are two alternatives to run SLOGERT inside Docker container:
+1) Use Intellij Run Configurations -> "Build SLOGERT container";
+2) Execute following commands inside a project folder, where `Dockerfile` is located. Before execution replace
+   `<path-to-the-project>` with a path where project is located.
+``` docker 
+docker container rm slogert_container
+docker image rm slogert_image
+docker build -t slogert_image .
+docker run  \
+    -v <path-to-the-project>/slogert/output_docker/m2:/root/.m2 \
+    -v <path-to-the-project>/slogert/src/main/resources/config-io.yaml:/usr/local/slogert/src/main/resources/config-io.yaml \
+    -v <path-to-the-project>/slogert/output_docker:/usr/local/slogert/output \
+    -v <path-to-the-project>/slogert/output_docker/error.log:/usr/local/slogert/error.log \
+    slogert_image
+```
+
+
 ## SLOGERT configurations
 
 Slogert configuration is divided into two parts: main configuration `config.yaml` and the input parameter `config-io.yaml`
@@ -140,7 +161,9 @@ Slogert configuration is divided into two parts: main configuration `config.yaml
 
 There are several configuration that can be adapted in the main configuration file `src/main/resources/config.yaml`. We will briefly described the most important configuration options here.
 
-* **logFormats** to describe information that you want to extract from a log source. This is important due to the various existing logline formats and variants. Each logFormat contain references to the *ottrTemplate* to build the `RDF_generation_template` for RDFization step.
+* **logFormats** to describe information that you want to extract from a log source. 
+  The logFormat contain references to the *ottrTemplate* to build the `RDF_generation_template` for RDFization step.
+  We created a universal logFormat for *any* log data, which assume that the data already enriched with `Host`, `HostIp`, `LogType` and `DateTime` are special components provided by pre-processor, e.g., Kibana.
 * **nerParameters** to register patterns that will used by StanfordNLP for recognizing log template parameter types. 
 * **nonNerParameters** to register standard regex patterns for template parameter types that can't be easily detected using StanfordNLP. Both *nerParameters* and *nonNerParameters* are contains reference for ottr template generation.
 * **ottrTemplates** to register `RDF_generation_template` building block necessary for the RDFization process.

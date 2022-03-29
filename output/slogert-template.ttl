@@ -1,0 +1,554 @@
+@prefix logex: <https://w3id.org/sepses/ns/logex#> .
+@prefix cee:   <https://w3id.org/sepses/cee#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix log:   <https://w3id.org/sepses/ns/log#> .
+@prefix lxid:  <https://w3id.org/sepses/id/logex/> .
+@prefix lid:   <https://w3id.org/sepses/id/log/> .
+@prefix ottr:  <http://ns.ottr.xyz/0.4/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix svid:  <https://w3id.org/sepses/id/service/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+lxid:LogEventTemplate_c3a2ced1
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "c3a2ced1" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:02:45 mail HORDE: [turba] PHP ERROR: Declaration of Horde_Form_Action_updatefield::setValues(&$vars, $sourceVal, $arrayVal = false) should be compatible with Horde_Form_Action::setValues(&$vars, $sourceVal, $index = NULL, $arrayVal = false) [pid 17623 on line 0 of \"/usr/share/php/Horde/Form/Action/updatefield.php\"]" ;
+        logex:hasAnnotation            cee:action_update , cee:action , cee:status_error ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "pid" , "declaration" , "line" , "be compatible" , "action" , "index null" , "form" , "mail horde" , "horde" , "mar" , "arrayval false" , "updatefield" , "sourceval" , "php error" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] PHP ERROR: Declaration of Horde_Form_Action_updatefield::<*>(&$vars, $sourceVal, $arrayVal = false) should be compatible with Horde_Form_Action::<*>(&$vars, $sourceVal, $index = NULL, $arrayVal = false) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_d8914b98
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "d8914b98" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 05:00:48 mail systemd[1]: Starting Daily apt download activities..." ;
+        logex:hasAnnotation            cee:action_download , cee:object_system ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mar" , "apt" , "mail systemd" , "daily" , "download" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Daily apt download <*>" .
+
+lxid:LogEventTemplate_fd449111
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "fd449111" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:30:45 mail HORDE: [imp] Message sent to Karri <karri@mail.cup.com>, georgie@mail.cup.com from sunni (192.168.10.4) [pid 20756 on line 970 of \"/var/www/mail.cup.com/imp/lib/Compose.php\"]" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "sentToUser" "email" "email" "fromUser" "ip" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "mar" , "message send" , "line" , "pid" , "mail horde" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] Message sent to <*> <*>, <*> from <*> (<*>) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_df60780e
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "df60780e" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail auditd[26519]: The audit daemon is exiting." ;
+        logex:hasAnnotation            cee:service_audit , cee:action_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "audit" , "daemon" , "exit" , "mail auditd" , "be" , "mar" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail auditd[<*>]: The audit daemon is exiting." .
+
+lxid:LogEventTemplate_f7d0731b
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "f7d0731b" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  4 16:44:06 mail dovecot: imap-login: Disconnected (auth failed, 2 attempts in 11 secs): user=<page>, method=PLAIN, rip=127.0.0.1, lip=127.0.0.1, secured, session=<i01FIAqgbNZ/AAAB>" ;
+        logex:hasAnnotation            cee:action_disconnect , cee:action_connect , cee:action_login , cee:service_auth ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "user" "unknown" "ip" "ip" "unknown" ) ;
+        logex:keyword                  "mar" , "sec" , "disconnect" , "mail dovecot" , "attempt" , "auth fail" , "imap-login" , "secure" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dovecot: imap-login: Disconnected (auth failed, <*> attempts in <*> secs): user=<<*>>, method=<*>, rip=<*>, lip=<*>, secured, <*>" .
+
+lxid:LogEventTemplate_9a5a910d
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "9a5a910d" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:25:02 mail CRON[25235]: (root) CMD (test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily ))" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "path" "filePath" ) ;
+        logex:keyword                  "test" , "run-part" , "report" , "mail cron" , "cd" , "mar" , "cmd" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail CRON[<*>]: (<*>) CMD (test -x /<*> || ( cd / && run-parts --report /<*> ))" .
+
+lxid:LogEventTemplate_92789e82
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "92789e82" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:25:35 mail systemd[1]: Reloading The Apache HTTP Server." ;
+        logex:hasAnnotation            cee:object_system ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "http" , "mail systemd" , "mar" , "server" , "apache" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> The Apache HTTP Server." .
+
+lxid:LogEventTemplate_208e2c19
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "208e2c19" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 07:51:19 mail dhclient[375]: DHCPREQUEST of 192.168.10.154 on eth0 to 192.168.10.2 port 67" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "ip" "ip" "port" ) ;
+        logex:keyword                  "eth0" , "dhcprequest" , "mar" , "port" , "mail dhclient" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dhclient[<*>]: DHCPREQUEST of <*> on eth0 to <*> port <*>" .
+
+lxid:LogEventTemplate_f1e859c8
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "f1e859c8" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:39:53 mail systemd[1]: Starting Daily apt upgrade and clean activities..." ;
+        logex:hasAnnotation            cee:action_upgrade , cee:object_system , cee:action_clean ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "daily" , "mail systemd" , "apt" , "clean" , "mar" , "upgrade" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Daily apt upgrade and clean <*>" .
+
+lxid:LogEventTemplate_82e0a28f
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "82e0a28f" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "HORDE: [nag] PHP ERROR: Declaration of Horde_Form_Type_country::init($prompt = NULL) should be compatible with Horde_Form_Type_enum::init($values, $prompt = NULL) [pid 14143 on line 0 of \"/usr/share/php/Horde/Form/Type.php\"]" ;
+        logex:hasAnnotation            cee:status_error ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "enum" , "declaration" , "pid" , "form" , "be compatible" , "php error" , "prompt null" , "horde" , "value" , "type" , "line" , "country" ;
+        logex:pattern                  "HORDE: [<*>] PHP ERROR: Declaration of Horde_Form_Type_country::<*>($prompt = NULL) should be compatible with Horde_Form_Type_enum::<*>($values, $prompt = NULL) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_f68b7dd1
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "f68b7dd1" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 13:35:48 mail HORDE: [imp] [login] Authentication failed. [pid 917 on line 730 of \"/var/www/mail.cup.com/imp/lib/Imap.php\"]" ;
+        logex:hasAnnotation            cee:service_auth ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "line" , "authentication fail" , "pid" , "mar" , "mail horde" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] [<*>] Authentication failed. [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_efddf7f5
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "efddf7f5" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 15:48:08 mail HORDE: [imp] Message sent to Bertie <bertie@mail.cup.com>, Sunni <sunni@mail.cup.com>, Irwin <irwin@mail.cup.com> from danette (192.168.10.200) [pid 4236 on line 970 of \"/var/www/mail.cup.com/imp/lib/Compose.php\"]" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "sentToUser" "email" "email" "email" "fromUser" "ip" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "irwin" , "pid" , "line" , "mail horde" , "message send" , "sunni" , "mar" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] Message sent to <*> <*>, Sunni <*>, Irwin <*> from <*> (<*>) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_e2f489f9
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "e2f489f9" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:09:18 mail systemd[1]: Starting Clean php session files..." ;
+        logex:hasAnnotation            cee:object_session , cee:action_clean , cee:object_system ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mar" , "php" , "session" , "clean" , "mail systemd" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Clean php session <*>" .
+
+lxid:LogEventTemplate_61b14e0e
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "61b14e0e" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  4 19:17:33 mail dovecot: imap-login: Disconnected (no auth attempts in 0 secs): user=<>, rip=192.168.10.238, lip=192.168.10.154, session=<B4nCRQygltnAqAru>" ;
+        logex:hasAnnotation            cee:action_login , cee:action_disconnect , cee:action_connect , cee:service_auth ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "ip" "ip" "unknown" ) ;
+        logex:keyword                  "auth attempt" , "mail dovecot" , "disconnect" , "sec" , "mar" , "imap-login" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dovecot: imap-login: Disconnected (no auth attempts in <*> secs): user=<>, rip=<*>, lip=<*>, session=<<*>>" .
+
+lxid:LogEventTemplate_9563f306
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "9563f306" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:39:53 mail systemd[1]: apt-daily-upgrade.timer: Adding 57min 26.416111s random time." ;
+        logex:hasAnnotation            cee:action_upgrade , cee:object_system ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mail systemd" , "mar" , "random time" , "add" , "timer" , "apt-daily-upgrade" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail systemd[<*>]: apt-daily-upgrade.timer: Adding <*> <*> random time." .
+
+lxid:LogEventTemplate_ce54ab73
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "ce54ab73" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:02:58 mail HORDE: [turba] PHP ERROR: Declaration of Turba_Form_EditContact::renderActive($renderer, $vars, $action, $method) should be compatible with Horde_Form::renderActive($renderer = NULL, $vars = NULL, $action = '', $method = 'get', $enctype = NULL, $focus = true) [pid 17302 on line 0 of \"/var/www/mail.cup.com/turba/lib/Form/EditContact.php\"]" ;
+        logex:hasAnnotation            cee:status_error , cee:action_get , cee:action ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "enctype null" , "be compatible" , "focus true" , "line" , "method" , "action" , "mail horde" , "pid" , "turba" , "php error" , "editcontact" , "horde" , "form" , "declaration" , "null" , "get" , "mar" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] PHP ERROR: Declaration of Turba_Form_EditContact::<*>($renderer, $vars, $action, $method) should be compatible with Horde_Form::<*>($renderer = NULL, $vars = NULL, $action = '', $method = 'get', $enctype = NULL, $focus = true) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_e572c650
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "e572c650" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail auditd: audit log is not writable by owner" ;
+        logex:hasAnnotation            cee:action_audit , cee:service_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mar" , "log" , "writable" , "owner" , "be" , "audit" , "mail auditd" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail auditd: audit log is not writable by owner" .
+
+lxid:LogEventTemplate_6dda1b1a
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "6dda1b1a" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail audispd: priority_boost_parser called with: 4" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mar" , "mail audispd" , "call" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail audispd: <*> called with: <*>" .
+
+lxid:LogEventTemplate_c718e47b
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "c718e47b" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  4 19:25:46 mail HORDE: [horde] PHP ERROR: Cannot modify header information - headers already sent [pid 8245 on line 0 of \"Unknown\"]" ;
+        logex:hasAnnotation            cee:status_error , cee:action_modify , cee:status_unknown ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "information" , "mar" , "pid" , "modify" , "unknown" , "header" , "send" , "php error" , "mail horde" , "line" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] PHP ERROR: Cannot modify header information - headers already sent [pid <*> on line <*> of \"Unknown\"]" .
+
+lxid:LogEventTemplate_89a4dbaf
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "89a4dbaf" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:00:20 mail HORDE: [nag] PHP ERROR: Declaration of Horde_Form_Type_country::init($prompt = NULL) should be compatible with Horde_Form_Type_enum::init($values, $prompt = NULL) [pid 17302 on line 0 of \"/usr/share/php/Horde/Form/Type.php\"]" ;
+        logex:hasAnnotation            cee:status_error ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "mar" , "php error" , "mail horde" , "line" , "declaration" , "pid" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] PHP ERROR: Declaration of <*> <*> <*> <*> <*> <*> <*> <*> <*> = <*> [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_ec48d886
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "ec48d886" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:00:05 mail dovecot: imap(sunni): Logged out in=79 out=879" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "userImap" "unknown" "unknown" ) ;
+        logex:keyword                  "imap" , "mail dovecot" , "log" , "mar" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dovecot: imap(<*>): Logged out in=<*> out=<*>" .
+
+lxid:LogEventTemplate_0e9ef48d
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "0e9ef48d" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:17:01 mail CRON[20606]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "cd" , "mail cron" , "cmd" , "mar" , "run-part" , "report" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail CRON[<*>]: (<*>) CMD ( cd / && run-parts --report /<*>)" .
+
+lxid:LogEventTemplate_0de0aaf7
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "0de0aaf7" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:02:00 mail HORDE: [imp] Message sent to Marcelina <marcelina@mail.cup.com>, Page <page@mail.cup.com> from della (192.168.10.190) [pid 17302 on line 970 of \"/var/www/mail.cup.com/imp/lib/Compose.php\"]" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "sentToUser" "email" "unknown" "email" "fromUser" "ip" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "message send" , "pid" , "mail horde" , "mar" , "line" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] Message sent to <*> <*>, <*> <*> from <*> (<*>) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_9352e7e5
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "9352e7e5" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "dovecot: imap-login: Login: user=<marcelina>, method=PLAIN, rip=127.0.0.1, lip=127.0.0.1, mpid=14469, secured, session=<nRifMhCgGOp/AAAB>" ;
+        logex:hasAnnotation            cee:action_login ;
+        logex:hasParameterList         ( "user" "unknown" "ip" "ip" "unknown" "path" ) ;
+        logex:keyword                  "secure" , "login" , "dovecot" , "imap-login" ;
+        logex:pattern                  "dovecot: imap-login: Login: user=<<*>>, method=<*>, rip=<*>, lip=<*>, mpid=<*>, secured, session=<<*>>" .
+
+lxid:LogEventTemplate_35680ee6
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "35680ee6" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail kernel: [303573.711330] audit_printk_skb: 1173 callbacks suppressed" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mar" , "mail kernel" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail kernel: [<*>.<*>] <*> <*> <*> <*>" .
+
+lxid:LogEventTemplate_54fd87b3
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "54fd87b3" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 07:51:19 mail dhclient[375]: bound to 192.168.10.154 -- renewal in 38862 seconds." ;
+        logex:hasAnnotation            cee:action_bind ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "ip" "unknown" ) ;
+        logex:keyword                  "bind" , "mar" , "renewal" , "mail dhclient" , "seconds" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dhclient[<*>]: bound to <*> -- renewal in <*> seconds." .
+
+lxid:LogEventTemplate_5a0ba302
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "5a0ba302" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail kernel: [303573.716941] audit: type=1302 audit(1583216939.857:30323807): item=0 name=\"/proc/self/fd\" inode=1789157 dev=00:04 mode=040500 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL" ;
+        logex:hasAnnotation            cee:action_audit , cee:service_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "path" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mail kernel" , "mar" , "audit" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail kernel: [<*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): item=<*> name=\"/<*>\" inode=<*> dev=<*>:<*> mode=<*> ouid=<*> ogid=<*> rdev=<*>:<*> nametype=<*>" .
+
+lxid:LogEventTemplate_33d1b41e
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "33d1b41e" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:09:01 mail CRON[20389]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "path" "path" "path" ) ;
+        logex:keyword                  "mail cron" , "fi" , "cmd" , "mar" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail CRON[<*>]: (<*>) CMD ( [ -x /<*> ] && if [ ! -d /<*> ]; then /<*>; fi)" .
+
+lxid:LogEventTemplate_6696e2c9
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "6696e2c9" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:00:20 mail HORDE: [nag] PHP ERROR: Declaration of Nag_Form_Task::renderActive() should be compatible with Horde_Form::renderActive($renderer = NULL, $vars = NULL, $action = '', $method = 'get', $enctype = NULL, $focus = true) [pid 17302 on line 17 of \"/var/www/mail.cup.com/nag/lib/Form/Task.php\"]" ;
+        logex:hasAnnotation            cee:action_get , cee:action , cee:status_error ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "null" , "mail horde" , "enctype null" , "nag" , "be compatible" , "pid" , "horde" , "mar" , "declaration" , "line" , "focus true" , "php error" , "form" , "get" , "task" , "action" , "method" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] PHP ERROR: Declaration of Nag_Form_Task::<*>() should be compatible with Horde_Form::<*>($renderer = NULL, $vars = NULL, $action = '', $method = 'get', $enctype = NULL, $focus = true) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_824fd46e
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "824fd46e" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:00:05 mail dovecot: imap(sunni): Error: file_dotlock_create(/var/mail/sunni) failed: Permission denied (euid=1009(sunni) egid=1009(sunni) missing +w perm: /var/mail, we're not in group 8(mail), dir owned by 0:8 mode=0775) (set mail_privileged_group=mail)" ;
+        logex:hasAnnotation            cee:object_file , cee:action_create , cee:action_lock , cee:status_error ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "userImap" "path" "unknown" "unknown" "path" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "dir own" , "fail" , "create" , "dotlock" , "group" , "imap" , "mar" , "deny" , "set" , "mail dovecot" , "error" , "miss" , "w perm" , "file" , "permission" , "be" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dovecot: imap(<*>): Error: file_dotlock_create(<*>) failed: Permission denied (euid=<*>(<*>) egid=<*>(<*>) missing +w perm: /<*>, we're not in group <*>(<*>), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)" .
+
+lxid:LogEventTemplate_681ae4d7
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "681ae4d7" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail auditd[25454]: Started dispatcher: /sbin/audispd pid: 25458" ;
+        logex:hasAnnotation            cee:action_start , cee:action_audit , cee:service_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "pid" "path" "pid" ) ;
+        logex:keyword                  "mar" , "start dispatcher" , "pid" , "mail auditd" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail auditd[<*>]: Started dispatcher: /<*> pid: <*>" .
+
+lxid:LogEventTemplate_5786c1ce
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "5786c1ce" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:00:05 mail dovecot: imap-login: Login: user=<sunni>, method=PLAIN, rip=127.0.0.1, lip=127.0.0.1, mpid=20189, secured, session=<3hxv/OefmtZ/AAAB>" ;
+        logex:hasAnnotation            cee:action_login ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "user" "unknown" "ip" "ip" "unknown" "unknown" ) ;
+        logex:keyword                  "mail dovecot" , "imap-login" , "secure" , "mar" , "login" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dovecot: imap-login: Login: user=<<*>>, method=<*>, rip=<*>, lip=<*>, mpid=<*>, secured, <*>" .
+
+lxid:LogEventTemplate_c9da19bc
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "c9da19bc" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 13:35:48 mail dovecot: imap-login: Disconnected (auth failed, 2 attempts in 12 secs): user=<irwin>, method=PLAIN, rip=127.0.0.1, lip=127.0.0.1, secured, session=<Qi33YPOfPIJ/AAAB>" ;
+        logex:hasAnnotation            cee:action_connect , cee:action_disconnect , cee:service_auth , cee:action_login ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "user" "unknown" "ip" "ip" "path" ) ;
+        logex:keyword                  "sec" , "mar" , "mail dovecot" , "imap-login" , "disconnect" , "attempt" , "auth fail" , "secure" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dovecot: imap-login: Disconnected (auth failed, <*> attempts in <*> secs): user=<<*>>, method=<*>, rip=<*>, lip=<*>, secured, session=<<*>>" .
+
+lxid:LogEventTemplate_603afddd
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "603afddd" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail audispd: No plugins found, exiting" ;
+        logex:hasAnnotation            cee:action_find ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "exit" , "mar" , "plugin find" , "mail audispd" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail audispd: No plugins found, exiting" .
+
+lxid:LogEventTemplate_609e13cb
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "609e13cb" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail auditd[25454]: Init complete, auditd 2.6.7 listening for events (startup state enable)" ;
+        logex:hasAnnotation            cee:service_audit , cee:action_audit , cee:action_start , cee:object_event ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "listen" , "init complete" , "mail auditd" , "auditd" , "mar" , "event" , "state" , "startup" , "enable" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail auditd[<*>]: Init complete, auditd <*>.<*>.<*> listening for events (startup state enable)" .
+
+lxid:LogEventTemplate_ccd22830
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "ccd22830" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "HORDE: [imp] Message sent to page@mail.cup.com from marcelina (192.168.10.238) [pid 14143 on line 970 of \"/var/www/mail.cup.com/imp/lib/Compose.php\"]" ;
+        logex:hasParameterList         ( "unknown" "email" "fromUser" "ip" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "line" , "pid" , "horde" , "message send" ;
+        logex:pattern                  "HORDE: [<*>] Message sent to <*> from <*> (<*>) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_12e68ddf
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "12e68ddf" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail kernel: [303573.711331] audit: type=1305 audit(1583216939.857:30323805): audit_pid=0 old=26519 auid=4294967295 ses=4294967295 res=1" ;
+        logex:hasAnnotation            cee:service_audit , cee:action_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "pid" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "audit" , "mail kernel" , "mar" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail kernel: [<*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): audit_pid=<*> old=<*> auid=<*> ses=<*> res=<*>" .
+
+lxid:LogEventTemplate_32b647b1
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "32b647b1" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "HORDE: [nag] PHP ERROR: Declaration of Nag_Form_Task::renderActive() should be compatible with Horde_Form::renderActive($renderer = NULL, $vars = NULL, $action = '', $method = 'get', $enctype = NULL, $focus = true) [pid 14143 on line 17 of \"/var/www/mail.cup.com/nag/lib/Form/Task.php\"]" ;
+        logex:hasAnnotation            cee:status_error , cee:action_get , cee:action ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "be compatible" , "get" , "enctype null" , "method" , "line" , "focus true" , "form" , "null" , "horde" , "action" , "nag" , "pid" , "php error" , "declaration" , "task" ;
+        logex:pattern                  "HORDE: [<*>] PHP ERROR: Declaration of Nag_Form_Task::<*>() should be compatible with Horde_Form::<*>($renderer = NULL, $vars = NULL, $action = '', $method = 'get', $enctype = NULL, $focus = true) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_1dccd46f
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "1dccd46f" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:02:45 mail HORDE: [turba] PHP ERROR: Declaration of Horde_Form_Action_updatefield::getActionScript(&$form, &$renderer, $varname) should be compatible with Horde_Form_Action::getActionScript($form, $renderer, $varname) [pid 17623 on line 0 of \"/usr/share/php/Horde/Form/Action/updatefield.php\"]" ;
+        logex:hasAnnotation            cee:action , cee:action_update , cee:status_error ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "declaration" , "varname" , "be compatible" , "pid" , "mar" , "action" , "updatefield" , "horde" , "mail horde" , "php error" , "form" , "line" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] PHP ERROR: Declaration of Horde_Form_Action_updatefield::<*>(&$form, &$renderer, $varname) should be compatible with Horde_Form_Action::<*>($form, $renderer, $varname) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_f651b1da
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "f651b1da" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "dovecot: imap(marcelina): Error: file_dotlock_create(/var/mail/marcelina) failed: Permission denied (euid=1016(marcelina) egid=1016(marcelina) missing +w perm: /var/mail, we're not in group 8(mail), dir owned by 0:8 mode=0775) (set mail_privileged_group=mail)" ;
+        logex:hasAnnotation            cee:action_lock , cee:status_error , cee:action_create , cee:object_file ;
+        logex:hasParameterList         ( "userImap" "path" "unknown" "unknown" "path" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "fail" , "imap" , "permission" , "set" , "dotlock" , "file" , "error" , "group" , "create" , "w perm" , "dir own" , "be" , "deny" , "dovecot" , "miss" ;
+        logex:pattern                  "dovecot: imap(<*>): Error: file_dotlock_create(<*>) failed: Permission denied (euid=<*>(<*>) egid=<*>(<*>) missing +w perm: /<*>, we're not in group <*>(<*>), dir owned by <*>:<*> mode=<*>) (set mail_privileged_group=<*>)" .
+
+lxid:LogEventTemplate_34cc22ef
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "34cc22ef" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 09:00:52 mail HORDE: [imp] Message sent to Portia <portia@mail.cup.com>, Bertie <bertie@mail.cup.com>, georgie@mail.cup.com from kelsey (192.168.10.190) [pid 26005 on line 970 of \"/var/www/mail.cup.com/imp/lib/Compose.php\"]" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "sentToUser" "email" "unknown" "email" "email" "fromUser" "ip" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "mar" , "mail horde" , "message send" , "pid" , "line" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] Message sent to <*> <*>, <*> <*>, <*> from <*> (<*>) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_4384bcc6
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "4384bcc6" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:01 mail liblogging-stdlog:  [origin software=\"rsyslogd\" swVersion=\"8.24.0\" x-pid=\"480\" x-info=\"http://www.rsyslog.com\"] rsyslogd was HUPed" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "url" ) ;
+        logex:keyword                  "mar" , "mail liblogging-stdlog" , "be" , "hup" , "rsyslogd" , "origin" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail liblogging-stdlog: [origin software=\"rsyslogd\" swVersion=\"<*>.<*>.<*>\" x-pid=\"<*>\" x-info=\"<*>\"] rsyslogd was HUPed" .
+
+lxid:LogEventTemplate_1aae37f7
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "1aae37f7" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail kernel: [303573.716935] audit: type=1300 audit(1583216939.857:30323807): arch=c000003e syscall=2 success=yes exit=27 a0=7eff2b2fef87 a1=90800 a2=1 a3=8 items=1 ppid=1 pid=25454 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm=\"(auditd)\" exe=\"/lib/systemd/systemd\" key=(null)" ;
+        logex:hasAnnotation            cee:action_audit , cee:service_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "pid" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "path" "unknown" ) ;
+        logex:keyword                  "mail kernel" , "mar" , "audit" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail kernel: [<*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): arch=<*> syscall=<*> success=<*> exit=<*> a0=<*> a1=<*> a2=<*> a3=<*> items=<*> ppid=<*> pid=<*> auid=<*> uid=<*> gid=<*> euid=<*> suid=<*> fsuid=<*> egid=<*> sgid=<*> fsgid=<*> tty=(<*>) ses=<*> comm=\"(<*>)\" exe=\"/<*>\" key=(<*>)" .
+
+lxid:LogEventTemplate_80d1cea5
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "80d1cea5" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail kernel: [303573.712578] audit: type=1131 audit(1583216939.857:30323806): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=auditd comm=\"systemd\" exe=\"/lib/systemd/systemd\" hostname=? addr=? terminal=? res=success'" ;
+        logex:hasAnnotation            cee:service_audit , cee:action_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "pid" "unknown" "unknown" "unknown" "unknown" "path" "unknown" ) ;
+        logex:keyword                  "audit" , "mail kernel" , "mar" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail kernel: [<*>.<*>] audit: type=<*> audit(<*>.<*>:<*>): pid=<*> uid=<*> auid=<*> ses=<*> msg='unit=<*> comm=\"systemd\" exe=\"/<*>\" hostname=? addr=? terminal=? res=<*>'" .
+
+lxid:LogEventTemplate_17f865ff
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "17f865ff" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail augenrules[25455]: No rules" ;
+        logex:hasAnnotation            cee:object_rule ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mar" , "mail augenrule" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail augenrules[<*>]: <*> <*>" .
+
+lxid:LogEventTemplate_76f9ac58
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "76f9ac58" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail systemd[1]: Stopping Security Auditing Service..." ;
+        logex:hasAnnotation            cee:service_audit , cee:action_audit , cee:object_system ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mail systemd" , "mar" , "security auditing" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Security Auditing <*>" .
+
+lxid:LogEventTemplate_52df2902
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "52df2902" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 05:00:49 mail systemd[1]: apt-daily.timer: Adding 11h 10min 37.139522s random time." ;
+        logex:hasAnnotation            cee:object_system ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "timer" , "mar" , "random time" , "mail systemd" , "add" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail systemd[<*>]: apt-daily.timer: Adding <*> <*> <*> random time." .
+
+lxid:LogEventTemplate_0f1468bf
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "0f1468bf" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  4 06:29:05 mail auditd[22161]: dispatch error reporting limit reached - ending report notification." ;
+        logex:hasAnnotation            cee:service_audit , cee:status_error , cee:action_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "report" , "mail auditd" , "notification" , "reach" , "end" , "dispatch" , "error" , "limit" , "mar" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail auditd[<*>]: dispatch error reporting limit reached - ending report notification." .
+
+lxid:LogEventTemplate_e8c5e314
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "e8c5e314" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 07:51:19 mail dhclient[375]: DHCPACK of 192.168.10.154 from 192.168.10.2" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "ip" "ip" ) ;
+        logex:keyword                  "mar" , "mail dhclient" , "dhcpack" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dhclient[<*>]: DHCPACK of <*> from <*>" .
+
+lxid:LogEventTemplate_ce889d97
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "ce889d97" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:08:57 mail HORDE: [imp] Message sent to irwin@mail.cup.com from sunni (192.168.10.4) [pid 17881 on line 970 of \"/var/www/mail.cup.com/imp/lib/Compose.php\"]" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "user" "unknown" "email" "ip" "fromUser" "ip" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "mar" , "line" , "mail horde" , "pid" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] <*> <*> <*> <*> <*> <*> <*> [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_212574f5
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "212574f5" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 00:25:21 mail HORDE: [imp] Message sent to Bertie <bertie@mail.cup.com> from sunni (192.168.10.4) [pid 20756 on line 970 of \"/var/www/mail.cup.com/imp/lib/Compose.php\"]" ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "sentToUser" "email" "fromUser" "ip" "unknown" "unknown" "filePath" ) ;
+        logex:keyword                  "mail horde" , "pid" , "line" , "mar" , "message send" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail HORDE: [<*>] Message sent to <*> <*> from <*> (<*>) [pid <*> on line <*> of \"/<*>\"]" .
+
+lxid:LogEventTemplate_89a7a54c
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "89a7a54c" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  4 06:29:05 mail auditd[22161]: dispatch err (pipe full) event lost" ;
+        logex:hasAnnotation            cee:action_audit , cee:object_event , cee:domain_os , cee:service_audit ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "mail auditd" , "mar" , "dispatch err" , "event lose" , "pipe full" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail auditd[<*>]: dispatch err (pipe full) event lost" .
+
+lxid:LogEventTemplate_b09b7937
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "b09b7937" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "dovecot: imap(marcelina): Logged out in=79 out=879" ;
+        logex:hasParameterList         ( "userImap" "unknown" "unknown" ) ;
+        logex:keyword                  "log" , "imap" , "dovecot" ;
+        logex:pattern                  "dovecot: imap(<*>): Logged out in=<*> out=<*>" .
+
+lxid:LogEventTemplate_1c40a5a5
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "1c40a5a5" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 18:27:48 mail systemd[1]: Starting Cleanup of Temporary Directories..." ;
+        logex:hasAnnotation            cee:action_clean , cee:object_system ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "unknown" ) ;
+        logex:keyword                  "temporary" , "cleanup" , "mar" , "mail systemd" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail systemd[<*>]: <*> Cleanup of Temporary <*>" .
+
+lxid:LogEventTemplate_44ded197
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "44ded197" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  3 06:29:00 mail augenrules[25455]: /sbin/augenrules: No change" ;
+        logex:hasAnnotation            cee:object_rule ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "path" ) ;
+        logex:keyword                  "mar" , "change" , "mail augenrule" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail augenrules[<*>]: /<*>: No change" .
+
+lxid:LogEventTemplate_9363b89e
+        a                              logex:LogEventTemplate ;
+        rdfs:label                     "9363b89e" ;
+        logex:associatedLogSourceType  lid:SourceType_universal ;
+        logex:example                  "Mar  4 11:24:25 mail dovecot: imap-login: Disconnected (auth failed, 2 attempts in 11 secs): user=<page>, method=PLAIN, rip=127.0.0.1, lip=127.0.0.1, secured, session=<mDj+qAWgyr9/AAAB>" ;
+        logex:hasAnnotation            cee:action_login , cee:action_disconnect , cee:action_connect , cee:service_auth ;
+        logex:hasParameterList         ( "unknown" "unknown" "unknown" "unknown" "unknown" "user" "unknown" "ip" "ip" "unknown" ) ;
+        logex:keyword                  "disconnect" , "auth fail" , "mar" , "mail dovecot" , "sec" , "imap-login" , "secure" , "attempt" ;
+        logex:pattern                  "Mar <*> <*>:<*>:<*> mail dovecot: imap-login: Disconnected (auth failed, <*> attempts in <*> secs): user=<<*>>, method=<*>, rip=<*>, lip=<*>, secured, session=<mDj+qAWgyr9/<*>>" .

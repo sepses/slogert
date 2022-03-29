@@ -256,7 +256,6 @@ public class LogEvent {
      * @param values
      */
     public void getIp(List<String> values) {
-        List<Pair<String, String>> result = new ArrayList<>();
         String ipURL = "";
         String ipString = "";
 
@@ -267,6 +266,21 @@ public class LogEvent {
 
         templateParameters.add(ipURL);
         templateParameters.add(ipString);
+    }
+
+    /**
+     * Process LogType from a variable.
+     *
+     * @param values
+     */
+    public void getLogType(List<String> values) {
+        String type = "";
+
+        if (!values.isEmpty()) {
+            type = JenaUtility.getPrefixedName(LOG.SourceType, LOG.NS_INSTANCE_PREFIX, values.get(0));
+        }
+
+        templateParameters.add(type);
     }
 
     /**
@@ -281,7 +295,9 @@ public class LogEvent {
     public String getDate(CSVRecord record, LogFormat format) {
         String result = null;
 
-        if (format.id.equals("ftp")) {
+        if (format.id.equals("universal")) {
+            result = record.get(format.time);
+        } else if (format.id.equals("ftp")) {
             String[] vars = format.time.split(",");
             result = DateUtility
                     .getDate(record.get(vars[0]), record.get(vars[1]), record.get(vars[2]), record.get(vars[3]));

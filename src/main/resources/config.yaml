@@ -1,3 +1,6 @@
+####
+# List of namespaces used in the context of SLOGERT
+####
 namespaces:
   - prefix: rdf
     uri: http://www.w3.org/1999/02/22-rdf-syntax-ns#
@@ -22,59 +25,29 @@ namespaces:
   - prefix: cee
     uri: https://w3id.org/sepses/cee#
 
+####
+# Universal template for any log file --> see header;
+#   NOTE: `Host`, `HostIp`, `LogType` and `DateTime` are special components provided by pre-processor, e.g., Kibana
+#   previously, there are options for different type of log files -> but they're too unstable and restrictive
+#   to rectify that, we just treat all log line as the same
+####
 logFormats:
-  - id: ftp
-    ottrBaseTemplate: lxid:OttrTemplate_ftp
-    header: LineId,Device,dayOfWeek,month,day,time,year,pid,pidNumber,Content,EventId,EventTemplate,ParameterList
-    host: Device
+  - id: universal
+    ottrBaseTemplate: lxid:OttrTemplate_universal
+    header: LineId,Host,HostIp,LogType,DateTime,Content,EventId,EventTemplate,ParameterList
+    host: Host
     content: Content
-    time: month,day,time,year
-    parameters:
-      - column: pidNumber
-        property: log:pid
-  - id: unix
-    ottrBaseTemplate: lxid:OttrTemplate_unix
-    header: LineId,Device,Month,Date,Time,Type,Component,Content,EventId,EventTemplate,ParameterList
-    host: Device
-    content: Content
-    time: Month,Date,Time
+    time: DateTime
     functions:
-      - columns: Component
-        function: getPidPname
-  - id: audit
-    ottrBaseTemplate: lxid:OttrTemplate_audit
-    header: LineId,Device,type,time,Content,EventId,EventTemplate,ParameterList
-    host: Device
-    content: Content
-    time: time
-    parameters:
-      - column: type
-        property: log:cmd
-  - id: apache
-    ottrBaseTemplate: lxid:OttrTemplate_apache
-    header: LineId,Device,IP,DateTime,TimeZone,Content,EventId,EventTemplate,ParameterList
-    host: Device
-    content: Content
-    time: DateTime,TimeZone
-    functions:
-      - columns: IP
+      - columns: HostIp
         function: getIp
-  - id: suricata
-    ottrBaseTemplate: lxid:OttrTemplate_event
-    header: LineId,Device,day,month,year,Time,ms,Content,EventId,EventTemplate,ParameterList
-    host: Device
-    content: Content
-    time: day,month,year,Time,ms
-    functions:
-  - id: exim
-    ottrBaseTemplate: lxid:OttrTemplate_event
-    header: LineId,Device,year,month,day,Time,Content,EventId,EventTemplate,ParameterList
-    host: Device
-    content: Content
-    time: day,month,year,Time
-    functions:
+      - columns: LogType
+        function: getLogType
 
-
+####
+# nerParameters and nonNerParameters are configurations for recognizing certain type of parameter
+#   @14.06.2021 --> WARNING: id and ottrTemplate must be unique for each nerParameters & nonNerParameter!!!
+####
 nerParameters:
   - id: ip
     pattern: ([{word:/(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/}])
@@ -182,8 +155,10 @@ nerParameters:
       functions:
         - ottr:Triple(?id, log:email, ?email)
 
-## WARNING: id and ottrTemplate must be unique for each nonNerParameter!!!
-## @14.06.2021
+####
+# nerParameters and nonNerParameters are configurations for recognizing certain type of parameter
+#   @14.06.2021 --> WARNING: id and ottrTemplate must be unique for each nerParameters & nonNerParameter!!!
+####
 nonNerParameters:
   - id: path
     pattern: "[a-zA-Z0-9-_\\+&@#%~]+/[a-zA-Z0-9-_\\+&#%~/]+"
@@ -423,73 +398,15 @@ nonNerParameters:
       functions: 
         - ottr:Triple(?id,log:cmd,?objString)
 
-
-ottrTemplates: 
-  - uri: lxid:OttrTemplate_event
-    parameters: 
-      - ottr:IRI ?id
-      - ottr:IRI ?hostUrl
-      - xsd:string ?hostString
-      - xsd:dateTime ?timestamp
-      - xsd:string ?message
-      - ottr:IRI ?template
-      - ottr:IRI ?logSource
-    functions: 
-      - ottr:Triple(?id,rdf:type,log:Event)
-      - ottr:Triple(?id,log:hasSourceHost,?hostUrl)
-      - ottr:Triple(?hostUrl,rdf:type,log:Host)
-      - ottr:Triple(?hostUrl,log:host,?hostString)
-      - ottr:Triple(?id,log:time,?timestamp)
-      - ottr:Triple(?id,log:msg,?message)      
-      - ottr:Triple(?id,logex:template,?template)
-      - ottr:Triple(?id,log:hasSource,?logSource)
-
-  - uri: lxid:OttrTemplate_unix
-    parameters: 
-      - ottr:IRI ?id
-      - ottr:IRI ?hostUrl
-      - xsd:string ?hostString
-      - xsd:dateTime ?timestamp
-      - xsd:string ?message
-      - ottr:IRI ?template
-      - ottr:IRI ?logSource
-      - xsd:string ?pname        
-      - xsd:string ?pid
-    functions: 
-      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
-      - ottr:Triple(?id,log:pid,?pid)
-      - ottr:Triple(?id,log:pname,?pname)
-
-  - uri: lxid:OttrTemplate_ftp
-    parameters: 
-      - ottr:IRI ?id
-      - ottr:IRI ?hostUrl
-      - xsd:string ?hostString
-      - xsd:dateTime ?timestamp
-      - xsd:string ?message
-      - ottr:IRI ?template
-      - ottr:IRI ?logSource
-      - xsd:string ?pid
-    functions: 
-      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
-      - ottr:Triple(?id,log:pid,?pid)
-
-  - uri: lxid:OttrTemplate_audit
-    parameters: 
-      - ottr:IRI ?id
-      - ottr:IRI ?hostUrl
-      - xsd:string ?hostString
-      - xsd:dateTime ?timestamp
-      - xsd:string ?message
-      - ottr:IRI ?template
-      - ottr:IRI ?logSource
-      - xsd:string ?cmd
-    functions: 
-      - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
-      - ottr:Triple(?id,log:cmd,?cmd)
-
-  - uri: lxid:OttrTemplate_apache
-    parameters: 
+####
+# ottrTemplates --> define how data in certain LogFormat (see above) needs to be handled in OTTR
+#   previously, there are options for different type of log files -> but they're too unstable and restrictive
+#   to rectify that, we just treat all log line as the same --> OttrTemplate_universal
+#   lxid:OttrTemplate_event, lxid:OttrTemplate_unknown, and lxid:OttrTemplate_Source are special templates unrelated to the LogFormat
+####
+ottrTemplates:
+  - uri: lxid:OttrTemplate_universal
+    parameters:
       - ottr:IRI ?id
       - ottr:IRI ?hostUrl
       - xsd:string ?hostString
@@ -499,11 +416,32 @@ ottrTemplates:
       - ottr:IRI ?logSource
       - ottr:IRI ?ip
       - xsd:string ?ipString
-    functions: 
+      - ottr:IRI ?logType
+    functions:
       - lxid:OttrTemplate_event(?id,?hostUrl,?hostString,?timestamp,?message,?template,?logSource)
-      - ottr:Triple(?id,log:hasIPv4,?ip)
+      - ottr:Triple(?hostUrl,log:hasIPv4,?ip)
       - ottr:Triple(?ip,rdf:type,log:IPv4)
       - ottr:Triple(?ip,log:ipv4,?ipString)
+      - ottr:Triple(?id,log:hasSourceType,?logType)
+
+  - uri: lxid:OttrTemplate_event
+    parameters:
+      - ottr:IRI ?id
+      - ottr:IRI ?hostUrl
+      - xsd:string ?hostString
+      - xsd:dateTime ?timestamp
+      - xsd:string ?message
+      - ottr:IRI ?template
+      - ottr:IRI ?logSource
+    functions:
+      - ottr:Triple(?id,rdf:type,log:Event)
+      - ottr:Triple(?id,log:hasSourceHost,?hostUrl)
+      - ottr:Triple(?hostUrl,rdf:type,log:Host)
+      - ottr:Triple(?hostUrl,log:host,?hostString)
+      - ottr:Triple(?id,log:time,?timestamp)
+      - ottr:Triple(?id,log:msg,?message)
+      - ottr:Triple(?id,logex:template,?template)
+      - ottr:Triple(?id,log:hasSource,?logSource)
 
   - uri: lxid:OttrTemplate_unknown
     parameters: 

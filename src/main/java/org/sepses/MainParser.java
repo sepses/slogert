@@ -116,7 +116,6 @@ public class MainParser {
                             .append(System.lineSeparator());
                     iterationSB.append(timer.elapsed(TimeUnit.MILLISECONDS)).append(";");
 
-
                     timer = Stopwatch.createStarted();
                     extractOttrBase(config); // done
                     logSB.append("*** OTTR templates are generated in " + timer.stop())
@@ -210,17 +209,6 @@ public class MainParser {
 
         StringUtility.writeToFile(sb.toString(), config.targetOttrBase);
     }
-
-    //    /**
-    //     * Generation of OTTR instances from log events
-    //     *
-    //     * @param config
-    //     * @param events
-    //     * @throws IOException
-    //     */
-    //    private static void extractOttrInstances(ExtractionConfig config, List<LogEvent> events) throws IOException {
-    //        executeExtract(config, events, config.targetOttr);
-    //    }
 
     private static void executeExtract(ExtractionConfig config, List<LogEvent> events, String fileName)
             throws IOException {
