@@ -6,7 +6,7 @@ WORKDIR /var/build/slogert
 COPY . .
 
 RUN mvn clean install -DskipTests
-RUN mv ./target/slogert-1.0.0-SNAPSHOT-jar-with-dependencies.jar ./target/slogert.jar
+RUN mv ./target/slogert-1.1.0-SNAPSHOT-jar-with-dependencies.jar ./target/slogert.jar
 
 
 # ----------------------------------------------------
