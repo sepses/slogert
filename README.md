@@ -132,6 +132,27 @@ We have tried and and tested SLOGERT on Mac OSX and Ubuntu with the following st
 *  The result would be produced in the `output/` folder
 
 
+## How to run in Docker
+Prerequisites for running SLOGERT inside Docker container:
+- Docker installed
+
+There are two alternatives to run SLOGERT inside Docker container:
+1) Use Intellij Run Configurations -> "Build SLOGERT container";
+2) Execute following commands inside a project folder, where `Dockerfile` is located. Before execution replace
+   `<path-to-the-project>` with a path where project is located.
+``` docker 
+docker container rm slogert_container
+docker image rm slogert_image
+docker build -t slogert_image .
+docker run  \
+    -v <path-to-the-project>/slogert/output_docker/m2:/root/.m2 \
+    -v <path-to-the-project>/slogert/src/main/resources/config-io.yaml:/usr/local/slogert/src/main/resources/config-io.yaml \
+    -v <path-to-the-project>/slogert/output_docker:/usr/local/slogert/output \
+    -v <path-to-the-project>/slogert/output_docker/error.log:/usr/local/slogert/error.log \
+    slogert_image
+```
+
+
 ## SLOGERT configurations
 
 Slogert configuration is divided into two parts: main configuration `config.yaml` and the input parameter `config-io.yaml`
